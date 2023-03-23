@@ -13,42 +13,43 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use((req, res, next) => 
 {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-  );
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET, POST, PATCH, DELETE, OPTIONS'
-  );
-  next();
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    );
+    res.setHeader(
+        'Access-Control-Allow-Methods',
+        'GET, POST, PATCH, DELETE, OPTIONS'
+    );
+    next();
 });
 
 // Server static assets if in production
 if (process.env.NODE_ENV === 'production') 
 {
-  // Set static folder
-  app.use(express.static('frontend/build'));
+    // Set static folder
+    app.use(express.static('frontend/build'));
 
-  app.get('*', (req, res) => 
- {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-  });
+    app.get('*', (req, res) => 
+    {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    });
 }
 
 require('dotenv').config();
 const url = process.env.MONGODB_URI;
-  const MongoClient = require('mongodb').MongoClient;
-  const client = new MongoClient(url);
-  client.connect(console.log("mongodb connected"));
-
-  app.post('/api/login', async (req, res, next) => 
-  {
+const MongoClient = require('mongodb').MongoClient;
+const client = new MongoClient(url);
+client.connect(console.log("mongodb connected"));
+  
+// LOGIN API
+app.post('/api/login', async (req, res, next) => 
+{
     // incoming: login, password
     // outgoing: id, firstName, lastName, error
-      
-   var error = '';
+    
+    var error = '';
   
     const { login, password } = req.body;
   
@@ -61,40 +62,40 @@ const url = process.env.MONGODB_URI;
   
     if( results.length > 0 )
     {
-      id = results[0]._id;
-      fn = results[0].firstName;
-      ln = results[0].lastName;
+        id = results[0]._id;
+        fn = results[0].firstName;
+        ln = results[0].lastName;
     }
   
     var ret = { id:id, firstName:fn, lastName:ln, error:''};
     res.status(200).json(ret);
-  });
-
-  app.post('/api/register', async (req, res, next) =>
+});
+  
+// REGISTER API
+app.post('/api/register', async (req, res, next) =>
 {
 	
-  const { firstName, lastName, username, password} = req.body;
+    const { firstName, lastName, username, password} = req.body;
 
-  const newUser = {firstName:firstName,lastName:lastName,username:username,password:password};
-  var error = '';
+    const newUser = {firstName:firstName,lastName:lastName,username:username,password:password};
+    var error = '';
 
-  try
-  {
-    const db = client.db("StudyBuddy");
-    const result = db.collection('Users').insertOne(newUser);
-  }
-  catch(e)
-  {
-    error = e.toString();
-  }
+    try
+    {
+        const db = client.db("StudyBuddy");
+        const result = db.collection('Users').insertOne(newUser);
+    }
+    catch(e)
+    {
+        error = e.toString();
+    }
 
-  //
-
-  var ret = { error: error };
-  res.status(200).json(ret);
+    var ret = { error: error };
+    res.status(200).json(ret);
 });
 
 app.listen(PORT, () => 
 {
-  console.log('Server listening on port ' + PORT);
+    console.log('Server listening on port ' + PORT);
 });
+
