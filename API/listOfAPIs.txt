@@ -1,6 +1,5 @@
 Fine tune Register
 Fine tune Login
-Load User(s)
 Search User(s)
 Update User
 Delete User :(
