@@ -28,7 +28,8 @@ function buildPath(route)
 
         var obj = {login:loginName.value,password:loginPassword.value};
         var js = JSON.stringify(obj);
-        console.log(obj)
+        console.log(obj);
+        console.log(route);
         try
         {    
             const response = await fetch(buildPath('api/login'),
