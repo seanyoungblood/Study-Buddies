@@ -38,6 +38,8 @@ function buildPath(route)
 
             if( res.id <= 0 )
             {
+              console.log(res)
+              
                 setMessage('User/Password combination incorrect');
             }
             else
