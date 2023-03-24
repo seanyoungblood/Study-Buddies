@@ -46,8 +46,12 @@ client.connect(console.log("mongodb connected"));
 // LOGIN API
 app.post('/api/login', async (req, res, next) => 
 {
+    
     // incoming: login, password
     // outgoing: id, firstName, lastName, error
+
+    ini_set('log_errors', TRUE);
+    ini_set('display_errors', TRUE);
     
     var error = '';
   
@@ -55,7 +59,7 @@ app.post('/api/login', async (req, res, next) =>
 
   
     const db = client.db("StudyBuddy");
-    const results = await db.collection('Users').find({login:login.login,password:password.password}).toArray();
+    const results = await db.collection('Users').find({login:login,password:password}).toArray();
   
     var id = -1;
     var fn = '';
