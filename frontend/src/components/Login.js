@@ -31,7 +31,7 @@ function buildPath(route)
         console.log(obj);
         try
         {    
-          const { login, password } = js;
+          const [ login, password ] = js;
 
           console.log(login);
           console.log(password);
