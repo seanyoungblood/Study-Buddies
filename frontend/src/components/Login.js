@@ -28,6 +28,7 @@ function buildPath(route)
 
         var obj = {login:loginName.value,password:loginPassword.value};
         var js = JSON.stringify(obj);
+        console.log(obj)
         try
         {    
             const response = await fetch(buildPath('api/login'),
@@ -38,8 +39,10 @@ function buildPath(route)
 
             if( res.id <= 0 )
             {
+
+
               console.log(res)
-              
+
                 setMessage('User/Password combination incorrect');
             }
             else
@@ -61,7 +64,7 @@ function buildPath(route)
     return(
       <div id="loginDiv">
         <form onSubmit={doLogin}>
-        <span id="inner-title">PLEASE LOG IN</span><br />
+        <span id="inner-title">PLEASE LOG IN!</span><br />
           <input type="text" id="loginName" placeholder="Username" 
   ref={(c) => loginName = c} /><br />
 <input type="password" id="loginPassword" placeholder="Password" 
