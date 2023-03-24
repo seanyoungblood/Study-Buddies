@@ -26,7 +26,7 @@ function Register()
 
         event.preventDefault();
 
-        var obj = {firstName:registerFirstName.value, lastName:registerLastName.value, login:registerUsername.value, password:registerPassword.value};
+        var obj = {firstName:registerFirstName.value, lastName:registerLastName.value, username:registerUsername.value, password:registerPassword.value};
         var js = JSON.stringify(obj);
 
         try
