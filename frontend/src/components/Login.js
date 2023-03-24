@@ -36,12 +36,13 @@ function buildPath(route)
             
 
             var res = JSON.parse(await response.text());
+            console.log(res)
 
             if( res.id <= 0 )
             {
 
 
-              console.log(res)
+
 
                 setMessage('User/Password combination incorrect');
             }
