@@ -49,9 +49,6 @@ app.post('/api/login', async (req, res, next) =>
     
     // incoming: login, password
     // outgoing: id, firstName, lastName, error
-
-    ini_set('log_errors', TRUE);
-    ini_set('display_errors', TRUE);
     
     var error = '';
   
@@ -72,7 +69,7 @@ app.post('/api/login', async (req, res, next) =>
         ln = results[0].lastName;
     }
 
-    var ret = { firstName:fn, lastName:ln, _id:id, error:'' };
+    var ret = { firstName:fn, lastName:ln, id:id, error:'' };
     res.status(200).json(ret);
 });
   
