@@ -51,8 +51,8 @@ app.post('/api/login', async (req, res, next) =>
     
     var error = '';
   
-    // const { login, password } = req.body;
-    const [ login, password ] = req.body;
+    const { login, password } = req.body;
+
   
     const db = client.db("StudyBuddy");
     const results = await db.collection('Users').find({login:login,password:password}).toArray();
