@@ -67,7 +67,7 @@ app.post('/api/login', async (req, res, next) =>
         ln = results[0].lastName;
     }
   
-    var ret = { _id:id, firstName:fn, lastName:ln, error:''};
+    var ret = { id:id, firstName:fn, lastName:ln, error:''};
     res.status(200).json(ret);
 });
   
