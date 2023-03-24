@@ -28,6 +28,7 @@ function Register()
 
         var obj = {firstName:registerFirstName.value, lastName:registerLastName.value, username:registerUsername.value, password:registerPassword.value};
         var js = JSON.stringify(obj);
+        console.log(obj)
 
         try
         {    
