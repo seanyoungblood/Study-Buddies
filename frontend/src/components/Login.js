@@ -31,7 +31,10 @@ function buildPath(route)
         console.log(obj);
         try
         {    
+          const { login, password } = req.body;
 
+          console.log(login);
+          console.log(password);
           console.log(js)
             const response = await fetch(buildPath('api/login'),
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
