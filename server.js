@@ -46,15 +46,17 @@ client.connect(console.log("mongodb connected"));
 // LOGIN API
 app.post('/api/login', async (req, res, next) => 
 {
+    
     // incoming: login, password
     // outgoing: id, firstName, lastName, error
     
     var error = '';
   
     const { login, password } = req.body;
+
   
     const db = client.db("StudyBuddy");
-    const results = await db.collection('Users').find({login:login,password:password}).toArray();
+    const results = await db.collection('Users').find({username:login,password:password}).toArray();
   
     var id = -1;
     var fn = '';
@@ -66,8 +68,8 @@ app.post('/api/login', async (req, res, next) =>
         fn = results[0].firstName;
         ln = results[0].lastName;
     }
-  
-    var ret = { id:id, firstName:fn, lastName:ln, error:''};
+
+    var ret = { firstName:fn, lastName:ln, _id:id, error:'' };
     res.status(200).json(ret);
 });
   
@@ -79,9 +81,10 @@ app.post('/api/register', async (req, res, next) =>
 
     const newUser = {firstName:firstName,lastName:lastName,username:username,password:password};
     var error = '';
-
+    console.log(newUser);
     try
     {
+        
         const db = client.db("StudyBuddy");
         const result = db.collection('Users').insertOne(newUser);
     }
