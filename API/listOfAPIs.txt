@@ -5,7 +5,7 @@
 [ ] Delete User :(
 [ ] Load Group(s)
 [/] Search Group(s)
-[ ] Create Group
+[/] Create Group
 [ ] Update Group
 [ ] Delete Group
 
