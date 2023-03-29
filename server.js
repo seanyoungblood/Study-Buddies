@@ -45,11 +45,7 @@ client.connect(console.log("mongodb connected"));
   
 // LOGIN API
 app.post('/api/login', async (req, res, next) => 
-{
-    
-    // incoming: login, password
-    // outgoing: id, firstName, lastName, error
-    
+{    
     var error = '';
   
     const { login, password } = req.body;
@@ -76,7 +72,6 @@ app.post('/api/login', async (req, res, next) =>
 // REGISTER API
 app.post('/api/register', async (req, res, next) =>
 {
-	
     const { firstName, lastName, username, password} = req.body;
 
     const newUser = {firstName:firstName,lastName:lastName,username:username,password:password};
@@ -94,6 +89,27 @@ app.post('/api/register', async (req, res, next) =>
     }
 
     var ret = { error: error };
+    res.status(200).json(ret);
+});
+
+// SEARCH GROUPS API
+app.post('/api/searchgroups', async (req, res, next) => 
+{
+    var error = '';
+  
+    const { groupId, search } = req.body;
+    var _search = search.trim();
+
+    const db = client.db("StudyBuddy");
+    const results = await db.collection('Groups').find({ "Groups":{$regex:_search+'.*', $options:'r'} }).toArray();
+    var _ret = [];
+
+    for (var i = 0; i < results.length; i++)
+    {
+        _ret.push( results[i].Groups );
+    }
+  
+    var ret = { results:_ret, error:''};
     res.status(200).json(ret);
 });
 
