@@ -1,13 +1,22 @@
-[/] Fine tune Register
 [X] Login
-[/] Search User(s)
-[ ] Update User (classes taking)
+[X] Register
+
+Users:
+[/] Search User
+[ ] Edit User
 [ ] Delete User :(
-[ ] Load Group(s)
-[/] Search Group(s)
+[ ] Like User
+
+Groups:
 [/] Create Group
-[ ] Update Group
+[/] Search Group
+[ ] Edit Group
 [ ] Delete Group
 
-X = completed
+Ratings:
+[/] Create Rating
+[ ] Edit Rating
+[ ] Delete Rating
+
+X = completed & working
 / = needs testing
