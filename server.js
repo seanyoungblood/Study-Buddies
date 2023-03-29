@@ -79,7 +79,6 @@ app.post('/api/register', async (req, res, next) =>
     console.log(newUser);
     try
     {
-        
         const db = client.db("StudyBuddy");
         const result = db.collection('Users').insertOne(newUser);
     }
@@ -91,6 +90,72 @@ app.post('/api/register', async (req, res, next) =>
     var ret = { error: error };
     res.status(200).json(ret);
 });
+
+// CREATE GROUP API
+app.post('/api/createGroup', async (req, res, next) =>
+{
+    const { groupName, course, description, date, time, location} = req.body;
+
+    const newGroup = {groupName:groupName,course:course,description:description,date:date,time:time,location:location};
+    var error = '';
+    console.log(newGroup);
+    try
+    {
+        const db = client.db("StudyBuddy");
+        const result = db.collection('Groups').insertOne(newGroup);
+    }
+    catch(e)
+    {
+        error = e.toString();
+    }
+
+    var ret = { error: error };
+    res.status(200).json(ret);
+});
+
+// SEARCH USER API
+app.post('/api/searchUsers', async (req, res, next) => 
+{
+    var error = '';
+  
+    const { groupId, search } = req.body;
+    var _search = search.trim();
+
+    const db = client.db("StudyBuddy");
+    const results = await db.collection('Users').find({ "Users":{$regex:_search+'.*', $options:'r'} }).toArray();
+    var _ret = [];
+
+    for (var i = 0; i < results.length; i++)
+    {
+        _ret.push( results[i].Users );
+    }
+  
+    var ret = { results:_ret, error:''};
+    res.status(200).json(ret);
+});
+
+// SEARCH GROUPS API
+app.post('/api/searchGroups', async (req, res, next) => 
+{
+    var error = '';
+  
+    const { groupId, search } = req.body;
+    var _search = search.trim();
+
+    const db = client.db("StudyBuddy");
+    const results = await db.collection('Groups').find({ "Groups":{$regex:_search+'.*', $options:'r'} }).toArray();
+    var _ret = [];
+
+    for (var i = 0; i < results.length; i++)
+    {
+        _ret.push( results[i].Groups );
+    }
+  
+    var ret = { results:_ret, error:''};
+    res.status(200).json(ret);
+});
+
+
 
 app.listen(PORT, () => 
 {
