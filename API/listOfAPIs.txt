@@ -1,10 +1,13 @@
-[ ] Fine tune Register
+[/] Fine tune Register
 [X] Login
-[ ] Search User(s)
-[ ] Update User
+[/] Search User(s)
+[ ] Update User (classes taking)
 [ ] Delete User :(
 [ ] Load Group(s)
-[ ] Search Group(s)
+[/] Search Group(s)
 [ ] Create Group
 [ ] Update Group
 [ ] Delete Group
+
+X = completed
+/ = needs testing
