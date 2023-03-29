@@ -42,12 +42,13 @@ const url = process.env.MONGODB_URI;
 const MongoClient = require('mongodb').MongoClient;
 const client = new MongoClient(url);
 client.connect(console.log("mongodb connected"));
-  
+
+/* USERS ***************************************************************/
 // LOGIN API
 app.post('/api/login', async (req, res, next) => 
 {    
     var error = '';
-  
+    
     const { login, password } = req.body;
 
   
@@ -91,6 +92,76 @@ app.post('/api/register', async (req, res, next) =>
     res.status(200).json(ret);
 });
 
+// SEARCH USER API
+app.post('/api/searchUsers', async (req, res, next) => 
+{
+    var error = '';
+  
+    const { groupId, search } = req.body;
+    var _search = search.trim();
+
+    const db = client.db("StudyBuddy");
+    const results = await db.collection('Users').find({ "Users":{$regex:_search+'.*', $options:'r'} }).toArray();
+    var _ret = [];
+
+    for (var i = 0; i < results.length; i++)
+    {
+        _ret.push( results[i].Users );
+    }
+  
+    var ret = { results:_ret, error:''};
+    res.status(200).json(ret);
+});
+
+// EDIT USER API
+app.put('/api/editUser', async (req, res, next) => 
+{    
+    var error = '';
+    
+    const {firstName, lastName, username, password, phone, email, major, classesTaking, likes} = req.body;
+
+    const db = client.db("StudyBuddy");
+    const results = await db.collection('Users').updateOne({
+        firstName:firstName,
+        lastName:lastName,
+        username:username,
+        password:password,
+        phone:phone,
+        email:email,
+        major:major,
+        classesTaking:classesTaking,
+        likes:likes
+    })
+
+    var ret = {
+        firstName:firstName,
+        lastName:lastName,
+        username:username,
+        password:password,
+        phone:phone,
+        email:email,
+        major:major,
+        classesTaking:classesTaking,
+        likes:likes,
+        error:'' };
+    res.status(200).json(ret);
+});
+
+// DELETE USER API
+app.delete('/api/deleteUser', async (req, res, next) => 
+{
+    var error = '';
+  
+    const {userId} = req.body;
+
+    const db = client.db("StudyBuddy");
+    const results = await db.collection('Users').find({userId:userId}).toArray();
+  
+    var ret = {error:''};
+    res.status(200).json(ret);
+});
+
+/* GROUPS **************************************************************/
 // CREATE GROUP API
 app.post('/api/createGroup', async (req, res, next) =>
 {
@@ -110,27 +181,6 @@ app.post('/api/createGroup', async (req, res, next) =>
     }
 
     var ret = { error: error };
-    res.status(200).json(ret);
-});
-
-// SEARCH USER API
-app.post('/api/searchUsers', async (req, res, next) => 
-{
-    var error = '';
-  
-    const { groupId, search } = req.body;
-    var _search = search.trim();
-
-    const db = client.db("StudyBuddy");
-    const results = await db.collection('Users').find({ "Users":{$regex:_search+'.*', $options:'r'} }).toArray();
-    var _ret = [];
-
-    for (var i = 0; i < results.length; i++)
-    {
-        _ret.push( results[i].Users );
-    }
-  
-    var ret = { results:_ret, error:''};
     res.status(200).json(ret);
 });
 
@@ -155,7 +205,101 @@ app.post('/api/searchGroups', async (req, res, next) => 
     res.status(200).json(ret);
 });
 
+// EDIT USER API
+app.put('/api/editGroup', async (req, res, next) => 
+{    
+    var error = '';
+    
+    const {groupName, course, description, date, time, location} = req.body;
+
+    const db = client.db("StudyBuddy");
+    const results = await db.collection('Users').updateOne({
+        groupName:groupName,
+        course:course,
+        description:description,
+        date:date,
+        time:time,
+        location:location,
+    })
+
+    var ret = {
+        groupName:groupName,
+        course:course,
+        description:description,
+        date:date,
+        time:time,
+        location:location,
+        error:'' };
+    res.status(200).json(ret);
+});
+
+// DELETE GROUP API
+app.delete('/api/deleteGroup', async (req, res, next) => 
+{
+    var error = '';
+  
+    const {groupId} = req.body;
+
+    const db = client.db("StudyBuddy");
+    const results = await db.collection('Groups').find({groupId:groupId}).toArray();
+  
+    var ret = {error:''};
+    res.status(200).json(ret);
+});
+
+/* REVIEWS *************************************************************/
+// CREATE REVIEW API
+app.post('/api/createReview', async (req, res, next) =>
+{
+    const { rating, comment} = req.body;
+
+    const newReview = {rating:rating,comment:comment};
+    var error = '';
+    console.log(newReview);
+    try
+    {
+        const db = client.db("StudyBuddy");
+        const result = db.collection('Reviews').insertOne(newReview);
+    }
+    catch(e)
+    {
+        error = e.toString();
+    }
+
+    var ret = { error: error };
+    res.status(200).json(ret);
+});
+
+// DELETE REVIEW API
+app.delete('/api/deleteReview', async (req, res, next) => 
+{
+    var error = '';
+  
+    const {reviewId} = req.body;
+
+    const db = client.db("StudyBuddy");
+    const results = await db.collection('Reviews').find({reviewId:reviewId}).toArray();
+  
+    var ret = {error:''};
+    res.status(200).json(ret);
+});
+
+// EDIT REVIEW API
+app.put('/api/editGroup', async (req, res, next) => 
+{    
+    var error = '';
+    
+    const {rating, comment} = req.body;
+
+    const db = client.db("StudyBuddy");
+    const results = await db.collection('Reviews').updateOne({rating:rating,comment:comment})
+
+    var ret = {rating:rating, comment:comment, error:'' };
+    res.status(200).json(ret);
+});
+
 app.listen(PORT, () => 
 {
     console.log('Server listening on port ' + PORT);
 });
+
