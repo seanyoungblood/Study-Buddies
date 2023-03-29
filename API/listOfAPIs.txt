@@ -1,11 +1,11 @@
-[ ] Fine tune Register
-[ ] Fine tune Login
-[ ] Load User(s)
-[ ] Search User(s)
-[ ] Update User
-[ ] Delete User :(
+[IP] Fine tune Register
+[IP] Fine tune Login
+[Priority, IP ] Search User(s)
+[Priority, IP ] Update User
+[IP] Delete User :(
 [ ] Load Group(s)
 [ ] Search Group(s)
-[ ] Create Group
+[Priority, IP] Create Group
 [ ] Update Group
 [ ] Delete Group
+// IP = In Progress
