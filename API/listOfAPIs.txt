@@ -3,20 +3,20 @@
 
 Users:
 [/] Search User
-[ ] Edit User
-[ ] Delete User :(
+[/] Edit User
+[/] Delete User :(
 [ ] Like User
 
 Groups:
 [/] Create Group
 [/] Search Group
-[ ] Edit Group
-[ ] Delete Group
+[/] Edit Group
+[/] Delete Group
 
 Ratings:
 [/] Create Rating
-[ ] Edit Rating
-[ ] Delete Rating
+[/] Edit Rating
+[/] Delete Rating
 
 X = completed & working
 / = needs testing
