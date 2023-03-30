@@ -23,9 +23,9 @@ app.use(express.urlencoded({ extended: false }))
 /**
  * The URL can only be accessed by the '/api/classes'
  */
-app.use('/api', require('./routes/classRoutes'))
-app.use('/api', require('./routes/userRoutes'))
-app.use('/api', require('./routes/groupRoutes'))
+app.use('/api', require('./backend/routes/classRoutes'))
+app.use('/api', require('./backend/routes/userRoutes'))
+app.use('/api', require('./backend/routes/groupRoutes'))
 app.use(errorHandler)
 
 app.listen(port, () => console.log(`Server has started on port ${port}`))
