@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function Login()
 {
-/*
+
  const app_name = 'cop-study-buddy-1000'
 
 function buildPath(route)
@@ -16,7 +16,7 @@ function buildPath(route)
         return 'http://localhost:5000/' + route;
     }
 }
-*/
+
   var loginName;
     var loginPassword;
 
