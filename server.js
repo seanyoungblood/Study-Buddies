@@ -53,6 +53,7 @@ api.setApp( app, client );
 // Return values need work, when logging in through ARC, firstName lastName are not returned however...
 // when loging in through website, firstName lastName are properly returned.
 // Implement JWT.
+/*
 app.post('/api/login', async (req, res, next) => 
 {    
     var error = '';
@@ -178,11 +179,12 @@ app.delete('/api/deleteUser', async (req, res, next) => 
     var ret = {error:''};
     res.status(200).json(ret);
 });
-
+*/
 /* GROUPS **************************************************************/
 // CREATE GROUP API
 // Works, though date/time are only tested with string input.
 // Implement JWT.
+/*
 app.post('/api/createGroup', async (req, res, next) =>
 {
     const { groupName, course, description, date, time, location} = req.body;
@@ -273,6 +275,7 @@ app.delete('/api/deleteGroup', async (req, res, next) => 
     var ret = {error:''};
     res.status(200).json(ret);
 });
+*/
 
 app.listen(PORT, () => 
 {
