@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function Login()
 {
-
+/*
  const app_name = 'cop-study-buddy-1000'
 
 function buildPath(route)
@@ -16,7 +16,7 @@ function buildPath(route)
         return 'http://localhost:5000/' + route;
     }
 }
-
+*/
   var loginName;
     var loginPassword;
 
@@ -36,9 +36,9 @@ function buildPath(route)
           console.log(login);
           console.log(password);
           console.log(js)
-            //var bp = require('./Path.js');
+            var bp = require('./Path.js');
 
-                const response = await fetch(buildPath('api/login'),
+                const response = await fetch(bp.buildPath('api/login'),
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
 
             
