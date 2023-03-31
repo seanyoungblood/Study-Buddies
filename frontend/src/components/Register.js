@@ -32,8 +32,11 @@ function Register()
 
         try
         {    
-            const response = await fetch(buildPath('api/register'),
-            {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+            var bp = require('./Path.js');
+
+                const response = await fetch(bp.buildPath('api/register'),
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+
 
             var res = JSON.parse(await response.text());
 
