@@ -77,7 +77,7 @@ app.post('/api/register', async (req, res, next) =>
 
     const newUser = {firstName:firstName,lastName:lastName,username:username,password:password};
     var error = '';
-    console.log(newUser);
+    //console.log(newUser);
     try
     {
         const db = client.db("StudyBuddy");
