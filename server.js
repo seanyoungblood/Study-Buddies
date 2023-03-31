@@ -43,6 +43,10 @@ const MongoClient = require('mongodb').MongoClient;
 const client = new MongoClient(url);
 client.connect(console.log("mongodb connected"));
 
+var api = require('./api.js');
+api.setApp( app, client );
+
+
 /* USERS ***************************************************************/
 // LOGIN API
 // Works, valid users can login, invalid users can not.
