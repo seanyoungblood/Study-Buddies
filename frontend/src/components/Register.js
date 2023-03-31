@@ -11,7 +11,7 @@ function Register()
 
     const doRegister = async event => 
     {
-
+        
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
             if (process.env.NODE_ENV === 'production')
@@ -23,6 +23,7 @@ function Register()
                 return 'http://localhost:5000/' + route;
             }
         }
+        
 
         event.preventDefault();
 
@@ -32,8 +33,11 @@ function Register()
 
         try
         {    
-            const response = await fetch(buildPath('api/register'),
-            {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+            var bp = require('./Path.js');
+
+                const response = await fetch(bp.buildPath('api/register'),
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+
 
             var res = JSON.parse(await response.text());
 
