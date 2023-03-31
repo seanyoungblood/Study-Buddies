@@ -1,4 +1,4 @@
-const app_name = 'cop4331-10'
+const app_name = 'cop-study-buddy-1000'
 exports.buildPath = 
 function buildPath(route)
 {
