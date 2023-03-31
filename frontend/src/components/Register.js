@@ -32,9 +32,9 @@ function Register()
 
         try
         {    
-            var bp = require('./Path.js');
+            //var bp = require('./Path.js');
 
-                const response = await fetch(bp.buildPath('api/register'),
+                const response = await fetch(buildPath('api/register'),
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
 
 
