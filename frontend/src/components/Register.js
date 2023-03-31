@@ -11,7 +11,7 @@ function Register()
 
     const doRegister = async event => 
     {
-        /*
+        
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
             if (process.env.NODE_ENV === 'production')
@@ -23,7 +23,7 @@ function Register()
                 return 'http://localhost:5000/' + route;
             }
         }
-        */
+        
 
         event.preventDefault();
 
