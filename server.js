@@ -45,6 +45,10 @@ client.connect(console.log("mongodb connected"));
 
 /* USERS ***************************************************************/
 // LOGIN API
+// Works, valid users can login, invalid users can not.
+// Return values need work, when logging in through ARC, firstName lastName are not returned however...
+// when loging in through website, firstName lastName are properly returned.
+// Implement JWT.
 app.post('/api/login', async (req, res, next) => 
 {    
     var error = '';
@@ -71,6 +75,9 @@ app.post('/api/login', async (req, res, next) =>
 });
   
 // REGISTER API
+// Works.
+// Need to implement email verification.
+// Does not require JWT.
 app.post('/api/register', async (req, res, next) =>
 {
     const { firstName, lastName, username, password} = req.body;
@@ -93,6 +100,8 @@ app.post('/api/register', async (req, res, next) =>
 });
 
 // SEARCH USER API
+// Connection is fine, 200 OK; however, [array[0]] is returned regardless of input.
+// Wait until all APIs are complete to implement JWT.
 app.post('/api/searchUsers', async (req, res, next) => 
 {
     var error = '';
@@ -114,6 +123,8 @@ app.post('/api/searchUsers', async (req, res, next) => 
 });
 
 // EDIT USER API
+// Error 404 Not Found.
+// Wait until all APIs are complete to implement JWT.
 app.put('/api/editUser', async (req, res, next) => 
 {    
     var error = '';
@@ -148,6 +159,9 @@ app.put('/api/editUser', async (req, res, next) =>
 });
 
 // DELETE USER API
+// Error 404 Not Found.
+// input should be changed to email to make it easier on front end.
+// Wait until all APIs are complete to implement JWT.
 app.delete('/api/deleteUser', async (req, res, next) => 
 {
     var error = '';
@@ -163,6 +177,8 @@ app.delete('/api/deleteUser', async (req, res, next) => 
 
 /* GROUPS **************************************************************/
 // CREATE GROUP API
+// Works, though date/time are only tested with string input.
+// Implement JWT.
 app.post('/api/createGroup', async (req, res, next) =>
 {
     const { groupName, course, description, date, time, location} = req.body;
@@ -185,6 +201,8 @@ app.post('/api/createGroup', async (req, res, next) =>
 });
 
 // SEARCH GROUPS API
+// Connection is fine, 200 OK; however, [array[0]] is returned regardless of input.
+// Wait until all APIs are complete to implement JWT.
 app.post('/api/searchGroups', async (req, res, next) => 
 {
     var error = '';
@@ -206,6 +224,8 @@ app.post('/api/searchGroups', async (req, res, next) => 
 });
 
 // EDIT USER API
+// Error 404 Not Found.
+// Wait until all APIs are complete to implement JWT.
 app.put('/api/editGroup', async (req, res, next) => 
 {    
     var error = '';
@@ -234,6 +254,9 @@ app.put('/api/editGroup', async (req, res, next) =>
 });
 
 // DELETE GROUP API
+// Error 404 Not Found.
+// input should be changed to something other than groupId to make it easier on front end.
+// Wait until all APIs are complete to implement JWT.
 app.delete('/api/deleteGroup', async (req, res, next) => 
 {
     var error = '';
