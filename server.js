@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const dotenv = require('dotenv').config()
 const colors = require('colors')
@@ -23,9 +24,26 @@ app.use(express.urlencoded({ extended: false }))
 /**
  * The URL can only be accessed by the '/api/classes'
  */
-app.use('/api', require('./backend/routes/classRoutes'))
-app.use('/api', require('./backend/routes/userRoutes'))
-app.use('/api', require('./backend/routes/groupRoutes'))
+app.use('/api', require('./routes/classRoutes'))
+app.use('/api', require('./routes/userRoutes'))
+app.use('/api', require('./routes/groupRoutes'))
+
+// Serve frontend
+/*
+    ALERT CHANGE path.join() TO THE CORRECT PATHING FOR LARGE PROJECT
+*/
+if (process.env.NODE_ENV === 'production')
+{
+    app.use(express.static(path.join(__dirname, 'frontend/build')))
+
+    app.get('*', (req, res) => res.sendFile(
+        path.resolve(__dirname, 'frontend', 'build', 'index.html')
+    ))
+} else{
+    app.get('/', (req, res) => res.send('Please set to production'))
+}
+
+
 app.use(errorHandler)
 
 app.listen(port, () => console.log(`Server has started on port ${port}`))
