@@ -10,8 +10,8 @@ Groups:
 [/] Search Group
 [/] Edit Group
 [X] Delete Group
-[ ] Join Group
-[ ] Leave Group
+[ ] Join Group    (Easy)
+[ ] Leave Group   (Easy)
 [ ] Load Group
 [ ] Search Member
 
