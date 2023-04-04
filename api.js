@@ -183,6 +183,25 @@ app.post('/api/searchGroups', async (req, res, next) =>
     var ret = { results:_ret, error:''};
     res.status(200).json(ret);
 });
+    
+app.post('/api/test', async (req, res, next) => 
+{
+    var error = '';
+  
+    const {search} = req.body;
+    var _search = search.trim();
+    const db = cilent.db("StudyBuddy");
+    var _ret = [];
+    
+    const result = await db.collection('groups').find({ groupId:{$regex:_search+'.*', $options:'r'} }).toArray();
+    for (var i = 0; i < results.length; i++)
+    {
+        _ret.push( results[i].Groups );
+    }
+    
+    var ret = { results:_ret, error:''};
+    res.status(200).json(ret);
+});
 
 // EDIT USER API
 // Error 404 Not Found.
