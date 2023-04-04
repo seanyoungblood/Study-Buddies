@@ -126,12 +126,12 @@ app.delete('/api/deleteUser', async (req, res, next) =>
 {
     var error = '';
   
-    const {userId} = req.body;
+    const {username} = req.body;
 
     const db = client.db("StudyBuddy");
-    const results = await db.collection('users').find({userId:userId}).toArray();
+    db.collection('users').deleteOne({username:username});
   
-    var ret = {error:''};
+    var ret = {error:error};
     res.status(200).json(ret);
 });
 
@@ -221,12 +221,12 @@ app.delete('/api/deleteGroup', async (req, res, next) =>
 {
     var error = '';
   
-    const {groupId} = req.body;
+    const {groupName} = req.body;
 
     const db = client.db("StudyBuddy");
-    const results = await db.collection('groups').find({groupId:groupId}).toArray();
+    db.collection('groups').deleteOne({groupName:groupName});
   
-    var ret = {error:''};
+    var ret = {error:error};
     res.status(200).json(ret);
 });
 }
