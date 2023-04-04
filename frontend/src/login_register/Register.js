@@ -65,7 +65,7 @@ function Register()
           <input type="text" id="registerLastName" placeholder="Last Name" ref={(c) => registerLastName = c} /><br />
           <input type="text" id="registerUsername" placeholder="Username" ref={(c) => registerUsername = c} /><br />
           <input type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} /><br />
-          <input type="submit" id="registerButton" class="buttons" value = "Do It"
+          <input type="submit" id="registerButton" className="buttons" value = "Do It"
             onClick={doRegister} />
           </form>
           <button onClick={() => {window.location.href = '/'}}>Have an account? Login</button>

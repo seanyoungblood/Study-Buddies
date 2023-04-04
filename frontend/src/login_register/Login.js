@@ -1,5 +1,6 @@
 import React, { useState , useContext} from 'react';
 import { AuthContext } from '../useContext/LoginContext';
+import '../css/index.css'
 
 function Login()
 {
@@ -69,14 +70,14 @@ function buildPath(route)
     };
 
     return(
-      <div id="loginDiv">
+      <div id="loginDiv" >
         <form onSubmit={doLogin}>
         <span id="inner-title">PLEASE LOG IN!</span><br />
           <input type="text" id="loginName" placeholder="Username" 
   ref={(c) => loginName = c} /><br />
 <input type="password" id="loginPassword" placeholder="Password" 
   ref={(c) => loginPassword = c} /><br />
-        <input type="submit" id="loginButton" class="buttons" value = "Do It"
+        <input type="submit" id="loginButton" className="buttons" value = "Do It"
           onClick={doLogin} />
         </form>
         <button onClick={(e) => {e.preventDefault();window.location.href = '/register'}}>Dont have an account register!</button>

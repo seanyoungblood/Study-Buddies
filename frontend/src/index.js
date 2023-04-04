@@ -13,6 +13,7 @@ import { BrowserRouter, Routes , Route} from 'react-router-dom';
 import About from './About-us/About';
 import LoginPage from './login_register/LoginPage'
 import { AuthContextProvider } from './useContext/LoginContext';
+import Profile from './Profile/Profile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -20,7 +21,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 root.render(
-
   <AuthContextProvider>
   <BrowserRouter>
     <React.StrictMode>
@@ -56,6 +56,14 @@ root.render(
           <Route path='login' element={
             <>
             <LoginPage></LoginPage>
+            </>
+          }></Route>
+
+          <Route path='profile' element={
+            <>
+            <Profile></Profile>
+            <Cta></Cta>
+            <Footer></Footer>
             </>
           }></Route>
 
