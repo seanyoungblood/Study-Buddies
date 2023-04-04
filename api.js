@@ -75,7 +75,7 @@ app.post('/api/searchUsers', async (req, res, next) =>
 
     for (var i = 0; i < results.length; i++)
     {
-        _ret.push( results[i].Users );
+        _ret.push( results[i].users );
     }
   
     var ret = { results:_ret, error:''};
