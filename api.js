@@ -66,17 +66,17 @@ app.post('/api/searchUsers', async (req, res, next) =>
 {
     var error = '';
   
-    const { groupId, search } = req.body;
+    const { search } = req.body;
     var _search = search.trim();
     var _ret = [];
 
     const db = client.db("StudyBuddy");
-    const results = await db.collection('users').find({ groupId: search }).toArray();
+    const results = await db.collection('users').find({ "username": search }).toArray();
     
 
     for (var i = 0; i < results.length; i++)
     {
-        _ret.push( results[i].users );
+        _ret.push( results[i].firstName );
     }
   
     var ret = { results:_ret, error:''};
