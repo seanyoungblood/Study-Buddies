@@ -68,10 +68,11 @@ app.post('/api/searchUsers', async (req, res, next) =>
   
     const { groupId, search } = req.body;
     var _search = search.trim();
+    var _ret = [];
 
     const db = client.db("StudyBuddy");
-    const results = await db.collection('users').find({ groupId:{$regex:_search+'.*', $options:'r'} }).toArray();
-    var _ret = [];
+    const results = await db.collection('users').find({ groupId: search }).toArray();
+    
 
     for (var i = 0; i < results.length; i++)
     {
