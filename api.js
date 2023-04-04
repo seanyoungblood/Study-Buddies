@@ -119,8 +119,7 @@ app.put('/api/editUser', async (req, res, next) =>
 });
 
 // DELETE USER API
-// Error 404 Not Found.
-// input should be changed to email to make it easier on front end.
+// Works Yay! Needs fine tuning.
 // Wait until all APIs are complete to implement JWT.
 app.delete('/api/deleteUser', async (req, res, next) => 
 {
@@ -214,8 +213,7 @@ app.put('/api/editGroup', async (req, res, next) =>
 });
 
 // DELETE GROUP API
-// Error 404 Not Found.
-// input should be changed to something other than groupId to make it easier on front end.
+// Works Yay! Needs fine tuning.
 // Wait until all APIs are complete to implement JWT.
 app.delete('/api/deleteGroup', async (req, res, next) => 
 {
