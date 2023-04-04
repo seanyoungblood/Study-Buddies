@@ -60,7 +60,7 @@ app.post('/api/register', async (req, res, next) =>
 });
 
 // SEARCH USER API
-// Connection is fine, 200 OK; however, [array[0]] is returned regardless of input.
+// Error 503.
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchUsers', async (req, res, next) => 
 {
@@ -161,7 +161,7 @@ app.post('/api/createGroup', async (req, res, next) =>
 });
 
 // SEARCH GROUPS API
-// Connection is fine, 200 OK; however, [array[0]] is returned regardless of input.
+// Error 503.
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchGroups', async (req, res, next) => 
 {
