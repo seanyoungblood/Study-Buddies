@@ -166,41 +166,27 @@ app.post('/api/createGroup', async (req, res, next) =>
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchGroups', async (req, res, next) => 
 {
-    var error = '';
-  
-    const { groupId, search } = req.body;
-    var _search = search.trim();
+        // incoming: userId, search
+      // outgoing: results[], error
+    
+      var error = '';
+    
+      const { search } = req.body;
+    
+      var _search = search.trim();
+      
+      const db = client.db();
+      const results = await db.collection('StudyBuddy').find({"course":{$regex:_search+'.*', $options:'r'}}).toArray();
+      
+      var _ret = [];
+      for( var i=0; i<results.length; i++ )
+      {
+        _ret.push( results[i].Card );
+      }
+      
+      var ret = {results:_ret, error:error};
+      res.status(200).json(ret);
 
-    const db = client.db("StudyBuddy");
-    const results = db.collection('groups').find({ groupId:{$regex:_search+'.*', $options:'r'} }).toArray();
-    var _ret = [];
-
-    for (var i = 0; i < results.length; i++)
-    {
-        _ret.push( results[i].Groups );
-    }
-  
-    var ret = { results:_ret, error:''};
-    res.status(200).json(ret);
-});
-    
-app.post('/api/test', async (req, res, next) => 
-{
-    var error = '';
-  
-    const {search} = req.body;
-    var _search = search.trim();
-    const db = cilent.db("StudyBuddy");
-    var _ret = [];
-    
-    const result = await db.collection('groups').find({ groupId:{$regex:_search+'.*', $options:'r'} }).toArray();
-    for (var i = 0; i < results.length; i++)
-    {
-        _ret.push( results[i].Groups );
-    }
-    
-    var ret = { results:_ret, error:''};
-    res.status(200).json(ret);
 });
 
 // EDIT USER API
