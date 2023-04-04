@@ -2,21 +2,18 @@
 [X] Register
 
 Users:
-[/] Search User
 [/] Edit User
-[/] Delete User :(
-[ ] Like User
+[X] Delete User :(
 
 Groups:
-[/] Create Group
+[X] Create Group
 [/] Search Group
 [/] Edit Group
-[/] Delete Group
-
-Ratings:
-[/] Create Rating
-[/] Edit Rating
-[/] Delete Rating
+[X] Delete Group
+[ ] Join Group
+[ ] Leave Group
+[ ] Load Group
+[ ] Search Member
 
 X = completed & working
 / = needs testing
