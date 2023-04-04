@@ -131,9 +131,9 @@ app.delete('/api/deleteUser', async (req, res, next) =>
     const {username} = req.body;
 
     const db = client.db("StudyBuddy");
-    const results = await db.collection('users').find({"users.username":username}).toArray();
+    const results = await db.collection('users').deleteOne({"users.username":username}).toArray();
   
-    var ret = {error:''};
+    var ret = {error:error};
     res.status(200).json(ret);
 });
 
