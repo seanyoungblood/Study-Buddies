@@ -1,7 +1,6 @@
+Users:
 [X] Login
 [X] Register
-
-Users:
 [/] Edit User
 [X] Delete User :(
 
