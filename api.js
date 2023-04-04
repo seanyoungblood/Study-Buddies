@@ -62,6 +62,7 @@ app.post('/api/register', async (req, res, next) =>
 // SEARCH USER API
 // Connection is fine, 200 OK; however, [array[0]] is returned regardless of input.
 // Wait until all APIs are complete to implement JWT.
+    /*
 app.post('/api/searchUsers', async (req, res, next) => 
 {
     var error = '';
@@ -82,7 +83,7 @@ app.post('/api/searchUsers', async (req, res, next) =>
     var ret = { results:_ret, error:''};
     res.status(200).json(ret);
 });
-
+*/
 // EDIT USER API
 // Error 404 Not Found.
 // Wait until all APIs are complete to implement JWT.
