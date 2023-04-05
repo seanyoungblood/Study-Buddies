@@ -71,7 +71,7 @@ function buildPath(route)
 
     return(
       <div id="loginDiv" >
-        <form onSubmit={() => {doLogin()}}>
+        <form onSubmit={(e) => {doLogin(e)}}>
         <span id="inner-title">PLEASE LOG IN!</span><br />
           <input type="text" id="loginName" placeholder="Username" 
   ref={(c) => loginName = c} /><br />
