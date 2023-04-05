@@ -59,29 +59,6 @@ app.post('/api/register', async (req, res, next) =>
     res.status(200).json(ret);
 });
 
-// SEARCH USER API
-// Error 503.
-// Wait until all APIs are complete to implement JWT.
-app.post('/api/searchUsers', async (req, res, next) => 
-{
-    var error = '';
-  
-    const { groupId, search } = req.body;
-    var _search = search.trim();
-
-    const db = client.db("StudyBuddy");
-    const results = await db.collection('users').find({ "Users":{$regex:_search+'.*', $options:'r'} }).toArray();
-    var _ret = [];
-
-    for (var i = 0; i < results.length; i++)
-    {
-        _ret.push( results[i].Users );
-    }
-  
-    var ret = { results:_ret, error:''};
-    res.status(200).json(ret);
-});
-
 // EDIT USER API
 // Error 404 Not Found.
 // Wait until all APIs are complete to implement JWT.
