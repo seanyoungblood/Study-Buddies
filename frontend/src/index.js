@@ -28,7 +28,6 @@ root.render(
       <Routes>
           <Route path='/' element={
             <>
-
               <Offer></Offer>
               <StudyRooms></StudyRooms>
               <Reviews></Reviews>

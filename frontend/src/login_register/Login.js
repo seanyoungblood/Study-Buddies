@@ -59,7 +59,7 @@ function buildPath(route)
                 localStorage.setItem('user_data', JSON.stringify(user));
                 
                 setMessage('Works');
-                window.location.href = '/';
+
             }
         }
         catch(e)
