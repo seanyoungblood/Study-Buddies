@@ -78,7 +78,7 @@ function buildPath(route)
 <input type="password" id="loginPassword" placeholder="Password" 
   ref={(c) => loginPassword = c} /><br />
         <input type="submit" id="loginButton" className="buttons" value = "Do It"
-          onClick={doLogin} />
+           />
         </form>
         <button onClick={(e) => {e.preventDefault();window.location.href = '/register'}}>Dont have an account register!</button>
       <span id="loginResult">{message}</span>
