@@ -62,6 +62,8 @@ if (process.env.NODE_ENV === 'production')
     app.get('/', (req, res) => res.send('Please set to production'))
 }
 
+var api = require('./server.js');
+api.setApp( app, client );
 
 app.use(errorHandler)
 
