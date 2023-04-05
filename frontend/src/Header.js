@@ -20,7 +20,7 @@ const Header = () => {
 
     const [background, setBackround] = useState(`linear-gradient(rgba(77,87,101,0.7), rgba(4,9,30,0.7)), url(${homeBackround})`);
     const [profileHeight, setProfileHeight] = useState('100vh');
-    const [profileMargin, setProfileMargin] = useState('80%');
+    const [profileMargin, setProfileMargin] = useState('50%');
 
     const handleHome = () => {
         setBackround(`linear-gradient(rgba(77,87,101,0.7), rgba(4,9,30,0.7)), url(${homeBackround})`)
