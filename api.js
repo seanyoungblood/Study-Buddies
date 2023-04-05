@@ -162,7 +162,7 @@ app.post('/api/createGroup', async (req, res, next) =>
 });
 
 // SEARCH GROUPS API
-// Error 503.
+// Returns Array[0]
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchGroups', async (req, res, next) => 
 {
@@ -181,10 +181,10 @@ app.post('/api/searchGroups', async (req, res, next) =>
       var _ret = [];
       for( var i=0; i<results.length; i++ )
       {
-        _ret.push( results[i].groupName );
+        _ret.push( results[i]);
       }
       
-      var ret = {results:_ret[0], error:error};
+      var ret = {results:_ret, error:error};
       res.status(200).json(ret);
 
 });
