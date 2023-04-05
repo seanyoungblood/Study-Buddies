@@ -181,7 +181,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
       var _ret = [];
       for( var i=0; i<results.length; i++ )
       {
-        _ret.push( results[i].Card );
+        _ret.push( results[i].groups );
       }
       
       var ret = {results:_ret, error:error};
