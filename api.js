@@ -181,7 +181,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
       var _ret = [];
       for( var i=0; i<results.length; i++ )
       {
-        _ret.push( results[i]);
+        _ret.push( results[i].groupName);
       }
       
       var ret = {results:_ret, error:error};
