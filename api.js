@@ -59,29 +59,6 @@ app.post('/api/register', async (req, res, next) =>
     res.status(200).json(ret);
 });
 
-// SEARCH USER API
-// Error 503.
-// Wait until all APIs are complete to implement JWT.
-app.post('/api/searchUsers', async (req, res, next) => 
-{
-    var error = '';
-  
-    const { groupId, search } = req.body;
-    var _search = search.trim();
-
-    const db = client.db("StudyBuddy");
-    const results = await db.collection('users').find({ "Users":{$regex:_search+'.*', $options:'r'} }).toArray();
-    var _ret = [];
-
-    for (var i = 0; i < results.length; i++)
-    {
-        _ret.push( results[i].Users );
-    }
-  
-    var ret = { results:_ret, error:''};
-    res.status(200).json(ret);
-});
-
 // EDIT USER API
 // Error 404 Not Found.
 // Wait until all APIs are complete to implement JWT.
@@ -160,26 +137,31 @@ app.post('/api/createGroup', async (req, res, next) =>
 });
 
 // SEARCH GROUPS API
-// Error 503.
+// Returns Array[0]
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchGroups', async (req, res, next) => 
 {
-    var error = '';
-  
-    const { groupId, search } = req.body;
-    var _search = search.trim();
+        // incoming: userId, search
+      // outgoing: results[], error
+    
+      var error = '';
+    
+      const { filter, search } = req.body;
+    
+      var _search = search.trim();
+      
+      const db = client.db();
+      const results = await db.collection('StudyBuddy').find({filter:{$regex:_search+'.*', $options:'r'}}).toArray();
+      
+      var _ret = [];
+      for( var i=0; i<results.length; i++ )
+      {
+        _ret.push( results[i].groups);
+      }
+      
+      var ret = {results:_ret, error:error};
+      res.status(200).json(ret);
 
-    const db = client.db("StudyBuddy");
-    const results = await db.collection('groups').find({ "groups":{$regex:_search+'.*', $options:'r'} }).toArray();
-    var _ret = [];
-
-    for (var i = 0; i < results.length; i++)
-    {
-        _ret.push( results[i].Groups );
-    }
-  
-    var ret = { results:_ret, error:''};
-    res.status(200).json(ret);
 });
 
 // EDIT USER API
