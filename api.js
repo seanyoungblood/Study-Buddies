@@ -60,7 +60,7 @@ app.post('/api/register', async (req, res, next) =>
 });
 
 // SEARCH USER API
-// Connection is fine, 200 OK; however, [array[0]] is returned regardless of input.
+// Error 503.
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchUsers', async (req, res, next) => 
 {
@@ -119,19 +119,18 @@ app.put('/api/editUser', async (req, res, next) =>
 });
 
 // DELETE USER API
-// Error 404 Not Found.
-// input should be changed to email to make it easier on front end.
+// Works Yay! Needs fine tuning.
 // Wait until all APIs are complete to implement JWT.
 app.delete('/api/deleteUser', async (req, res, next) => 
 {
     var error = '';
   
-    const {userId} = req.body;
+    const {username} = req.body;
 
     const db = client.db("StudyBuddy");
-    const results = await db.collection('users').find({userId:userId}).toArray();
+    db.collection('users').deleteOne({username:username});
   
-    var ret = {error:''};
+    var ret = {error:error};
     res.status(200).json(ret);
 });
 
@@ -161,7 +160,7 @@ app.post('/api/createGroup', async (req, res, next) =>
 });
 
 // SEARCH GROUPS API
-// Connection is fine, 200 OK; however, [array[0]] is returned regardless of input.
+// Error 503.
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchGroups', async (req, res, next) => 
 {
@@ -214,19 +213,18 @@ app.put('/api/editGroup', async (req, res, next) =>
 });
 
 // DELETE GROUP API
-// Error 404 Not Found.
-// input should be changed to something other than groupId to make it easier on front end.
+// Works Yay! Needs fine tuning.
 // Wait until all APIs are complete to implement JWT.
 app.delete('/api/deleteGroup', async (req, res, next) => 
 {
     var error = '';
   
-    const {groupId} = req.body;
+    const {groupName} = req.body;
 
     const db = client.db("StudyBuddy");
-    const results = await db.collection('groups').find({groupId:groupId}).toArray();
+    db.collection('groups').deleteOne({groupName:groupName});
   
-    var ret = {error:''};
+    var ret = {error:error};
     res.status(200).json(ret);
 });
 }
