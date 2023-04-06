@@ -179,10 +179,10 @@ app.post('/api/searchGroups', async (req, res, next) =>
       const results = await db.collection('StudyBuddy').find({filter:{$regex:_search+'.*', $options:'r'}}).toArray();
       
       var _ret = [];
-      //for( var i=0; i<results.length; i++ )
-      //{
-        _ret.push( results[0].groups);
-      //}
+      for( var i=0; i<results.length; i++ )
+      {
+        _ret.push( results[i].groups);
+      }
       
       var ret = {results:_ret, error:error};
       res.status(200).json(ret);
