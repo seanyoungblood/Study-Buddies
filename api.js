@@ -184,9 +184,9 @@ app.post('/api/searchGroups', async (req, res, next) =>
         _ret.push( results[i].course);
       }
     
-      var return = results[0].course
+      var re = results[0].course
       
-      var ret = {results:return, error:error};
+      var ret = {results:re, error:error};
       res.status(200).json(ret);
 
 });
