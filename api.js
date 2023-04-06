@@ -183,6 +183,14 @@ app.post('/api/searchGroups', async (req, res, next) =>
       {
         _ret.push( results[i].groups);
       }
+        
+    if (results == NULL) {
+        error = 'results empty';
+    }
+    
+    if (ret[0] == NULL) {
+        error = 'ret empty';
+    }
       
       var ret = {results:_ret, error:error};
       res.status(200).json(ret);
