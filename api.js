@@ -160,7 +160,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
       }
       
       var ret = {results:_ret, error:error};
-      res.status(200).json(_ret);
+      res.status(200).json(ret);
 
 });
 
