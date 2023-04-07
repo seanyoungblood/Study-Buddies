@@ -84,26 +84,25 @@ app.post('/api/searchUsers', async (req, res, next) =>
     res.status(200).json(ret);
 });
 */
+
 // EDIT USER API
 // Error 404 Not Found.
 // Wait until all APIs are complete to implement JWT.
 app.put('/api/editUser', async (req, res, next) => 
 {    
     var error = '';
-    
-    const {firstName, lastName, username, password, phone, email, major, classesTaking, likes} = req.body;
+
+    const {firstName, lastName, username, password, phone, email, major, classesTaking} = req.body;
 
     const db = client.db("StudyBuddy");
-    const results = await db.collection('users').updateOne({
+    db.collection('users').findOneAndUpdate({username:username}, {
         firstName:firstName,
         lastName:lastName,
-        username:username,
         password:password,
         phone:phone,
         email:email,
         major:major,
         classesTaking:classesTaking,
-        likes:likes
     })
 
     var ret = {
@@ -115,7 +114,6 @@ app.put('/api/editUser', async (req, res, next) =>
         email:email,
         major:major,
         classesTaking:classesTaking,
-        likes:likes,
         error:'' };
     res.status(200).json(ret);
 });
