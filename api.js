@@ -65,20 +65,21 @@ app.post('/api/register', async (req, res, next) =>
 app.put('/api/editUser', async (req, res, next) => 
 {    
     var error = '';
-    
-    const {firstName, lastName, username, password, phone, email, major, classesTaking, likes} = req.body;
+
+    const {firstName, lastName, username, password, phone, email, major,
+           class1, class2, class3, class4, class5, class6} = req.body;
 
     const db = client.db("StudyBuddy");
-    const results = await db.collection('users').updateOne({
-        firstName:firstName,
-        lastName:lastName,
-        username:username,
-        password:password,
-        phone:phone,
-        email:email,
-        major:major,
-        classesTaking:classesTaking,
-        likes:likes
+    db.collection('users').findOneAndUpdate({username:username}, 
+        { $set: {
+        "firstName":firstName,
+        "lastName":lastName,
+        "password":password,
+        "phone":phone,
+        "email":email,
+        "major":major
+        } }, 
+        { $pullAll: {"classesTaking":[class1, class2, class3, class4, class5, class6]} 
     })
 
     var ret = {
@@ -89,8 +90,6 @@ app.put('/api/editUser', async (req, res, next) =>
         phone:phone,
         email:email,
         major:major,
-        classesTaking:classesTaking,
-        likes:likes,
         error:'' };
     res.status(200).json(ret);
 });
@@ -137,26 +136,27 @@ app.post('/api/createGroup', async (req, res, next) =>
 });
 
 // SEARCH GROUPS API
-// Error 503.
+// Returns Array[0]
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchGroups', async (req, res, next) => 
 {
-    var error = '';
-  
-    const { groupId, search } = req.body;
-    var _search = search.trim();
+        // incoming: userId, search
+      // outgoing: results[], error
+    
+      var error = '';
+    
+      const { username } = req.body;
+    
+      
+      const db = client.db();
+      
+     const searchFilter = await db.collection('StudyBuddy').find({"username":username})
+            
+        res.status(200).json({
+            "firstName":searchFilter.firstName,
+            "lastName":searchFilter.lastName})
+    
 
-    const db = client.db("StudyBuddy");
-    const results = await db.collection('groups').find({ "groups":{$regex:_search+'.*', $options:'r'} }).toArray();
-    var _ret = [];
-
-    for (var i = 0; i < results.length; i++)
-    {
-        _ret.push( results[i].Groups );
-    }
-  
-    var ret = { results:_ret, error:''};
-    res.status(200).json(ret);
 });
 
 // EDIT USER API

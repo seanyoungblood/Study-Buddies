@@ -12,7 +12,6 @@ Groups:
 [ ] Join Group    (Easy)
 [ ] Leave Group   (Easy)
 [ ] Load Group
-[ ] Search Member
 
 X = completed & working
 / = needs testing

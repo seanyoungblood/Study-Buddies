@@ -1,3 +1,3 @@
-# StudyBuddy
+# Study Buddies
 
-testing
+formerly StudyBuddy
