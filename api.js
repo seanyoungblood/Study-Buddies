@@ -65,20 +65,21 @@ app.post('/api/register', async (req, res, next) =>
 app.put('/api/editUser', async (req, res, next) => 
 {    
     var error = '';
-    
-    const {firstName, lastName, username, password, phone, email, major, classesTaking, likes} = req.body;
+
+    const {firstName, lastName, username, password, phone, email, major,
+           class1, class2, class3, class4, class5, class6} = req.body;
 
     const db = client.db("StudyBuddy");
-    const results = await db.collection('users').updateOne({
-        firstName:firstName,
-        lastName:lastName,
-        username:username,
-        password:password,
-        phone:phone,
-        email:email,
-        major:major,
-        classesTaking:classesTaking,
-        likes:likes
+    db.collection('users').findOneAndUpdate({username:username}, 
+        { $set: {
+        "firstName":firstName,
+        "lastName":lastName,
+        "password":password,
+        "phone":phone,
+        "email":email,
+        "major":major
+        } }, 
+        { $pullAll: {"classesTaking":[class1, class2, class3, class4, class5, class6]} 
     })
 
     var ret = {
@@ -89,8 +90,6 @@ app.put('/api/editUser', async (req, res, next) =>
         phone:phone,
         email:email,
         major:major,
-        classesTaking:classesTaking,
-        likes:likes,
         error:'' };
     res.status(200).json(ret);
 });
