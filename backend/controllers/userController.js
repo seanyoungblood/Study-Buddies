@@ -158,12 +158,11 @@ const searchUser =  asyncHandler(async (req, res) => {
     if (!major && !classesTaking)
     {
 
-        const searchFilter = await User.findOne({
-            "username": username
-        })
-
+        const searchFilter = await User.find({"username":username})
+            
         res.status(200).json({
-            "username": searchFilter.username})
+            "firstName":searchFilter.firstName,
+            "lastName":searchFilter.lastName})
     }
     if (!username && !classesTaking)
     {
