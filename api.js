@@ -174,9 +174,9 @@ app.post('/api/searchGroups', async (req, res, next) =>
       const { username } = req.body;
     
       
-      const db = client.db();
+      const db = client.db("StudyBuddy");
       
-     const searchFilter = await db.collection('StudyBuddy').find({"username":username})
+     const searchFilter = await db.collection('users').find({"username":username})
             
         res.status(200).json({
             "firstName":searchFilter.firstName,
