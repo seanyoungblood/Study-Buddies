@@ -92,18 +92,17 @@ app.put('/api/editUser', async (req, res, next) =>
 {    
     var error = '';
 
-    const {firstName, lastName, username, password, phone, email, major, classesTaking} = req.body;
+    const {firstName, lastName, username, password, phone, email, major} = req.body;
 
     const db = client.db("StudyBuddy");
-    db.collection('users').findOneAndUpdate({username:username}, {
-        firstName:firstName,
-        lastName:lastName,
-        password:password,
-        phone:phone,
-        email:email,
-        major:major,
-        classesTaking:classesTaking,
-    })
+    db.collection('users').findOneAndUpdate({username:username}, { $set: {
+        "firstName":firstName,
+        "lastName":lastName,
+        "password":password,
+        "phone":phone,
+        "email":email,
+        "major":major,
+    } })
 
     var ret = {
         firstName:firstName,
@@ -113,7 +112,6 @@ app.put('/api/editUser', async (req, res, next) =>
         phone:phone,
         email:email,
         major:major,
-        classesTaking:classesTaking,
         error:'' };
     res.status(200).json(ret);
 });
