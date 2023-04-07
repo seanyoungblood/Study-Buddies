@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.center{
+    padding: 0;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.hero-btn:hover{
+    border: 1px solid #cca100;
+    background: #cca100;
+    transition: 1s;
+}
+
+/*-----Call To Action-----*/
+
+.cta {
+    margin: 100px auto;
+    width: 80%;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../images/UCF_1.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.cta h1{
+    color: #fff;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 40px;
+    padding: 0;
+}
+
+@media(max-width: 700px){
+    .cta h1 {
+        font-size: 24px;
+    }
+}
+
+/*-----Footer-----*/
+
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.footer h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;   
+}
+
+.footer p{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+.icons .fa{
+    color: #332800;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}

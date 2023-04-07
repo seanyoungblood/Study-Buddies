@@ -1,0 +1,18 @@
+Users:
+[X] Login
+[X] Register
+[/] Edit User
+[X] Delete User :(
+
+Groups:
+[X] Create Group
+[/] Search Group
+[/] Edit Group
+[X] Delete Group
+[ ] Join Group    (Easy)
+[ ] Leave Group   (Easy)
+[ ] Load Group
+[ ] Search Member
+
+X = completed & working
+/ = needs testing
