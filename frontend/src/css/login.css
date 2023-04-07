@@ -1,7 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+
 html, body, #root {
     height: 100%;
     margin: 0;
@@ -12,18 +9,41 @@ html, body, #root {
 .wrapper{
     height: 100%;
     width: 100%;
-    background: black;
+    margin: 0;
+    background: indigo;
+    position: relative;
 }
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
 
 
 #loginDiv{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%;
     height: 400px;
     width: 400px;
     border-radius: 16px;
     box-shadow: 4px 4px 10px grey;
     background: #d9d9d9;
+}
+
+
+.logoName{
+
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0 0 5em 0 !important;
+
 }

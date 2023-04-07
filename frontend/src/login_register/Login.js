@@ -70,9 +70,9 @@ function buildPath(route)
     };
 
     return(
-      <div id="loginDiv" >
+      <div id="loginDiv" className='vertical-center text-center'>
         <form onSubmit={(e) => {doLogin(e)}}>
-        <span id="inner-title">PLEASE LOG IN!</span><br />
+        <span className='logoName'>Study Buddies</span><br />
           <input type="text" id="loginName" placeholder="Username" 
   ref={(c) => loginName = c} /><br />
 <input type="password" id="loginPassword" placeholder="Password" 
