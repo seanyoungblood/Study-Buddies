@@ -1,6 +1,6 @@
 import React, { useState , useContext} from 'react';
 import { AuthContext } from '../useContext/LoginContext';
-import '../css/index.css'
+import '../css/login.css'
 
 function Login()
 {

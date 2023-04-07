@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Header from './Header';
 import Offer from './home/Offer';
@@ -14,6 +13,7 @@ import About from './About-us/About';
 import LoginPage from './login_register/LoginPage'
 import { AuthContextProvider } from './useContext/LoginContext';
 import Profile from './Profile/Profile';
+import './css/login.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -53,9 +53,7 @@ root.render(
           }></Route>
 
           <Route path='login' element={
-            <>
             <LoginPage></LoginPage>
-            </>
           }></Route>
 
           <Route path='profile' element={

@@ -377,14 +377,4 @@ h3{
 }
 
 
-#loginDiv{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
-    height: 400px;
-    width: 400px;
-    border-radius: 16px;
-    box-shadow: 4px 4px 10px grey;
-    background: #d9d9d9;
-}
+
