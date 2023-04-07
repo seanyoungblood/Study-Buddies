@@ -164,28 +164,26 @@ app.post('/api/createGroup', async (req, res, next) =>
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchGroups', async (req, res, next) => 
 {
+       app.post('/api/searchGroups', async (req, res, next) => 
+{
         // incoming: userId, search
       // outgoing: results[], error
     
       var error = '';
     
-      const { filter, search } = req.body;
+      const { username } = req.body;
     
-      var _search = search.trim();
       
       const db = client.db();
-      const results = await db.collection('StudyBuddy').find({filter:{$regex:_search+'.*', $options:'r'}}).toArray();
       
-      var _ret = [];
-      for( var i=0; i<results.length; i++ )
-      {
-        _ret.push( results[i].course);
-      }
+     const searchFilter = await db.collection('StudyBuddy').find({"username":username})
+            
+        res.status(200).json({
+            "firstName":searchFilter.firstName,
+            "lastName":searchFilter.lastName})
     
-      var re = results[0].course
-      
-      var ret = {results:re, error:error};
-      res.status(200).json(ret);
+
+});
 
 });
 
