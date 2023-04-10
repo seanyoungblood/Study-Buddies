@@ -86,8 +86,7 @@ app.post('/api/searchUsers', async (req, res, next) =>
 */
 
 // EDIT USER API
-// Error 404 Not Found.
-// Wait until all APIs are complete to implement JWT.
+// Complete
 app.put('/api/editUser', async (req, res, next) => 
 {    
     var error = '';
@@ -115,7 +114,8 @@ app.put('/api/editUser', async (req, res, next) =>
         error:'' };
     res.status(200).json(ret);
 });
-    
+ 
+    // Complete
 app.put('/api/addClasses', async (req, res, next) => 
 {    
     var error = '';
@@ -129,7 +129,7 @@ app.put('/api/addClasses', async (req, res, next) =>
         "classesTaking.2":class2,
         "classesTaking.3":class3,
         "classesTaking.4":class4,
-        "classesTaking.5":class5,
+        "classesTaking.5":class5
     } })
 
     var ret = {
