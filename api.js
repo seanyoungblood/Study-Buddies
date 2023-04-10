@@ -92,7 +92,7 @@ app.put('/api/editUser', async (req, res, next) =>
 {    
     var error = '';
 
-    const {firstName, lastName, username, password, phone, email, major, class1} = req.body;
+    const {firstName, lastName, username, password, phone, email, major} = req.body;
 
     const db = client.db("StudyBuddy");
     db.collection('users').findOneAndUpdate({username:username}, { $set: {
@@ -102,7 +102,6 @@ app.put('/api/editUser', async (req, res, next) =>
         "phone":phone,
         "email":email,
         "major":major,
-        "classesTaking.0":class1
     } })
 
     var ret = {
@@ -113,6 +112,27 @@ app.put('/api/editUser', async (req, res, next) =>
         phone:phone,
         email:email,
         major:major,
+        error:'' };
+    res.status(200).json(ret);
+});
+    
+app.put('/api/addClasses', async (req, res, next) => 
+{    
+    var error = '';
+
+    const {username, class0, class1, class2, class3, class4, class5} = req.body;
+
+    const db = client.db("StudyBuddy");
+    db.collection('users').findOneAndUpdate({username:username}, { $set: {
+        "classesTaking.0":class0,
+        "classesTaking.1":class1,
+        "classesTaking.2":class2,
+        "classesTaking.3":class3,
+        "classesTaking.4":class4,
+        "classesTaking.5":class5,
+    } })
+
+    var ret = {
         error:'' };
     res.status(200).json(ret);
 });
