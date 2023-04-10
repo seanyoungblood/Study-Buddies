@@ -92,7 +92,7 @@ app.put('/api/editUser', async (req, res, next) =>
 {    
     var error = '';
 
-    const {firstName, lastName, username, password, phone, email, major} = req.body;
+    const {firstName, lastName, username, password, phone, email, major, class1} = req.body;
 
     const db = client.db("StudyBuddy");
     db.collection('users').findOneAndUpdate({username:username}, { $set: {
@@ -102,6 +102,7 @@ app.put('/api/editUser', async (req, res, next) =>
         "phone":phone,
         "email":email,
         "major":major,
+        "classesTaking.0":class1
     } })
 
     var ret = {
