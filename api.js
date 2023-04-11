@@ -213,26 +213,42 @@ app.post('/api/searchGroups', async (req, res, next) =>
 app.put('/api/editGroup', async (req, res, next) => 
 {    
     var error = '';
-    
-    const {groupName, course, description, date, time, location} = req.body;
+
+    const {groupName, course, description, dates, time, location} = req.body;
 
     const db = client.db("StudyBuddy");
-    const results = await db.collection('users').updateOne({
-        groupName:groupName,
-        course:course,
-        description:description,
-        date:date,
-        time:time,
-        location:location,
-    })
-
+    db.collection('users').findOneAndUpdate({groupName:groupName}, { $set: {
+        "course":course,
+        "description":description,
+        "dates":dates,
+        "time":time,
+        "location":location
+    } })
+    
     var ret = {
         groupName:groupName,
         course:course,
         description:description,
-        date:date,
+        dates:dates,
         time:time,
         location:location,
+        error:'' };
+    res.status(200).json(ret);
+});
+    
+// Ratings
+app.put('/api/editRating', async (req, res, next) => 
+{    
+     var error = '';
+
+    const {username, groupName, rating} = req.body;
+
+    const db = client.db("StudyBuddy");
+    db.collection('users').updateOne({groupName:groupName}, { $push: {
+        "reviews":rating
+    } })
+
+    var ret = {
         error:'' };
     res.status(200).json(ret);
 });
