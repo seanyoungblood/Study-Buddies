@@ -17,7 +17,7 @@ app.post('/api/login', async (req, res, next) =>
 
   
     const db = client.db("StudyBuddy");
-    const results = await db.collection('users').find({username:login,password:password}).toArray();
+    const results = await db.collection('users').find({username:login,password:password});
   
     var id = -1;
     var fn = '';
@@ -25,9 +25,9 @@ app.post('/api/login', async (req, res, next) =>
   
     if( results.length > 0 )
     {
-        id = results[0]._id;
-        fn = results[0].firstName;
-        ln = results[0].lastName;
+        id = results._id;
+        fn = results.firstName;
+        ln = results.lastName;
     }
 
     var ret = { firstName:fn, lastName:ln, _id:id, error:'' };
