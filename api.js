@@ -102,6 +102,12 @@ app.put('/api/editUser', async (req, res, next) =>
         "email":email,
         "major":major,
     } })
+    
+    // UNIT TEST ATTEMPT
+    var test = db.collection('users').find({username:username});
+    if (test.password != password) {
+        res.status(200).json({error:'unit test failure'});
+    }
 
     var ret = {
         firstName:firstName,
