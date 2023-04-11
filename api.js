@@ -23,6 +23,8 @@ app.post('/api/login', async (req, res, next) =>
     var fn = '';
     var ln = '';
     var len = results.length;
+    // Unit Test
+    error = len.toString();
     
     if(len)
     {
