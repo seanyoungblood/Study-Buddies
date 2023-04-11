@@ -96,7 +96,7 @@ function buildPath(route)
           <input className='mt-3 input-field' type="password" id="loginPassword" placeholder="Password"  ref={(c) => loginPassword = c} /><br />
           <input className='mt-5 login-btn' type="submit" id="loginButton"  value = "Login" onClick={doLogin} />
         </form>
-        <button className='mt-3 signUp-btn' onClick={(e) => {e.preventDefault();window.location.href = '/register'}}>Dont have an account? Click to register</button>
+        <button className='mt-3 signUp-btn' onClick={(e) => {e.preventDefault();navigate("/register");}}>Dont have an account? Click to register</button>
       <span id="loginResult">{message}</span>
      </div>
     );

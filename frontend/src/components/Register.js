@@ -74,7 +74,11 @@ function Register()
 
     }
 
+    const handleLoginClick = (e) =>{
+        e.preventDefault();
 
+        navigate("/login");
+    }
 
 
     return(
@@ -88,7 +92,7 @@ function Register()
           <input className="mt-3 input-field" type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} /><br />
           <input className="mt-4 login-btn" type="submit" id="registerButton"  value = "Register" onClick={doRegister} />
           </form>
-          <button className="mt-2 signUp-btn" onClick={() => {window.location.href = '/login'}}>Have an account? Login</button>
+          <button className="mt-2 signUp-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
           <span className="mt-2" id="registerResult">{message}</span>
 
        </div>
