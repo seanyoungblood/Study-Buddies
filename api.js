@@ -23,7 +23,7 @@ app.post('/api/login', async (req, res, next) =>
     var fn = '';
     var ln = '';
     var len = results.length;
-    
+    len++;
     if(len)
     {
         id = results[0]._id;
