@@ -23,7 +23,7 @@ app.post('/api/login', async (req, res, next) =>
     var fn = '';
     var ln = '';
   
-    if( results.length > 0 )
+    if( results.length >= 0 )
     {
         id = results[0]._id;
         fn = results[0].firstName;
