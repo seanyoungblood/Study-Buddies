@@ -93,8 +93,7 @@ app.put('/api/editUser', async (req, res, next) =>
 
     const {firstName, lastName, username, password, phone, email, major} = req.body;
     
-    // FOR UT
-    // var passwordt = password;
+    const testphone = phone;
 
     const db = client.db("StudyBuddy");
     db.collection('users').findOneAndUpdate({username:username}, { $set: {
@@ -106,14 +105,11 @@ app.put('/api/editUser', async (req, res, next) =>
         "major":major,
     } })
     
-    // UNIT TEST
-    /*
-    var test = await db.collection('users').find({"username":username}).toArray();
-    if (test[0].password != passwordt) {
-        res.status(200).json({error:'unit test failure'});
-    };
-    */
-
+    var test = db.collection('users').find(username:username);
+    if (test.phone != testphone) {
+        var ret = {error:'unit test failure'};
+    }
+    else {
     var ret = {
         firstName:firstName,
         lastName:lastName,
@@ -123,6 +119,7 @@ app.put('/api/editUser', async (req, res, next) =>
         email:email,
         major:major,
         error:'' };
+    }
     res.status(200).json(ret);
 });
  
