@@ -92,8 +92,6 @@ app.put('/api/editUser', async (req, res, next) =>
     var error = '';
 
     const {firstName, lastName, username, password, phone, email, major} = req.body;
-    
-    const testphone = phone;
 
     const db = client.db("StudyBuddy");
     db.collection('users').findOneAndUpdate({username:username}, { $set: {
@@ -105,11 +103,6 @@ app.put('/api/editUser', async (req, res, next) =>
         "major":major,
     } })
     
-    var test = db.collection('users').find(username:username);
-    if (test.phone != testphone) {
-        var ret = {error:'unit test failure'};
-    }
-    else {
     var ret = {
         firstName:firstName,
         lastName:lastName,
@@ -119,7 +112,6 @@ app.put('/api/editUser', async (req, res, next) =>
         email:email,
         major:major,
         error:'' };
-    }
     res.status(200).json(ret);
 });
  
