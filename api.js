@@ -22,9 +22,7 @@ app.post('/api/login', async (req, res, next) =>
     var id = -1;
     var fn = '';
     var ln = '';
-    var len = results.length + 1;
-    // Unit Test
-    error = len.toString();
+    var len = results.length;
     
     if(len)
     {
