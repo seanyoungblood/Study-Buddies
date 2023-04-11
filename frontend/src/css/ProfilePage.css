@@ -160,11 +160,6 @@ p {
     padding: 10px;
 }
 
-.row{
-    margin-top: 5%;
-    display: flex;
-    justify-content: space-between;
-}
 
 .capability-col{
     flex-basis: 31%;

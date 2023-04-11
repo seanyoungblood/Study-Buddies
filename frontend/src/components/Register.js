@@ -1,5 +1,8 @@
 import "../css/RegisterPage.css"
 import React, { useState } from 'react';
+import "../css/LoginPage.css"
+import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
+import { useNavigate } from "react-router-dom";
 
 function Register()
 {
@@ -58,19 +61,35 @@ function Register()
         }    
      };
 
+
+     
+    const navigate = useNavigate();
+
+    const handleLogoClick = (e) => {
+      e.preventDefault();
+
+      navigate("/");
+
+
+
+    }
+
+
+
+
     return(
-        <div id="registerDiv">
+        <div id="loginDiv">
+            <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
+        
           <form onSubmit={doRegister}>
-          <span id="inner-title">REGISTER HERE!</span><br />
-          <input type="text" id="registerFirstName" placeholder="First Name" ref={(c) => registerFirstName = c} /><br />
-          <input type="text" id="registerLastName" placeholder="Last Name" ref={(c) => registerLastName = c} /><br />
-          <input type="text" id="registerUsername" placeholder="Username" ref={(c) => registerUsername = c} /><br />
-          <input type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} /><br />
-          <input type="submit" id="registerButton" className="buttons" value = "Do It"
-            onClick={doRegister} />
+          <input className="mt-2 input-field" type="text" id="registerFirstName" placeholder="First Name" ref={(c) => registerFirstName = c} /><br />
+          <input className="mt-3 input-field" type="text" id="registerLastName" placeholder="Last Name" ref={(c) => registerLastName = c} /><br />
+          <input className="mt-3 input-field" type="text" id="registerUsername" placeholder="Username" ref={(c) => registerUsername = c} /><br />
+          <input className="mt-3 input-field" type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} /><br />
+          <input className="mt-4 login-btn" type="submit" id="registerButton"  value = "Register" onClick={doRegister} />
           </form>
-          <button onClick={() => {window.location.href = '/login'}}>Have an account? Login</button>
-          <span id="registerResult">{message}</span>
+          <button className="mt-2 signUp-btn" onClick={() => {window.location.href = '/login'}}>Have an account? Login</button>
+          <span className="mt-2" id="registerResult">{message}</span>
 
        </div>
       );

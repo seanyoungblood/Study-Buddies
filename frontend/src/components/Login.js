@@ -2,6 +2,11 @@ import React, { useState , useContext} from 'react';
 import { AuthContext } from '../useContext/LoginContext';
 import "../css/LoginPage.css"
 
+import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
+
+import { Navigate, useNavigate } from 'react-router-dom';
+
+
 function Login()
 {
 
@@ -69,18 +74,29 @@ function buildPath(route)
         }    
     };
 
+
+    const navigate = useNavigate();
+
+    const handleLogoClick = (e) => {
+      e.preventDefault();
+
+      navigate("/");
+
+
+
+    }
+
+
+
     return(
-      <div id="loginDiv" >
+      <div id="loginDiv">
+        <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
         <form onSubmit={doLogin}>
-        <span id="inner-title">PLEASE LOG IN!</span><br />
-          <input type="text" id="loginName" placeholder="Username" 
-  ref={(c) => loginName = c} /><br />
-<input type="password" id="loginPassword" placeholder="Password" 
-  ref={(c) => loginPassword = c} /><br />
-        <input type="submit" id="loginButton" className="buttons" value = "Do It"
-          onClick={doLogin} />
+          <input className='input-field mt-3' type="text" id="loginName" placeholder="Username" ref={(c) => loginName = c} /><br />
+          <input className='mt-3 input-field' type="password" id="loginPassword" placeholder="Password"  ref={(c) => loginPassword = c} /><br />
+          <input className='mt-5 login-btn' type="submit" id="loginButton"  value = "Login" onClick={doLogin} />
         </form>
-        <button onClick={(e) => {e.preventDefault();window.location.href = '/register'}}>Dont have an account register!</button>
+        <button className='mt-3 signUp-btn' onClick={(e) => {e.preventDefault();window.location.href = '/register'}}>Dont have an account? Click to register</button>
       <span id="loginResult">{message}</span>
      </div>
     );
