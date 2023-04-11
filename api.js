@@ -23,11 +23,14 @@ app.post('/api/login', async (req, res, next) =>
     var fn = '';
     var ln = '';
   
-    if( results.length )
+    if( results.length > 0)
     {
         id = results[0]._id;
         fn = results[0].firstName;
         ln = results[0].lastName;
+    }
+    else {
+        error = 'flag';
     }
 
     var ret = { firstName:fn, lastName:ln, _id:id, error:'' };
