@@ -217,7 +217,7 @@ app.put('/api/editGroup', async (req, res, next) =>
     const {groupName, course, description, dates, time, location} = req.body;
 
     const db = client.db("StudyBuddy");
-    db.collection('users').findOneAndUpdate({groupName:groupName}, { $set: {
+    db.collection('groups').findOneAndUpdate({groupName:groupName}, { $set: {
         "course":course,
         "description":description,
         "dates":dates,
@@ -244,7 +244,7 @@ app.put('/api/editRating', async (req, res, next) =>
     const {username, groupName, rating} = req.body;
 
     const db = client.db("StudyBuddy");
-    db.collection('users').updateOne({groupName:groupName}, { $push: {
+    db.collection('groups').updateOne({groupName:groupName}, { $push: {
         "reviews":rating
     } })
 
