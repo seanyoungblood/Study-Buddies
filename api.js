@@ -17,7 +17,7 @@ app.post('/api/login', async (req, res, next) =>
 
   
     const db = client.db("StudyBuddy");
-    const results = await db.collection('users').find({username:login,password:password}).toArray();
+    const results = db.collection('users').find({username:login,password:password}).toArray();
   
     //var id = -1;
     var fn = "";
