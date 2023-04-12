@@ -161,21 +161,17 @@ app.post('/api/searchGroups', async (req, res, next) =>
     
       var error = '';
     
-      const { le } = req.body;
+      const { filter, search } = req.body;
       
       const db = client.db("StudyBuddy");
       
-     const searchFilter = await db.collection('groups').find({courseName:{$regex:le+'.*',$options:'r'}}).toArray();
+     const searchFilter = await db.collection('groups').find({filter:{$regex:search+'.*',$options:'r'}}).toArray();
      
     var _ret = [];
 
     for (var i = 0; i < searchFilter.length; i++) {
         _ret.push( searchFilter[i].groupName );
         _ret.push( searchFilter[i].course );
-        _ret.push( searchFilter[i].description );
-        _ret.push( searchFilter[i].dates );
-        _ret.push( searchFilter[i].time );
-        _ret.push( searchFilter[i].location );
     }
     
     var ret = {results:_ret, error:error};
