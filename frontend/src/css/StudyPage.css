@@ -138,6 +138,55 @@ nav .fa{
     }
 }
 
+h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+
+p {
+    color: #332800;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+
+.rows{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*-----Content-----*/
+
+.content{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.content-col{
+    flex-basis: 100%;
+    min-height: fit-content;
+    background: #dafbff;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.7);
+    transition: 0.5s;
+}
+
+/*-----Functionality-----*/
+
+.functionality{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
 .functionality-0-but {
     margin-left: 0%;
     margin-bottom: 5%;
@@ -184,3 +233,169 @@ nav .fa{
 .functionality-col:hover{
     box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
 }
+
+/*-----Group Content-----*/
+
+.group-section{
+    margin: 200px auto;
+    width: 80%;
+    /* background-position: center; */
+    /* background-size: cover; */
+    /* border-radius: 10px; */
+    text-align: center;
+    /* padding: 100px 0; */
+    margin-bottom: 20px;
+}
+
+#group-info-box {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    /* background-color: #FFFFFF; */
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #B3D9FF, #FFFFFF);
+    transition: width 0.5s, height 0.5s;
+}
+
+#group-info-box:hover {
+    width: 500px;
+    /* height: 320px; */
+    transition: width 0.5s, height 0.5s;
+    /* width: group-summary 80%;
+    width: group-classes 20%; */
+}
+
+#group-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #202020;
+    background-color: #faf9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+#group-summary {
+    font-size: 18px;
+    color: #202020;
+    width: 75%;
+    margin-right: 5%;
+    float: left;
+}
+
+#group-classes {
+    font-size: 18px;
+    color: #202020;
+    width: 25%;
+    margin-left: 5%;
+    float: right;
+    border-left: 2px solid #202020;
+    padding-left: 10px;
+}
+
+#group-rating {
+    font-size: 18px;
+    font-weight: bold;
+    color: #202020;
+    background-color: #faf9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.star {
+    font-size: 18px;
+    color: #E4E4E4;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star.active {
+    color: #FFD700;
+}
+
+.join-btn {
+  background-color: #B5EAAA;
+  color: #FFFFFF;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+  transition: padding ease-in-out 0.5s;
+}
+
+.join-btn:hover {
+  background-color: #007c4e;
+  padding: 5px 12px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.delete-btn {
+  background-color: #FF6347;
+  color: #FFFFFF;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+  transition: padding ease-in-out 0.5s;
+}
+
+.delete-btn:hover {
+  background-color: #f00000;
+  padding: 5px 12px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pagination-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-bar button {
+    /* border: none; */
+    border: 2px solid transparent;
+    border-radius: 15%;
+    background-color: #B3D9FF;
+    color: white;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination-bar button:hover {
+    background-color: #3F8CC8;
+    border: 2px solid  #20202070;
+}
+
+.page-numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 20px;
+}
+
+.page-numbers button:not(:last-child) {
+    margin-right: 10px;
+}
+  
+  
