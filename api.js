@@ -22,14 +22,10 @@ app.post('/api/login', async (req, res, next) =>
     var id = -1;
     var fn = '';
     var ln = '';
-    var len = results.length;
-    len++;
-    if(len)
-    {
+
         id = results[0]._id;
         fn = results[0].firstName;
         ln = results[0].lastName;
-    }
 
     var ret = { firstName:fn, lastName:ln, _id:id, error:error };
     res.status(200).json(ret);
