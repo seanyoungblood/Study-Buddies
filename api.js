@@ -56,32 +56,6 @@ app.post('/api/register', async (req, res, next) =>
     res.status(200).json(ret);
 });
 
-// SEARCH USER API
-// Error 503.
-// Wait until all APIs are complete to implement JWT.
-    /*
-app.post('/api/searchUsers', async (req, res, next) => 
-{
-    var error = '';
-  
-    const { search } = req.body;
-    var _search = search.trim();
-    var _ret = [];
-
-    const db = client.db("StudyBuddy");
-    const results = await db.collection('users').find({ "username": search }).toArray();
-    
-
-    for (var i = 0; i < results.length; i++)
-    {
-        _ret.push( results[i].firstName );
-    }
-  
-    var ret = { results:_ret, error:''};
-    res.status(200).json(ret);
-});
-*/
-
 // EDIT USER API
 // Complete
 app.put('/api/editUser', async (req, res, next) => 
@@ -193,7 +167,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
       
       const db = client.db("StudyBuddy");
       
-     const searchFilter = await db.collection('users').find({"username":username})
+     const searchFilter = await db.collection('users').find({username:username})
             
         res.status(200).json({
             "firstName":searchFilter.firstName,
