@@ -1,18 +1,17 @@
 Users:
 [X] Login
 [X] Register
-[/] Edit User
+[X] Edit User
+[X] Add Classes
 [X] Delete User :(
 
 Groups:
 [X] Create Group
-[/] Search Group
-[/] Edit Group
+[X] Search Group
+[X] Edit Group
 [X] Delete Group
-[ ] Join Group    (Easy)
-[ ] Leave Group   (Easy)
-[ ] Load Group
-[ ] Search Member
+[/] Join Group    (Tayler)
+[/] Leave Group   (Tayler)
 
 X = completed & working
 / = needs testing
