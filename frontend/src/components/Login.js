@@ -86,8 +86,6 @@ function buildPath(route)
 
     }
 
-
-
     return(
       <div id="loginDiv">
         <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
@@ -97,6 +95,7 @@ function buildPath(route)
           <input className='mt-5 login-btn' type="submit" id="loginButton"  value = "Login" onClick={doLogin} />
         </form>
         <button className='mt-3 signUp-btn' onClick={(e) => {e.preventDefault();navigate("/register");}}>Dont have an account? Click to register</button>
+        <button className='mt-3 signUp-btn' onClick={(e) => {e.preventDefault();navigate("/");}}>Forgot password? Reset here</button>
       <span id="loginResult">{message}</span>
      </div>
     );
