@@ -91,7 +91,7 @@ function buildPath(route)
     return(
       <div id="loginDiv">
         <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
-        <form onSubmit={doLogin}>
+        <form onSubmit ={doLogin}>
           <input className='input-field mt-3' type="text" id="loginName" placeholder="Username" ref={(c) => loginName = c} /><br />
           <input className='mt-3 input-field' type="password" id="loginPassword" placeholder="Password"  ref={(c) => loginPassword = c} /><br />
           <input className='mt-5 login-btn' type="submit" id="loginButton"  value = "Login" onClick={doLogin} />

@@ -1,5 +1,6 @@
 import React from 'react';
-import pondBackground from '../images/night-time-reflection-pond.jpg'
+// import pondBackground from '../images/night-time-reflection-pond.jpg'
+import pondBackground from '../images/UCF_11.jpg'
 import Register from '../components/Register';
 
 const RegisterPage = () =>
