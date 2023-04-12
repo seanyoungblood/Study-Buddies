@@ -167,10 +167,15 @@ app.post('/api/searchGroups', async (req, res, next) =>
       const db = client.db("StudyBuddy");
       
      const searchFilter = await db.collection('users').find({username:username}).toArray();
-            
-        res.status(200).json({
-            "firstName":searchFilter[0].firstName,
-            "lastName":searchFilter[0].lastName})
+     
+    var _ret = []
+    for (int i = 0; i < searchFilter.length; i++) {
+        _ret.push( searchFilter[i].firstName );
+        _ret.push( searchFilter[i].lastName );
+    }
+    
+    var ret = {results:_ret, error:error};
+        res.status(200).json(ret)
     
 
 });
