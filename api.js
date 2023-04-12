@@ -169,7 +169,8 @@ app.post('/api/searchGroups', async (req, res, next) =>
      const searchFilter = await db.collection('users').find({username:username}).toArray();
      
     var _ret = [];
-    for (int i = 0; i < searchFilter.length; i++) {
+
+    for (var i = 0; i < searchFilter.length; i++) {
         _ret.push( searchFilter[i].firstName );
         _ret.push( searchFilter[i].lastName );
     }
