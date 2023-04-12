@@ -155,8 +155,7 @@ app.post('/api/createGroup', async (req, res, next) =>
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchGroups', async (req, res, next) => 
 {
-       app.post('/api/searchGroups', async (req, res, next) => 
-{
+
         // incoming: userId, search
       // outgoing: results[], error
     
@@ -173,8 +172,6 @@ app.post('/api/searchGroups', async (req, res, next) =>
             "firstName":searchFilter.firstName,
             "lastName":searchFilter.lastName})
     
-
-});
 
 });
 
