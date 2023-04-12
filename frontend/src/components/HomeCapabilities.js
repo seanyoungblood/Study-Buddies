@@ -6,7 +6,7 @@ const HomeCapabilities = () => {
             <h1>What This Webpage Offers</h1>
 		    <p>This application has multiple functions. These functions are all designed to help UCF students or faculty learn information about different majors offered at UCF, find different study groups on campus, and learn about their campus and its students. Each of these different functions can be found at the navigation menu at the top of the page or by clicking them here.</p>
 
-            <div className="rows">
+            <div className="home-rows">
 			<div className="capability-col">
 				<h3>MAJOR</h3>
 				<p>Find out information about your intended major!<br></br><br></br>Read reviews from other students and requirements for that major.</p>

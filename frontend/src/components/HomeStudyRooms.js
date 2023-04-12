@@ -11,7 +11,7 @@ const StudyRooms = () => {
             <h1>Our Campus Study Rooms</h1>
 		    <p>Our campus offers multiple locations to study at, some of which you can reserve private study rooms. If you're currently UCF student or faculty member, you can reserve a study room for up to four hours per day. You can reserve a room up to seven days in advance. Click on the library name you would like to study at to reserve a room.</p>
 
-            <div className="rows">
+            <div className="home-rows">
 			<div className="study-col-1">
 				<img src={jch_img}></img>
 				<div className="layer">
@@ -28,7 +28,7 @@ const StudyRooms = () => {
 
         <p>For more locations to study, consider the following three locations. While you cannot reserve individual rooms to study with your groups, these are still excellent work enviornments that encourage excellent study sessions. <br></br><br></br>Their names are provided to assist in helping you find a place to study.</p>
 
-        <div className="rows">
+        <div className="home-rows">
 			<div className="study-col">
 				<img src={ucf_6}></img>
 				<div className="layer">

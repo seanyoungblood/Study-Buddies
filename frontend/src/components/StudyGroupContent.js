@@ -6,7 +6,7 @@ const Content = () => {
             <div>
                 <div id="group-info-box">
                     <div id="group-name">Group Name Example</div>
-                    <div class="group-details" className="rows">
+                    <div class="group-details" className="study-rows">
                         <div id="group-summary">Group Summary<br></br><br></br>Text goes here Text goes here Text goes here Text goes here Text goes here Text goes here Text goes here Text goes here</div>
                         <div id="group-classes">Classes<br></br><br></br>COP 4331<br></br>EEL 3123<br></br>MAC 2112<br></br>PSY 8179</div>
                     </div>

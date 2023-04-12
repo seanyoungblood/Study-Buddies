@@ -160,7 +160,7 @@ p {
     padding: 10px;
 }
 
-.rows{
+.home-rows{
     margin-top: 5%;
     display: flex;
     justify-content: space-between;
@@ -187,7 +187,7 @@ h3{
 }
 
 @media(max-width: 700px) {
-    .rows{
+    .home-rows{
         flex-direction: column;
     }
 }
