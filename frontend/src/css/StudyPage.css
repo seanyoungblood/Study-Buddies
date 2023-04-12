@@ -243,7 +243,7 @@ p {
 /*-----Group Content-----*/
 
 .group-section{
-    margin: 200px auto;
+    margin: 250px auto;
     width: 80%;
     /* background-position: center; */
     /* background-size: cover; */
@@ -258,8 +258,8 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 460px;
-    height: 360px;
+    width: 480px;
+    height: 400px;
     /* background-color: #FFFFFF; */
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
@@ -273,8 +273,8 @@ p {
 }
 
 #group-info-box:hover {
-    width: 580px;
-    height: 380px;
+    width: 600px;
+    height: 400px;
     transition: width 0.5s, height 0.5s;
 }
 
@@ -370,13 +370,13 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: -150px;
 }
 
 .pagination-bar button {
     /* border: none; */
     border: 2px solid transparent;
-    border-radius: 15%;
+    border-radius: 10%;
     background-color: #B3D9FF;
     color: white;
     padding: 8px 12px;
@@ -391,15 +391,22 @@ p {
     border: 2px solid  #20202070;
 }
 
-.page-numbers {
+/* .page-numbers {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0px 20px;
-}
+} */
 
-.page-numbers button:not(:last-child) {
+/* .page-numbers button:not(:last-child) {
     margin-right: 10px;
+} */
+
+.prev-btn, .next-btn {
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 20px;
 }
-  
   
