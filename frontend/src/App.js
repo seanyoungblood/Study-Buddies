@@ -9,6 +9,7 @@ import AboutPage from './pages/AboutPage';
 import ProfilePage from './pages/ProfilePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import GroupPage from './pages/GroupPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/profile" index element={<ProfilePage />} />
       <Route path="/login" index element={<LoginPage />} />
       <Route path="/register" index element={<RegisterPage />} />
+      <Route path="/group" index element={<GroupPage />} />
     </Routes>
   </BrowserRouter>
 );

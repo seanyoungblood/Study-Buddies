@@ -6,7 +6,7 @@ import "../css/LoginRegisterGroupPage.css"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
 
 
-function Login()
+function Group()
 {
 
   //  const {currentUser, setCurrentUser} = useContext(AuthContext);
@@ -25,12 +25,20 @@ function buildPath(route)
     }
 }
 
+  var groupName;
+  var groupSummary;
+  var groupClass1;
+  var groupClass2;
+  var groupClass3;
+  var groupClass4;
+  var groupClass5;
+
   var loginName;
-    var loginPassword;
+  var loginPassword;
 
     const [message,setMessage] = useState('');
 
-    const doLogin = async event => 
+    const doGroup = async event => 
     {
         event.preventDefault();
 
@@ -86,18 +94,21 @@ function buildPath(route)
     }
 
     return(
-      <div id="loginDiv">
+      <div id="groupDiv">
         <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
-        <form onSubmit ={doLogin}>
-          <input className='input-field mt-3' type="text" id="loginName" placeholder="Username" ref={(c) => loginName = c} /><br />
-          <input className='mt-3 input-field' type="password" id="loginPassword" placeholder="Password"  ref={(c) => loginPassword = c} /><br />
-          <input className='mt-5 variant1-btn' type="submit" id="loginButton"  value = "Login" onClick={doLogin} />
+        <form onSubmit ={doGroup}>
+          <input className='input-field mt-3' type="text" id="groupName" placeholder="Group Name" ref={(c) => groupName = c} /><br />
+          <input className='input-field mt-3' type="text" id="groupSummary" placeholder="Group Summary"  ref={(c) => groupSummary = c} /><br />
+          <input className='input-field mt-3' type="text" id="groupClass1" placeholder="Group Related Class" ref={(c) => groupClass1 = c} /><br />
+          <input className='input-field mt-1' type="text" id="groupClass2" placeholder="Group Related Class" ref={(c) => groupClass2 = c} /><br />
+          <input className='input-field mt-1' type="text" id="groupClass3" placeholder="Group Related Class" ref={(c) => groupClass3 = c} /><br />
+          <input className='input-field mt-1' type="text" id="groupClass4" placeholder="Group Related Class" ref={(c) => groupClass4 = c} /><br />
+          <input className='input-field mt-1' type="text" id="groupClass5" placeholder="Group Related Class" ref={(c) => groupClass5 = c} /><br />
+          <input className='variant1-btn mt-4' type="submit" id="groupButton"  value = "Create/Edit" onClick={doGroup} />
         </form>
-        <button className='mt-3 variant2-btn' onClick={(e) => {e.preventDefault();navigate("/register");}}>Dont have an account? Click to register</button>
-        <button className='mt-3 variant2-btn' onClick={(e) => {e.preventDefault();navigate("/");}}>Forgot password? Reset here</button>
-      <span id="loginResult">{message}</span>
+      <span id="groupResult">{message}</span>
      </div>
     );
 };
 
-export default Login;
+export default Group;

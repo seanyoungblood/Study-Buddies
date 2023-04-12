@@ -406,6 +406,21 @@ h3{
     box-shadow: 4px 4px 10px grey;
 }
 
+#groupDiv{
+    position: relative;
+    background: #d9d9d9;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0 !important;
+    height: 500px;
+    width: 400px;
+    border-radius: 16px;
+    box-shadow: 4px 4px 10px grey;
+}
+
 
 @media screen and (max-width: 450px) {
     #loginDiv{
@@ -438,7 +453,7 @@ h3{
 }
 
 
-.login-btn{
+.variant1-btn{
     text-decoration: none;
     background: none;
     border: solid .5px grey;
@@ -448,16 +463,15 @@ h3{
     transition: .7s;
 }
 
-.login-btn:hover{
+.variant1-btn:hover{
     background: #ffca00;
     box-shadow: 0 0 2em #ffca00;
     color: white;
     border: none;
-
-    
+    font-weight: 400;
 }
 
-.signUp-btn{
+.variant2-btn{
     text-decoration: none;
     background: none;
     border: none;
@@ -466,7 +480,7 @@ h3{
     width: 300px;
 }
 
-.signUp-btn:hover{
+.variant2-btn:hover{
     color: #ffca00;
 }
 

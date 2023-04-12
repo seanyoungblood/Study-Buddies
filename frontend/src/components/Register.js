@@ -1,8 +1,9 @@
-import "../css/RegisterPage.css"
 import React, { useState } from 'react';
-import "../css/LoginPage.css"
-import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
 import { useNavigate } from "react-router-dom";
+
+import "../css/LoginRegisterGroupPage.css"
+import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
+
 
 function Register()
 {
@@ -90,9 +91,9 @@ function Register()
           <input className="mt-3 input-field" type="text" id="registerLastName" placeholder="Last Name" ref={(c) => registerLastName = c} /><br />
           <input className="mt-3 input-field" type="text" id="registerUsername" placeholder="Username" ref={(c) => registerUsername = c} /><br />
           <input className="mt-3 input-field" type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} /><br />
-          <input className="mt-4 login-btn" type="submit" id="registerButton"  value = "Register" onClick={doRegister} />
+          <input className="mt-4 variant1-btn" type="submit" id="registerButton"  value = "Register" onClick={doRegister} />
           </form>
-          <button className="mt-2 signUp-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
+          <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
           <span className="mt-2" id="registerResult">{message}</span>
 
        </div>
