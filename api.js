@@ -167,7 +167,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
       const { search } = req.body;
       
       const db = client.db("StudyBuddy");
-      const results = await db.collection('users').find({username:{$regex:search+'.*', $options:'r'}}).toArray(); //CRASHES APP
+      const results = await db.collection('users').find({"username":{$regex:search+'.*', $options:'r'}}).toArray(); //CRASHES APP
       
       var ret = [];
       
