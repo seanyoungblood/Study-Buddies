@@ -164,15 +164,16 @@ app.post('/api/searchGroups', async (req, res, next) =>
     
       var error = '';
     
-      const { search } = req.body;
+      const { username } = req.body;
       
       const db = client.db("StudyBuddy");
-      const results = await db.collection('users').find({"username":{$regex:search+'.*', $options:'r'}}).toArray();
+      const results = await db.collection('users').find({"username":{$regex:username+'.*', $options:'r'}}).toArray();
       
       var ret = [];
       for( var i=0; i<results.length; i++ )
       {
-        ret.push( results[i].username );
+        ret.push( results[i].firstName );
+       ret.push( results[i].lastName );
       }
       
       var ret = {results:_ret, error:error};
