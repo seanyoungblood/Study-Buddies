@@ -1,6 +1,5 @@
 import React, { useState , useContext} from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../useContext/LoginContext';
 
 import "../css/LoginRegisterGroupPage.css"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
@@ -34,7 +33,7 @@ function buildPath(route)
     {
         event.preventDefault();
 
-        var obj = {login:loginName.value,password:loginPassword.value};
+        var obj = {username:loginName.value,password:loginPassword.value};
         var js = JSON.stringify(obj);
         console.log(obj);
         try
