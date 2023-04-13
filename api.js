@@ -164,11 +164,11 @@ app.post('/api/searchGroups', async (req, res, next) =>
     
       var error = '';
     
-      const { username } = req.body;
+      const { search } = req.body;
       
       const db = client.db("StudyBuddy");
-      const results = await db.collection('users').find({"username":{$regex:username+'.*', $options:'r'}}).toArray(); //CRASHES APP
-      /*
+      const results = await db.collection('users').find({username:{$regex:search+'.*', $options:'r'}}).toArray(); //CRASHES APP
+      
       var ret = [];
       
       for( var i=0; i<results.length; i++ )
@@ -176,8 +176,8 @@ app.post('/api/searchGroups', async (req, res, next) =>
         ret.push( results[i].firstName );
        ret.push( results[i].lastName );
       }
-      */
-      var ret2 = {results:username, error:error};
+      
+      var ret2 = {results:ret, error:error};
       res.status(200).json(ret2);
 
 });
