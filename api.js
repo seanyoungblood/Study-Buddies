@@ -161,7 +161,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
     
       var error = '';
     
-      const { search } = req.body;
+      const { username, search } = req.body;
       
       const db = client.db("StudyBuddy");
       
