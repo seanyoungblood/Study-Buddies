@@ -155,7 +155,6 @@ app.post('/api/createGroup', async (req, res, next) =>
 });
 
 // SEARCH GROUPS API
-// Returns Array[0]
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchGroups', async (req, res, next) => 
 {
@@ -166,18 +165,16 @@ app.post('/api/searchGroups', async (req, res, next) =>
       var error = '';
     
       const { search } = req.body;
-    
-      var _search = search.trim();
       
       const db = client.db("StudyBuddy");
-      const results = await db.collection('users').find({"username":{$regex:_search+'.*', $options:'r'}}).toArray();
+      const results = await db.collection('users').find({"username":{$regex:search+'.*', $options:'r'}}).toArray();
       
-      var _ret = [];
+      var ret = [];
       for( var i=0; i<results.length; i++ )
       {
-        _ret.push( results[i].username );
-          _ret.push( results[i].firstName );
-          _ret.push( results[i].lastName );
+        ret.push( results[i].username );
+          ret.push( results[i].firstName );
+          ret.push( results[i].lastName );
       }
       
       var ret = {results:_ret, error:error};
