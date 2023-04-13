@@ -173,8 +173,6 @@ app.post('/api/searchGroups', async (req, res, next) =>
       for( var i=0; i<results.length; i++ )
       {
         ret.push( results[i].username );
-          ret.push( results[i].firstName );
-          ret.push( results[i].lastName );
       }
       
       var ret = {results:_ret, error:error};
