@@ -11,8 +11,7 @@ exports.setApp = function ( app, client )
 // Implement JWT.
 app.post('/api/login', async (req, res, next) => 
 {    
-    app.post('/api/login', async (req, res, next) => 
-{    
+ 
     var error = '';
     
     const { login, password } = req.body;
