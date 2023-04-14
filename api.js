@@ -183,6 +183,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
        ret.push( results[i].location );
         ret.push( results[i].members );
        ret.push( results[i].reviews );
+       ret.push("$"); // Symbol to denote the next group loaded
       }
       
       var ret2 = {results:ret, error:error};
