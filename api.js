@@ -164,25 +164,10 @@ app.post('/api/searchGroups', async (req, res, next) =>
     
       var error = '';
     
-      const { filter, search } = req.body;
+      const {search } = req.body;
  
-     if (filter.localeCompare("groupName") == 0) 
-     {
          const db = client.db("StudyBuddy");
       const results = await db.collection('groups').find({groupName:{$regex:search+'.*'}}).toArray(); 
-     }
-     else if (filter.localeCompare("course") == 0) 
-     {
-         const db = client.db("StudyBuddy");
-      const results = await db.collection('groups').find({course:{$regex:search+'.*'}}).toArray(); 
-     }
-     else if (filter.localeCompare("description") == 0) 
-     {
-         const db = client.db("StudyBuddy");
-      const results = await db.collection('groups').find({description:{$regex:search+'.*'}}).toArray(); 
-     }
-      
-     
 
       
       var ret = [];
