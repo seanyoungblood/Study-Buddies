@@ -59,7 +59,6 @@ const navigate = useNavigate();
             else
             {
                 var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
-                console.log(user);
                 // setCurrentUser(user);
                 localStorage.setItem('user_data', JSON.stringify(user));
                 
