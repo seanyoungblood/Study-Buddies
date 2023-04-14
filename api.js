@@ -155,6 +155,7 @@ app.post('/api/createGroup', async (req, res, next) =>
 });
 
 // SEARCH GROUPS API
+ // GET FILTER WORKING
 // Wait until all APIs are complete to implement JWT.
 app.post('/api/searchGroups', async (req, res, next) => 
 {
