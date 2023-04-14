@@ -24,6 +24,8 @@ function buildPath(route)
     }
 }
 
+
+const navigate = useNavigate();
   var loginName;
     var loginPassword;
 
@@ -62,7 +64,9 @@ function buildPath(route)
                 localStorage.setItem('user_data', JSON.stringify(user));
                 
                 setMessage('Works');
+                navigate("/");
                 // window.location.href = '/';
+
             }
         }
         catch(e)
@@ -73,7 +77,6 @@ function buildPath(route)
     };
 
 
-    const navigate = useNavigate();
 
     const handleLogoClick = (e) => {
       e.preventDefault();
