@@ -181,6 +181,8 @@ app.post('/api/searchGroups', async (req, res, next) =>
        ret.push( results[i].dates );
        ret.push( results[i].time );
        ret.push( results[i].location );
+        ret.push( results[i].members );
+       ret.push( results[i].reviews );
       }
       
       var ret2 = {results:ret, error:error};
