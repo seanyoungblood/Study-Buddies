@@ -192,7 +192,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
        ret.push("$"); // Symbol to denote the next group loaded
       }
       
-      var ret2 = {results:ret, error:error};
+      var ret2 = {filter:filter, results:ret, error:error};
       res.status(200).json(ret2);
 
 });
