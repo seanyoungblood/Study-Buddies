@@ -170,7 +170,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
          const db = client.db("StudyBuddy");
 
       const results = await db.collection('groups').find(
-       {$and:[
+       {$or:[
         {groupName:{$regex:search+'.*'}},
         {course:{$regex:search+'.*'}},
         {description:{$regex:search+'.*'}}
