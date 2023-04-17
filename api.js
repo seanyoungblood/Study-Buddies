@@ -188,6 +188,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
        ret.push( results[i].location );
         ret.push( results[i].members );
        ret.push( results[i].reviews );
+       /*
        if ((results[i].groupName).contains(search)) {
           ret.push("by groupName");
        }
@@ -197,7 +198,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
        else if ((results[i].description).contains(search)) {
           ret.push("by description");
        }
-
+       */
       }
       
       var ret2 = {field:field, results:ret, error:error};
