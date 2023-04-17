@@ -134,9 +134,9 @@ app.delete('/api/deleteUser', async (req, res, next) =>
 // Implement JWT.
 app.post('/api/createGroup', async (req, res, next) =>
 {
-    const { groupName, course, description, date, time, location} = req.body;
+    const { groupName, course, description, dates, time, location} = req.body;
 
-    const newGroup = {groupName:groupName,course:course,description:description,date:date,time:time,location:location};
+    const newGroup = {groupName:groupName,course:course,description:description,dates:dates,time:time,location:location};
     var error = '';
     console.log(newGroup);
     try
@@ -166,13 +166,9 @@ app.post('/api/searchGroups', async (req, res, next) =>
       var error = '';
     
       const { field, search } = req.body;
- 
- if (field == "groupName") {
- 
+
          const db = client.db("StudyBuddy");
-      const results = await db.collection('groups').find({groupName:{$regex:search+'.*'}}).toArray(); 
-  
- }
+      const results = await db.collection('groups').find({field},{field:{$regex:search+'.*'}}).toArray(); 
 
 /*
  const { search } = req.body;
