@@ -168,8 +168,12 @@ app.post('/api/searchGroups', async (req, res, next) =>
       const { field, search } = req.body;
       
          const db = client.db("StudyBuddy");
-      //const filter = await db.collection('filters').find({name:{$regex:field+'.*'}});
-      const results = await db.collection('groups').find({field:{$regex:search+'.*'}}).toArray(); 
+      const results = await db.collection('groups').find(
+       {$or:[
+        {groupName:{$regex:search+'.*'}},
+        {course:{$regex:search+'.*'}},
+        {description:{$regex:search+'.*'}}
+       ]}).toArray(); 
 /*
  const { search } = req.body;
  
