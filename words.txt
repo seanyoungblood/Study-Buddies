@@ -1,3 +1,45 @@
+app.post('/api/searchGroups', async (req, res, next) => 
+{
+
+   // incoming: userId, search
+      // outgoing: results[], error
+    
+      var error = '';
+    
+      const { field, search } = req.body;
+      
+         const db = client.db("StudyBuddy");
+
+      const results = await db.collection('groups').find(
+       {$or:[
+        {groupName:{$regex:search+'.*'}},
+        {course:{$regex:search+'.*'}},
+        {description:{$regex:search+'.*'}}
+       ]}).toArray(); 
+      
+      var ret = [];
+      
+      for( var i=0; i<results.length; i++ )
+      {
+        ret.push( results[i].groupName );
+        ret.push( results[i].course );
+       ret.push( results[i].description );
+       ret.push( results[i].dates );
+       ret.push( results[i].time );
+       ret.push( results[i].location );
+        ret.push( results[i].members );
+       ret.push( results[i].reviews );
+       ret.push("$");
+       
+      }
+      
+      var ret2 = {field:field, search:search, results:ret, error:error};
+      res.status(200).json(ret2);
+
+});
+
+
+
 app.post('/api/login', async (req, res, next) => 
 {    
  
