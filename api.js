@@ -168,7 +168,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
       const { field, search } = req.body;
  
          const db = client.db("StudyBuddy");
-      const results = await db.collection('groups').find({field:{$search:{$regex:search+'.*'}}}).toArray(); 
+      const results = await db.collection('groups').find({field:{$regex:search+'.*'}}).toArray(); 
 /*
  const { search } = req.body;
  
