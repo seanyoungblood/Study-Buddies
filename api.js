@@ -168,8 +168,8 @@ app.post('/api/searchGroups', async (req, res, next) =>
       const { field, search } = req.body;
       
          const db = client.db("StudyBuddy");
-      const filter = await db.collection('filters').find({name:{$regex:field+'.*'}});
-      const results = await db.collection('groups').find({filter:{$regex:search+'.*'}}).toArray(); 
+      //const filter = await db.collection('filters').find({name:{$regex:field+'.*'}});
+      const results = await db.collection('groups').find({field:{$regex:search+'.*'}}).toArray(); 
 /*
  const { search } = req.body;
  
@@ -192,7 +192,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
        ret.push("$"); // Symbol to denote the next group loaded
       }
       
-      var ret2 = {filter:filter, results:ret, error:error};
+      var ret2 = {field:field, results:ret, error:error};
       res.status(200).json(ret2);
 
 });
