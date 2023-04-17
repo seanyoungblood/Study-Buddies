@@ -165,12 +165,17 @@ app.post('/api/searchGroups', async (req, res, next) =>
     
       var error = '';
     
-      const { search } = req.body;
+      const { field, search } = req.body;
  
          const db = client.db("StudyBuddy");
-      const results = await db.collection('groups').find({groupName:{$regex:search+'.*'}}).toArray(); 
-
-      
+      const results = await db.collection('groups').find({field:{$search:{$regex:search+'.*'}}}).toArray(); 
+/*
+ const { search } = req.body;
+ 
+         const db = client.db("StudyBuddy");
+      const results = await db.collection('groups').find({groupName:{$regex:search+'.*'}}).toArray();      
+ 
+ */
       var ret = [];
       
       for( var i=0; i<results.length; i++ )
