@@ -180,15 +180,6 @@ app.post('/api/searchGroups', async (req, res, next) =>
       
       for( var i=0; i<results.length; i++ )
       {
-       if ((results[i].groupName).contains(search)) {
-          ret.push("by groupName");
-       }
-       else if ((results[i].course).contains(search)) {
-          ret.push("by course");
-       }
-       else if ((results[i].description).contains(search)) {
-          ret.push("by description");
-       }
         ret.push( results[i].groupName );
         ret.push( results[i].course );
        ret.push( results[i].description );
