@@ -176,13 +176,6 @@ app.post('/api/searchGroups', async (req, res, next) =>
         {description:{$regex:search+'.*'}}
        ]}).toArray(); 
       
-/*
- const { search } = req.body;
- 
-         const db = client.db("StudyBuddy");
-      const results = await db.collection('groups').find({groupName:{$regex:search+'.*'}}).toArray();      
- 
- */
       var ret = [];
       
       for( var i=0; i<results.length; i++ )
@@ -195,7 +188,17 @@ app.post('/api/searchGroups', async (req, res, next) =>
        ret.push( results[i].location );
         ret.push( results[i].members );
        ret.push( results[i].reviews );
-       ret.push("$"); // Symbol to denote the next group loaded
+       if ((results[i].field.contains(search)) {
+          ret.push("by " + field);
+       }
+ /*
+       else if ((results[i].course).contains(search)) {
+          ret.push("by course");
+       }
+       else if ((results[i].description).contains(search)) {
+          ret.push("by description");
+       }
+       */
       }
       
       var ret2 = {field:field, results:ret, error:error};
