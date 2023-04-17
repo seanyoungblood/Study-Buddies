@@ -188,10 +188,11 @@ app.post('/api/searchGroups', async (req, res, next) =>
        ret.push( results[i].location );
         ret.push( results[i].members );
        ret.push( results[i].reviews );
+       ret.push("$");
        
       }
       
-      var ret2 = {field:field, results:ret, error:error};
+      var ret2 = {field:field, search:search, results:ret, error:error};
       res.status(200).json(ret2);
 
 });
