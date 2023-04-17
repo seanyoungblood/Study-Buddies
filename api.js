@@ -180,15 +180,6 @@ app.post('/api/searchGroups', async (req, res, next) =>
       
       for( var i=0; i<results.length; i++ )
       {
-        ret.push( results[i].groupName );
-        ret.push( results[i].course );
-       ret.push( results[i].description );
-       ret.push( results[i].dates );
-       ret.push( results[i].time );
-       ret.push( results[i].location );
-        ret.push( results[i].members );
-       ret.push( results[i].reviews );
-       /*
        if ((results[i].groupName).contains(search)) {
           ret.push("by groupName");
        }
@@ -198,7 +189,15 @@ app.post('/api/searchGroups', async (req, res, next) =>
        else if ((results[i].description).contains(search)) {
           ret.push("by description");
        }
-       */
+        ret.push( results[i].groupName );
+        ret.push( results[i].course );
+       ret.push( results[i].description );
+       ret.push( results[i].dates );
+       ret.push( results[i].time );
+       ret.push( results[i].location );
+        ret.push( results[i].members );
+       ret.push( results[i].reviews );
+       
       }
       
       var ret2 = {field:field, results:ret, error:error};
