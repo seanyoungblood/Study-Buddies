@@ -173,10 +173,7 @@ app.post('/api/searchGroups', async (req, res, next) =>
       const results = await db.collection('groups').find({groupName:{$regex:search+'.*'}}).toArray(); 
   
  }
- else {
-     res.status(200).json({error:error});
-     return;
- }
+
 /*
  const { search } = req.body;
  
