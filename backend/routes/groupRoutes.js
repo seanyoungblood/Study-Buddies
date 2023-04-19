@@ -7,6 +7,7 @@ const {
     leaveGroup,
     editGroup,
     deleteGroup,
+    editRating,
 } = require('../controllers/groupController')
 const { protect } = require('../middleware/authMiddleware')
 
@@ -18,5 +19,6 @@ router.route('/joinGroup').post(protect, joinGroup)
 router.route('/leaveGroup').post(protect, leaveGroup)
 router.route('/editGroup').put(editGroup)
 router.route('/deleteGroup').delete(deleteGroup)
+router.route('/editRating').put(editRating)
 
 module.exports = router
