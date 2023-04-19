@@ -136,6 +136,34 @@ const leaveGroup = asyncHandler(async (req, res) => {
 
 })*/
 
+const editGroup = asyncHandler(async (req, res) => { 
+
+    var error = '';
+
+    const {groupName, course, description, date, time, location} = req.body;
+
+    // const db = client.db("StudyBuddy");
+    //db.collection('groups').findOneAndUpdate({groupName:groupName}, { $set: {
+        groupie.findOneAndUpdate({groupName:groupName}, { $set: {
+        "course":course,
+        "description":description,
+        "date":date,
+        "time":time,
+        "location":location
+    } })
+    
+    var ret = {
+        groupName:groupName,
+        course:course,
+        description:description,
+        date:date,
+        time:time,
+        location:location,
+        error:'' };
+    res.status(200).json(ret);
+
+})
+
 
 const searchGroup = asyncHandler(async (req, res) => {
     var error = '';
@@ -161,6 +189,7 @@ module.exports = {
     searchGroup,
     joinGroup,
     leaveGroup,
+    editGroup,
 }
 
 
