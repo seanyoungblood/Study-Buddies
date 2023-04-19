@@ -6,6 +6,7 @@ const { registerUser,
         searchUser,
         loadRandUser,
       editUser,
+       addClasses,
       } = require('../controllers/userController')
 const { protect } = require('../middleware/authMiddleware')
 
@@ -15,6 +16,7 @@ router.get('/me', protect, getMe)
 router.get('/searchUser', searchUser)
 router.get('/loadRandUser', loadRandUser)
 router.put('/editUser', editUser)
+router.put('/addClasses', addClasses)
 
 
 module.exports = router
