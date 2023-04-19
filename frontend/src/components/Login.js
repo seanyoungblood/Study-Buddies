@@ -8,8 +8,9 @@ import { AuthContext } from '../useContext/LoginContext';
 
 function Login()
 {
-  const [currentUser, setCurrentUser] = useContext(AuthContext);
-  //  const {currentUser, setCurrentUser} = useContext(AuthContext);
+  // const [currentUser] = useContext(AuthContext);
+  
+    const {currentUser, setCurrentUser} = useContext(AuthContext);
 
  const app_name = 'cop-study-buddy-1000'
 
@@ -83,11 +84,7 @@ const navigate = useNavigate();
 
     const handleLogoClick = (e) => {
       e.preventDefault();
-
       navigate("/");
-
-
-
     }
 
     return(
