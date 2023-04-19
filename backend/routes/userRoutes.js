@@ -7,8 +7,7 @@ const { registerUser,
         loadRandUser,
         editUser,
         addClasses, 
-        deleteUser,
-                        } = require('../controllers/userController')
+        deleteUser, } = require('../controllers/userController')
 const { protect } = require('../middleware/authMiddleware')
 
 router.post('/register', registerUser)
