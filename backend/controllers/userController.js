@@ -200,6 +200,35 @@ const loadRandUser =  asyncHandler(async (req, res) => {
     }
 })
 
+const editUser = asyncHandler(async (req, res) => {
+    var error = '';
+
+    const {firstName, lastName, username, password, phone, email, major} = req.body;
+
+    //const db = client.db("StudyBuddy");
+    //db.collection('users').findOneAndUpdate({username:username}, { $set: {
+        User2.findOneAndUpdate({username:username}, { $set: {
+        "firstName":firstName,
+        "lastName":lastName,
+        "password":password,
+        "phone":phone,
+        "email":email,
+        "major":major,
+    } })
+    
+    var ret = {
+        firstName:firstName,
+        lastName:lastName,
+        username:username,
+        password:password,
+        phone:phone,
+        email:email,
+        major:major,
+        error:'' };
+    res.status(200).json(ret);
+
+})
+
 
 
 
@@ -236,4 +265,5 @@ module.exports = {
     getMe,
     searchUser,
     loadRandUser,
+    editUser,
 }
