@@ -199,22 +199,41 @@ const editRating = asyncHandler(async (req, res) => {
 
 
 const searchGroup = asyncHandler(async (req, res) => {
-    var error = '';
+    // incoming: userId, search
+      // outgoing: results[], error
+    
+      var error = '';
+    
+      const { field, search } = req.body;
+      
+        // const db = client.db("StudyBuddy");
 
-    const { groupId, search } = req.body;
-    var _search = search.trim();
-
-    const db = client.db("StudyBuddy");
-    const results = await db.collection('groups').find({ "groups":{$regex:_search+'.*', $options:'r'} }).toArray();
-    var _ret = [];
-
-    for (var i = 0; i < results.length; i++)
-    {
-        _ret.push( results[i].Groups );
-    }
-
-    var ret = { results:_ret, error:''};
-    res.status(200).json(ret);
+      // const results = await db.collection('groups').find(
+        const results = await groupie.find(
+       {$or:[
+        {groupName:{$regex:search+'.*'}},
+        {course:{$regex:search+'.*'}},
+        {description:{$regex:search+'.*'}}
+       ]}).toArray(); 
+      
+      var ret = [];
+      
+      for( var i=0; i<results.length; i++ )
+      {
+        ret.push( results[i].groupName );
+        ret.push( results[i].course );
+       ret.push( results[i].description );
+       ret.push( results[i].date );
+       ret.push( results[i].time );
+       ret.push( results[i].location );
+        ret.push( results[i].members );
+       ret.push( results[i].reviews );
+       ret.push("$");
+       
+      }
+      
+      var ret2 = {field:field, search:search, results:ret, error:error};
+      res.status(200).json(ret2);
 })
 
 module.exports = {
