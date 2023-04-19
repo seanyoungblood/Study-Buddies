@@ -7,6 +7,7 @@ const { registerUser,
         loadRandUser,
       editUser,
        addClasses,
+       deleteUser,
       } = require('../controllers/userController')
 const { protect } = require('../middleware/authMiddleware')
 
