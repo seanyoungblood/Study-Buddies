@@ -229,6 +229,29 @@ const editUser = asyncHandler(async (req, res) => {
 
 })
 
+const addClasses = asyncHandler(async (req, res) => {
+
+    var error = '';
+
+    const {username, class0, class1, class2, class3, class4, class5} = req.body;
+
+    //const db = client.db("StudyBuddy");
+    //db.collection('users').findOneAndUpdate({username:username}, { $set: {
+        User2.findOneAndUpdate({username:username}, { $set: {
+        "classesTaking.0":class0,
+        "classesTaking.1":class1,
+        "classesTaking.2":class2,
+        "classesTaking.3":class3,
+        "classesTaking.4":class4,
+        "classesTaking.5":class5
+    } })
+
+    var ret = {
+        error:'' };
+    res.status(200).json(ret);
+
+})
+
 
 
 
@@ -266,4 +289,5 @@ module.exports = {
     searchUser,
     loadRandUser,
     editUser,
+    addClasses,
 }
