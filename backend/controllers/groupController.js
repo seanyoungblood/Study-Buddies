@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const Group = require('../models/groupModel')
 const User = require('../models/userModel')
-//const { group } = require('console') NOT SURE WHERE THIS LINE CAME FROM BUT NOT CAUSING ANY ISSUE
+const { group } = require('console') // NOT SURE WHERE THIS LINE CAME FROM BUT NOT CAUSING ANY ISSUE
 
 const {MongoClient} = require('mongodb')
 const client = new MongoClient(process.env.MONGO_URI)
