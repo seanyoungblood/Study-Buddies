@@ -179,6 +179,23 @@ const deleteGroup = asyncHandler(async (req, res) => {
 
 })
 
+const editRating = asyncHandler(async (req, res) => { 
+
+    var error = '';
+
+    const {username, groupName, rating} = req.body;
+
+    // const db = client.db("StudyBuddy");
+    // db.collection('groups').updateOne({groupName:groupName}, { $push: {
+    groupie.updateOne({groupName:groupName}, { $push: {
+        "reviews":rating
+    } })
+
+    var ret = {
+        error:'' };
+    res.status(200).json(ret);
+
+
 
 const searchGroup = asyncHandler(async (req, res) => {
     var error = '';
@@ -206,6 +223,7 @@ module.exports = {
     leaveGroup,
     editGroup,
     deleteGroup,
+    editRating,
 }
 
 
