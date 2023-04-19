@@ -21,10 +21,7 @@
       "mongodb": "^5.1.0",
       "mongoose": "^7.0.1",
       "body-parser": "^1.20.2",
-      "cors": "^2.8.5",
-      "mailgun":"^0.5.0",
-        "mailgun.js":"^8.2.1",
-        "form-data":"^4.0.0"
+      "cors": "^2.8.5"
         
       
     },
