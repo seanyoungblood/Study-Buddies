@@ -17,6 +17,7 @@ router.get('/searchUser', searchUser)
 router.get('/loadRandUser', loadRandUser)
 router.put('/editUser', editUser)
 router.put('/addClasses', addClasses)
+router.delete('/deleteUser', deleteUser)
 
 
 module.exports = router
