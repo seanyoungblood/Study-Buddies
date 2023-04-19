@@ -67,6 +67,7 @@ const navigate = useNavigate();
                 setCurrentUser(user);
                 
                 setMessage('Works');
+                console.log(user);
                 console.log(currentUser);
                 navigate("/");
                 // window.location.href = '/';
