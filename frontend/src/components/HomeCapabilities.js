@@ -8,7 +8,7 @@ const HomeCapabilities = () => {
 
             <div className="home-rows">
 			<div className="capability-col">
-				<h3>MAJOR</h3>
+				<h3>stUDY Groups</h3>
 				<p>Find out information about your intended major!<br></br><br></br>Read reviews from other students and requirements for that major.</p>
 			</div>
 			<div className="capability-col">
