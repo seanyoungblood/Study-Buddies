@@ -3,11 +3,12 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 import "../css/LoginRegisterGroupPage.css"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
+import { AuthContext } from '../useContext/LoginContext';
 
 
 function Login()
 {
-
+  const [currentUser, setCurrentUser] = useContext(AuthContext);
   //  const {currentUser, setCurrentUser} = useContext(AuthContext);
 
  const app_name = 'cop-study-buddy-1000'
@@ -61,8 +62,11 @@ const navigate = useNavigate();
                 var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
                 // setCurrentUser(user);
                 localStorage.setItem('user_data', JSON.stringify(user));
+
+                setCurrentUser(user);
                 
                 setMessage('Works');
+                console.log(currentUser);
                 navigate("/");
                 // window.location.href = '/';
 
