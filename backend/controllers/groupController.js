@@ -162,7 +162,7 @@ const searchGroup = asyncHandler(async (req, res) => {
         ret.push( results[i].groupName );
         ret.push( results[i].course );
        ret.push( results[i].description );
-       ret.push( results[i].dates );
+       ret.push( results[i].date );
        ret.push( results[i].time );
        ret.push( results[i].location );
         ret.push( results[i].members );
@@ -180,14 +180,14 @@ const editGroup = asyncHandler(async (req, res) => {
 
     var error = '';
 
-    const {groupName, course, description, dates, time, location} = req.body;
+    const {groupName, course, description, date, time, location} = req.body;
 
     // const db = client.db("StudyBuddy");
     //db.collection('groups').findOneAndUpdate({groupName:groupName}, { $set: {
         groupie.findOneAndUpdate({groupName:groupName}, { $set: {
         "course":course,
         "description":description,
-        "dates":dates,
+        "date":date,
         "time":time,
         "location":location
     } })
@@ -196,7 +196,7 @@ const editGroup = asyncHandler(async (req, res) => {
         groupName:groupName,
         course:course,
         description:description,
-        dates:dates,
+        date:date,
         time:time,
         location:location,
         error:'' };
