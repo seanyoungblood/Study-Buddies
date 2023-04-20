@@ -12,7 +12,7 @@ const ProfileContent = () => {
                 <h1 className="textbox profile-header">Classes</h1>
                 {currentUser.classesTaking.map((c)=>(
                     <div key={c.id}>
-                        <p>{!c & c}</p>
+                        <p>{c & c}</p>
                     </div>
                 ))}</div>
 
