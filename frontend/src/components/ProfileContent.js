@@ -5,7 +5,7 @@ const ProfileContent = () => {
     return ( 
         <div className="row text-center mt-5">
             <div className="col-6">
-                <h1 className="textbox profile-header">Classes Taking</h1>
+                <h1 className="textbox profile-header">Classes</h1>
                 <p className='text-center mb-5'> COP4200 - Programming Languages <br />
                     COT4035 - Big Discrete <br />
                     TTYL400 - Knight’s Library <br />

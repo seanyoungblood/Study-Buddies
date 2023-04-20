@@ -3,6 +3,11 @@ import "../css/StudyPage.css";
 const Content = () => {
     return ( 
         <section className="group-section">
+            <div class="search-bar">
+                <input type="text" placeholder="Search"></input>
+                {/* <button type="submit"><i class="fas fa-search"></i></button> */}
+            </div>
+
             <div id="group-info-box">
                 <div id="group-name">Group Name Example</div>
                 <div class="group-details" className="study-rows">
