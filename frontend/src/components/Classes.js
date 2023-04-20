@@ -60,8 +60,6 @@ function buildPath(route)
             }
             else
             {
-                var users = {firstName:res.firstName,lastName:res.lastName,id:res._id}
-                console.log(users);
                 // setCurrentUser(user);
                 localStorage.setItem('user_data', JSON.stringify(user));
                 const user = currentUser;
