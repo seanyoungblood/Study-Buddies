@@ -46,8 +46,8 @@ function buildPath(route)
         console.log(obj);
         try
         {    
-            const response = await fetch(buildPath('api/addClasses'),
-            {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+            const response = await fetch(buildPath('api/addClasses/${encodeURIComponent(user_data)}'),
+            {method:'POST',body:js,headers:{'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}});
           
             var res = JSON.parse(await response.text());
             console.log(res)
