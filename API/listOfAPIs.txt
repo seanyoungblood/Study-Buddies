@@ -1,9 +1,9 @@
 Users:
-[X] Login               Implemented Web [X]
-[X] Register            Implemented Web [X]
-[X] Edit User           Implemented Web [ ]
-[X] Add Classes         Implemented Web [/]
-[X] Delete User :(      Implemented Web [ ]
+[X] Login                               Implemented Web [X]
+[X] Register                            Implemented Web [X]
+[X] Edit User                           Implemented Web [ ]
+[X] Add Classes                         Implemented Web [/]
+[X] Delete User :(                      Implemented Web [ ]
 
 Groups:
 [X] Create Group                        Implemented Web [ ]
