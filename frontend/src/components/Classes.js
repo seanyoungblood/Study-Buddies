@@ -63,7 +63,7 @@ function buildPath(route)
                 localStorage.setItem('user_data', JSON.stringify(user));
                 const user = currentUser;
                 
-                user.classesTaking = [class1,class2,class3,class4,class5,class6];
+                user.classesTaking = [Class1,Class2,Class3,Class4,Class5,Class6];
                 setCurrentuser(user);
                 console.log(currentUser)
                 setMessage('Works');
