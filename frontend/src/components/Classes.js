@@ -90,7 +90,7 @@ function buildPath(route)
     const handleLogoClick = (e) => {
       e.preventDefault();
 
-      navigate("/");
+      navigate("/profile");
 
 
 
