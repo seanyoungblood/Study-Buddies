@@ -32,19 +32,19 @@ const StudyRooms = () => {
 			<div className="study-col">
 				<img src={ucf_7}></img>
 				<div className="y-layer">
-					<h3>Downtown</h3>
+					<h3><a href="https://library.ucf.edu/about/libraries/downtown/" target="_blank">Downtown</a></h3>
 				</div>
 			</div>
 			<div className="study-col">
 				<img src={ucf_6}></img>
 				<div className="y-layer">
-					<h3>Curriculum<br></br>Materials<br></br>Center</h3>
+					<h3><a href="https://library.ucf.edu/about/libraries/curriculum-materials-center/" target="_blank">Curriculum<br></br>Materials<br></br>Center</a></h3>
 				</div>
 			</div>
 			<div className="study-col">
 				<img src={ucf_16}></img>
 				<div className="y-layer">
-					<h3>UCF Connect<br></br>Libraries</h3>
+					<h3><a href="https://library.ucf.edu/about/libraries/" target="_blank">UCF Connect<br></br>Libraries</a></h3>
 				</div>
 			</div>
 		</div>
