@@ -19,6 +19,6 @@ router.route('/joinGroup').post(protect, joinGroup)
 router.route('/leaveGroup').post(protect, leaveGroup)
 router.route('/editGroup').post(editGroup) // NEEDS TO IMPLEMENT put
 router.route('/deleteGroup').delete(deleteGroup)
-router.route('/editRating').put(editRating)
+router.route('/editRating').post(editRating) // NEEDS TO IMPLEMENT put
 
 module.exports = router
