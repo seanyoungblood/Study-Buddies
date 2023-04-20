@@ -5,9 +5,9 @@ const colors = require('colors')
 const {errorHandler} = require('./backend/middleware/errorMiddleware')
 const connectDB = require('./backend/config/db')
 const port = process.env.PORT || 5000
-const cors = require('cors');
-app.use(cors());
-app.options('*', cors());
+// const cors = require('cors');
+// app.use(cors());
+// app.options('*', cors());
 
 
 connectDB()
