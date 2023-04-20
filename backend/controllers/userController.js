@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
+const formData = require('form-data');
+const Mailgun = require('mailgun.js');
 
 const {MongoClient} = require('mongodb')
 const client = new MongoClient(process.env.MONGO_URI)
@@ -36,6 +38,19 @@ const registerUser = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Username is already taken')
     }
+    
+    const mailgun = new Mailgun(formData);
+    const mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY || 'key-yourkeyhere'});
+
+    mg.messages.create('sandbox-123.mailgun.org', {
+	from: "Excited User sandbox31f0bacb816241a0887ea149fed59430.mailgun.org",
+	to: email,
+	subject: "Hello",
+	text: "Testing some Mailgun awesomeness!",
+	html: "<h1>Testing some Mailgun awesomeness!</h1>"
+})
+.then(msg => console.log(msg)) // logs response data
+.catch(err => console.log(err)); // logs any error
 
     // Hashes the Password
     const salt = await bcrypt.genSalt(10)
