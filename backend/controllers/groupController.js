@@ -189,7 +189,7 @@ const editRating = asyncHandler(async (req, res) => {
     // db.collection('groups').updateOne({groupName:groupName}, { $push: {
     groupie.updateOne({groupName:groupName}, { $push: {
     //groupie.findOneAndUpdate({groupName:groupName}, { $set: {
-        "rating":rating
+        "reviews":rating
     } })
 
     var ret = {
