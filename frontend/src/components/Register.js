@@ -11,6 +11,8 @@ function Register()
     let registerLastName;
     let registerUsername;
     let registerPassword;
+    let phone;
+    let email;
 
     const [message,setMessage] = useState('');
 
@@ -31,7 +33,7 @@ function Register()
 
         event.preventDefault();
 
-        var obj = {firstName:registerFirstName.value, lastName:registerLastName.value, username:registerUsername.value, password:registerPassword.value};
+        var obj = {firstName:registerFirstName.value, lastName:registerLastName.value, username:registerUsername.value, password:registerPassword.value, phone:phone.value,email:email.value};
         var js = JSON.stringify(obj);
         console.log(obj);
 
@@ -91,8 +93,8 @@ function Register()
           <input className="mt-3 input-field" type="text" id="registerLastName" placeholder="Last Name" ref={(c) => registerLastName = c} /><br />
           <input className="mt-3 input-field" type="text" id="registerUsername" placeholder="Username" ref={(c) => registerUsername = c} /><br />
           <input className="mt-3 input-field" type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} /><br />
-          <input className="mt-3 input-field"  type="phone" placeholder='Phone Number' /><br />
-          <input className="mt-3 input-field"  type="email" placeholder='Email' /><br />
+          <input className="mt-3 input-field"  type="phone" placeholder='Phone Number' ref={(c) => phone = c} /><br />
+          <input className="mt-3 input-field"  type="email" placeholder='Email' ref={(c) => email = c} /><br />
           <input className="mt-4 variant1-btn" type="submit" id="registerButton"  value = "Register" onClick={doRegister} />
           </form>
           <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
