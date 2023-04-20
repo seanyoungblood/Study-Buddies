@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import "../css/LoginRegisterGroupPage.css"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
+import { AuthContext } from '../useContext/LoginContext';
 
 
 function Register()
 {
+
+    const {currentUser, setCurrentUser} = useContext(AuthContext);
     let registerFirstName;
     let registerLastName;
     let registerUsername;
@@ -44,18 +47,25 @@ function Register()
 
             var res = JSON.parse(await response.text());
 
-            // if( res.id <= 0 )
-            // {
-            //     setMessage('User/Password combination incorrect');
-            // }
-            // else
-            // {
-            //     var user = {firstName:res.firstName,lastName:res.lastName,id:res.id}
-            //     localStorage.setItem('user_data', JSON.stringify(user));
+            if(!res._id)
+            {
+                setMessage('Please check your submission');
+            }
+            else
+            {
+                var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
+                // setCurrentUser(user);
+                localStorage.setItem('user_data', JSON.stringify(user));
 
-            //     setMessage('');
-            //     window.location.href = '/cards';
-            // }
+                setCurrentUser(res);
+                console.log(currentUser);
+                setMessage('Works');
+                console.log(user);
+
+                navigate("/");
+                // window.location.href = '/';
+
+            }
         }
         catch(e)
         {
