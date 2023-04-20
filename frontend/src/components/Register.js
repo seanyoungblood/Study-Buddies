@@ -83,7 +83,7 @@ function Register()
 
 
     return(
-        <div id="loginDiv">
+        <div id="loginDiv" style={{height:500}}>
             <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
         
           <form onSubmit={doRegister}>
@@ -91,6 +91,8 @@ function Register()
           <input className="mt-3 input-field" type="text" id="registerLastName" placeholder="Last Name" ref={(c) => registerLastName = c} /><br />
           <input className="mt-3 input-field" type="text" id="registerUsername" placeholder="Username" ref={(c) => registerUsername = c} /><br />
           <input className="mt-3 input-field" type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} /><br />
+          <input className="mt-3 input-field"  type="phone" placeholder='Phone Number' /><br />
+          <input className="mt-3 input-field"  type="email" placeholder='Email' /><br />
           <input className="mt-4 variant1-btn" type="submit" id="registerButton"  value = "Register" onClick={doRegister} />
           </form>
           <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>

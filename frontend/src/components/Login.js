@@ -8,11 +8,9 @@ import { AuthContext } from '../useContext/LoginContext';
 
 function Login()
 {
-  // const [currentUser] = useContext(AuthContext);
-  
-    const {currentUser, setCurrentUser} = useContext(AuthContext);
+  const {currentUser, setCurrentUser} = useContext(AuthContext);
 
- const app_name = 'cop-study-buddy-1000'
+  const app_name = 'cop-study-buddy-1000'
 
 function buildPath(route)
 {
