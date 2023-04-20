@@ -17,7 +17,7 @@ router.get('/me', protect, getMe)
 router.get('/searchUser', searchUser)
 router.get('/loadRandUser', loadRandUser)
 router.put('/editUser', editUser)
-router.get('/addClasses', addClasses)
+router.put('/addClasses', addClasses)
 router.delete('/deleteUser', deleteUser)
 
 
