@@ -36,7 +36,7 @@ function buildPath(route)
   var loginPassword;
 
     const [message,setMessage] = useState('');
-    const {currentUser} = useContext(AuthContext)
+    const {currentUser, setCurrentuser} = useContext(AuthContext)
     const doClasses = async event => 
     {
         event.preventDefault();
@@ -68,7 +68,11 @@ function buildPath(route)
                 console.log(user);
                 // setCurrentUser(user);
                 localStorage.setItem('user_data', JSON.stringify(user));
+                const user = currentUser;
                 
+                user.classesTaking = [class1,class2,class3,class4,class5,class6];
+                setCurrentuser(user);
+                console.log(currentUser)
                 setMessage('Works');
                 window.location.href = '/';
             }
