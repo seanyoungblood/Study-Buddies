@@ -1,18 +1,18 @@
 Users:
-[X] Login
-[X] Register
-[X] Edit User
-[X] Add Classes
-[X] Delete User :(
+[X] Login               Implemented Web [X]
+[X] Register            Implemented Web [X]
+[X] Edit User           Implemented Web [ ]
+[X] Add Classes         Implemented Web [/]
+[X] Delete User :(      Implemented Web [ ]
 
 Groups:
-[X] Create Group
-[/] Search Group
-[X] Edit Group
-[X] Delete Group
-[/] Join Group    (Easy)
-[/] Leave Group   (Easy)
-[ ] Load Group    (Similar to Search)
+[X] Create Group                        Implemented Web [ ]
+[/] Search Group                        Implemented Web [ ]
+[X] Edit Group                          Implemented Web [ ]
+[X] Delete Group                        Implemented Web [ ]
+[/] Join Group    (Easy)                Implemented Web [ ]
+[/] Leave Group   (Easy)                Implemented Web [ ]
+[ ] Load Group    (Similar to Search)   Implemented Web [ ]
 
 X = completed & working
 / = needs testing
