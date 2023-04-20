@@ -65,7 +65,6 @@ function buildPath(route)
                 user.classesTaking = [RegisterClass1,RegisterClass2,RegisterClass3,RegisterClass4,RegisterClass5,RegisterClass6];
                 setCurrentuser(user);
                 console.log(currentUser)
-              console.log('Is this working??????')
                 setMessage('Works');
                 window.location.href = '/';
             }
