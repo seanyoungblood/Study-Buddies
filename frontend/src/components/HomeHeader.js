@@ -36,7 +36,7 @@ const HomeHeader = () => {
                         <li><Link to='/profile'>PROFILE</Link></li>
                     </ul>
 			    </div>
-			    <i className="fa fa-bars" onClick={ showMenu }></i>
+			    <i className="fa fa-bars" onClick={ showMenu }>MENU</i>
             </nav>
 
             <div className="text-box">

@@ -6,10 +6,10 @@ const ProfileContent = () => {
         <div className="row text-center mt-5">
             <div className="col-6">
                 <h1 className="textbox profile-header">Classes</h1>
-                <p className='text-center mb-5'> COP4200 - Programming Languages <br />
+                <p className='text-center mb-5'> COP4200 - Programming Lang <br />
                     COT4035 - Big Discrete <br />
                     TTYL400 - Knight’s Library <br />
-                    SING100 - Introduction to Opera Singing</p>
+                    SING100 - Intro to Opera Singing</p>
             </div>
             <div className="col-6">
                 <h1 className="textbox profile-header">Groups</h1>
