@@ -100,6 +100,8 @@ const loginUser =  asyncHandler(async (req, res) => {
             "lastName": user.lastName,
             username: user.username,
             email: user.email,
+            major: user.major,
+            classesTaking: user.classesTaking,
             token: generateToken(user.id),
         })
     }
