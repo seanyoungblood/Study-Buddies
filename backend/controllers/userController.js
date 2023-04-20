@@ -99,6 +99,7 @@ const loginUser =  asyncHandler(async (req, res) => {
             "firstName": user.firstName ,
             "lastName": user.lastName,
             username: user.username,
+            phone: user.phone,//CHANGED BY ADAM
             email: user.email,
             major: user.major, //CHANGED BY ADAM
             classesTaking: user.classesTaking, //CHANGED BY ADAM
