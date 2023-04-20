@@ -6,7 +6,7 @@ const { registerUser,
         searchUser,
         loadRandUser,
       editUser,
-       addClasses,
+      addClasses,
        deleteUser,
       } = require('../controllers/userController')
 const { protect } = require('../middleware/authMiddleware')
@@ -17,7 +17,7 @@ router.get('/me', protect, getMe)
 router.get('/searchUser', searchUser)
 router.get('/loadRandUser', loadRandUser)
 router.put('/editUser', editUser)
-router.put('/addClasses', addClasses)
+router.put('/addClasses', addClassess)
 router.delete('/deleteUser', deleteUser)
 
 
