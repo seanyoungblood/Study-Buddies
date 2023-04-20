@@ -2,7 +2,7 @@ import React, { useState , useContext} from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../useContext/LoginContext';
 
-import "../css/LoginRegisterGroupPage.css"
+import "../css/InputFieldPage.css"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
 
 
@@ -104,7 +104,7 @@ function buildPath(route)
           <input className='input-field mt-1' type="text" id="groupClass3" placeholder="Group Related Class" ref={(c) => groupClass3 = c} /><br />
           <input className='input-field mt-1' type="text" id="groupClass4" placeholder="Group Related Class" ref={(c) => groupClass4 = c} /><br />
           <input className='input-field mt-1' type="text" id="groupClass5" placeholder="Group Related Class" ref={(c) => groupClass5 = c} /><br />
-          <input className='variant1-btn mt-4' type="submit" id="groupButton"  value = "Create/Edit" onClick={doGroup} />
+          <input className='variant1-btn mt-4' type="submit" id="groupButton"  value = "Upload" onClick={doGroup} />
         </form>
       <span id="groupResult">{message}</span>
      </div>
