@@ -43,7 +43,8 @@ const navigate = useNavigate();
         try
         {    
           const [ username , password ] = js;
-
+          // setCurrentUser({email: "adam",firstName:"New",lastName: "New",token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjUwZTc2OTAyMjAyMmMyODEwOGNiNyIsImlhdCI6MTY4MTk0ODcxMiwiZXhwIjoxNjg0NTQwNzEyfQ.3Ura0EvSlmN53hEprKGQ7RfJe-RRJVRld2FomDFbGT4",username: "New",_id: "64250e769022022c28108cb7"});
+          // console.log(currentUser);
           console.log(username);
           console.log(password);
           console.log(js);
@@ -65,10 +66,10 @@ const navigate = useNavigate();
                 localStorage.setItem('user_data', JSON.stringify(user));
 
                 setCurrentUser(res);
-                
+                console.log(currentUser);
                 setMessage('Works');
                 console.log(user);
-                console.log(currentUser);
+
                 navigate("/");
                 // window.location.href = '/';
 
