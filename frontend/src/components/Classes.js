@@ -47,7 +47,7 @@ function buildPath(route)
         try
         {    
           const [ username, class0, class1,class2,class3,class4,class5 ] = js;
-            const response = await fetch(buildPath('api/login'),
+            const response = await fetch(buildPath('api/addClasses'),
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
             
 
