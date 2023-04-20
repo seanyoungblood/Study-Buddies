@@ -17,7 +17,10 @@ router.get('/me', protect, getMe)
 router.get('/searchUser', searchUser)
 router.get('/loadRandUser', loadRandUser)
 router.post('/editUser', editUser) // NEEDS TO IMPLEMENT put
-router.post('/addClasses', addClasses)
+// router.route('/:id').put(protect, updateClass).delete(protect, deleteClass)
+// router.post('/addClasses', addClasses)
+router.route('/addClasses').post(protect, addClasses)
+// router.route('/addClasses/:id').put(protect, addClasses)
 router.delete('/deleteUser', deleteUser)
 
 

@@ -9,7 +9,9 @@ import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"
 function User()
 {
 
-  //  const {currentUser, setCurrentUser} = useContext(AuthContext);
+
+
+  const {currentUser, setCurrentUser} = useContext(AuthContext);
 
  const app_name = 'cop-study-buddy-1000'
 
@@ -94,9 +96,9 @@ function buildPath(route)
       <div id="userDiv">
         <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
         <form onSubmit ={doUser}>
-          <input className='input-field mt-3' type="text" id="userFirstName" placeholder="New First Name" ref={(c) => userFirstName = c} /><br />
-          <input className='input-field mt-3' type="text" id="userLastName" placeholder="New Last Name"  ref={(c) => userLastName = c} /><br />
-          <input className='input-field mt-3' type="text" id="userPhoneNumber" placeholder="New Phone Number" ref={(c) => userPhoneNumber = c} /><br />
+          <input className='input-field mt-3' type="text" id="userFirstName" placeholder="New First Name" value={currentUser.firstName} ref={(c) => userFirstName = c} /><br />
+          <input className='input-field mt-3' type="text" id="userLastName" placeholder="New Last Name" value={currentUser.lastName}  ref={(c) => userLastName = c} /><br />
+          <input className='input-field mt-3' type="text" id="userPhoneNumber" placeholder="New Phone Number" value={currentUser.phone} ref={(c) => userPhoneNumber = c} /><br />
           <input className='input-field mt-3' type="password" id="userPassword" placeholder="New Password" ref={(c) => userPassword = c} /><br />
           <input className='variant1-btn mt-3' type="submit" id="userButton"  value = "Upload" onClick={doUser} />
         </form>

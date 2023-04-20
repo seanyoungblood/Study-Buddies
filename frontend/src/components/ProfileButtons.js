@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const ProfileButtons = () => {
     return ( 
         <div className="buttonRow text-center mt-5">
-            <button id="profileButton"><Link to='/user'>Edit User</Link></button>
-            <button id="profileButton"><Link to='/classes'>Change Classes</Link></button>
-            <button id="profileButton"><Link to='/'>Delete Account</Link></button>
+           <Link id="profileButton" to='/user'>Edit User</Link>
+           <Link id="profileButton" to='/classes'>Change Classes</Link>
+           <Link id="profileButton" to='/'>Delete Account</Link>
         </div>
      );
 }
