@@ -25,12 +25,12 @@ function buildPath(route)
     }
 }
 
-  var class1;
-  var class2;
-  var class3;
-  var class4;
-  var class5;
-  var class6;
+  var Class1;
+  var Class2;
+  var Class3;
+  var Class4;
+  var Class5;
+  var Class6;
 
   var loginName;
   var loginPassword;
@@ -41,12 +41,11 @@ function buildPath(route)
     {
         event.preventDefault();
 
-        var obj = {username:currentUser.username, class0:class1, class1:class2,class2:class3,class3:class4,class4:class5,class5:class6};
+        var obj = {username:currentUser.username, class0:Class1, class1:Class2,class2:Class3,class3:Class4,class4:Class5,class5:Class6};
         var js = JSON.stringify(obj);
         console.log(obj);
         try
         {    
-          const [ username, class0, class1,class2,class3,class4,class5 ] = js;
             const response = await fetch(buildPath('api/addClasses'),
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
             
@@ -94,12 +93,12 @@ function buildPath(route)
       <div id="classDiv">
         <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
         <form onSubmit ={doClasses}>
-          <input className='input-field mt-3' type="text" id="class1" placeholder="Your Class Here" ref={(c) => class1 = c} /><br />
-          <input className='input-field mt-1' type="text" id="class2" placeholder="Your Class Here" ref={(c) => class2 = c} /><br />
-          <input className='input-field mt-1' type="text" id="class3" placeholder="Your Class Here" ref={(c) => class3 = c} /><br />
-          <input className='input-field mt-1' type="text" id="class4" placeholder="Your Class Here" ref={(c) => class4 = c} /><br />
-          <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => class5 = c} /><br />
-          <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => class6 = c} /><br />
+          <input className='input-field mt-3' type="text" id="class1" placeholder="Your Class Here" ref={(c) => Class1 = c} /><br />
+          <input className='input-field mt-1' type="text" id="class2" placeholder="Your Class Here" ref={(c) => Class2 = c} /><br />
+          <input className='input-field mt-1' type="text" id="class3" placeholder="Your Class Here" ref={(c) => Class3 = c} /><br />
+          <input className='input-field mt-1' type="text" id="class4" placeholder="Your Class Here" ref={(c) => Class4 = c} /><br />
+          <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => Class5 = c} /><br />
+          <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => Class6 = c} /><br />
           <input className='variant1-btn mt-4' type="submit" id="classesButton"  value = "Upload" onClick={doClasses} />
         </form>
       <span id="classesResult">{message}</span>
