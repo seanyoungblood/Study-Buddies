@@ -65,10 +65,9 @@ const navigate = useNavigate();
 
                 setCurrentUser(res);
                 console.log(currentUser);
-                setMessage('Works');
-                console.log(user);
 
-                navigate("/");
+                // navigate("/");
+                setMessage(currentUser.toString())
                 // window.location.href = '/';
 
             }
