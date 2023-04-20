@@ -30,7 +30,6 @@ const HomeHeader = () => {
                 <div className="nav-links" id="navLinks">
                     <i className="fa fa-times" onClick={ hideMenu }></i>
                     <ul>
-                        <li>{currentUser.firstName}</li>
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
