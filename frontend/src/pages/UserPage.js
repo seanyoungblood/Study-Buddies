@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Classes from '../components/Classes';
+import User from '../components/User';
 import backgroundImg from '../images/UCF_11.jpg'
 
 const UserPage = () =>
@@ -10,7 +10,7 @@ const UserPage = () =>
 
     return(
         <div className='login-wrapper'  style={{backgroundImage: background}}>
-            <Classes />
+            <User />
         </div>
     );
 };

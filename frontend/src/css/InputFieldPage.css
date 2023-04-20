@@ -240,6 +240,21 @@ h3{
     box-shadow: 4px 4px 10px grey;
 }
 
+#userDiv{
+    position: relative;
+    background: #d9d9d9;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0 !important;
+    height: 400px;
+    width: 400px;
+    border-radius: 16px;
+    box-shadow: 4px 4px 10px grey;
+}
+
 
 @media screen and (max-width: 450px) {
     #loginDiv{
