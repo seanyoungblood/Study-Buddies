@@ -46,7 +46,7 @@ const ProfileButtons = () => {
             var res = JSON.parse(await response.text());
             console.log(res)
 
-            if(error != '')
+            if(res.error != '')
             {
                 console.log("error on delete")
             }
