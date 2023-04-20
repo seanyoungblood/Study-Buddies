@@ -58,14 +58,14 @@ function buildPath(route)
             var res = JSON.parse(await response.text());
             console.log(res)
 
-            if( !res._id)
+            if(!res._id)
             {
                 setMessage('please try again.');
             }
             else
             {
-                var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
-                console.log(user);
+                var users = {firstName:res.firstName,lastName:res.lastName,id:res._id}
+                console.log(users);
                 // setCurrentUser(user);
                 localStorage.setItem('user_data', JSON.stringify(user));
                 const user = currentUser;
