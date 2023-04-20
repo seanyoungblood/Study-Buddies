@@ -25,12 +25,12 @@ function buildPath(route)
     }
 }
 
-  var Class1;
-  var Class2;
-  var Class3;
-  var Class4;
-  var Class5;
-  var Class6;
+  var RegisterClass1;
+  var RegisterClass2;
+  var RegisterClass3;
+  var RegisterClass4;
+  var RegisterClass5;
+  var RegisterClass6;
 
   var loginName;
   var loginPassword;
@@ -41,15 +41,14 @@ function buildPath(route)
     {
         event.preventDefault();
 
-        var obj = {username:currentUser.username, class0:Class1, class1:Class2,class2:Class3,class3:Class4,class4:Class5,class5:Class6};
+        var obj = {username:currentUser.username, class0:RegisterClass1, class1:RegisterClass2,class2:RegisterClass3,class3:RegisterClass4,class4:RegisterClass5,class5:RegisterClass6};
         var js = JSON.stringify(obj);
         console.log(obj);
         try
         {    
             const response = await fetch(buildPath('api/addClasses'),
-                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
-            
-
+            {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+          
             var res = JSON.parse(await response.text());
             console.log(res)
 
@@ -63,7 +62,7 @@ function buildPath(route)
                 localStorage.setItem('user_data', JSON.stringify(user));
                 const user = currentUser;
                 
-                user.classesTaking = [Class1,Class2,Class3,Class4,Class5,Class6];
+                user.classesTaking = [RegisterClass1,RegisterClass2,RegisterClass3,RegisterClass4,RegisterClass5,RegisterClass6];
                 setCurrentuser(user);
                 console.log(currentUser)
                 setMessage('Works');
@@ -93,12 +92,12 @@ function buildPath(route)
       <div id="classDiv">
         <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
         <form onSubmit ={doClasses}>
-          <input className='input-field mt-3' type="text" id="class1" placeholder="Your Class Here" ref={(c) => Class1 = c} /><br />
-          <input className='input-field mt-1' type="text" id="class2" placeholder="Your Class Here" ref={(c) => Class2 = c} /><br />
-          <input className='input-field mt-1' type="text" id="class3" placeholder="Your Class Here" ref={(c) => Class3 = c} /><br />
-          <input className='input-field mt-1' type="text" id="class4" placeholder="Your Class Here" ref={(c) => Class4 = c} /><br />
-          <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => Class5 = c} /><br />
-          <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => Class6 = c} /><br />
+          <input className='input-field mt-3' type="text" id="class1" placeholder="Your Class Here" ref={(c) => RegisterClass1 = c} /><br />
+          <input className='input-field mt-1' type="text" id="class2" placeholder="Your Class Here" ref={(c) => RegisterClass2 = c} /><br />
+          <input className='input-field mt-1' type="text" id="class3" placeholder="Your Class Here" ref={(c) => RegisterClass3 = c} /><br />
+          <input className='input-field mt-1' type="text" id="class4" placeholder="Your Class Here" ref={(c) => RegisterClass4 = c} /><br />
+          <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => RegisterClass5 = c} /><br />
+          <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => RegisterClass6 = c} /><br />
           <input className='variant1-btn mt-4' type="submit" id="classesButton"  value = "Upload" onClick={doClasses} />
         </form>
       <span id="classesResult">{message}</span>
