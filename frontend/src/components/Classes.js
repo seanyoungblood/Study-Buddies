@@ -4,7 +4,6 @@ import { AuthContext } from '../useContext/LoginContext';
 
 import "../css/InputFieldPage.css"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg" 
-import { AuthContext } from '../useContext/LoginContext'; 
 
 
 function Classes()
