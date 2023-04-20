@@ -1,16 +1,16 @@
 import React, { useState , useContext} from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-import "../css/LoginRegisterGroupPage.css"
+import "../css/InputFieldPage.css"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
+import { AuthContext } from '../useContext/LoginContext';
 
 
 function Login()
 {
+  const {currentUser, setCurrentUser} = useContext(AuthContext);
 
-  //  const {currentUser, setCurrentUser} = useContext(AuthContext);
-
- const app_name = 'cop-study-buddy-1000'
+  const app_name = 'cop-study-buddy-1000'
 
 function buildPath(route)
 {
@@ -41,7 +41,8 @@ const navigate = useNavigate();
         try
         {    
           const [ username , password ] = js;
-
+          // setCurrentUser({email: "adam",firstName:"New",lastName: "New",token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjUwZTc2OTAyMjAyMmMyODEwOGNiNyIsImlhdCI6MTY4MTk0ODcxMiwiZXhwIjoxNjg0NTQwNzEyfQ.3Ura0EvSlmN53hEprKGQ7RfJe-RRJVRld2FomDFbGT4",username: "New",_id: "64250e769022022c28108cb7"});
+          // console.log(currentUser);
           console.log(username);
           console.log(password);
           console.log(js);
@@ -61,8 +62,10 @@ const navigate = useNavigate();
                 var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
                 // setCurrentUser(user);
                 localStorage.setItem('user_data', JSON.stringify(user));
-                
-                setMessage('Works');
+
+                setCurrentUser(res);
+                console.log(currentUser);
+
                 navigate("/");
                 // window.location.href = '/';
 
@@ -79,11 +82,7 @@ const navigate = useNavigate();
 
     const handleLogoClick = (e) => {
       e.preventDefault();
-
       navigate("/");
-
-
-
     }
 
     return(

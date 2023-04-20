@@ -6,7 +6,8 @@ import aboutBackground from "../images/UCF_10.jpg"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"   
 // use useNavigate hook to when checking is user is logged in // imported for later
 import { useNavigate , Link} from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../useContext/LoginContext"
 
 const HomeHeader = () => {
 
@@ -19,6 +20,8 @@ const HomeHeader = () => {
     const showMenu = () => {
         document.getElementById("navLinks").style.right = "0px";
     }
+
+    const {currentUser} = useContext(AuthContext)
     return ( 
         <section className="header" style={{backgroundImage: background  }}>
             <nav>

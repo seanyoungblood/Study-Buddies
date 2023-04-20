@@ -8,8 +8,8 @@ const HomeCapabilities = () => {
 
             <div className="home-rows">
 			<div className="capability-col">
-				<h3>MAJOR</h3>
-				<p>Find out information about your intended major!<br></br><br></br>Read reviews from other students and requirements for that major.</p>
+				<h3>LOCATIONS</h3>
+				<p>Find out about some of UCF's best study locations!<br></br><br></br>Read below about locations and room availability to find where you and your group can study.</p>
 			</div>
 			<div className="capability-col">
 				<h3>STUDY GROUPS</h3>

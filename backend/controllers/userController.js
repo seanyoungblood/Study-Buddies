@@ -4,7 +4,6 @@ const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
 
 const {MongoClient} = require('mongodb')
-const async = require('hbs/lib/async')
 const client = new MongoClient(process.env.MONGO_URI)
 const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
@@ -100,7 +99,10 @@ const loginUser =  asyncHandler(async (req, res) => {
             "firstName": user.firstName ,
             "lastName": user.lastName,
             username: user.username,
+            phone: user.phone,//CHANGED BY ADAM
             email: user.email,
+            major: user.major, //CHANGED BY ADAM
+            classesTaking: user.classesTaking, //CHANGED BY ADAM
             token: generateToken(user.id),
         })
     }
@@ -247,9 +249,29 @@ const addClasses = asyncHandler(async (req, res) => {
         "classesTaking.5":class5
     } })
 
-    var ret = {
-        error:'' };
-    res.status(200).json(ret);
+    //var ret = {_id: req.user.id};
+   // res.status(200).json(ret);
+    const user = await User.findOne({ username })
+
+    if (user)
+    {
+        res.status(201).json({
+            _id: user.id,
+            "firstName": user.firstName ,
+            "lastName": user.lastName,
+            username: user.username,
+            email: user.email,
+            major: user.major, //CHANGED BY ADAM
+            classesTaking: user.classesTaking, //CHANGED BY ADAM
+            token: generateToken(user.id),
+        })
+    }
+    else 
+    {
+        // Message will be seen in the frontend
+        res.status(400)
+        throw new Error('Invalid user credentials')
+    }
 
 })
 
@@ -267,6 +289,7 @@ const deleteUser = asyncHandler(async (req, res) => {
     res.status(200).json(ret);
 
 })
+
 
 
 

@@ -5,6 +5,9 @@ const colors = require('colors')
 const {errorHandler} = require('./backend/middleware/errorMiddleware')
 const connectDB = require('./backend/config/db')
 const port = process.env.PORT || 5000
+// const cors = require('cors');
+// app.use(cors());
+// app.options('*', cors());
 
 
 connectDB()
@@ -30,7 +33,7 @@ app.use((req, res, next) =>
     );
     res.setHeader(
         'Access-Control-Allow-Methods',
-        'GET, POST, PATCH, DELETE, OPTIONS'
+        'GET, PUT, POST, PATCH, DELETE, OPTIONS'
     );
     next();
 });

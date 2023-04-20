@@ -136,58 +136,18 @@ const leaveGroup = asyncHandler(async (req, res) => {
 
 })*/
 
-
-const searchGroup = asyncHandler(async (req, res) => {
-     // incoming: userId, search
-      // outgoing: results[], error
-    
-      var error = '';
-    
-      const { field, search } = req.body;
-      
-        // const db = client.db("StudyBuddy");
-
-      // const results = await db.collection('groups').find(
-        const results = await groupie.find(
-       {$or:[
-        {groupName:{$regex:search+'.*'}},
-        {course:{$regex:search+'.*'}},
-        {description:{$regex:search+'.*'}}
-       ]}).toArray(); 
-      
-      var ret = [];
-      
-      for( var i=0; i<results.length; i++ )
-      {
-        ret.push( results[i].groupName );
-        ret.push( results[i].course );
-       ret.push( results[i].description );
-       ret.push( results[i].dates );
-       ret.push( results[i].time );
-       ret.push( results[i].location );
-        ret.push( results[i].members );
-       ret.push( results[i].reviews );
-       ret.push("$");
-       
-      }
-      
-      var ret2 = {field:field, search:search, results:ret, error:error};
-      res.status(200).json(ret2);
-    
-})
-
 const editGroup = asyncHandler(async (req, res) => { 
 
     var error = '';
 
-    const {groupName, course, description, dates, time, location} = req.body;
+    const {groupName, course, description, date, time, location} = req.body;
 
     // const db = client.db("StudyBuddy");
     //db.collection('groups').findOneAndUpdate({groupName:groupName}, { $set: {
         groupie.findOneAndUpdate({groupName:groupName}, { $set: {
         "course":course,
         "description":description,
-        "dates":dates,
+        "date":date,
         "time":time,
         "location":location
     } })
@@ -196,7 +156,7 @@ const editGroup = asyncHandler(async (req, res) => {
         groupName:groupName,
         course:course,
         description:description,
-        dates:dates,
+        date:date,
         time:time,
         location:location,
         error:'' };
@@ -228,13 +188,52 @@ const editRating = asyncHandler(async (req, res) => {
     // const db = client.db("StudyBuddy");
     // db.collection('groups').updateOne({groupName:groupName}, { $push: {
     groupie.updateOne({groupName:groupName}, { $push: {
+    //groupie.findOneAndUpdate({groupName:groupName}, { $set: {
         "reviews":rating
     } })
 
     var ret = {
         error:'' };
     res.status(200).json(ret);
+})
 
+
+const searchGroup = asyncHandler(async (req, res) => {
+    // incoming: userId, search
+      // outgoing: results[], error
+    
+      var error = '';
+    
+      const { field, search } = req.body;
+      
+        // const db = client.db("StudyBuddy");
+
+      // const results = await db.collection('groups').find(
+        const results = await groupie.find(
+       {$or:[
+        {groupName:{$regex:search+'.*'}},
+        {course:{$regex:search+'.*'}},
+        {description:{$regex:search+'.*'}}
+       ]}).toArray(); 
+      
+      var ret = [];
+      
+      for( var i=0; i<results.length; i++ )
+      {
+        ret.push( results[i].groupName );
+        ret.push( results[i].course );
+       ret.push( results[i].description );
+       ret.push( results[i].date );
+       ret.push( results[i].time );
+       ret.push( results[i].location );
+        ret.push( results[i].members );
+       ret.push( results[i].reviews );
+       ret.push("$");
+       
+      }
+      
+      var ret2 = {field:field, search:search, results:ret, error:error};
+      res.status(200).json(ret2);
 })
 
 module.exports = {
@@ -263,24 +262,3 @@ module.exports = {
         res.status(400)
         throw new Error('Group name already exist')
     }*/
-
-
-    ////////// Search Groups
-    /*
-    var error = '';
-
-    const { groupId, search } = req.body;
-    var _search = search.trim();
-
-    const db = client.db("StudyBuddy");
-    const results = await db.collection('groups').find({ "groups":{$regex:_search+'.*', $options:'r'} }).toArray();
-    var _ret = [];
-
-    for (var i = 0; i < results.length; i++)
-    {
-        _ret.push( results[i].Groups );
-    }
-
-    var ret = { results:_ret, error:''};
-    res.status(200).json(ret);
-     */
