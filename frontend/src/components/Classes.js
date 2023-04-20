@@ -3,7 +3,8 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../useContext/LoginContext';
 
 import "../css/InputFieldPage.css"
-import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
+import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg" 
+import { AuthContext } from '../useContext/LoginContext'; 
 
 
 function Classes()
@@ -30,17 +31,18 @@ function buildPath(route)
   var class3;
   var class4;
   var class5;
+  var class6;
 
   var loginName;
   var loginPassword;
 
     const [message,setMessage] = useState('');
-
+    const {currentUser} = useContext(AuthContext)
     const doClasses = async event => 
     {
         event.preventDefault();
 
-        var obj = {login:loginName.value,password:loginPassword.value};
+        var obj = {username:currentUser.username, class0:class1, class1:class2,class2:class3,class3:class4,class4:class5,class5:class6};
         var js = JSON.stringify(obj);
         console.log(obj);
         try
@@ -57,9 +59,9 @@ function buildPath(route)
             var res = JSON.parse(await response.text());
             console.log(res)
 
-            if( res._id <= 0 )
+            if( !res._id)
             {
-                setMessage('User/Password combination incorrect');
+                setMessage('please try again.');
             }
             else
             {
@@ -100,6 +102,7 @@ function buildPath(route)
           <input className='input-field mt-1' type="text" id="class3" placeholder="Your Class Here" ref={(c) => class3 = c} /><br />
           <input className='input-field mt-1' type="text" id="class4" placeholder="Your Class Here" ref={(c) => class4 = c} /><br />
           <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => class5 = c} /><br />
+          <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => class6 = c} /><br />
           <input className='variant1-btn mt-4' type="submit" id="classesButton"  value = "Upload" onClick={doClasses} />
         </form>
       <span id="classesResult">{message}</span>
