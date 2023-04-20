@@ -248,8 +248,7 @@ const addClasses = asyncHandler(async (req, res) => {
         "classesTaking.5":class5
     } })
 
-    var ret = {
-        error:'' };
+    var ret = {_id: req.user.id};
     res.status(200).json(ret);
 
 })
