@@ -12,13 +12,13 @@ const Resources = () => {
                 <div className="resource-col">
                     <img src={event_cal_img}></img>
                     <div className="b-layer">
-                        <h3><a href="" target="_blank">UCF Event Calander</a></h3>
+                        <h3><a href="https://events.ucf.edu/" target="_blank">UCF Event Calander</a></h3>
                     </div>
                 </div>
                 <div className="resource-col">
                     <img src={school_map_img}></img>
                     <div className="b-layer">
-                        <h3><a href="" target="_blank">UCF School Map</a></h3>
+                        <h3><a href="https://map.ucf.edu/" target="_blank">UCF School Map</a></h3>
                     </div>
                 </div>
 		    </div>
