@@ -96,10 +96,10 @@ function buildPath(route)
       <div id="userDiv">
         <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
         <form onSubmit ={doUser}>
-          <input className='input-field mt-3' type="text" id="userFirstName" placeholder="New First Name" value={currentUser & currentUser.firstname} ref={(c) => userFirstName = c} /><br />
-          <input className='input-field mt-3' type="text" id="userLastName" placeholder="New Last Name" value={currentUser & currentUser.lastname}  ref={(c) => userLastName = c} /><br />
-          <input className='input-field mt-3' type="text" id="userPhoneNumber" placeholder="New Phone Number" value={currentUser & currentUser.phone} ref={(c) => userPhoneNumber = c} /><br />
-          <input className='input-field mt-3' type="password" id="userPassword" placeholder="New Password" value={currentUser & currentUser.password} ref={(c) => userPassword = c} /><br />
+          <input className='input-field mt-3' type="text" id="userFirstName" placeholder="New First Name" value={currentUser.firstname} ref={(c) => userFirstName = c} /><br />
+          <input className='input-field mt-3' type="text" id="userLastName" placeholder="New Last Name" value={currentUser.lastname}  ref={(c) => userLastName = c} /><br />
+          <input className='input-field mt-3' type="text" id="userPhoneNumber" placeholder="New Phone Number" value={currentUser.phone} ref={(c) => userPhoneNumber = c} /><br />
+          <input className='input-field mt-3' type="password" id="userPassword" placeholder="New Password" value={currentUser.password} ref={(c) => userPassword = c} /><br />
           <input className='variant1-btn mt-3' type="submit" id="userButton"  value = "Upload" onClick={doUser} />
         </form>
       <span id="userResult">{message}</span>
