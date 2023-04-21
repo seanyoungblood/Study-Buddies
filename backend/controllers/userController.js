@@ -278,13 +278,14 @@ const addClasses = asyncHandler(async (req, res) => {
 const deleteUser = asyncHandler(async (req, res) => { 
 
     var error = '';
+
+    const {username} = req.body;
   
     // const {username} = req.body;
 
     // const db = client.db("StudyBuddy");
     // db.collection('users').deleteOne({username:username});
-    // User2.deleteOne({username:username});
-    User2.deleteOne({_id:_id});
+    User2.deleteOne({username:username});
   
     var ret = {error:error};
     res.status(200).json(ret);

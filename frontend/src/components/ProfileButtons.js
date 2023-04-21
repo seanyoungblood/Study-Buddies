@@ -34,7 +34,7 @@ const ProfileButtons = () => {
     {
         
 
-        var obj = {username:currentUser._id};
+        var obj = {username:currentUser.userName};
         var js = JSON.stringify(obj);
         console.log(obj);
         try
