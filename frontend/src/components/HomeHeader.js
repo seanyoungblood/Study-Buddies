@@ -28,7 +28,7 @@ const HomeHeader = () => {
                 {/* need to change A tags with react-router-dom API */}
                 <a > <img src={logo} alt="" /></a>
                 <div className="nav-links" id="navLinks">
-                    <i className="fa fa-times" onClick={ hideMenu }></i>
+                    <i className="fa fa-times" onClick={ hideMenu }>CLOSE</i>
                     <ul>
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
