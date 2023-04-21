@@ -1,3 +1,4 @@
+import { Link, useNavigate } from 'react-router-dom';
 import "../css/StudyPage.css";
 
 const Content = () => {
@@ -5,7 +6,7 @@ const Content = () => {
         <section className="group-section">
             <div class="search-bar">
                 <input type="text" placeholder="Search"></input>
-                {/* <button type="submit"><i class="fas fa-search"></i></button> */}
+                <Link class="create-group" to='/group'>Create Group</Link>
             </div>
 
             <div id="group-info-box">
