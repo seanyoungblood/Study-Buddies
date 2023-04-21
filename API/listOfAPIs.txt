@@ -1,9 +1,9 @@
 Users:
-[X] Login                               Implemented Web [X]   Implemented Mobile [ ]
-[X] Register                            Implemented Web [X]   Implemented Mobile [ ]
-[X] Edit User                           Implemented Web [ ]   Implemented Mobile [ ]
-[X] Add Classes                         Implemented Web [/]   Implemented Mobile [ ]
-[X] Delete User :(                      Implemented Web [ ]   Implemented Mobile [ ]
+[X] Login                               Implemented Web [X]   Implemented Mobile [X]
+[X] Register                            Implemented Web [X]   Implemented Mobile [/]
+[X] Edit User                           Implemented Web [X]   Implemented Mobile [ ]
+[X] Add Classes                         Implemented Web [X]   Implemented Mobile [ ]
+[X] Delete User :(                      Implemented Web [X]   Implemented Mobile [ ]
 
 Groups:
 [X] Create Group                        Implemented Web [ ]   Implemented Mobile [ ]
