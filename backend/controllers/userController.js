@@ -279,15 +279,15 @@ const deleteUser = asyncHandler(async (req, res) => {
 
     var error = '';
 
-    const {_id} = req.body;
+    const {username} = req.body;
   
     // const {username} = req.body;
 
     // const db = client.db("StudyBuddy");
     // db.collection('users').deleteOne({username:username});
-    User2.deleteOne({_id:_id});
+    User2.deleteOne({username:username});
   
-    var ret = {error:error};
+    var ret = {username:username};
     res.status(200).json(ret);
 
 })
