@@ -40,7 +40,7 @@ const ProfileButtons = () => {
         try
         { 
             const response = await fetch(buildPath('api/deleteUser'),
-                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+                {method:'delete',body:js,headers:{'Content-Type': 'application/json'}});
             
 
             var res = JSON.parse(await response.text());
