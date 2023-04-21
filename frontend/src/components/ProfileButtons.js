@@ -60,6 +60,7 @@ const ProfileButtons = () => {
                 console.log(currentUser);
 
                 navigate("/");
+                handleClose();
                 // window.location.href = '/';
 
             }
