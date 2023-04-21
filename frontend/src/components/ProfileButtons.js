@@ -34,13 +34,13 @@ const ProfileButtons = () => {
     {
         
 
-        var obj = {username:currentUser.userName};
+        var obj = {username:currentUser._id};
         var js = JSON.stringify(obj);
         console.log(obj);
         try
         { 
             const response = await fetch(buildPath('api/deleteUser'),
-                {method:'delete',body:js,headers:{'Content-Type': 'application/json'}});
+                {method:'DELETE',body:js,headers:{'Content-Type': 'application/json'}});
             
 
             var res = JSON.parse(await response.text());
