@@ -1,9 +1,8 @@
 import "../css/HomePage.css"
 import homeBackround from "../images/UCF_1.jpg"
-import majorBackround from "../images/UCF_9.jpg"
-import studyBackground from "../images/UCF_12.jpg"
-import aboutBackground from "../images/UCF_10.jpg"
-import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"   
+import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"
+import menu from "../images/Menu_Rounded_Bars.png"  
+import close from "../images/Menu_Close.png"  
 // use useNavigate hook to when checking is user is logged in // imported for later
 import { useNavigate , Link} from "react-router-dom";
 import { useContext, useState } from "react";
@@ -28,7 +27,7 @@ const HomeHeader = () => {
                 {/* need to change A tags with react-router-dom API */}
                 <a > <img src={logo} alt="" /></a>
                 <div className="nav-links" id="navLinks">
-                    <i className="fa fa-times" onClick={ hideMenu }>CLOSE</i>
+                    <i className="fa fa-times" onClick={ hideMenu }><img src={close} alt="" /></i>
                     <ul>
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
@@ -36,7 +35,7 @@ const HomeHeader = () => {
                         <li><Link to='/profile'>PROFILE</Link></li>
                     </ul>
 			    </div>
-			    <i className="fa fa-bars" onClick={ showMenu }>MENU</i>
+			    <i className="fa fa-bars" onClick={ showMenu }><img src={menu} alt="" /></i>
             </nav>
 
             <div className="text-box">
