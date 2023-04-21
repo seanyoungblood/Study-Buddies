@@ -21,7 +21,8 @@ router.post('/editUser', editUser) // NEEDS TO IMPLEMENT put
 // router.post('/addClasses', addClasses)
 router.route('/addClasses').post(protect, addClasses)
 // router.route('/addClasses/:id').put(protect, addClasses)
-router.delete('/:id', protect, deleteUser)
+// router.delete('/:id', protect, deleteUser)
+router.route('/:id').delete(protect, deleteUser)
 
 
 module.exports = router
