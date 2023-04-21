@@ -4,6 +4,8 @@ const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
+const API_KEY = '071c4285b63734eb0b44bb62a0d2a2cd-181449aa-0e042cff';
+const DOMAIN = 'sandbox31f0bacb816241a0887ea149fed59430.mailgun.org';
 
 const {MongoClient} = require('mongodb')
 const client = new MongoClient(process.env.MONGO_URI)
