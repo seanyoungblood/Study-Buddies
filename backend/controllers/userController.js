@@ -287,7 +287,7 @@ const deleteUser = asyncHandler(async (req, res) => {
     // db.collection('users').deleteOne({username:username});
     User2.deleteOne({username:username});
   
-    var ret = {username:username};
+    var ret = {error: 0};
     res.status(200).json(ret);
 
 })
