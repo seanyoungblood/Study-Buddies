@@ -39,7 +39,7 @@ const ProfileButtons = () => {
         console.log(obj);
         try
         { 
-            const response = await fetch(buildPath('api/:'+currentUser._id+'/deleteUser'),
+            const response = await fetch(buildPath('api/:'+currentUser._id),
                 {method:'DELETE',body:js,headers:{'Content-Type': 'application/json'}});
             
 
