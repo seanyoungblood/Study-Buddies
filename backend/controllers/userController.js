@@ -295,6 +295,8 @@ const addClasses = asyncHandler(async (req, res) => {
 const deleteUser = asyncHandler(async (req, res) => { 
 
     var error = '';
+
+    const {username} = req.body;
   
     // const {username} = req.body;
 
@@ -302,7 +304,7 @@ const deleteUser = asyncHandler(async (req, res) => {
     // db.collection('users').deleteOne({username:username});
     User2.deleteOne({username:username});
   
-    var ret = {error:error};
+    var ret = {error: 0};
     res.status(200).json(ret);
 
 })

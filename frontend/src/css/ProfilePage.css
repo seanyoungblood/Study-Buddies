@@ -105,6 +105,16 @@ nav .fa{
 }
 
 @media(max-width: 700px){
+    /* .col-6{
+        width: 80%;
+        position: sticky;
+        top: 58%;
+        left: 50%;
+        margin-bottom: 50px;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    } */
+
     .text-box h1 {
         font-size: 20px;
     }

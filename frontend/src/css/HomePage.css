@@ -316,3 +316,7 @@ h3{
     top: 10%;
     opacity: 1;
 }
+
+.toggleMenu {
+    height: 25px;
+}
