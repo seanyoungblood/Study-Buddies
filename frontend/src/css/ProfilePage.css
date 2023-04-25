@@ -226,3 +226,8 @@ h3{
   #profileButton:hover {
     background-color: #fbff82;
   }
+
+  .edit-user-btn{
+    color: black;
+    padding-top: 5px;
+  }

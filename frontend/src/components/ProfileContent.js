@@ -10,11 +10,13 @@ const ProfileContent = () => {
         <div className="row text-center mt-5">
             <div className="col-6">
                 <h1 className="textbox profile-header">Classes</h1>
-                {currentUser.classesTaking.map((c)=>(
-                    <div key={c.id}>
-                        <p>{c}</p>
-                    </div>
-                ))}</div>
+                {currentUser.classesTaking.map((c)=>{
+                    if(c !== '') 
+                    return (
+                        <div key={c.id}>
+                            <p>{c}</p>
+                        </div>
+                    )})}</div>
 
             <div className="col-6">
                 <h1 className="textbox profile-header">Groups</h1>
