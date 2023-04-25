@@ -2,18 +2,12 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
-const mg = require('mailgun-js')
 
 const {MongoClient} = require('mongodb')
 const client = new MongoClient(process.env.MONGO_URI)
 const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
 
-const mailgun = () =>
-    mg ({
-        apiKey: '071c4285b63734eb0b44bb62a0d2a2cd-181449aa-0e042cff',
-        domain: 'sandbox31f0bacb816241a0887ea149fed59430.mailgun.org'
-    })
 
 // @desc Registers  new user
 // @route POST /api/users
@@ -56,14 +50,6 @@ const registerUser = asyncHandler(async (req, res) => {
         email,
     })
     
-    emailInfo = {
-        from: '<seanjyoungblood@knights.ucf.edu>',
-        to: '${email}',
-        subject: 'Thank you for registering.',
-        html: 'please verify your email here.'
-    }
-    
-    mailgun.messages.send(emailInfo);
 
     if (user)
     {
