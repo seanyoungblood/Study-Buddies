@@ -38,6 +38,7 @@ function buildPath(route)
 
     const [message,setMessage] = useState('');
 
+
     const doUser = async event => 
     {
         event.preventDefault();
@@ -69,7 +70,7 @@ function buildPath(route)
                 console.log(user);
                 // setCurrentUser(user);
                 localStorage.setItem('user_data', JSON.stringify(user));
-                
+                navigate('/');
                 setMessage('Works');
             }
         }
