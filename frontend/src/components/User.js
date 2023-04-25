@@ -42,7 +42,7 @@ function buildPath(route)
     {
         event.preventDefault();
 
-        var obj = {login:userFirstName.value,lastName:userLastName.value, phone:userPhoneNumber.value};
+        var obj = {login:userFirstName.value,lastName:userLastName.value, phone:userPhoneNumber.value, username:currentUser.username};
         var js = JSON.stringify(obj);
         console.log(obj);
         try
