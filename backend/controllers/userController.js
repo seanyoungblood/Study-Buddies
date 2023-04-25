@@ -356,6 +356,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 
 
 module.exports = {
+    nodemail,
     registerUser,
     loginUser,
     getMe,
