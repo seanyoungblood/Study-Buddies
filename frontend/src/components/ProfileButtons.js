@@ -75,8 +75,6 @@ const ProfileButtons = () => {
         <div className="buttonRow text-center mt-5">
            <Link id="profileButton" to='/user'>Edit User</Link>
            <Link id="profileButton" to='/classes'>Change Classes</Link>
-
-
            <Button id='profileButton' onClick={handleShow}>
         Delete Your Account
       </Button>

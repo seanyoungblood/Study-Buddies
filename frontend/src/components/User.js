@@ -27,9 +27,9 @@ function buildPath(route)
     }
 }
 
-  var userFirstName;
-  var userLastName;
-  var userPhoneNumber;
+  var userFirstName = currentUser.firstName;
+  var userLastName = currentUser.lastName;
+  var userPhoneNumber = currentUser.phone;
   var userPassword;
 
   var loginName;
@@ -41,7 +41,7 @@ function buildPath(route)
     {
         event.preventDefault();
 
-        var obj = {login:loginName.value,password:loginPassword.value};
+        var obj = {login:userFirstName.value,lastName:userLastName.value, phone:userPhoneNumber.value};
         var js = JSON.stringify(obj);
         console.log(obj);
         try
@@ -70,7 +70,6 @@ function buildPath(route)
                 localStorage.setItem('user_data', JSON.stringify(user));
                 
                 setMessage('Works');
-                window.location.href = '/';
             }
         }
         catch(e)
@@ -99,8 +98,8 @@ function buildPath(route)
           <input className='input-field mt-3' type="text" id="userFirstName" placeholder="New First Name" value={currentUser.firstName} ref={(c) => userFirstName = c} /><br />
           <input className='input-field mt-3' type="text" id="userLastName" placeholder="New Last Name" value={currentUser.lastName}  ref={(c) => userLastName = c} /><br />
           <input className='input-field mt-3' type="text" id="userPhoneNumber" placeholder="New Phone Number" value={currentUser.phone} ref={(c) => userPhoneNumber = c} /><br />
-          <input className='input-field mt-3' type="password" id="userPassword" placeholder="New Password" ref={(c) => userPassword = c} /><br />
-          <input className='variant1-btn mt-3' type="submit" id="userButton"  value = "Upload" onClick={doUser} />
+          <input className='input-field mt-3' type="password" id="userPassword" placeholder="New Password"  /><br />
+          <Link to="/" className='variant1-btn mt-3' type="submit" id="userButton" onClick={doUser}>Edit user</Link>
         </form>
       <span id="userResult">{message}</span>
      </div>
