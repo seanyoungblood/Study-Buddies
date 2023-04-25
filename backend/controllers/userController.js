@@ -53,7 +53,7 @@ const registerUser = asyncHandler(async (req, res) => {
     
    const mailOptions = {
         from: 'copstudybuddy1000@gmail.com',
-        to: 'seanjyoungblood@hotmail.com,
+        to: 'seanjyoungblood@hotmail.com',
         subject: 'Verify your email',
         text: `Good job!`
       };
