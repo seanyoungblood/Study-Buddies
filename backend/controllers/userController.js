@@ -37,7 +37,7 @@ const nodemail = asyncHandler(async (req, res) => {
           console.log('Email sent: ' + info.response);
         }
     });
-}
+})
 
 
 // @desc Registers  new user
