@@ -99,7 +99,7 @@ function buildPath(route)
           <input className='input-field mt-1' type="text" id="class4" placeholder="Your Class Here" ref={(c) => RegisterClass4 = c} /><br />
           <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => RegisterClass5 = c} /><br />
           <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => RegisterClass6 = c} /><br />
-          <Link to="/" className='variant1-btn mt-4' type="submit" id="classesButton"  value = "Upload" onClick={doClasses}></Link>
+          <Link to="/" className='variant1-btn mt-4' id="classesButton"  onClick={doClasses}>Change classes</Link>
         </form>
       <span id="classesResult">{message}</span>
      </div>
