@@ -18,6 +18,27 @@ const transporter = nodemailer.createTransport({
    } 
 })
 
+// @route POST /api/users
+// @access Public
+const nodemail = asyncHandler(async (req, res) => {
+    
+    const {email} = req.body
+    const mailOptions = {
+        from: 'copstudybuddy1000@gmail.com',
+        to: email,
+        subject: 'Verify your email',
+        text: `Good job!`
+      };
+  
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+    });
+}
+
 
 // @desc Registers  new user
 // @route POST /api/users
@@ -50,20 +71,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
     
-   const mailOptions = {
-        from: 'copstudybuddy1000@gmail.com',
-        to: 'seanjyoungblood@hotmail.com',
-        subject: 'Verify your email',
-        text: `Good job!`
-      };
-  
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-        }
-    });
+   
 
     // Create a user
     const user = await User.create({
