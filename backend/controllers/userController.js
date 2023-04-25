@@ -7,6 +7,16 @@ const {MongoClient} = require('mongodb')
 const client = new MongoClient(process.env.MONGO_URI)
 const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
+const nodemailer = require('nodemailer');
+
+// REMEMBER TO DELETE AFTER PROJECT
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth {
+             user: 'copstudybuddy1000@gmail.com',
+            pass: 'Password123$'
+   } 
+})
 
 
 // @desc Registers  new user
@@ -39,6 +49,21 @@ const registerUser = asyncHandler(async (req, res) => {
     // Hashes the Password
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
+    
+   const mailOptions = {
+        from: 'copstudybuddy1000@gmail.com',
+        to: 'seanjyoungblood@hotmail.com',
+        subject: 'Verify your email',
+        text: `Good job!`
+      };
+  
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+    });
 
     // Create a user
     const user = await User.create({
