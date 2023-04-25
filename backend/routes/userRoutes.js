@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { nodemail,
-        registerUser, 
+const { registerUser, 
         loginUser, 
         getMe,
         searchUser,
@@ -12,7 +11,6 @@ const { nodemail,
       } = require('../controllers/userController')
 const { protect } = require('../middleware/authMiddleware')
 
-router.post('/nodemail', nodemail)
 router.post('/register', registerUser)
 router.post('/login', loginUser)
 router.get('/me', protect, getMe)
