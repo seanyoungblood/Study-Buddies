@@ -33,7 +33,7 @@ const ProfileHeader = () => {
         <section className="header" style={{backgroundImage: background, minHeight: profileHeight  }}>
             <nav>
                 {/* need to change A tags with react-router-dom API */}
-                <a > <img src={logo} alt="" /></a>
+                <Link to="/"> <img src={logo} alt="" /></Link>
                 <div className="nav-links" id="navLinks">
                     <i className="fa fa-times" onClick={ hideMenu }></i>
                     <ul>
