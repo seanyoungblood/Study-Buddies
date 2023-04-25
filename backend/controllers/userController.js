@@ -11,10 +11,10 @@ const nodemailer = require('nodemailer');
 
 // REMEMBER TO DELETE AFTER PROJECT
 const transporter = nodemailer.createTransport({
-    service: "Gmail",
+    service: "Hotmail",
     auth: {
-             user: 'copstudybuddy1000@gmail.com',
-            pass: 'Password123$'
+             user: 'copstudybuddy1000@outlook.com',
+            pass: 'Password123$$$$'
    } 
 })
 
