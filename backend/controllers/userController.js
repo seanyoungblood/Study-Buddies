@@ -11,7 +11,7 @@ const nodemailer = require('nodemailer');
 
 // REMEMBER TO DELETE AFTER PROJECT
 const transporter = nodemailer.createTransport({
-    service: "Hotmail",
+    service: 'hotmail',
     auth: {
              user: 'copstudybuddy1000@outlook.com',
             pass: 'Password123$$$$'
