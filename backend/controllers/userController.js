@@ -11,7 +11,7 @@ const nodemailer = require('nodemailer');
 
 // REMEMBER TO DELETE AFTER PROJECT
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    service: "Gmail",
     auth: {
              user: 'copstudybuddy1000@gmail.com',
             pass: 'Password123$'
