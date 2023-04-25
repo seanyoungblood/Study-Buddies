@@ -1,6 +1,7 @@
 import React, { useState , useContext} from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../useContext/LoginContext';
+import { Link } from 'react-router-dom';
 
 import "../css/InputFieldPage.css"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg" 
@@ -98,7 +99,7 @@ function buildPath(route)
           <input className='input-field mt-1' type="text" id="class4" placeholder="Your Class Here" ref={(c) => RegisterClass4 = c} /><br />
           <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => RegisterClass5 = c} /><br />
           <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => RegisterClass6 = c} /><br />
-          <input className='variant1-btn mt-4' type="submit" id="classesButton"  value = "Upload" onClick={doClasses} />
+          <Link to="/" className='variant1-btn mt-4' type="submit" id="classesButton"  value = "Upload" onClick={doClasses}></Link>
         </form>
       <span id="classesResult">{message}</span>
      </div>
