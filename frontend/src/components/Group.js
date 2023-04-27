@@ -44,11 +44,6 @@ function buildPath(route)
         console.log(obj);
         try
         {    
-          const [ login, password ] = js;
-
-          console.log(login);
-          console.log(password);
-          console.log(js)
             const response = await fetch(buildPath('api/registerGroup'),
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json', 'Authorization': `Bearer ${currentUser.token}`}});
             
@@ -64,7 +59,7 @@ function buildPath(route)
             {
               const user = currentUser;
 
-              user.groupsIn.push(groupName)
+              //user.groupsIn.push(groupName)
               localStorage.setItem('user_data', JSON.stringify(user));
               setCurrentUser(user)
                 
