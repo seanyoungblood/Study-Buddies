@@ -127,7 +127,7 @@ const registerUser = asyncHandler(async (req, res) => {
             from: "user-verification-4331@outlook.com",
             to: email,
             subject: "Verify Email",
-            text: "Frontend to add link to input code sent in email. Check that code entered and code for user match. If so, set verified to true via editUser API. Code:" + code;
+            text: "Frontend to add link to input code sent in email. Check that code entered and code for user match. If so, set verified to true via editUser API. Code:" + code
         };
 
         transporter.sendMail(options, function(err, info){
