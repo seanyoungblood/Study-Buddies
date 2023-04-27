@@ -20,7 +20,13 @@ const ProfileContent = () => {
 
             <div className="col-6">
                 <h1 className="textbox profile-header">Groups</h1>
-                <p className='text-center mb-5'>Placement text for groups</p>
+                {currentUser.groupsIn.map((c)=>{
+                    if(c !== '') 
+                    return (
+                        <div key={c.id}>
+                            <p>{c}</p>
+                        </div>
+                    )})}
             </div>
         </div>
      );
