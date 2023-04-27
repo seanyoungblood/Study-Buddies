@@ -108,6 +108,7 @@ const registerUser = asyncHandler(async (req, res) => {
         phone,
         email,
         code,
+      "groupsIn": [],
     })
 
     if (user)
@@ -398,6 +399,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 
 
 module.exports = {
+  resetPassword,
     registerUser,
     loginUser,
     getMe,
