@@ -50,7 +50,7 @@ function buildPath(route)
           console.log(password);
           console.log(js)
             const response = await fetch(buildPath('api/registerGroup'),
-                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json', 'Authorization': `Bearer ${currentUser.token}`}});
             
 
             var res = JSON.parse(await response.text());
