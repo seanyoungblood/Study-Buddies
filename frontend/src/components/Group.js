@@ -33,6 +33,7 @@ function buildPath(route)
   var groupTime;
   var groupLocation;
 
+
     const [message,setMessage] = useState('');
 
     const doGroup = async event => 
@@ -61,9 +62,8 @@ function buildPath(route)
               user.groupsIn.push(groupName)
               setCurrentUser(user)
                 
-                
+                navigate('/studygroups');
                 setMessage('Works');
-                window.location.href = '/';
             }
         }
         catch(e)
