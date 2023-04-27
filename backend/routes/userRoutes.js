@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const { registerUser, 
+const { resetPassword,
+        registerUser, 
         loginUser, 
         getMe,
         searchUser,
@@ -11,6 +12,7 @@ const { registerUser,
       } = require('../controllers/userController')
 const { protect } = require('../middleware/authMiddleware')
 
+router.post('/resetPassword', resetPassword)
 router.post('/register', registerUser)
 router.post('/login', loginUser)
 router.get('/me', protect, getMe)
