@@ -459,4 +459,10 @@ p {
     color: #222;
     transform: scale(1.05);
   }
-  
+
+
+
+  .align-center-btn{
+    margin-left: auto;
+    margin-right: auto;
+  }

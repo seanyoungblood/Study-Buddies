@@ -13,7 +13,7 @@ const userie = db.collection('users');
 
 
 const registerGroup = asyncHandler(async (req, res) => {
-    const {groupName, course, objective, date, time, location, } = req.body
+    const {groupName, course, objective, date, time, location} = req.body
     if (!groupName || !course || !objective || !date || !time || !location)
     {
         res.status(400)

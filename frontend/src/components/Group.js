@@ -1,6 +1,7 @@
 import React, { useState , useContext} from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../useContext/LoginContext';
+import { Link } from 'react-router-dom';
 
 import "../css/InputFieldPage.css"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
@@ -9,7 +10,7 @@ import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"
 function Group()
 {
 
-  //  const {currentUser, setCurrentUser} = useContext(AuthContext);
+  const {currentUser, setCurrentUser} = useContext(AuthContext);
 
  const app_name = 'cop-study-buddy-1000'
 
@@ -27,14 +28,10 @@ function buildPath(route)
 
   var groupName;
   var groupSummary;
-  var groupClass1;
-  var groupClass2;
-  var groupClass3;
-  var groupClass4;
-  var groupClass5;
-
-  var loginName;
-  var loginPassword;
+  var groupObjective;
+  var groupDate;
+  var groupTime;
+  var groupLocation;
 
     const [message,setMessage] = useState('');
 
@@ -42,7 +39,7 @@ function buildPath(route)
     {
         event.preventDefault();
 
-        var obj = {login:loginName.value,password:loginPassword.value};
+        var obj = {groupName:groupName.value, course:groupSummary.value, objective:groupObjective.value,date:groupDate.value,time:groupTime.value,location:groupLocation.value};
         var js = JSON.stringify(obj);
         console.log(obj);
         try
@@ -52,23 +49,25 @@ function buildPath(route)
           console.log(login);
           console.log(password);
           console.log(js)
-            const response = await fetch(buildPath('api/login'),
+            const response = await fetch(buildPath('api/registerGroup'),
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
             
 
             var res = JSON.parse(await response.text());
             console.log(res)
 
-            if( res._id <= 0 )
+            if( !res.admin)
             {
                 setMessage('User/Password combination incorrect');
             }
             else
             {
-                var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
-                console.log(user);
-                // setCurrentUser(user);
-                localStorage.setItem('user_data', JSON.stringify(user));
+              const user = currentUser;
+
+              user.groupsIn.push(groupName)
+              localStorage.setItem('user_data', JSON.stringify(user));
+              setCurrentUser(user)
+                
                 
                 setMessage('Works');
                 window.location.href = '/';
@@ -98,13 +97,12 @@ function buildPath(route)
         <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
         <form onSubmit ={doGroup}>
           <input className='input-field mt-3' type="text" id="groupName" placeholder="Group Name" ref={(c) => groupName = c} /><br />
-          <input className='input-field mt-3' type="text" id="groupSummary" placeholder="Group Summary"  ref={(c) => groupSummary = c} /><br />
-          <input className='input-field mt-3' type="text" id="groupClass1" placeholder="Group Related Class" ref={(c) => groupClass1 = c} /><br />
-          <input className='input-field mt-1' type="text" id="groupClass2" placeholder="Group Related Class" ref={(c) => groupClass2 = c} /><br />
-          <input className='input-field mt-1' type="text" id="groupClass3" placeholder="Group Related Class" ref={(c) => groupClass3 = c} /><br />
-          <input className='input-field mt-1' type="text" id="groupClass4" placeholder="Group Related Class" ref={(c) => groupClass4 = c} /><br />
-          <input className='input-field mt-1' type="text" id="groupClass5" placeholder="Group Related Class" ref={(c) => groupClass5 = c} /><br />
-          <input className='variant1-btn mt-4' type="submit" id="groupButton"  value = "Upload" onClick={doGroup} />
+          <input className='input-field mt-3' type="text" id="groupSummary" placeholder="Group Course"  ref={(c) => groupSummary = c} /><br />
+          <input className='input-field mt-3' type="text" id="groupClass1" placeholder="Objective" ref={(c) => groupObjective = c} /><br />
+          <input className='input-field mt-1' type="text" id="groupClass2" placeholder="Date" ref={(c) => groupDate = c} /><br />
+          <input className='input-field mt-1' type="text" id="groupClass3" placeholder="Time" ref={(c) => groupTime = c} /><br />
+          <input className='input-field mt-1' type="text" id="groupClass4" placeholder="Location" ref={(c) => groupLocation = c} /><br />
+          <Link to="/" className='variant1-btn mt-4 edit-user-btn' type="submit" id="groupButton" onClick={doGroup} >Create group</Link>
         </form>
       <span id="groupResult">{message}</span>
      </div>
