@@ -45,6 +45,14 @@ const userSchema = mongoose.Schema({
         type: [String],
         required: [false, 'Please add the group user is in']
     },
+    verified: {
+        type: Boolean,
+        required: [false, 'Please verify']
+    },
+    code: {
+        type: Number,
+        required: [false, 'Enter code for verification.']
+    },
 
 },
 {
