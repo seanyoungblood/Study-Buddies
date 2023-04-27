@@ -3,10 +3,13 @@ import aboutBackground from "../images/UCF_10.jpg"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"   
 // use useNavigate hook to when checking is user is logged in // imported for later
 import { useNavigate , Link} from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../useContext/LoginContext";
 
 const AboutHeader = () => {
 
+
+    const {currentUser} = useContext(AuthContext)
     const [background, setBackround] = useState(`linear-gradient(rgba(77,87,101,0.7), rgba(4,9,30,0.7)), url(${aboutBackground})`);
 
     const hideMenu = () => {
@@ -27,7 +30,7 @@ const AboutHeader = () => {
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
-                        <li><Link to='/profile'>PROFILE</Link></li>
+                        <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName : "PROFILE"}</Link></li>
                     </ul>
 			    </div>
 			    <i className="fa fa-bars" onClick={ showMenu }></i>

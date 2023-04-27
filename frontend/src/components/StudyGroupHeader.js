@@ -19,6 +19,8 @@ const StudyGroupHeader = () => {
     const showMenu = () => {
         document.getElementById("navLinks").style.right = "0px";
     }
+
+    const profile = "PROFILE"
     return ( 
         <section className="header" style={{backgroundImage: background  }}>
             <nav>
@@ -30,7 +32,7 @@ const StudyGroupHeader = () => {
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
-                        <li><Link to='/profile'>{currentUser ? currentUser.firstName :"PROFILE"}</Link></li>
+                        <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName : profile}</Link></li>
                     </ul>
 			    </div>
 			    <i className="fa fa-bars" onClick={ showMenu }></i>
