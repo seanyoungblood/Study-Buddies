@@ -7,8 +7,65 @@ const {MongoClient} = require('mongodb')
 const client = new MongoClient(process.env.MONGO_URI)
 const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
+const nodemailer = require('nodemailer');
+
+// @desc Reset password
+// @route POST /api/users
+// @access Public
+const resetPassword = asyncHandler(async (req, res) => {
+    const { username, email } = req.body
+    
+    const emailExists = await User.findOne({email})
+    const usernameExists = await User.findOne({username})
+    
+    if (!email || !username) 
+    {
+        res.status(400)
+        throw new Error('Please add all fields')
+    }
+    
+    if (!emailExists || !usernameExists)
+    {
+        res.status(400)
+        throw new Error('User/email does not exist')
+    }
+    
+    if (usernameExists.email != email || emailExists.username != username)
+    {
+           res.status(400)
+        throw new Error('User/email do not match')
+    }
+    
+        const transporter =  nodemailer.createTransport({
+  
+            service: "hotmail",
+            auth: {
+                user: "user-verification-4331@outlook.com",
+                pass: "$COP4331$",
+            }
+        });
 
 
+        const options = {
+            from: "user-verification-4331@outlook.com",
+            to: email,
+            subject: "Reset Password",
+            text: "Frontend complete with link to page with editUser API that allows password reset" // text field may need to be changed to html to add a link
+        };
+
+        transporter.sendMail(options, function(err, info){
+
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log("Sent: " + info.response);
+        
+        })
+    
+        res.status(201).json({username:username, email:email});
+    
+})
 
 // @desc Registers  new user
 // @route POST /api/users
@@ -42,6 +99,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt)
 
     // Create a user
+    const code = Math.floor(Math.random() * 9000 + 1000);
     const user = await User.create({
         firstName,
         lastName,
@@ -49,11 +107,39 @@ const registerUser = asyncHandler(async (req, res) => {
         password: hashedPassword,
         phone,
         email,
-        "groupsIn":[]
+        code,
     })
 
     if (user)
     {
+        
+        const transporter =  nodemailer.createTransport({
+  
+            service: "hotmail",
+            auth: {
+                user: "user-verification-4331@outlook.com",
+                pass: "$COP4331$",
+            }
+        });
+
+
+        const options = {
+            from: "user-verification-4331@outlook.com",
+            to: email,
+            subject: "Verify Email",
+            text: "Frontend to add link to input code sent in email. Check that code entered and code for user match. If so, set verified to true via editUser API. Code:" + code
+        };
+
+        transporter.sendMail(options, function(err, info){
+
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log("Sent: " + info.response);
+        
+        })
+        
         // 201 status codes means the request was sucessful
         // This is different versus the 200 status code just
         // meaning recieved and understood
@@ -65,6 +151,7 @@ const registerUser = asyncHandler(async (req, res) => {
             password: user.hashedPassword,
             phone: user.phone,
             email: user.email,
+            code: user.code,
             major: user.major,
             classesTaking: user.classesTaking,
             // likes: user.likes, //user.likes,
@@ -79,7 +166,6 @@ const registerUser = asyncHandler(async (req, res) => {
     }
     // res.json({message: 'Regsiter User'})
 }) 
-
 
 // @desc Authenticate a user
 // @route POST /api/users/login
@@ -104,7 +190,6 @@ const loginUser =  asyncHandler(async (req, res) => {
             email: user.email,
             major: user.major, //CHANGED BY ADAM
             classesTaking: user.classesTaking, //CHANGED BY ADAM
-            groupsIn: user.groupsIn,
             token: generateToken(user.id),
         })
     }
@@ -148,7 +233,6 @@ const generateToken = (id) => {
         [ USER | GROUPS | COURSES]
         Username, User Major, User Classes, or User Groups
         DONT FORGET: update routes
-
 */
 const searchUser =  asyncHandler(async (req, res) => {
 
@@ -208,21 +292,27 @@ const loadRandUser =  asyncHandler(async (req, res) => {
 const editUser = asyncHandler(async (req, res) => {
     var error = '';
 
-    const {firstName, lastName, username, phone} = req.body;
+    const {firstName, lastName, username, password, phone, email, major} = req.body;
 
     //const db = client.db("StudyBuddy");
     //db.collection('users').findOneAndUpdate({username:username}, { $set: {
         User2.findOneAndUpdate({username:username}, { $set: {
         "firstName":firstName,
         "lastName":lastName,
+        "password":password,
         "phone":phone,
+        "email":email,
+        "major":major,
     } })
     
     var ret = {
         firstName:firstName,
         lastName:lastName,
         username:username,
+        password:password,
         phone:phone,
+        email:email,
+        major:major,
         error:'' };
     res.status(200).json(ret);
 
@@ -300,7 +390,6 @@ const deleteUser = asyncHandler(async (req, res) => {
 /*const registerUser = asyncHandler(async (req, res) => 
 {
     const { firstName, lastName, username, password} = req.body;
-
     const newUser = {firstName,lastName,username,password};
     var error = '';
     console.log(newUser);
@@ -312,13 +401,13 @@ const deleteUser = asyncHandler(async (req, res) => {
     {
         error = e.toString();
     }
-
     var ret = { error: error };
     res.status(200).json(ret);
 })*/
 
 
 module.exports = {
+    resetPassword,
     registerUser,
     loginUser,
     getMe,
