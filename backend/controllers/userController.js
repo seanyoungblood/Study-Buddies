@@ -9,7 +9,63 @@ const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
 const nodemailer = require('nodemailer');
 
+// @desc Reset password
+// @route POST /api/users
+// @ access Public
+const resetPassword = asyncHandler(async (req, res) => {
+    const { username, email } = req.body
+    
+    const emailExists = await User.findOne({email})
+    const usernameExists = await User.findOne({username})
+    
+    if (!email || !username) 
+    {
+        res.status(400)
+        throw new Error('Please add all fields')
+    }
+    
+    if (!emailExists || !usernameExists)
+    {
+        res.status(400)
+        throw new Error('User/email does not exist')
+    }
+    
+    if (usernameExists.email != email || emailExists.username != username)
+    {
+           res.status(400)
+        throw new Error('User/email do not match')
+    }
+    
+        const transporter =  nodemailer.createTransport({
+  
+            service: "hotmail",
+            auth: {
+                user: "user-verification-4331@outlook.com",
+                pass: "$COP4331$",
+            }
+        });
 
+
+        const options = {
+            from: "user-verification-4331@outlook.com",
+            to: email,
+            subject: "Reset Password",
+            text: "Frontend complete with link to page with editUser API that allows password reset" // text field may need to be changed to html to add a link
+        };
+
+        transporter.sendMail(options, function(err, info){
+
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log("Sent: " + info.response);
+        
+        })
+    
+        res.status(201).json({username:username, email:email});
+    
+})
 
 // @desc Registers  new user
 // @route POST /api/users
@@ -351,6 +407,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 
 
 module.exports = {
+    resetPassword,
     registerUser,
     loginUser,
     getMe,
