@@ -7,7 +7,8 @@ const {MongoClient} = require('mongodb')
 const client = new MongoClient(process.env.MONGO_URI)
 const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
-const nodemailer = require('nodemailer');
+
+
 const transporter =  nodemailer.createTransport({
   
             service: "hotmail",
@@ -107,6 +108,7 @@ const registerUser = asyncHandler(async (req, res) => {
         phone,
         email,
         code,
+      "groupsIn": [],
     })
 
     if (user)
@@ -158,6 +160,7 @@ const registerUser = asyncHandler(async (req, res) => {
     // res.json({message: 'Regsiter User'})
 }) 
 
+
 // @desc Authenticate a user
 // @route POST /api/users/login
 // @access Public
@@ -181,6 +184,7 @@ const loginUser =  asyncHandler(async (req, res) => {
             email: user.email,
             major: user.major, //CHANGED BY ADAM
             classesTaking: user.classesTaking, //CHANGED BY ADAM
+            groupsIn: user.groupsIn,
             token: generateToken(user.id),
         })
     }
@@ -224,7 +228,6 @@ const generateToken = (id) => {
         [ USER | GROUPS | COURSES]
         Username, User Major, User Classes, or User Groups
         DONT FORGET: update routes
-
 */
 const searchUser =  asyncHandler(async (req, res) => {
 
@@ -284,27 +287,21 @@ const loadRandUser =  asyncHandler(async (req, res) => {
 const editUser = asyncHandler(async (req, res) => {
     var error = '';
 
-    const {firstName, lastName, username, password, phone, email, major} = req.body;
+    const {firstName, lastName, username, phone} = req.body;
 
     //const db = client.db("StudyBuddy");
     //db.collection('users').findOneAndUpdate({username:username}, { $set: {
         User2.findOneAndUpdate({username:username}, { $set: {
         "firstName":firstName,
         "lastName":lastName,
-        "password":password,
         "phone":phone,
-        "email":email,
-        "major":major,
     } })
     
     var ret = {
         firstName:firstName,
         lastName:lastName,
         username:username,
-        password:password,
         phone:phone,
-        email:email,
-        major:major,
         error:'' };
     res.status(200).json(ret);
 
@@ -382,7 +379,6 @@ const deleteUser = asyncHandler(async (req, res) => {
 /*const registerUser = asyncHandler(async (req, res) => 
 {
     const { firstName, lastName, username, password} = req.body;
-
     const newUser = {firstName,lastName,username,password};
     var error = '';
     console.log(newUser);
@@ -394,14 +390,13 @@ const deleteUser = asyncHandler(async (req, res) => {
     {
         error = e.toString();
     }
-
     var ret = { error: error };
     res.status(200).json(ret);
 })*/
 
 
 module.exports = {
-    resetPassword,
+  resetPassword,
     registerUser,
     loginUser,
     getMe,
