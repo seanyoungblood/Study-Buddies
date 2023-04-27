@@ -11,7 +11,7 @@ const nodemailer = require('nodemailer');
 
 // @desc Reset password
 // @route POST /api/users
-// @ access Public
+// @access Public
 const resetPassword = asyncHandler(async (req, res) => {
     const { username, email } = req.body
     
