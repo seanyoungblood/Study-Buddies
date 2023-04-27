@@ -49,7 +49,7 @@ const registerUser = asyncHandler(async (req, res) => {
         password: hashedPassword,
         phone,
         email,
-        groupsIn
+        "groupsIn":[]
     })
 
     if (user)
@@ -104,7 +104,7 @@ const loginUser =  asyncHandler(async (req, res) => {
             email: user.email,
             major: user.major, //CHANGED BY ADAM
             classesTaking: user.classesTaking, //CHANGED BY ADAM
-            groupsIn,
+            groupsIn: user.groupsIn,
             token: generateToken(user.id),
         })
     }
