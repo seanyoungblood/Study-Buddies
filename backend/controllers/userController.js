@@ -9,15 +9,6 @@ const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
 const nodemailer = require('nodemailer');
 
-// REMEMBER TO DELETE AFTER PROJECT
-const transporter = nodemailer.createTransport({
-    service: 'hotmail',
-    auth: {
-             user: 'copstudybuddy1000@outlook.com',
-            pass: 'Password123$$$$'
-   } 
-})
-
 
 
 // @desc Registers  new user
@@ -50,21 +41,6 @@ const registerUser = asyncHandler(async (req, res) => {
     // Hashes the Password
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
-    
-   const mailOptions = {
-        from: 'copstudybuddy1000@gmail.com',
-        to: 'seanjyoungblood@hotmail.com',
-        subject: 'Verify your email',
-        text: 'Good job!'
-      };
-  
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-        }
-    });
 
     // Create a user
     const user = await User.create({
@@ -75,10 +51,37 @@ const registerUser = asyncHandler(async (req, res) => {
         phone,
         email,
     })
-    
 
     if (user)
     {
+        
+        const transporter =  nodemailer.createTransport({
+  
+            service: "hotmail",
+            auth: {
+                user: "user-verification-4331@outlook.com",
+                pass: "$COP4331$",
+            }
+        });
+
+
+        const options = {
+            from: "user-verification-4331@outlook.com",
+            to: email,
+            subject: "Sending email with node.js",
+            text: "google.com"
+        };
+
+        transporter.sendMail(options, function(err, info){
+
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log("Sent: " + info.response);
+        
+        })
+        
         // 201 status codes means the request was sucessful
         // This is different versus the 200 status code just
         // meaning recieved and understood
@@ -104,7 +107,6 @@ const registerUser = asyncHandler(async (req, res) => {
     }
     // res.json({message: 'Regsiter User'})
 }) 
-
 
 // @desc Authenticate a user
 // @route POST /api/users/login
