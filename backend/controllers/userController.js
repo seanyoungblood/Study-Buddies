@@ -99,6 +99,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt)
 
     // Create a user
+    const code = Math.floor(Math.random() * 9000 + 1000);
     const user = await User.create({
         firstName,
         lastName,
@@ -106,6 +107,7 @@ const registerUser = asyncHandler(async (req, res) => {
         password: hashedPassword,
         phone,
         email,
+        code,
     })
 
     if (user)
@@ -124,8 +126,8 @@ const registerUser = asyncHandler(async (req, res) => {
         const options = {
             from: "user-verification-4331@outlook.com",
             to: email,
-            subject: "Sending email with node.js",
-            text: "google.com"
+            subject: "Verify Email",
+            text: "Frontend to add link to input code sent in email. Check that code entered and code for user match. If so, set verified to true via editUser API. Code:" + code;
         };
 
         transporter.sendMail(options, function(err, info){
@@ -149,6 +151,7 @@ const registerUser = asyncHandler(async (req, res) => {
             password: user.hashedPassword,
             phone: user.phone,
             email: user.email,
+            code: user.code,
             major: user.major,
             classesTaking: user.classesTaking,
             // likes: user.likes, //user.likes,
