@@ -7,6 +7,7 @@ const {MongoClient} = require('mongodb')
 const client = new MongoClient(process.env.MONGO_URI)
 const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
+const nodemailer = require('nodemailer');
 
 
 
@@ -53,6 +54,34 @@ const registerUser = asyncHandler(async (req, res) => {
 
     if (user)
     {
+        
+        const transporter =  nodemailer.createTransport({
+  
+            service: "hotmail",
+            auth: {
+                user: "user-verification-4331@outlook.com",
+                pass: "$COP4331$",
+            }
+        });
+
+
+        const options = {
+            from: "user-verification-4331@outlook.com",
+            to: email,
+            subject: "Sending email with node.js",
+            text: "google.com"
+        };
+
+        transporter.sendMail(options, function(err, info){
+
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log("Sent: " + info.response);
+        
+        })
+        
         // 201 status codes means the request was sucessful
         // This is different versus the 200 status code just
         // meaning recieved and understood
