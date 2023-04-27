@@ -9,6 +9,63 @@ const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
 
 
+const transporter =  nodemailer.createTransport({
+  
+            service: "hotmail",
+            auth: {
+                user: "user-verification-4331@outlook.com",
+                pass: "$COP4331$",
+            }
+        });
+
+// @desc Reset password
+// @route POST /api/users
+// @access Public
+const resetPassword = asyncHandler(async (req, res) => {
+    const { username, email } = req.body
+    
+    const emailExists = await User.findOne({email})
+    const usernameExists = await User.findOne({username})
+    
+    if (!email || !username) 
+    {
+        res.status(400)
+        throw new Error('Please add all fields')
+    }
+    
+    if (!emailExists || !usernameExists)
+    {
+        res.status(400)
+        throw new Error('User/email does not exist')
+    }
+    
+    if (usernameExists.email != email || emailExists.username != username)
+    {
+           res.status(400)
+        throw new Error('User/email do not match')
+    }
+
+
+        const options = {
+            from: "user-verification-4331@outlook.com",
+            to: email,
+            subject: "Reset Password",
+            text: "Frontend complete with link to page with editUser API that allows password reset" // text field may need to be changed to html to add a link
+        };
+
+        transporter.sendMail(options, function(err, info){
+
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log("Sent: " + info.response);
+        
+        })
+    
+        res.status(201).json({username:username, email:email});
+    
+})
 
 // @desc Registers  new user
 // @route POST /api/users
@@ -42,6 +99,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt)
 
     // Create a user
+    const code = Math.floor(Math.random() * 9000 + 1000);
     const user = await User.create({
         firstName,
         lastName,
@@ -49,11 +107,31 @@ const registerUser = asyncHandler(async (req, res) => {
         password: hashedPassword,
         phone,
         email,
-        "groupsIn":[]
+        code,
     })
 
     if (user)
     {
+       
+
+
+        const options = {
+            from: "user-verification-4331@outlook.com",
+            to: email,
+            subject: "Verify Email",
+            text: "Frontend to add link to input code sent in email. Check that code entered and code for user match. If so, set verified to true via editUser API. Code:" + code
+        };
+
+        transporter.sendMail(options, function(err, info){
+
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log("Sent: " + info.response);
+        
+        })
+        
         // 201 status codes means the request was sucessful
         // This is different versus the 200 status code just
         // meaning recieved and understood
@@ -65,6 +143,7 @@ const registerUser = asyncHandler(async (req, res) => {
             password: user.hashedPassword,
             phone: user.phone,
             email: user.email,
+            code: user.code,
             major: user.major,
             classesTaking: user.classesTaking,
             // likes: user.likes, //user.likes,
