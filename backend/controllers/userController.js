@@ -9,6 +9,15 @@ const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
 const nodemailer = require('nodemailer');
 
+const transporter =  nodemailer.createTransport({
+  
+            service: "hotmail",
+            auth: {
+                user: "user-verification-4331@outlook.com",
+                pass: "$COP4331$",
+            }
+        });
+
 // @desc Reset password
 // @route POST /api/users
 // @access Public
@@ -36,14 +45,7 @@ const resetPassword = asyncHandler(async (req, res) => {
         throw new Error('User/email do not match')
     }
     
-        const transporter =  nodemailer.createTransport({
-  
-            service: "hotmail",
-            auth: {
-                user: "user-verification-4331@outlook.com",
-                pass: "$COP4331$",
-            }
-        });
+        
 
 
         const options = {
@@ -113,14 +115,7 @@ const registerUser = asyncHandler(async (req, res) => {
     if (user)
     {
         
-        const transporter =  nodemailer.createTransport({
-  
-            service: "hotmail",
-            auth: {
-                user: "user-verification-4331@outlook.com",
-                pass: "$COP4331$",
-            }
-        });
+      
 
 
         const options = {
