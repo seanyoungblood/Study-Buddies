@@ -27,6 +27,7 @@ const registerGroup = asyncHandler(async (req, res) => {
         date, 
         time,
         location,
+        members,
         "admin": req.user.id,
     })
     /*groupName: req.body.groupName,
