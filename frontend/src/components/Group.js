@@ -57,10 +57,8 @@ function buildPath(route)
             }
             else
             {
-              const user = currentUser;
-
-              //user.groupsIn.push(groupName)
-              localStorage.setItem('user_data', JSON.stringify(user));
+              let user = currentUser;
+              user.groupsIn.push(groupName)
               setCurrentUser(user)
                 
                 
