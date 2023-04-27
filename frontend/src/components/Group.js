@@ -61,9 +61,10 @@ function buildPath(route)
               let user = currentUser;
               user.groupsIn.push(groupName)
               setCurrentUser(user)
-                
-                navigate('/studygroups');
+                console.log(currentUser);
+
                 setMessage('Works');
+                navigate('/studygroups');
             }
         }
         catch(e)
