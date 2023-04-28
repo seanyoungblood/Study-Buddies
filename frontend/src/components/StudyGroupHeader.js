@@ -35,7 +35,8 @@ const StudyGroupHeader = () => {
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
-                        <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName.toUpperCase() : profile}</Link></li>
+                        <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName.toUpperCase() : ""}</Link></li>
+                        {currentUser.firstName === '' ? <li className="logout-btn"><Link to="/login">Login</Link></li> : ""}
                         <li className="logout-btn"  onClick={handleLogout}>{currentUser.firstName !== '' ? "LOGOUT" : ""}</li>
                     </ul>
 			    </div>
@@ -52,5 +53,4 @@ const StudyGroupHeader = () => {
         </section>
      );
 }
- 
 export default StudyGroupHeader;
