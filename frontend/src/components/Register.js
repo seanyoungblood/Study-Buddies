@@ -50,6 +50,7 @@ function Register()
             if(!res._id)
             {
                 setMessage('Please check your submission');
+                navigate("/login");
             }
             else
             {
