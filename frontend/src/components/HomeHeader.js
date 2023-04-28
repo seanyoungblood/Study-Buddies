@@ -20,7 +20,11 @@ const HomeHeader = () => {
         document.getElementById("navLinks").style.right = "0px";
     }
 
-    const {currentUser} = useContext(AuthContext)
+    const {currentUser, setCurrentUser} = useContext(AuthContext)
+
+    const handleLogout = () =>{
+        setCurrentUser({email: "",firstName:"", phone:"", lastName: "",token: "",username: "",_id: "", classesTaking:[], groupsIn:[]});
+    }
     return ( 
         <section className="header" style={{backgroundImage: background  }}>
             <nav>
@@ -33,6 +37,7 @@ const HomeHeader = () => {
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
                         <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName.toUpperCase() : "PROFILE"}</Link></li>
+                        <li onClick={handleLogout}>{currentUser.firstName !== '' & "LOGOUT" }</li>
                     </ul>
 			    </div>
 			    <i className="fa fa-bars" onClick={ showMenu }><img className="toggleMenu" src={menu} alt="" /></i>

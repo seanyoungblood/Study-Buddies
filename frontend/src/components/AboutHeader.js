@@ -9,7 +9,7 @@ import { AuthContext } from "../useContext/LoginContext";
 const AboutHeader = () => {
 
 
-    const {currentUser} = useContext(AuthContext)
+    const {currentUser, setCurrentUser} = useContext(AuthContext)
     const [background, setBackround] = useState(`linear-gradient(rgba(77,87,101,0.7), rgba(4,9,30,0.7)), url(${aboutBackground})`);
 
     const hideMenu = () => {
@@ -18,6 +18,10 @@ const AboutHeader = () => {
     }
     const showMenu = () => {
         document.getElementById("navLinks").style.right = "0px";
+    }
+
+    const handleLogout = () =>{
+        setCurrentUser({email: "",firstName:"", phone:"", lastName: "",token: "",username: "",_id: "", classesTaking:[], groupsIn:[]});
     }
     return ( 
         <section className="header" style={{backgroundImage: background  }}>
@@ -31,6 +35,7 @@ const AboutHeader = () => {
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
                         <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName.toUpperCase() : "PROFILE"}</Link></li>
+                        <li onClick={handleLogout}>{currentUser.firstName !== '' & "LOGOUT" }</li>
                     </ul>
 			    </div>
 			    <i className="fa fa-bars" onClick={ showMenu }></i>

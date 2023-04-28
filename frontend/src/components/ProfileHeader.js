@@ -30,6 +30,9 @@ const ProfileHeader = () => {
         else setLog_reg(false)
     }, [location])
 
+    const handleLogout = () =>{
+        setCurrentUser({email: "",firstName:"", phone:"", lastName: "",token: "",username: "",_id: "", classesTaking:[], groupsIn:[]});
+    }
     return ( <>
         {!log_reg && 
         <section className="header" style={{backgroundImage: background, minHeight: profileHeight  }}>
@@ -43,6 +46,7 @@ const ProfileHeader = () => {
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
                         <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName.toUpperCase() : "PROFILE"}</Link></li>
+                        <li onClick={handleLogout}>{currentUser.firstName !== '' & "LOGOUT" }</li>
                     </ul>
 			    </div>
 			    <i className="fa fa-bars" onClick={ showMenu }></i>

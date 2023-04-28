@@ -19,6 +19,9 @@ const StudyGroupHeader = () => {
     const showMenu = () => {
         document.getElementById("navLinks").style.right = "0px";
     }
+    const handleLogout = () =>{
+        setCurrentUser({email: "",firstName:"", phone:"", lastName: "",token: "",username: "",_id: "", classesTaking:[], groupsIn:[]});
+    }
 
     const profile = "PROFILE"
     return ( 
@@ -33,6 +36,7 @@ const StudyGroupHeader = () => {
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
                         <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName.toUpperCase() : profile}</Link></li>
+                        <li onClick={handleLogout}>{currentUser.firstName !== '' & "LOGOUT" }</li>
                     </ul>
 			    </div>
 			    <i className="fa fa-bars" onClick={ showMenu }></i>
