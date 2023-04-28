@@ -10,71 +10,67 @@ import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"
 function User()
 {
 
-
-
   const {currentUser, setCurrentUser} = useContext(AuthContext);
-
- const app_name = 'cop-study-buddy-1000'
-
-function buildPath(route)
-{
-    if (process.env.NODE_ENV === 'production')
-    {
-        return 'https://' + app_name +  '.herokuapp.com/' + route;
-    }
-    else
-    {
-        return 'http://localhost:5000/' + route;
-    }
-}
-
   var userFirstName = currentUser.firstName;
   var userLastName = currentUser.lastName;
   var userPhoneNumber = currentUser.phone;
 
-    const [message,setMessage] = useState('');
-
+  const [message,setMessage] = useState('');
 
     const doUser = async event => 
     {
-        event.preventDefault();
 
-        var obj = {login:userFirstName.value,lastName:userLastName.value, phone:userPhoneNumber.value, username:currentUser.username};
-        var js = JSON.stringify(obj);
-        console.log(obj);
-        try
-        {    
-          const [ login, password ] = js;
+      const app_name = 'cop-study-buddy-1000'
+      function buildPath(route){
+          if (process.env.NODE_ENV === 'production')
+          {
+              return 'https://' + app_name +  '.herokuapp.com/' + route;
+          }
+          else
+          {
+              return 'http://localhost:5000/' + route;
+          }
+      }
 
-          console.log(login);
-          console.log(password);
-          console.log(js)
-            const response = await fetch(buildPath('api/editUser'),
-                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
-            
+      event.preventDefault();
 
-            var res = JSON.parse(await response.text());
-            console.log(res)
+      var obj = {login:userFirstName.value,lastName:userLastName.value, phone:userPhoneNumber.value, username:currentUser.username};
+      var js = JSON.stringify(obj);
+      console.log(obj);
+        
+      try
+      {    
+        const [ login, password ] = js;
 
-            if( res._id <= 0 )
-            {
-                setMessage('User/Password combination incorrect');
-            }
-            else
-            {
-                var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
-                console.log(user);
-                // setCurrentUser(user);
-                localStorage.setItem('user_data', JSON.stringify(user));
-                navigate('/');
-                setMessage('Works');
-            }
-        }
-        catch(e)
+        console.log(login);
+        console.log(password);
+        console.log(js)
+        const response = await fetch(buildPath('api/editUser'),
+        {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+          
+
+        var res = JSON.parse(await response.text());
+        console.log(res)
+
+        if( res._id <= 0 )
         {
-            alert(e.toString());
-            return;
-        }    
+            setMessage('User/Password combination incorrect');
+        }
+        else
+        {
+            var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
+            console.log(user);
+            // setCurrentUser(user);
+            localStorage.setItem('user_data', JSON.stringify(user));
+            navigate('/');
+            setMessage('Works');
+        }
+      }
+      catch(e)
+      {
+          alert(e.toString());
+          return;
+      }    
     };
 
 
