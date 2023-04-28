@@ -2,16 +2,13 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
-
+// Database connection and db-related variable initialization
 const {MongoClient} = require('mongodb')
 const client = new MongoClient(process.env.MONGO_URI)
 const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
 
-
-
-
-// @desc Reset password
+// @desc Reset password by taking a username/email combo and sending a link to reset
 // @route POST /api/users
 // @access Public
 const resetPassword = asyncHandler(async (req, res) => {
@@ -20,61 +17,63 @@ const resetPassword = asyncHandler(async (req, res) => {
     const emailExists = await User.findOne({email})
     const usernameExists = await User.findOne({username})
     
+    // check for all fields
     if (!email || !username) 
     {
         res.status(400)
         throw new Error('Please add all fields')
     }
     
+    // check that fields exist
     if (!emailExists || !usernameExists)
     {
         res.status(400)
         throw new Error('User/email does not exist')
     }
     
+    // check that the email provided matches the username provided
     if (usernameExists.email != email || emailExists.username != username)
     {
            res.status(400)
         throw new Error('User/email do not match')
     }
 
-  
-  const transporter =  nodemailer.createTransport({
-  
+    // EMAIL:
+        // sending email
+        const transporter =  nodemailer.createTransport({
             service: "hotmail",
             auth: {
                 user: "user-verification-4331@outlook.com",
                 pass: "$COP4331$",
             }
         });
-
+        
+        // recieving email and options
         const options = {
             from: "user-verification-4331@outlook.com",
             to: email,
             subject: "Reset Password",
             text: "Frontend complete with link to page with editUser API that allows password reset" // text field may need to be changed to html to add a link
         };
-
-        transporter.sendMail(options, function(err, info){
-
-            if(err){
-                console.log(err);
-                return;
-            }
-            console.log("Sent: " + info.response);
         
-        })
-    
-        res.status(201).json({username:username, email:email});
-    
+        // send email
+        transporter.sendMail(options, function(err, info){
+          if(err){
+             console.log(err);
+             return;
+         }
+         console.log("Sent: " + info.response);  
+         })
+     res.status(201).json({username:username, email:email});
 })
 
-// @desc Registers  new user
+// @desc Registers a user and sends them a link to verify thier email
 // @route POST /api/users
 // @access Public
 const registerUser = asyncHandler(async (req, res) => {
     const { firstName, lastName, username, password, phone, email} = req.body
-
+    
+    // check that all required registration fields are present
     if ( !firstName || !lastName || !username || !password || !phone || !email ) //|| !username
     {
         res.status(400)
@@ -113,35 +112,35 @@ const registerUser = asyncHandler(async (req, res) => {
         code,
       "groupsIn": [],
     })
-
+    
+    // EMAIL:
     if (user)
     {
-       
-
+      // sender
       const transporter =  nodemailer.createTransport({
-  
             service: "hotmail",
             auth: {
                 user: "user-verification-4331@outlook.com",
                 pass: "$COP4331$",
             }
         });
-
+         
+        // reciever plus options
         const options = {
             from: "user-verification-4331@outlook.com",
             to: email,
             subject: "Verify Email",
             text: "Frontend to add link to input code sent in email. Check that code entered and code for user match. If so, set verified to true via editUser API. Code:" + code
         };
-
+        
+        // send the email
         transporter.sendMail(options, function(err, info){
 
             if(err){
                 console.log(err);
                 return;
             }
-            console.log("Sent: " + info.response);
-        
+            console.log("Sent: " + info.response);      
         })
         
         // 201 status codes means the request was sucessful
@@ -183,7 +182,8 @@ const loginUser =  asyncHandler(async (req, res) => {
     // We choose to check by email since this field
     // will always be unique
     const user = await User.findOne({ username })
-
+    
+    // compare the hashed password
     if (user && (await bcrypt.compare(password, user.password)))
     {
         res.status(201).json({
@@ -245,15 +245,16 @@ const searchUser =  asyncHandler(async (req, res) => {
 
     const { username, major, classesTaking } = req.body
     
+    // check for one of three fields
     if( !username &&!major && !classesTaking)
     {
         res.status(400)
         throw new Error('Please fill out one field')
 
     }
+    // check if field is username
     if (!major && !classesTaking)
     {
-
         const searchFilter = await User.findOne({
             "username": username
         })
@@ -261,6 +262,7 @@ const searchUser =  asyncHandler(async (req, res) => {
         res.status(200).json({
             "username": searchFilter.username})
     }
+    // check if field is major
     if (!username && !classesTaking)
     {
         const searchFilter = await User.findOne({
@@ -269,8 +271,8 @@ const searchUser =  asyncHandler(async (req, res) => {
 
         res.status(200).json({
             "major": searchFilter.major})
-
     }
+    // field must be classesTaking
     if(!username && !major)
     {
         const searchFilter = await User.findOne({
@@ -279,16 +281,11 @@ const searchUser =  asyncHandler(async (req, res) => {
 
         res.status(200).json({
             "classesTaking": searchFilter.classesTaking})
-        
     }
-
-
 })
 
 const loadRandUser =  asyncHandler(async (req, res) => {
-
     const randUser = User.find()
-
     if (randUser){
         res.status(200).json({
             "username": randUser.username
@@ -296,6 +293,7 @@ const loadRandUser =  asyncHandler(async (req, res) => {
     }
 })
 
+// edit by username
 const editUser = asyncHandler(async (req, res) => {
     var error = '';
 
@@ -303,6 +301,7 @@ const editUser = asyncHandler(async (req, res) => {
 
     //const db = client.db("StudyBuddy");
     //db.collection('users').findOneAndUpdate({username:username}, { $set: {
+        // set variables
         User2.findOneAndUpdate({username:username}, { $set: {
         "firstName":firstName,
         "lastName":lastName,
@@ -320,6 +319,7 @@ const editUser = asyncHandler(async (req, res) => {
 
 })
 
+// add up to 6 classes
 const addClasses = asyncHandler(async (req, res) => {
 
     var error = '';
@@ -328,6 +328,8 @@ const addClasses = asyncHandler(async (req, res) => {
 
     //const db = client.db("StudyBuddy");
     //db.collection('users').findOneAndUpdate({username:username}, { $set: {
+        // clears classes each time it is called (to simulate a new semester)
+        // frontend simply passes the classes being taken in the current semester
         User2.findOneAndUpdate({username:username}, { $set: {
         "classesTaking.0":class0,
         "classesTaking.1":class1,
@@ -360,11 +362,10 @@ const addClasses = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Invalid user credentials')
     }
-
 })
 
+// big sad
 const deleteUser = asyncHandler(async (req, res) => { 
-
     var error = '';
 
     const {username} = req.body;
@@ -377,12 +378,7 @@ const deleteUser = asyncHandler(async (req, res) => {
   
     var ret = {error: 0};
     res.status(200).json(ret);
-
 })
-
-
-
-
 
 /**
  * TESTING IF WE CAN JUST USE thE MONGO Package 
@@ -409,7 +405,7 @@ const deleteUser = asyncHandler(async (req, res) => {
     res.status(200).json(ret);
 })*/
 
-
+// routing
 module.exports = {
   resetPassword,
     registerUser,
