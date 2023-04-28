@@ -210,6 +210,16 @@ p {
     background-color: #cca100;
   }
 
+  @media(max-width: 700px) {
+    .search-bar input[type="text"] {
+      font-size: 16px;
+    }
+    
+    .create-group-btn {
+      font-size: 16px;
+    }
+  }
+
   /* Tile Group Section */
 
 .tile-container {
@@ -390,6 +400,61 @@ p {
   .review-btn:hover {
     background-color: #f00000;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  @media(max-width: 700px) {
+    
+    .tile-header h3 {
+      font-size: 22px;
+    }
+  
+    #group-name {
+      font-size: 22px;
+    } 
+  
+    .header-details p{
+      font-size: 14px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+    }
+    
+    .objective {
+      width: 78%;
+      font-size: 14px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .members {
+      font-size: 14px;
+    }
+    
+    .members p {
+      font-size: 14px;
+    }
+    
+    .members ul {
+      font-size: 14px;
+    }
+    
+    .members li {
+      font-size: 14px;
+    } 
+
+    #group-rating span {
+      font-size: 14px;
+    }
+    
+    .star {
+      font-size: 14px;
+      }
+    
+    .join-btn {
+      font-size: 14px;
+    }
+  
+    .review-btn {
+      font-size: 14px;
+    }
   }
 
   /* Pagination Button Section */
