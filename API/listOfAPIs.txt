@@ -1,18 +1,18 @@
 Users:
-[X] Login
-[X] Register
-[/] Edit User
-[X] Delete User :(
+[X] Login                               Implemented Web [X]   Implemented Mobile [X]
+[X] Register                            Implemented Web [X]   Implemented Mobile [/]
+[X] Edit User                           Implemented Web [X]   Implemented Mobile [ ]
+[X] Add Classes                         Implemented Web [X]   Implemented Mobile [ ]
+[X] Delete User :(                      Implemented Web [X]   Implemented Mobile [ ]
 
 Groups:
-[X] Create Group
-[/] Search Group
-[/] Edit Group
-[X] Delete Group
-[ ] Join Group    (Easy)
-[ ] Leave Group   (Easy)
-[ ] Load Group
-[ ] Search Member
+[X] Create Group                        Implemented Web [ ]   Implemented Mobile [ ]
+[X] Search Group                        Implemented Web [ ]   Implemented Mobile [ ]
+[X] Edit Group                          Implemented Web [ ]   Implemented Mobile [ ]
+[X] Delete Group                        Implemented Web [ ]   Implemented Mobile [ ]
+[X] Join Group    (Easy)                Implemented Web [ ]   Implemented Mobile [ ]
+[X] Leave Group   (Easy)                Implemented Web [ ]   Implemented Mobile [ ]
+[X] Load Group    (Similar to Search)   Implemented Web [ ]   Implemented Mobile [ ]
 
 X = completed & working
 / = needs testing
