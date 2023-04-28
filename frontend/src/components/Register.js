@@ -62,8 +62,7 @@ function Register()
                 setMessage('Works');
                 console.log(user);
 
-                navigate("/");
-                // window.location.href = '/';
+                navigate("/login");
 
             }
         }
