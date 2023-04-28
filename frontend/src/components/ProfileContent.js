@@ -16,7 +16,8 @@ const ProfileContent = () => {
                         <div key={c.id}>
                             <p>{c}</p>
                         </div>
-                    )})}</div>
+                    )})}
+            </div>
 
             <div className="col-6">
                 <h1 className="textbox profile-header">Groups</h1>

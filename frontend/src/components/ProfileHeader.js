@@ -55,7 +55,13 @@ const ProfileHeader = () => {
             <div className="text-box" style={{top: profileMargin}}>
 
 			
-            <h1>Rick Leinecker</h1>
+            {currentUser.firstName.map((c)=>{
+                    if(c !== '') 
+                    return (
+                        <div key={c.id}>
+                            <h3>{c}</h3>
+                        </div>
+                    )})}
             <p className="center">Computer Science B.S.</p>
 
 		    </div>
