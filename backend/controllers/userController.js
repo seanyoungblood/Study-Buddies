@@ -312,7 +312,6 @@ const editUser = asyncHandler(async (req, res) => {
     var ret = {
         firstName:firstName,
         lastName:lastName,
-        username:username,
         phone:phone,
         error:'' };
     res.status(200).json(ret);
