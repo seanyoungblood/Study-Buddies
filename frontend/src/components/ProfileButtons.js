@@ -75,23 +75,21 @@ const ProfileButtons = () => {
         <div className="buttonRow text-center mt-5">
            <Link id="profileButton" to='/user'>Edit User</Link>
            <Link id="profileButton" to='/classes'>Change Classes</Link>
-           <Button id='profileButton' onClick={handleShow}>
-        Delete Your Account
-      </Button>
+           <Button id='profileButton' onClick={handleShow}>Delete Your Account</Button>
 
       <Modal show={show} onHide={handleClose}>
+
         <Modal.Header closeButton>
           <Modal.Title>Delete User</Modal.Title>
         </Modal.Header>
+        
         <Modal.Body>Are you sure you want to delete this user?</Modal.Body>
+        
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleDelete}>
-            Delete
-          </Button>
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
+          <Button variant="primary" onClick={handleDelete}>Delete</Button>
         </Modal.Footer>
+      
       </Modal>
         </div>
      );

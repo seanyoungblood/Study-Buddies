@@ -50,12 +50,10 @@ function Register()
             if(!res._id)
             {
                 setMessage('Please check your submission');
-                navigate("/login");
             }
             else
             {
                 var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
-                // setCurrentUser(user);
                 localStorage.setItem('user_data', JSON.stringify(user));
 
                 setCurrentUser(res);
