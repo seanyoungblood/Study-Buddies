@@ -53,7 +53,7 @@ function buildPath(route)
           console.log(login);
           console.log(password);
           console.log(js)
-            const response = await fetch(buildPath('api/login'),
+            const response = await fetch(buildPath('api/editUser'),
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
             
 
