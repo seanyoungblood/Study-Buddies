@@ -165,6 +165,39 @@ p {
 
 /*-----Group Content-----*/
 
+  .search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F5F5;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .search-bar input[type="text"] {
+    flex: 1;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .create-group-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
 /* .group-section{
     margin: 250px auto;
     width: 80%;
@@ -425,15 +458,18 @@ p {
   .members p {
     margin: 0;
     margin-bottom: 10px;
+    font-size: 16px;
   }
   
   .members ul {
     list-style: none;
+    font-size: 16px;
     margin: 0;
     padding: 0;
   }
   
   .members li {
+    font-size: 16px;
     margin-bottom: 5px;
   }  
   
@@ -456,12 +492,12 @@ p {
   }
 
   #group-rating span {
-    font-size: 20px;
+    font-size: 18px;
     margin-right: 5px;
   }
   
   .star {
-    font-size: 20px;
+    font-size: 18px;
     color: #E4E4E4;
     margin: 0 5px;
     cursor: pointer;
@@ -480,7 +516,7 @@ p {
     padding: 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
@@ -502,7 +538,7 @@ p {
     padding: 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
@@ -629,38 +665,7 @@ p {
 
 
 
-  .search-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #F5F5F5;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    width: 80%;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .search-bar input[type="text"] {
-    flex: 1;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: none;
-    margin-right: 10px;
-    font-size: 16px;
-  }
-  
-  .create-group-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-  }
+
 
 
 
