@@ -32,7 +32,7 @@ const StudyGroupHeader = () => {
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
-                        <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName : profile}</Link></li>
+                        <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName.toUpperCase() : profile}</Link></li>
                     </ul>
 			    </div>
 			    <i className="fa fa-bars" onClick={ showMenu }></i>

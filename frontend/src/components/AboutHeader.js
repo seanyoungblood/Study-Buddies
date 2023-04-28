@@ -30,7 +30,7 @@ const AboutHeader = () => {
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
-                        <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName : "PROFILE"}</Link></li>
+                        <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName.toUpperCase() : "PROFILE"}</Link></li>
                     </ul>
 			    </div>
 			    <i className="fa fa-bars" onClick={ showMenu }></i>
