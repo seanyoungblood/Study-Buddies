@@ -73,15 +73,12 @@ function User()
       }    
     };
 
-
     const navigate = useNavigate();
 
     const handleLogoClick = (e) => {
       e.preventDefault();
 
       navigate("/profile");
-
-
 
     }
 

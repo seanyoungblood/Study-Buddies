@@ -72,16 +72,12 @@ function Register()
         }    
      };
 
-
-     
     const navigate = useNavigate();
 
     const handleLogoClick = (e) => {
       e.preventDefault();
 
       navigate("/");
-
-
 
     }
 
@@ -96,17 +92,17 @@ function Register()
         <div id="loginDiv" style={{height:500}}>
             <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
         
-          <form onSubmit={doRegister}>
-          <input className="mt-2 input-field" type="text" id="registerFirstName" placeholder="First Name" ref={(c) => registerFirstName = c} /><br />
-          <input className="mt-3 input-field" type="text" id="registerLastName" placeholder="Last Name" ref={(c) => registerLastName = c} /><br />
-          <input className="mt-3 input-field" type="text" id="registerUsername" placeholder="Username" ref={(c) => registerUsername = c} /><br />
-          <input className="mt-3 input-field" type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} /><br />
-          <input className="mt-3 input-field"  type="phone" placeholder='Phone Number' ref={(c) => phone = c} /><br />
-          <input className="mt-3 input-field"  type="email" placeholder='Email' ref={(c) => email = c} /><br />
-          <input className="mt-4 variant1-btn" type="submit" id="registerButton"  value = "Register" onClick={doRegister} />
-          </form>
-          <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
-          <span className="mt-2" id="registerResult">{message}</span>
+            <form onSubmit={doRegister}>
+                <input className="mt-2 input-field" type="text" id="registerFirstName" placeholder="First Name" ref={(c) => registerFirstName = c} /><br />
+                <input className="mt-3 input-field" type="text" id="registerLastName" placeholder="Last Name" ref={(c) => registerLastName = c} /><br />
+                <input className="mt-3 input-field" type="text" id="registerUsername" placeholder="Username" ref={(c) => registerUsername = c} /><br />
+                <input className="mt-3 input-field" type="password" id="registerPassword" placeholder="Password" ref={(c) => registerPassword = c} /><br />
+                <input className="mt-3 input-field"  type="phone" placeholder='Phone Number' ref={(c) => phone = c} /><br />
+                <input className="mt-3 input-field"  type="email" placeholder='Email' ref={(c) => email = c} /><br />
+                <input className="mt-4 variant1-btn" type="submit" id="registerButton"  value = "Register" onClick={doRegister} />
+            </form>
+            <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
+            <span className="mt-2" id="registerResult">{message}</span>
 
        </div>
       );
