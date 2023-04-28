@@ -347,6 +347,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 50px;
   }
   
   .tile {
@@ -516,7 +517,7 @@ p {
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
   }
 
-.pagination-bar {
+/* .pagination-bar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -524,7 +525,6 @@ p {
 }
 
 .pagination-bar button {
-    /* border: none; */
     border: 2px solid transparent;
     border-radius: 10%;
     background-color: #B3D9FF;
@@ -539,7 +539,33 @@ p {
 .pagination-bar button:hover {
     background-color: #3F8CC8;
     border: 2px solid  #20202070;
+} */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
+
+.pagination a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
 
 /* .page-numbers {
     display: flex;
@@ -552,15 +578,15 @@ p {
     margin-right: 10px;
 } */
 
-.prev-btn, .next-btn {
+/* .prev-btn, .next-btn {
     display: flex;
     width: 200px;
     justify-content: center;
     align-items: center;
     margin: 0px 20px;
-}
+} */
   
-.search-bar {
+/* .search-bar {
     display: flex;
     position: relative;
     top: -225px;
@@ -599,7 +625,46 @@ p {
   .create-group:hover {
     color: #222;
     transform: scale(1.05);
+  } */
+
+
+
+  .search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F5F5;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
   }
+  
+  .search-bar input[type="text"] {
+    flex: 1;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .create-group-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+
+
+  
 
   .align-center-btn{
     margin-left: auto;
