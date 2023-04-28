@@ -7,7 +7,7 @@ import "../css/InputFieldPage.css"
 import logo from "../images/UCF_Logo_Clean_Horizontal_Alt.jpg"  
 
 
-function Group()
+function EditGroup()
 {
 
   const {currentUser, setCurrentUser} = useContext(AuthContext);
@@ -20,7 +20,7 @@ function Group()
   
   const [message,setMessage] = useState('');
 
-  const doGroup = async event => 
+  const doEditGroup = async event => 
   {
 
       const app_name = 'cop-study-buddy-1000'
@@ -44,7 +44,7 @@ function Group()
 
       try
       {    
-          const response = await fetch(buildPath('api/registerGroup'),
+          const response = await fetch(buildPath('api/editGroup'),
           {method:'POST',body:js,headers:{'Content-Type': 'application/json', 'Authorization': `Bearer ${currentUser.token}`}});
           
           var res = JSON.parse(await response.text());
@@ -83,18 +83,18 @@ function Group()
     return(
       <div id="groupDiv">
         <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
-        <form onSubmit ={doGroup}>
+        <form onSubmit ={doEditGroup}>
           <input className='input-field mt-3' type="text" id="groupName" placeholder="Group Name" ref={(c) => groupName = c} /><br />
           <input className='input-field mt-3' type="text" id="groupCourse" placeholder="Group Course"  ref={(c) => groupCourse = c} /><br />
           <input className='input-field mt-3' type="text" id="groupObjective" placeholder="Objective" ref={(c) => groupObjective = c} /><br />
           <input className='input-field mt-1' type="text" id="groupDate" placeholder="Date" ref={(c) => groupDate = c} /><br />
           <input className='input-field mt-1' type="text" id="groupTime" placeholder="Time" ref={(c) => groupTime = c} /><br />
           <input className='input-field mt-1' type="text" id="groupLocation" placeholder="Location" ref={(c) => groupLocation = c} /><br />
-          <input className='variant1-btn mt-4 edit-user-btn' type="submit" id="groupButton" value = "Edit Group" onClick={doGroup} />
+          <input className='variant1-btn mt-4 edit-user-btn' type="submit" id="groupButton" value = "Edit Group" onClick={doEditGroup} />
         </form>
       <span id="groupResult">{message}</span>
      </div>
     );
 };
 
-export default Group;
+export default EditGroup;

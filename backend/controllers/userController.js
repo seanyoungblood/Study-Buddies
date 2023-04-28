@@ -110,7 +110,7 @@ const registerUser = asyncHandler(async (req, res) => {
         phone,
         email,
         code,
-      "groupsIn": [],
+        "groupsIn": [],
     })
     
     // EMAIL:
