@@ -605,5 +605,12 @@ p {
     margin-left: auto;
     margin-right: auto;
   }
+
+
+  .logout-btn{
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+  }
   
   

@@ -320,3 +320,11 @@ h3{
 .toggleMenu {
     height: 25px;
 }
+
+
+
+.logout-btn{
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+  }

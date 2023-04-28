@@ -231,3 +231,10 @@ h3{
     color: black;
     padding-top: 5px;
   }
+
+  
+  .logout-btn{
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+  }

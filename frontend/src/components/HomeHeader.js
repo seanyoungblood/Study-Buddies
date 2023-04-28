@@ -37,7 +37,7 @@ const HomeHeader = () => {
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
                         <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName.toUpperCase() : "PROFILE"}</Link></li>
-                        <li onClick={handleLogout}>{currentUser.firstName !== '' ? "LOGOUT" : ""}</li>
+                        <li className="logout-btn"  onClick={handleLogout}>{currentUser.firstName !== '' ? "LOGOUT" : ""}</li>
                     </ul>
 			    </div>
 			    <i className="fa fa-bars" onClick={ showMenu }><img className="toggleMenu" src={menu} alt="" /></i>

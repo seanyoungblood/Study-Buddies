@@ -235,3 +235,11 @@ nav .fa{
     font-size: 60px;
     font-weight: 600;
   }
+
+
+  
+  .logout-btn{
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+  }
