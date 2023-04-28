@@ -30,7 +30,7 @@ const StudyGroupHeader = () => {
                 {/* need to change A tags with react-router-dom API */}
                 <Link to="/" > <img src={logo} alt="" /></Link>
                 <div className="nav-links" id="navLinks">
-                    <i className="fa fa-times" onClick={ hideMenu }>PAGES</i>
+                    <i className="fa fa-times" onClick={ hideMenu }>CLOSE</i>
                     <ul>
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
@@ -39,7 +39,7 @@ const StudyGroupHeader = () => {
                         {currentUser.firstName === '' ? <li className="logout-btn"><Link to="/login">LOGIN</Link></li> : <li onClick={handleLogout} className="logout-btn">LOGOUT</li>}
                     </ul>
 			    </div>
-			    <i className="fa fa-bars" onClick={ showMenu }>CLOSE</i>
+			    <i className="fa fa-bars" onClick={ showMenu }>PAGES</i>
             </nav>
 
             <div className="text-box">
