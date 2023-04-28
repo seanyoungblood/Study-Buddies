@@ -6,7 +6,7 @@ const Content = () => {
         <section className="group-section">
             <div class="search-bar">
                 <input type="text" placeholder="Search..."></input>
-                <button class="create-group-btn">Create Group</button>
+                <Link class="create-group-btn" to="/group">Create Group</Link>
             </div>
 
             <div class="tile-container">
@@ -30,6 +30,7 @@ const Content = () => {
                         <li>Member 1</li>
                         <li>Member 2</li>
                         <li>Member 3</li>
+                        <li>Member 4</li>
                         </ul>
                     </div>
                 </div>
@@ -79,7 +80,7 @@ const Content = () => {
                         <span class="star active">&#9733;</span>
                         <span class="star active">&#9733;</span>
                         <span class="star active">&#9733;</span>
-                        <span class="star">&#9733;</span>
+                        <span class="star active">&#9733;</span>
                     </div>
                     <div>
                         <button class="join-btn">Join Group</button>
