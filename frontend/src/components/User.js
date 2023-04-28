@@ -31,10 +31,6 @@ function buildPath(route)
   var userFirstName = currentUser.firstName;
   var userLastName = currentUser.lastName;
   var userPhoneNumber = currentUser.phone;
-  var userPassword;
-
-  var loginName;
-  var loginPassword;
 
     const [message,setMessage] = useState('');
 
@@ -100,8 +96,7 @@ function buildPath(route)
           <input className='input-field mt-3' type="text" id="userFirstName" placeholder={currentUser.firstName !== '' ? currentUser.firstName : "New First Name"} ref={(c) => userFirstName = c} /><br />
           <input className='input-field mt-3' type="text" id="userLastName" placeholder={currentUser.lastName !== '' ? currentUser.lastName : "New Last Name"}  ref={(c) => userLastName = c} /><br />
           <input className='input-field mt-3' type="text" id="userPhoneNumber" placeholder= {currentUser.phone !== '' ? currentUser.phone : "New Phone"} ref={(c) => userPhoneNumber = c} /><br />
-          <input className='input-field mt-3' type="password" id="userPassword" placeholder="New Password"/><br />
-          <Link to="/" className='variant1-btn mt-3 edit-user-btn' type="submit" id="userButton" onClick={doUser}>Edit user</Link>
+          <input className="variant1-btn mt-3 edit-user-btn" type="submit" id="userButton"  value = "Edit User" onClick={doUser} />
         </form>
       <span id="userResult">{message}</span>
      </div>
