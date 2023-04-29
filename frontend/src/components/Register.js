@@ -61,7 +61,7 @@ function Register()
                 setMessage('Works');
                 console.log(user);
 
-                navigate("/login");
+                navigate("/");
 
             }
         }
