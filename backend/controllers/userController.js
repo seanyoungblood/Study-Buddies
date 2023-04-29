@@ -112,6 +112,7 @@ const registerUser = asyncHandler(async (req, res) => {
         email,
         code,
         "groupsIn": [],
+        "classesTaking":[]
     })
     
     // EMAIL:
