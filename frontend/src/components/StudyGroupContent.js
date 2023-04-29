@@ -9,7 +9,6 @@ const Content = () => {
     const {currentUser} = useContext(AuthContext);
 
     const [query, setQuery] = useState('');
-    const [suggestions, setSuggestions] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -22,6 +21,7 @@ const Content = () => {
                     },
                     body: JSON.stringify({ field:'groupName', search: query }),
                 });
+                console.log("Before JSON.parse");
                 var data = JSON.parse(await response.query());
                 console.log("Results: " + data.results);
             }
