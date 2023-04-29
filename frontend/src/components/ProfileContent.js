@@ -10,7 +10,7 @@ const ProfileContent = () => {
         <div className="row text-center mt-5">
             <div className="col-6">
                 <h1 className="textbox profile-header">Classes</h1>
-                {currentUser.classesTaking & currentUser.classesTaking.map((c)=>{
+                {currentUser.classesTaking.map((c)=>{
                     if(c !== '') 
                     return (
                         <div key={c.id}>
@@ -21,7 +21,7 @@ const ProfileContent = () => {
 
             <div className="col-6">
                 <h1 className="textbox profile-header">Groups</h1>
-                {currentUser.groupsIn & currentUser.groupsIn.map((c)=>{
+                {currentUser.groupsIn.map((c)=>{
                     if(c !== '') 
                     return (
                         <div key={c.id}>
