@@ -34,7 +34,7 @@ const Content = () => {
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
                 
                 console.log("Before JSON.parse");
-                var res = JSON.parse(await response.query());
+                var res = JSON.parse(await response.text());
                 console.log("Results: " + res);
             }
             catch (error) {
