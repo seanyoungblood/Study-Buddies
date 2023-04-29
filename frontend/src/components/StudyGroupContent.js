@@ -12,7 +12,7 @@ const Content = () => {
 
     useEffect(() => {
 
-
+        const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
             if (process.env.NODE_ENV === 'production')
             {
