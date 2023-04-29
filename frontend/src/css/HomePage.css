@@ -328,3 +328,7 @@ h3{
     font-size: 13px;
     text-decoration: none;
   }
+
+  .uppercase{
+    text-transform: uppercase;
+  }
