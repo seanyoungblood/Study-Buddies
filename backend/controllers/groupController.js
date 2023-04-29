@@ -217,7 +217,8 @@ const searchGroup = asyncHandler(async (req, res) => {
         {description:{$regex:search+'.*'}}
        ]}).toArray(); 
       
-      var ret = [];
+    // commented below out and just returned "const results"
+      /*var ret = [];
       
       for( var i=0; i<results.length; i++ )
       {
@@ -231,9 +232,9 @@ const searchGroup = asyncHandler(async (req, res) => {
        ret.push( results[i].reviews );
        ret.push("$");
        
-      }
+      }*/
       
-      var ret2 = {field:field, search:search, results:ret, error:error};
+      var ret2 = {field:field, search:search, results:results, error:error};
       res.status(200).json(ret2);
 })
 
