@@ -53,7 +53,7 @@ const navigate = useNavigate();
             var res = JSON.parse(await response.text());
             console.log(res)
 
-            if(!res._id)
+            if(res.firstName === '')
             {
                 setMessage('User/Password combination incorrect');
             }
