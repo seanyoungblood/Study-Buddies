@@ -1,11 +1,36 @@
 import { Link, useNavigate } from 'react-router-dom';
 import "../css/StudyPage.css";
+import { useEffect } from 'react';
+
+useEffect(() => {
+    const fetchData = async () => {
+        try {
+            console.log("Searching for " + text);
+            const response = await fetch('https://cop-study-buddy-1000.herokuapp.com/api/searchGroup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ field:'groupName', search: text }),
+            });
+            var data = JSON.parse(await response.text());
+            console.log("Results: " + data.results);
+        }
+        catch (error) {
+            console.error(error);
+        }
+    };
+    fetchData();
+}, [text]);
+
+var text;
 
 const Content = () => {
     return ( 
         <section className="group-section">
             <div class="search-bar">
-                <input type="text" placeholder="Search..."></input>
+                <input type="text" placeholder="Search..." ></input>
+                {/*onInput={useEffect}*/}
                 <Link class="create-group-btn" to="/group">Create Group</Link>
             </div>
 
