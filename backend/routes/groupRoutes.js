@@ -14,7 +14,7 @@ const { protect } = require('../middleware/authMiddleware')
 
 
 router.route('/registerGroup').post(protect, registerGroup)
-router.route('/searchGroup').post(searchGroup)
+router.route('/searchGroup').get(searchGroup)
 router.route('/joinGroup').post(protect, joinGroup)
 router.route('/leaveGroup').post(protect, leaveGroup)
 router.route('/editGroup').post(editGroup) // NEEDS TO IMPLEMENT put
