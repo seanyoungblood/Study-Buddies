@@ -52,8 +52,8 @@ const Content = () => {
             </div>
 
             <div class="tile-container">
-                {query.data.map((index, value) => (
-                    <div class="tile" key={index}>
+                {query.data.map((value) => {if(value) return (
+                    <div class="tile" key={value._id}>
                         <div class="tile-header">
                             <div id="group-name" key={value.groupName}>{value.groupName}</div>
                             <div class="header-details">
@@ -91,7 +91,7 @@ const Content = () => {
                             </div>
                         </div>
                     </div> 
-                ))}
+                )})}
                 
             </div>
 
