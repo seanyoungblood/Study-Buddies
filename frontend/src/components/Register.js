@@ -84,7 +84,7 @@ function Register()
     const handleLoginClick = (e) =>{
         e.preventDefault();
 
-        navigate("/login");
+        navigate("/");
     }
 
 
