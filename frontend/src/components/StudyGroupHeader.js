@@ -35,7 +35,7 @@ const StudyGroupHeader = () => {
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/studygroups'>STUDY GROUPS</Link></li>
                         <li><Link to='/about'>ABOUT</Link></li>
-                        <li><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName.toUpperCase() : ""}</Link></li>
+                        <li className="uppercase"><Link to='/profile'>{currentUser.firstName !== '' ? currentUser.firstName : ""}</Link></li>
                         {currentUser.firstName === '' ? <li className="logout-btn"><Link to="/login">LOGIN</Link></li> : <li onClick={handleLogout} className="logout-btn">LOGOUT</li>}
                     </ul>
 			    </div>
