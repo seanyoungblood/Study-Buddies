@@ -11,19 +11,31 @@ const Content = () => {
     const [query, setQuery] = useState('');
 
     useEffect(() => {
+
+
+        function buildPath(route){
+            if (process.env.NODE_ENV === 'production')
+            {
+                return 'https://' + app_name +  '.herokuapp.com/' + route;
+            }
+            else
+            {
+                return 'http://localhost:5000/' + route;
+            }
+        }
+
         const fetchData = async () => {
+            var obj = {field : "groupName", search: query };
+            var js = JSON.stringify(obj);
+
             try {
                 console.log("Searching for " + query);
-                const response = await fetch('https://cop-study-buddy-1000.herokuapp.com/api/searchGroup', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ field:'groupName', search: query }),
-                });
+                const response = await fetch(buildPath('api/searchGroup'),
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+                
                 console.log("Before JSON.parse");
-                var data = JSON.parse(await response.query());
-                console.log("Results: " + data.results);
+                var res = JSON.parse(await response.query());
+                console.log("Results: " + res);
             }
             catch (error) {
                 console.log(error);
