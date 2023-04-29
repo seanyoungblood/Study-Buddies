@@ -59,10 +59,7 @@ const navigate = useNavigate();
             }
             else
             {
-                setCurrentUser(res);
-                localStorage.setItem('user_data', JSON.stringify(user));
-
-                
+                setCurrentUser(res);          
                 console.log(currentUser);
 
                 navigate("/");
