@@ -23,6 +23,7 @@ const Content = () => {
                 });
                 console.log("Before JSON.parse");
                 var data = JSON.parse(await response.query());
+                console.log("After JSON.parse");
                 console.log("Results: " + data);
             }
             catch (error) {
