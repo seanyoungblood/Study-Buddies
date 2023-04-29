@@ -52,7 +52,7 @@ function User()
         var res = JSON.parse(await response.text());
         console.log(res)
 
-        if( res._id <= 0 )
+        if( res.firtName === '' )
         {
             setMessage('User/Password combination incorrect');
         }
