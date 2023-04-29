@@ -35,7 +35,7 @@ const Content = () => {
                 
                 console.log("Before JSON.parse");
                 var res = JSON.parse(await response.text());
-                console.log("Results: " + res);
+                console.log(res);
             }
             catch (error) {
                 console.log(error);
