@@ -65,7 +65,7 @@ function User()
             currentUser.lastName = res.lastName;
             currentUser.phone = res.phone;
             localStorage.setItem('user_data', JSON.stringify(user));
-            navigate('/');
+            navigate('/profile');
             setMessage('Works');
         }
       }
