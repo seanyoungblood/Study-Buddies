@@ -1,40 +1,46 @@
 import { Link, useNavigate } from 'react-router-dom';
 import "../css/StudyPage.css";
-import { useEffect } from 'react';
-
-// useEffect(() => {
-//     const fetchData = async () => {
-//         try {
-//             console.log("Searching for " + text);
-//             const response = await fetch('https://cop-study-buddy-1000.herokuapp.com/api/searchGroup', {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type': 'application/json',
-//                 },
-//                 body: JSON.stringify({ field:'groupName', search: text }),
-//             });
-//             var data = JSON.parse(await response.text());
-//             console.log("Results: " + data.results);
-//         }
-//         catch (error) {
-//             console.error(error);
-//         }
-//     };
-//     fetchData();
-// }, [text]);
-
-// var text;
+import { useEffect, useState } from 'react';
+import { AuthContext } from '../useContext/LoginContext';
+import { useContext } from 'react'
 
 const Content = () => {
+
+    const {currentUser} = useContext(AuthContext);
+
+    const [query, setQuery] = useState('');
+    const [suggestions, setSuggestions] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                console.log("Searching for " + query);
+                const response = await fetch('https://cop-study-buddy-1000.herokuapp.com/api/searchGroup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ field:'groupName', search: query }),
+                });
+                var data = JSON.parse(await response.query());
+                console.log("Results: " + data.results);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, [query]);
+
     return ( 
         <section className="group-section">
-            <div class="search-bar">
-                <input type="text" placeholder="Search..." ></input>
+            <div className="search-bar">
+                <input type="text" placeholder="Search..." onChange={(e) => {setQuery(e.target.value);}} />
                 {/*onInput={useEffect}*/}
-                <Link class="create-group-btn" to="/group">Create Group</Link>
+                <Link className="create-group-btn" to="/group">Create Group</Link>
             </div>
 
-            <div class="tile-container">
+            {/* <div class="tile-container">
                 <div class="tile">
                 <div class="tile-header">
                     <div id="group-name">Group Name</div>
@@ -113,15 +119,15 @@ const Content = () => {
                     </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
-            <div class="pagination">
+            {/* <div class="pagination">
                 <a href="#">1</a>
                 <a href="#">2</a>
                 <a href="#">3</a>
                 <a href="#">4</a>
                 <a href="#">5</a>
-            </div>
+            </div> */}
         </section>
      );
 }
