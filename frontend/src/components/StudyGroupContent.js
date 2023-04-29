@@ -23,8 +23,7 @@ const Content = () => {
                 });
                 console.log("Before JSON.parse");
                 var data = JSON.parse(await response.query());
-                console.log("After JSON.parse");
-                console.log("Results: " + data);
+                console.log("Results: " + data.results);
             }
             catch (error) {
                 console.log(error);
@@ -42,84 +41,45 @@ const Content = () => {
             </div>
 
             {/* <div class="tile-container">
-                <div class="tile">
-                <div class="tile-header">
-                    <div id="group-name">Group Name</div>
-                    <div class="header-details">
-                        <p id="group-course">Course: Course Name</p>
-                        <p id="group-date">Date: MM/DD/YYYY</p>
-                        <p id="group-time">Time: HH:MM</p>
-                    </div>
-                </div>
-                <div class="tile-content">
-                    <div class="objective">
-                        <p>Objective:</p>
-                        <p id="group-objective">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra ex et mauris finibus, ac blandit orci rutrum.</p>
-                    </div>
-                    <div class="members">
-                        <p>Members:</p>
-                        <ul>
-                        <li>Member 1</li>
-                        <li>Member 2</li>
-                        <li>Member 3</li>
-                        <li>Member 4</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="tile-footer">
-                    <div id="group-rating">
-                        <span>Rating:</span>
-                        <span class="star active">&#9733;</span>
-                        <span class="star active">&#9733;</span>
-                        <span class="star active">&#9733;</span>
-                        <span class="star active">&#9733;</span>
-                        <span class="star">&#9733;</span>
-                    </div>
-                    <div>
-                        <button class="join-btn">Join Group</button>
-                        <button class="review-btn">Leave Review</button>
-                    </div>
-                </div>
-                </div>
-
-                <div class="tile">
-                    <div class="tile-header">
-                    <div id="group-name">Group Name</div>
-                    <div class="header-details">
-                        <p id="group-course">Course: Course Name</p>
-                        <p id="group-date">Date: MM/DD/YYYY</p>
-                        <p id="group-time">Time: HH:MM</p>
-                    </div>
-                    </div>
-                    <div class="tile-content">
-                    <div class="objective">
-                        <p>Objective:</p>
-                        <p id="group-objective">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra ex et mauris finibus, ac blandit orci rutrum.</p>
-                    </div>
-                    <div class="members">
-                        <p>Members:</p>
-                        <ul>
-                            <li>Member 1</li>
-                            <li>Member 2</li>
-                            <li>Member 3</li>
-                        </ul>
-                    </div>
-                    </div>
-                    <div class="tile-footer">
-                    <div id="group-rating">
-                        <span>Rating:</span>
-                        <span class="star active">&#9733;</span>
-                        <span class="star active">&#9733;</span>
-                        <span class="star active">&#9733;</span>
-                        <span class="star active">&#9733;</span>
-                        <span class="star active">&#9733;</span>
-                    </div>
-                    <div>
-                        <button class="join-btn">Join Group</button>
-                        <button class="review-btn">Leave Review</button>
-                    </div>
-                    </div>
-                </div>
+                {data.map((data, index) => (
+                    <div class="tile">
+                        <div class="tile-header">
+                            <div id="group-name" key={data.groupName}>{data.groupName}</div>
+                            <div class="header-details">
+                                <p id="group-course" key={data.course}>{data.course}</p>
+                                <p id="group-date" key={data.date}>{data.date}</p>
+                                <p id="group-time" key={data.time}>{data.time}</p>
+                            </div>
+                        </div>
+                        <div class="tile-content">
+                            <div class="objective">
+                                <p>Objective:</p>
+                                <p id="group-objective" key={data.objective}>{data.objective}</p>
+                            </div>
+                            <div class="members">
+                                <p>Members:</p>
+                                <ul>
+                                <li key={data.members}>{data.members}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tile-footer">
+                            <div id="group-rating">
+                                <span>Rating:</span>
+                                <span class="star active">&#9733;</span>
+                                <span class="star active">&#9733;</span>
+                                <span class="star active">&#9733;</span>
+                                <span class="star active">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
+                            <div>
+                                <button class="join-btn">Join Group</button>
+                                <button class="review-btn">Leave Review</button>
+                            </div>
+                        </div>
+                    </div> 
+                ))}
+                
             </div> */}
 
             {/* <div class="pagination">
