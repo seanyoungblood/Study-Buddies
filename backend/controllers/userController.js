@@ -7,6 +7,7 @@ const {MongoClient} = require('mongodb')
 const client = new MongoClient(process.env.MONGO_URI)
 const db = client.db("StudyBuddy");
 const User2 = db.collection('users');
+const nodemailer = require('nodemailer');
 
 // @desc Reset password by taking a username/email combo and sending a link to reset
 // @route POST /api/users
