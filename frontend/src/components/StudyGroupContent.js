@@ -55,6 +55,8 @@ const Content = () => {
                             <div class="objective">
                                 <p>Objective:</p>
                                 <p id="group-objective" key={data.objective}>{data.objective}</p>
+                                <p>Location:</p>
+                                <p key={data.location}>{data.location}</p>
                             </div>
                             <div class="members">
                                 <p>Members:</p>
