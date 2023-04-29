@@ -74,8 +74,9 @@ const Content = () => {
                             </div>
                             <div class="members">
                                 <p>Members:</p>
-                                <ul>
-                                    <li key={value.members}>{value.members}</li>
+                                <ul>{value.members?.map((m) => (
+                                    <li key={m.members}>{m}</li>
+                                ))}   
                                 </ul>
                             </div>
                         </div>
