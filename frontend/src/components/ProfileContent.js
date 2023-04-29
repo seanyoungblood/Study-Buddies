@@ -24,7 +24,7 @@ const ProfileContent = () => {
                 {currentUser.groupsIn.map((c)=>{
                     if(c !== '') 
                     return (
-                        <div key={c.id}>
+                        <div key={c._id}>
                             <p>{c}</p>
                         </div>
                     )})}
