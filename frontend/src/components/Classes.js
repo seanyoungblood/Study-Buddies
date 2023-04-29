@@ -92,7 +92,7 @@ function buildPath(route)
     return(
       <div id="classDiv">
         <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
-        <form className='form'>
+        <form onSubmit ={doClasses} className='form'>
           <input className='input-field mt-3' type="text" id="class1" placeholder="Your Class Here" ref={(c) => RegisterClass1 = c} /><br />
           <input className='input-field mt-1' type="text" id="class2" placeholder="Your Class Here" ref={(c) => RegisterClass2 = c} /><br />
           <input className='input-field mt-1' type="text" id="class3" placeholder="Your Class Here" ref={(c) => RegisterClass3 = c} /><br />
