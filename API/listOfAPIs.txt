@@ -4,6 +4,7 @@ Users:
 [X] Edit User                           Implemented Web [X]   Implemented Mobile [X]
 [X] Add Classes                         Implemented Web [X]   Implemented Mobile [X]
 [X] Delete User :(                      Implemented Web [X]   Implemented Mobile [X]
+[X] Reset Password                      Implemented Web [ ]   Implemented Mobile [ ]
 
 Groups:
 [X] Create Group                        Implemented Web [ ]   Implemented Mobile [ ]
