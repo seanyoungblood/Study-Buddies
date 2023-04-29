@@ -249,11 +249,10 @@ const searchUser =  asyncHandler(async (req, res) => {
     const { username, major, classesTaking } = req.body
     
     // check for one of three fields
-    if( !username &&!major && !classesTaking)
+    if( !username && !major && !classesTaking)
     {
         res.status(400)
         throw new Error('Please fill out one field')
-
     }
     // check if field is username
     if (!major && !classesTaking)

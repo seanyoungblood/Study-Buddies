@@ -13,7 +13,7 @@ const ProfileContent = () => {
                 {currentUser.classesTaking.map((c)=>{
                     if(c !== '') 
                     return (
-                        <div key={c.id}>
+                        <div key={c.groupName}>
                             <p>{c}</p>
                         </div>
                     )})}
@@ -24,7 +24,7 @@ const ProfileContent = () => {
                 {currentUser.groupsIn.map((c)=>{
                     if(c !== '') 
                     return (
-                        <div key={c.id}>
+                        <div key={c.groupName}>
                             <p>{c}</p>
                         </div>
                     )})}
