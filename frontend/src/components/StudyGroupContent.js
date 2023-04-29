@@ -51,9 +51,9 @@ const Content = () => {
                 <Link className="create-group-btn" to="/group">Create Group</Link>
             </div>
 
-            {/* <div class="tile-container">
-                {query.data.map((value) => (
-                    <div class="tile">
+            <div class="tile-container">
+                {query.data.map((index, value) => (
+                    <div class="tile" key={index}>
                         <div class="tile-header">
                             <div id="group-name" key={value.groupName}>{value.groupName}</div>
                             <div class="header-details">
@@ -93,7 +93,7 @@ const Content = () => {
                     </div> 
                 ))}
                 
-            </div> */}
+            </div>
 
             {/* <div class="pagination">
                 <a href="#">1</a>
