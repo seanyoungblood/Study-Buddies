@@ -52,7 +52,7 @@ const Content = () => {
             </div>
 
             {/* <div class="tile-container">
-                {data.map((value) => (
+                {query.data.map((value) => (
                     <div class="tile">
                         <div class="tile-header">
                             <div id="group-name" key={value.groupName}>{value.groupName}</div>
