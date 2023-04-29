@@ -298,7 +298,7 @@ const loadRandUser =  asyncHandler(async (req, res) => {
 const editUser = asyncHandler(async (req, res) => {
     var error = '';
 
-    const {firstName, lastName, phone, verified} = req.body;
+    const {firstName, lastName, username, phone, verified} = req.body;
 
     //const db = client.db("StudyBuddy");
     //db.collection('users').findOneAndUpdate({username:username}, { $set: {
@@ -313,6 +313,7 @@ const editUser = asyncHandler(async (req, res) => {
     var ret = {
         firstName:firstName,
         lastName:lastName,
+        username:username,
         phone:phone,
         error:'' };
     res.status(200).json(ret);
