@@ -10,6 +10,8 @@ const Content = () => {
 
     const [query, setQuery] = useState('');
 
+    const [data , setData] = useState({});
+
     useEffect(() => {
 
         const app_name = 'cop-study-buddy-1000'
@@ -35,6 +37,7 @@ const Content = () => {
                 
                 console.log("Before JSON.parse");
                 var res = JSON.parse(await response.text());
+                setData(res);
                 console.log(res);
             }
             catch (error) {
@@ -52,7 +55,7 @@ const Content = () => {
             </div>
 
             <div class="tile-container">
-                {query.data.map((value) => {if(value) return (
+                { data.results?.map((value) => (
                     <div class="tile" key={value._id}>
                         <div class="tile-header">
                             <div id="group-name" key={value.groupName}>{value.groupName}</div>
@@ -91,7 +94,7 @@ const Content = () => {
                             </div>
                         </div>
                     </div> 
-                )})}
+                ))}
                 
             </div>
 
