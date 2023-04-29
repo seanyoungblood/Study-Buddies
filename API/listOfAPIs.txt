@@ -7,7 +7,7 @@ Users:
 [X] Reset Password                      Implemented Web [ ]   Implemented Mobile [ ]
 
 Groups:
-[X] Create Group                        Implemented Web [ ]   Implemented Mobile [ ]
+[X] Create Group                        Implemented Web [ ]   Implemented Mobile [X]
 [X] Search Group                        Implemented Web [ ]   Implemented Mobile [X]
 [X] Edit Group                          Implemented Web [ ]   Implemented Mobile [ ]
 [X] Delete Group                        Implemented Web [ ]   Implemented Mobile [ ]
