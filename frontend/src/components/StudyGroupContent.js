@@ -55,13 +55,13 @@ const Content = () => {
             star5 = "star";
             console.log("1 " + rating);
         }
-        else if (rating == NaN){
+        else{
             star1 = "star";
             star2 = "star";
             star3 = "star";
             star4 = "star";
             star5 = "star";
-            console.log("0");
+            console.log("0 " + rating);
         }
 
         return;
@@ -144,11 +144,11 @@ const Content = () => {
                         <div class="tile-footer">
                             <div id="group-rating">
                                 <span onTimeUpdate={reviewsToRating(value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length)}>Rating: </span>
-                                <span class={star1.text} id="star 1">&#9733;</span>
-                                <span class={star2.text} id="star 2">&#9733;</span>
-                                <span class={star3.text} id="star 3">&#9733;</span>
-                                <span class={star4.text} id="star 4">&#9733;</span>
-                                <span class={star5.text} id="star 5">&#9733;</span>
+                                <span class={star1.toText} id="star 1">&#9733;</span>
+                                <span class={star2.toText} id="star 2">&#9733;</span>
+                                <span class={star3.toText} id="star 3">&#9733;</span>
+                                <span class={star4.toText} id="star 4">&#9733;</span>
+                                <span class={star5.toText} id="star 5">&#9733;</span>
                             </div>
                             <div>
                                 <button class="join-btn">Join Group</button>
