@@ -346,7 +346,7 @@ p {
   }
   
   .star {
-    font-size: 18px;
+    font-size: 16px;
     color: #E4E4E4;
     margin: 0 5px;
     cursor: pointer;
@@ -365,7 +365,7 @@ p {
     padding: 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
@@ -387,7 +387,7 @@ p {
     padding: 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
