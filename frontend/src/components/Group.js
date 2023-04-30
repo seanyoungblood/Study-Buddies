@@ -87,7 +87,7 @@ function Group()
           <input className='input-field mt-3' type="text" id="groupName" placeholder="Group Name" ref={(c) => groupName = c} /><br />
           <input className='input-field mt-3' type="text" id="groupCourse" placeholder="Group Course"  ref={(c) => groupCourse = c} /><br />
           <input className='input-field mt-3' type="text" id="groupObjective" placeholder="Objective" ref={(c) => groupObjective = c} /><br />
-          <input className='input-field mt-1' type="text" id="groupDate" placeholder="Date" ref={(c) => groupDate = c} /><br />
+          <input className='input-field mt-1' type="text" id="groupDate" placeholder="Days" ref={(c) => groupDate = c} /><br />
           <input className='input-field mt-1' type="text" id="groupTime" placeholder="Time" ref={(c) => groupTime = c} /><br />
           <input className='input-field mt-1' type="text" id="groupLocation" placeholder="Location" ref={(c) => groupLocation = c} /><br />
           <input className='variant1-btn mt-4 edit-user-btn' type="submit" id="groupButton" value = "Create Group" onClick={doGroup} />
