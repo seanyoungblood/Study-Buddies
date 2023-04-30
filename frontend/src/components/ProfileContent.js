@@ -47,7 +47,7 @@ const ProfileContent = () => {
             {   
                 let temp = currentUser;
 
-                temp = temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
+                temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
                 setCurrentUser((prevState) => ({
                     ...prevState,
                     groupsIn:temp
