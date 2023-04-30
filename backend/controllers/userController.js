@@ -353,6 +353,8 @@ const addClasses = asyncHandler(async (req, res) => {
             "lastName": user.lastName,
             username: user.username,
             email: user.email,
+            phone:user.phone,
+            groupsIn: user.groupsIn,
             major: user.major, //CHANGED BY ADAM
             classesTaking: user.classesTaking, //CHANGED BY ADAM
             token: generateToken(user.id),

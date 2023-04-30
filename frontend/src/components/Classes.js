@@ -60,17 +60,7 @@ function buildPath(route)
             else
             {
                 const user = currentUser;
-                setCurrentuser({
-                  classTaking: res.classesTaking,
-                  email:currentUser.email,
-                  firstname: currentUser.firstname,
-                  groupsIn: currentUser.groupsIn,
-                  lastName:currentUser.lastName,
-                  phone:currentUser.phone,
-                  token:currentUser.token,
-                  username:currentUser.username,
-                  _id:currentUser._id
-                })
+                setCurrentuser(res)
                 // user.classesTaking = [RegisterClass1.value,RegisterClass2.value,RegisterClass3.value,RegisterClass4.value,RegisterClass5.value,RegisterClass6.value];
                 console.log(currentUser)
             }
