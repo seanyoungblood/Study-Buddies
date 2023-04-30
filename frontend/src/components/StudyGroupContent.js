@@ -182,6 +182,8 @@ const Content = () => {
 
     useEffect((passedName) => {
 
+        console.log(passedName);
+
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
             if (process.env.NODE_ENV === 'production')
@@ -297,7 +299,7 @@ const Content = () => {
                                 <span class={star5.class} id="star 5">&#9733;</span> */}
                             </div>
                             <div>
-                                <button class="join-btn" value={value.groupName} onClick={(e) => {setPassedName(e.target.value);}}>Join Group</button>
+                                <button class="join-btn" key={value.groupName} onClick={(e) => {setPassedName(e.target.key);}}>Join Group</button>
                                 <button class="review-btn">Leave Review</button>
                             </div>
                         </div>

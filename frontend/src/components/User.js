@@ -40,11 +40,6 @@ function User()
         
       try
       {    
-        const [ login, password ] = js;
-
-        console.log(login);
-        console.log(password);
-        console.log(js)
         const response = await fetch(buildPath('api/editUser'),
         {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
           
