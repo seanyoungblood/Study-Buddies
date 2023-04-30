@@ -50,7 +50,6 @@ const ProfileContent = () => {
                 var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
                 localStorage.setItem('user_data', JSON.stringify(user));
                 currentUser.groupsIn.pop()
-                setCurrentUser(res);
                 console.log(currentUser);
                 console.log(user);
             }
