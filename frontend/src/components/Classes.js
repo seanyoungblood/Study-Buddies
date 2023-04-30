@@ -64,7 +64,6 @@ function buildPath(route)
                 user.classesTaking = [RegisterClass1.value,RegisterClass2.value,RegisterClass3.value,RegisterClass4.value,RegisterClass5.value,RegisterClass6.value];
                 setCurrentuser(user);
                 console.log(currentUser)
-                navigate("/profile");
                 setMessage('Works');
             }
         }
@@ -96,7 +95,7 @@ function buildPath(route)
           <input className='input-field mt-1' type="text" id="class4" placeholder="Your Class Here" ref={(c) => RegisterClass4 = c} /><br />
           <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => RegisterClass5 = c} /><br />
           <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => RegisterClass6 = c} /><br />
-          <button type="submit" className="variant1-btn mt-3 edit-user-btn d-block align-center-btn" onClick={doClasses}>Change classes</button>
+          <Link to="/profile" type="submit" className="variant1-btn mt-3 edit-user-btn d-block align-center-btn" onClick={doClasses}>Change classes</Link>
         </form>
      </div>
     );
