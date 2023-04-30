@@ -201,7 +201,7 @@ const Content = () => {
             try {
                 console.log(passedName);
                 const response = await fetch(buildPath('api/joinGroup'),
-                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json', 'Authorization': `Bearer ${currentUser.token}`}});
                 
                 // console.log("Before JSON.parse");
                 var res = JSON.parse(await response.text());
