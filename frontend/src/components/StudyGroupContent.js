@@ -33,12 +33,17 @@ const Content = () => {
         }
         else if (rating < 4 && rating >= 3){
             // star1.class = "star active";
-            star2.class = "star active";
-            star3.class = "star active";
-            star4.class = "star";
-            star5.class = "star";
+            // star2.class = "star active";
+            // star3.class = "star active";
+            // star4.class = "star";
+            // star5.class = "star";
 
-            star1 = <span class="star active" id="star 2">&#9733;</span>
+            star1 = <span class="star active">&#9733;</span>
+            star2 = <span class="star active">&#9733;</span>
+            star3 = <span class="star active">&#9733;</span>
+            star4 = <span class="star">&#9733;</span>
+            star5 = <span class="star">&#9733;</span>
+            
             console.log("3 " + rating);
         }
         else if (rating < 3 && rating >= 2){
@@ -147,6 +152,10 @@ const Content = () => {
                             <div id="group-rating">
                                 <span onTimeUpdate={reviewsToRating(value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length)}>Rating: </span>
                                 <span>{star1}</span>
+                                <span>{star2}</span>
+                                <span>{star3}</span>
+                                <span>{star4}</span>
+                                <span>{star5}</span>
                                 {/* <span class={star2.class} id="star 2">&#9733;</span>
                                 <span class={star3.class} id="star 3">&#9733;</span>
                                 <span class={star4.class} id="star 4">&#9733;</span>
