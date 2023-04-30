@@ -13,7 +13,7 @@ const ProfileContent = () => {
     const navigate = useNavigate();
     const handleDelete = async (e) => 
     {
-        e.prevetnDefault();
+        e.preventDefault();
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
             if (process.env.NODE_ENV === 'production')
@@ -40,7 +40,7 @@ const ProfileContent = () => {
             {method:'DELETE',body:js,headers:{'Content-Type': 'application/json' , 'Authorization': `Bearer ${currentUser.token}`}});
 
             var res = JSON.parse(await response.text());
-
+            console.log(res);
             if(res.error === '')
             {
                 console.log('Please check your submission');
@@ -49,7 +49,9 @@ const ProfileContent = () => {
             {
                 var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
                 localStorage.setItem('user_data', JSON.stringify(user));
-                setCurrentUser(currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1));
+                const temp = currentUser;
+                currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
+                setCurrentUser(currentUser);
                 console.log(currentUser);
                 console.log(user);
             }
