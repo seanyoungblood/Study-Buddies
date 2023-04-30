@@ -118,6 +118,8 @@ const Content = () => {
     //     }  
     // };
 
+
+
     // doJoin(passedName) (() => {
 
     //     const app_name = 'cop-study-buddy-1000'
@@ -197,7 +199,7 @@ const Content = () => {
             var js = JSON.stringify(obj);
 
             try {
-                // console.log("Searching for " + query);
+                console.log(passedName);
                 const response = await fetch(buildPath('api/joinGroup'),
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
                 
@@ -211,7 +213,7 @@ const Content = () => {
             }
         };
         fetchData();
-    }, []);
+    }, [passedName]);
 
     useEffect(() => {
 
