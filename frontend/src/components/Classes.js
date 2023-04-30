@@ -22,7 +22,7 @@ function buildPath(route)
     }
     else
     {
-        return 'http://localhost:5000/' + route;
+        return 'http://localhost:3001/' + route;
     }
 }
 
@@ -62,9 +62,7 @@ function buildPath(route)
             else
             {
                 // setCurrentUser(user);
-                localStorage.setItem('user_data', JSON.stringify(user));
                 const user = currentUser;
-                
                 user.classesTaking = [RegisterClass1,RegisterClass2,RegisterClass3,RegisterClass4,RegisterClass5,RegisterClass6];
                 setCurrentuser(user);
                 console.log(currentUser)
