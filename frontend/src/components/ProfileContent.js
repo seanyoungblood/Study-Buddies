@@ -27,7 +27,7 @@ const ProfileContent = () => {
         }
         const temp = currentUser;
         temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
-        var obj = {groupName: e.target.innerText};
+        var obj = {groupName: e.target.innerText, groupsIn: temp, username:currentUser.username};
         console.log(e.target.innerText)
         var js = JSON.stringify(obj);
         // currentUser.groupsIn.pop()
@@ -48,7 +48,7 @@ const ProfileContent = () => {
             else
             {
                 currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
-                temp = currentUser;
+                const temp = currentUser;
                 setCurrentUser(temp);
                 console.log(currentUser);
             }

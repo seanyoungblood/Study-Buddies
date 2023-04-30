@@ -169,7 +169,7 @@ const deleteGroup = asyncHandler(async (req, res) => {
 
     var error = '';
   
-    const {groupName, groupsIn} = req.body;
+    const {groupName, groupsIn, username} = req.body;
 
     userie.findOneAndUpdate({username:username}, { $set: {
         "groupsIn":groupsIn
