@@ -61,10 +61,14 @@ function buildPath(route)
             {
                 // setCurrentUser(user);
                 const user = currentUser;
+
                 console.log("this is user>>>>>>>>>>>>>>>>");
+                user.classesTaking = res.classesTaking;
                 console.log(user);
+
+                setCurrentuser(user);
                 // user.classesTaking = res.classesTaking;
-                currentUser.classTaking = res.classesTaking;
+                // currentUser.classTaking = res.classesTaking;
                 // user.classesTaking = [RegisterClass1.value,RegisterClass2.value,RegisterClass3.value,RegisterClass4.value,RegisterClass5.value,RegisterClass6.value];
                 console.log(currentUser)
             }
