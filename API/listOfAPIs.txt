@@ -7,13 +7,13 @@ Users:
 [X] Reset Password                      Implemented Web [ ]   Implemented Mobile [ ]
 
 Groups:
-[X] Create Group                        Implemented Web [ ]   Implemented Mobile [X]
-[X] Search Group                        Implemented Web [ ]   Implemented Mobile [X]
+[X] Create Group                        Implemented Web [X]   Implemented Mobile [X]
+[X] Search Group                        Implemented Web [X]   Implemented Mobile [X]
 [X] Edit Group                          Implemented Web [ ]   Implemented Mobile [ ]
-[X] Delete Group                        Implemented Web [ ]   Implemented Mobile [ ]
+[X] Delete Group                        Implemented Web [/]   Implemented Mobile [ ]
 [X] Join Group    (Easy)                Implemented Web [ ]   Implemented Mobile [X]
 [X] Leave Group   (Easy)                Implemented Web [ ]   Implemented Mobile [ ]
-[X] Load Group    (Similar to Search)   Implemented Web [ ]   Implemented Mobile [ ]
+[X] Load Group    (Similar to Search)   Implemented Web [X]   Implemented Mobile [ ]
 
 X = completed & working
 / = needs testing
