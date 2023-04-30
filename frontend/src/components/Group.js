@@ -56,7 +56,7 @@ function Group()
           else
           {
             let user = currentUser;
-            user.groupsIn.push(groupName)
+            user.groupsIn.push(groupName.value)
             setCurrentUser(user)
             console.log(currentUser);
 
