@@ -61,6 +61,8 @@ function buildPath(route)
             {
                 // setCurrentUser(user);
                 const user = currentUser;
+                console.log("this is user>>>>>>>>>>>>>>>>");
+                console.log(user);
                 user.classesTaking = [RegisterClass1.value,RegisterClass2.value,RegisterClass3.value,RegisterClass4.value,RegisterClass5.value,RegisterClass6.value];
                 setCurrentuser(user);
                 console.log(currentUser)
