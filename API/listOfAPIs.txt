@@ -3,7 +3,7 @@ Users:
 [X] Register                            Implemented Web [X]   Implemented Mobile [X]
 [X] Edit User                           Implemented Web [/]   Implemented Mobile [X] For web, if a field is left blank, it will erase it.
 [X] Add Classes                         Implemented Web [ ]   Implemented Mobile [X] For web, does not work.
-[X] Delete User :(                      Implemented Web [/]   Implemented Mobile [X] For web, doesn't allow user to log in, but user still exists in the database
+[X] Delete User :(                      Implemented Web [/]   Implemented Mobile [X] For web, doesn't allow user to log in, but user still exists in the database.
 [X] Reset Password                      Implemented Web [ ]   Implemented Mobile [ ]
 
 Groups:
@@ -11,10 +11,10 @@ Groups:
 [X] Search Group                        Implemented Web [/]   Implemented Mobile [X] For web, sometimes works, sometimes doesn't.
 [X] Edit Group                          Implemented Web [ ]   Implemented Mobile [X] 
 [X] Delete Group                        Implemented Web [/]   Implemented Mobile [X] 
-[X] Join Group    (Easy)                Implemented Web [/]   Implemented Mobile [X] For web, asks the user to log in even if the user actually is logged in
+[X] Join Group    (Easy)                Implemented Web [/]   Implemented Mobile [X] For web, asks the user to log in even if the user actually is logged in.
 [X] Leave Group   (Easy)                Implemented Web [ ]   Implemented Mobile [X] 
 [X] Load Group    (Similar to Search)   Implemented Web [X]   Implemented Mobile [X]
-[X] Edit Rating                         Implemented Web [ ]   Implemented Mobile [ ]
+[X] Edit Rating                         Implemented Web [ ]   Implemented Mobile [ ] For web, does not work.
 
 Did not test anything for mobile.
 
