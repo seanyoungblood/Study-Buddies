@@ -103,7 +103,8 @@ const Content = () => {
                         </div>
                         <div class="tile-footer">
                             <div id="group-rating">
-                                <span key={value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length}>Rating: {value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length}</span>
+                                <span>Rating: </span>
+                                {/* reviewsToRating(value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length); */}
                                 <span class="star" id="star 1">&#9733;</span>
                                 <span class="star" id="star 2">&#9733;</span>
                                 <span class="star" id="star 3">&#9733;</span>
