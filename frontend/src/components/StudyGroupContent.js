@@ -6,6 +6,27 @@ import { useContext } from 'react'
 
 const Content = () => {
 
+    function reviewsToRating(rating){
+        if (rating = 5){
+
+        }
+        else if (rating < 5 && rating >= 4){
+            
+        }
+        else if (rating < 4 && rating >= 3){
+            
+        }
+        else if (rating < 3 && rating >= 2){
+            
+        }
+        else if (rating < 2 && rating >= 1){
+            
+        }
+        else if (rating < 1){
+            
+        }
+    }
+
     const {currentUser} = useContext(AuthContext);
 
     const [query, setQuery] = useState('');
@@ -83,11 +104,11 @@ const Content = () => {
                         <div class="tile-footer">
                             <div id="group-rating">
                                 <span key={value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length}>Rating: {value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length}</span>
-                                <span class="star active">&#9733;</span>
-                                <span class="star active">&#9733;</span>
-                                <span class="star active">&#9733;</span>
-                                <span class="star active">&#9733;</span>
-                                <span class="star">&#9733;</span>
+                                <span class="star" id="star 1">&#9733;</span>
+                                <span class="star" id="star 2">&#9733;</span>
+                                <span class="star" id="star 3">&#9733;</span>
+                                <span class="star" id="star 4">&#9733;</span>
+                                <span class="star" id="star 5">&#9733;</span>
                             </div>
                             <div>
                                 <button class="join-btn">Join Group</button>
