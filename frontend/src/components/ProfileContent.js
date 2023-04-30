@@ -36,8 +36,8 @@ const ProfileContent = () => {
 
         try
         {    
-            const response = await fetch(buildPath(`api/:${currentUser._id}/deleteUser`),
-            {method:'delete',body:js,headers:{'Content-Type': 'application/json' , 'Authorization': `Bearer ${currentUser.token}`}});
+            const response = await fetch(buildPath('api/deleteGroup'),
+            {method:'DELETE',body:js,headers:{'Content-Type': 'application/json'}});
 
             var res = JSON.parse(await response.text());
 
