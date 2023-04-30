@@ -95,7 +95,7 @@ const joinGroup = asyncHandler(async (req, res) => {
 })
 
 const leaveGroup = asyncHandler(async (req, res) => {
-    const { groupName } = req.body
+    const { groupName, username } = req.body
 
     if (!groupName)
     {
@@ -116,12 +116,12 @@ const leaveGroup = asyncHandler(async (req, res) => {
     groupie.findOneAndUpdate(
         {"groupName" : groupCheck.groupName},
         {$pull:{
-            members: req.user.username
+            members: username
         }},
     )
 
     userie.findOneAndUpdate(
-        {"username": req.user.username},
+        {"username": username},
         {$pull: {
             groupsIn: groupCheck.groupName
         }},
