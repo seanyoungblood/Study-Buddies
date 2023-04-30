@@ -297,7 +297,7 @@ const Content = () => {
                                 <span class={star5.class} id="star 5">&#9733;</span> */}
                             </div>
                             <div>
-                                <button class="join-btn" onClick={(e) => {setPassedName(value.groupName);}}>Join Group</button>
+                                <button class="join-btn" onClick={(e) => {setPassedName(e.target.value.groupName);}}>Join Group</button>
                                 <button class="review-btn">Leave Review</button>
                             </div>
                         </div>
