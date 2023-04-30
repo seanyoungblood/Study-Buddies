@@ -40,7 +40,7 @@ const ProfileContent = () => {
             {method:'DELETE',body:js,headers:{'Content-Type': 'application/json' , 'Authorization': `Bearer ${currentUser.token}`}});
 
             var res = JSON.parse(await response.text());
-
+            console.log(res);
             if(res.error === '')
             {
                 console.log('Please check your submission');
