@@ -44,8 +44,8 @@ const resetPassword = asyncHandler(async (req, res) => {
         const transporter =  nodemailer.createTransport({
             service: "hotmail",
             auth: {
-                user: "user-verification-4331@outlook.com",
-                pass: "$COP4331$",
+                user: "seanjyoungblood@hotmail.com",
+                pass: "Minecraft02$",
             }
         });
         
