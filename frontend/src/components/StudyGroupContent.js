@@ -21,7 +21,7 @@ const Content = () => {
             star3 = <span class="star active">&#9733;</span>
             star4 = <span class="star active">&#9733;</span>
             star5 = <span class="star active">&#9733;</span>
-            console.log("5 " + rating);
+            // console.log("5 " + rating);
         }
         else if (rating < 5 && rating >= 4){
             star1 = <span class="star active">&#9733;</span>
@@ -29,7 +29,7 @@ const Content = () => {
             star3 = <span class="star active">&#9733;</span>
             star4 = <span class="star active">&#9733;</span>
             star5 = <span class="star">&#9733;</span>
-            console.log("4 " + rating);
+            // console.log("4 " + rating);
         }
         else if (rating < 4 && rating >= 3){
             star1 = <span class="star active">&#9733;</span>
@@ -37,8 +37,7 @@ const Content = () => {
             star3 = <span class="star active">&#9733;</span>
             star4 = <span class="star">&#9733;</span>
             star5 = <span class="star">&#9733;</span>
-            
-            console.log("3 " + rating);
+            // console.log("3 " + rating);
         }
         else if (rating < 3 && rating >= 2){
             star1 = <span class="star active">&#9733;</span>
@@ -46,7 +45,7 @@ const Content = () => {
             star3 = <span class="star">&#9733;</span>
             star4 = <span class="star">&#9733;</span>
             star5 = <span class="star">&#9733;</span>
-            console.log("2 " + rating);
+            // console.log("2 " + rating);
         }
         else if (rating < 2 && rating >= 1){
             star1 = <span class="star active">&#9733;</span>
@@ -54,7 +53,7 @@ const Content = () => {
             star3 = <span class="star">&#9733;</span>
             star4 = <span class="star">&#9733;</span>
             star5 = <span class="star">&#9733;</span>
-            console.log("1 " + rating);
+            // console.log("1 " + rating);
         }
         else{
             star1 = <span class="star">&#9733;</span>
@@ -62,7 +61,7 @@ const Content = () => {
             star3 = <span class="star">&#9733;</span>
             star4 = <span class="star">&#9733;</span>
             star5 = <span class="star">&#9733;</span>
-            console.log("0 " + rating);
+            // console.log("0 " + rating);
         }
 
         return;
