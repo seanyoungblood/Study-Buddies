@@ -25,7 +25,7 @@ const ProfileContent = () => {
                 return 'http://localhost:5000/' + route;
             }
         }
-        const temp = currentUser;
+        const temp = currentUser.groupsIn;
         temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
         var obj = {groupName: e.target.innerText, groupsIn: temp, username:currentUser.username};
         console.log(e.target.innerText)
