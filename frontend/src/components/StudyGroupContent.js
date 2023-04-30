@@ -16,51 +16,51 @@ const Content = () => {
     function reviewsToRating(rating){
 
         if (rating == 5){
-            star1 = "star active";
-            star2 = "star active";
-            star3 = "star active";
-            star4 = "star active";
-            star5 = "star active";
+            star1.class = "star active";
+            star2.class = "star active";
+            star3.class = "star active";
+            star4.class = "star active";
+            star5.class = "star active";
             console.log("5 " + rating);
         }
         else if (rating < 5 && rating >= 4){
-            star1 = "star active";
-            star2 = "star active";
-            star3 = "star active";
-            star4 = "star active";
-            star5 = "star";
+            star1.class = "star active";
+            star2.class = "star active";
+            star3.class = "star active";
+            star4.class = "star active";
+            star5.class = "star";
             console.log("4 " + rating);
         }
         else if (rating < 4 && rating >= 3){
-            star1 = "star active";
-            star2 = "star active";
-            star3 = "star active";
-            star4 = "star";
-            star5 = "star";
+            star1.class = "star active";
+            star2.class = "star active";
+            star3.class = "star active";
+            star4.class = "star";
+            star5.class = "star";
             console.log("3 " + rating);
         }
         else if (rating < 3 && rating >= 2){
-            star1 = "star active";
-            star2 = "star active";
-            star3 = "star";
-            star4 = "star";
-            star5 = "star";
+            star1.class = "star active";
+            star2.class = "star active";
+            star3.class = "star";
+            star4.class = "star";
+            star5.class = "star";
             console.log("2 " + rating);
         }
         else if (rating < 2 && rating >= 1){
-            star1 = "star active";
-            star2 = "star";
-            star3 = "star";
-            star4 = "star";
-            star5 = "star";
+            star1.class = "star active";
+            star2.class = "star";
+            star3.class = "star";
+            star4.class = "star";
+            star5.class = "star";
             console.log("1 " + rating);
         }
         else{
-            star1 = "star";
-            star2 = "star";
-            star3 = "star";
-            star4 = "star";
-            star5 = "star";
+            star1.class = "star";
+            star2.class = "star";
+            star3.class = "star";
+            star4.class = "star";
+            star5.class = "star";
             console.log("0 " + rating);
         }
 
@@ -144,11 +144,11 @@ const Content = () => {
                         <div class="tile-footer">
                             <div id="group-rating">
                                 <span onTimeUpdate={reviewsToRating(value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length)}>Rating: </span>
-                                <span class={star1.toText} id="star 1">&#9733;</span>
-                                <span class={star2.toText} id="star 2">&#9733;</span>
-                                <span class={star3.toText} id="star 3">&#9733;</span>
-                                <span class={star4.toText} id="star 4">&#9733;</span>
-                                <span class={star5.toText} id="star 5">&#9733;</span>
+                                <span class={star1.class} id="star 1">&#9733;</span>
+                                <span class={star2.class} id="star 2">&#9733;</span>
+                                <span class={star3.class} id="star 3">&#9733;</span>
+                                <span class={star4.class} id="star 4">&#9733;</span>
+                                <span class={star5.class} id="star 5">&#9733;</span>
                             </div>
                             <div>
                                 <button class="join-btn">Join Group</button>
