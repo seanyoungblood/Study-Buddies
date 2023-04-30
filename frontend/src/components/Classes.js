@@ -61,10 +61,7 @@ function buildPath(route)
             {
 
 
-
-                currentUser.classTaking = res.classesTaking;
-
-                this.setState({currentUser:'changed'});
+                currentUser.classTaking = [...res.classesTaking];
                 const user = currentUser;
                 // user.classesTaking = [RegisterClass1.value,RegisterClass2.value,RegisterClass3.value,RegisterClass4.value,RegisterClass5.value,RegisterClass6.value];
                 console.log(currentUser)
