@@ -47,13 +47,9 @@ const ProfileContent = () => {
             }
             else
             {
-                var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
-                localStorage.setItem('user_data', JSON.stringify(user));
-                const temp = currentUser;
                 currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
                 setCurrentUser(currentUser);
                 console.log(currentUser);
-                console.log(user);
             }
         }
         catch(e)
