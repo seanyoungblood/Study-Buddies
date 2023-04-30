@@ -15,6 +15,8 @@ const Content = () => {
 
     function reviewsToRating(rating){
 
+        console.log(rating);
+
         if (rating = 5){
             star1 = "star active";
             star2 = "star active";
