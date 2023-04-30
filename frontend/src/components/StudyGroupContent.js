@@ -180,7 +180,7 @@ const Content = () => {
 
     const [data , setData] = useState({});
 
-    useEffect(() => {
+    useEffect((passedName) => {
 
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
