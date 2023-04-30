@@ -27,7 +27,7 @@ const ProfileContent = () => {
         }
 
 
-        var obj = {groupName: e.value};
+        var obj = {groupName: e.target.innerText};
         console.log(e.target.innerText)
         var js = JSON.stringify(obj);
         // currentUser.groupsIn.pop()
@@ -49,7 +49,7 @@ const ProfileContent = () => {
             {
                 var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
                 localStorage.setItem('user_data', JSON.stringify(user));
-                currentUser.groupsIn.pop()
+                setCurrentUser(currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1));
                 console.log(currentUser);
                 console.log(user);
             }
