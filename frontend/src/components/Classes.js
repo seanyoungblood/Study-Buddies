@@ -39,8 +39,10 @@ function buildPath(route)
   const navigate = useNavigate();
     const [message,setMessage] = useState('');
     const {currentUser, setCurrentuser} = useContext(AuthContext)
-    const doClasses = async() => 
+    const doClasses = async(e) => 
     {
+
+      e.preventDefault();
 
         var obj = {username:currentUser.username, class0:RegisterClass1.value, class1:RegisterClass2.value,class2:RegisterClass3.value,class3:RegisterClass4.value,class4:RegisterClass5.value,class5:RegisterClass6.value};
         var js = JSON.stringify(obj);
@@ -66,6 +68,7 @@ function buildPath(route)
                 user.classesTaking = [RegisterClass1,RegisterClass2,RegisterClass3,RegisterClass4,RegisterClass5,RegisterClass6];
                 setCurrentuser(user);
                 console.log(currentUser)
+                navigate("/profile");
                 setMessage('Works');
             }
         }
@@ -97,7 +100,7 @@ function buildPath(route)
           <input className='input-field mt-1' type="text" id="class4" placeholder="Your Class Here" ref={(c) => RegisterClass4 = c} /><br />
           <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => RegisterClass5 = c} /><br />
           <input className='input-field mt-1' type="text" id="class5" placeholder="Your Class Here" ref={(c) => RegisterClass6 = c} /><br />
-          <Link to="/" className='variant1-btn mt-3 edit-user-btn d-block align-center-btn' onClick={() => {doClasses()}}>Change classes</Link>
+          <button className='variant1-btn mt-3 edit-user-btn d-block align-center-btn' onClick={(e) => {doClasses(e)}}>Change classes</button>
         </form>
       <span id="classesResult">{message}</span>
      </div>
