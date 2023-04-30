@@ -36,6 +36,7 @@ function buildPath(route)
   var loginName;
   var loginPassword;
 
+  const navigate = useNavigate();
     const [message,setMessage] = useState('');
     const {currentUser, setCurrentuser} = useContext(AuthContext)
     const doClasses = async() => 
@@ -76,7 +77,6 @@ function buildPath(route)
     };
 
 
-    const navigate = useNavigate();
 
     const handleLogoClick = (e) => {
       e.preventDefault();
