@@ -7,24 +7,39 @@ import { useContext } from 'react'
 const Content = () => {
 
     function reviewsToRating(rating){
-        if (rating = 5){
+        const star1 = document.getElementById("star 1");
+        const star2 = document.getElementById("star 2");
+        const star3 = document.getElementById("star 3");
+        const star4 = document.getElementById("star 4");
+        const star5 = document.getElementById("star 5");
 
+        if (rating = 5){
+            star1.class = "star active";
+            star2.class = "star active";
+            star3.class = "star active";
+            star4.class = "star active";
+            star5.class = "star active";
         }
         else if (rating < 5 && rating >= 4){
-            
+            star1.class = "star active";
+            star2.class = "star active";
+            star3.class = "star active";
+            star4.class = "star active";
         }
         else if (rating < 4 && rating >= 3){
-            
+            star1.class = "star active";
+            star2.class = "star active";
+            star3.class = "star active";
         }
         else if (rating < 3 && rating >= 2){
-            
+            star1.class = "star active";
+            star2.class = "star active";
         }
         else if (rating < 2 && rating >= 1){
-            
+            star1.class = "star active";
         }
-        else if (rating < 1){
-            
-        }
+
+        return;
     }
 
     const {currentUser} = useContext(AuthContext);
@@ -103,8 +118,7 @@ const Content = () => {
                         </div>
                         <div class="tile-footer">
                             <div id="group-rating">
-                                <span>Rating: </span>
-                                {/* reviewsToRating(value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length); */}
+                                <span onTimeUpdate={reviewsToRating(value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length)}>Rating: </span>
                                 <span class="star" id="star 1">&#9733;</span>
                                 <span class="star" id="star 2">&#9733;</span>
                                 <span class="star" id="star 3">&#9733;</span>
