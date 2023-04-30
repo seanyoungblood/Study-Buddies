@@ -48,7 +48,8 @@ const ProfileContent = () => {
             else
             {
                 currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
-                setCurrentUser(currentUser);
+                const temp = currentUser;
+                setCurrentUser(temp);
                 console.log(currentUser);
             }
         }
