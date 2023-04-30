@@ -180,7 +180,7 @@ const Content = () => {
 
     const [data , setData] = useState({});
 
-    useEffect((passedName) => {
+    useEffect(() => {
 
         console.log(passedName);
 
