@@ -13,7 +13,7 @@ const ProfileContent = () => {
     const navigate = useNavigate();
     const handleDelete = async (e) => 
     {
-
+        e.prevetnDefault();
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
             if (process.env.NODE_ENV === 'production')
@@ -53,9 +53,6 @@ const ProfileContent = () => {
                 setCurrentUser(res);
                 console.log(currentUser);
                 console.log(user);
-
-                navigate("/");
-
             }
         }
         catch(e)
