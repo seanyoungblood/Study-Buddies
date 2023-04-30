@@ -49,7 +49,8 @@ const ProfileContent = () => {
             {
                 var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
                 localStorage.setItem('user_data', JSON.stringify(user));
-                setCurrentUser(currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1));
+                const temp  =currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
+                setCurrentUser(temp);
                 console.log(currentUser);
                 console.log(user);
             }
