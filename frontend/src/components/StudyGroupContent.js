@@ -15,14 +15,13 @@ const Content = () => {
 
     function reviewsToRating(rating){
 
-        console.log(rating);
-
         if (rating = 5){
             star1 = "star active";
             star2 = "star active";
             star3 = "star active";
             star4 = "star active";
             star5 = "star active";
+            console.log(rating);
         }
         else if (rating < 5 && rating >= 4){
             star1 = "star active";
@@ -30,6 +29,7 @@ const Content = () => {
             star3 = "star active";
             star4 = "star active";
             star5 = "star";
+            console.log(rating);
         }
         else if (rating < 4 && rating >= 3){
             star1 = "star active";
@@ -37,6 +37,7 @@ const Content = () => {
             star3 = "star active";
             star4 = "star";
             star5 = "star";
+            console.log(rating);
         }
         else if (rating < 3 && rating >= 2){
             star1 = "star active";
@@ -44,6 +45,7 @@ const Content = () => {
             star3 = "star";
             star4 = "star";
             star5 = "star";
+            console.log(rating);
         }
         else if (rating < 2 && rating >= 1){
             star1 = "star active";
@@ -51,6 +53,7 @@ const Content = () => {
             star3 = "star";
             star4 = "star";
             star5 = "star";
+            console.log(rating);
         }
         else if (rating == NaN){
             star1 = "star";
@@ -58,6 +61,7 @@ const Content = () => {
             star3 = "star";
             star4 = "star";
             star5 = "star";
+            console.log("0");
         }
 
         return;
