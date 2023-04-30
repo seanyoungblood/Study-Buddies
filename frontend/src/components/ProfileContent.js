@@ -8,8 +8,8 @@ const ProfileContent = () => {
 
     const {currentUser, setCurrentUser} = useContext(AuthContext);
 
-    useEffect(() => {    const sample = {classesTaking:["test", "fake" , "asdasd"], groupsIn: ["asdad", "asdas", "GORUPS"]};
-    setCurrentUser(sample);},[])
+    // useEffect(() => {    const sample = {classesTaking:["test", "fake" , "asdasd"], groupsIn: ["asdad", "asdas", "GORUPS"]};
+    // setCurrentUser(sample);},[])
     const navigate = useNavigate();
     const handleDelete = async (e) => 
     {
@@ -30,9 +30,9 @@ const ProfileContent = () => {
         var obj = {groupName: e.value};
         console.log(e.target.innerText)
         var js = JSON.stringify(obj);
-        currentUser.groupsIn.pop()
-        setCurrentUser(currentUser)
-        console.log(currentUser);
+        // currentUser.groupsIn.pop()
+        // setCurrentUser(currentUser)
+        // console.log(currentUser);
 
         try
         {    
