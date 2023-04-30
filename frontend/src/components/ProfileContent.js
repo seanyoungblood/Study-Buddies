@@ -44,10 +44,10 @@ const ProfileContent = () => {
                 console.log('Please check your submission');
             }
             else
-            {
-                currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
-                const temp = currentUser;
-                setCurrentUser(temp);
+            {   
+
+                const temp = temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
+                setCurrentUser({...currentUser, groupsIn:temp});
                 console.log(currentUser);
             }
         }
