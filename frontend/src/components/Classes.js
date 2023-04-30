@@ -48,7 +48,7 @@ function buildPath(route)
         try
         {    
             const response = await fetch(buildPath('api/addClasses'),
-            {method:'POST',body:js,headers:{'Content-Type': 'application/json', 'Authorization': `Bearer ${currentUser.token}`}});
+            {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
           
             var res = JSON.parse(await response.text());
             console.log(res)
@@ -59,7 +59,6 @@ function buildPath(route)
             }
             else
             {
-                const user = currentUser;
                 setCurrentuser(res)
                 // user.classesTaking = [RegisterClass1.value,RegisterClass2.value,RegisterClass3.value,RegisterClass4.value,RegisterClass5.value,RegisterClass6.value];
                 console.log(currentUser)
