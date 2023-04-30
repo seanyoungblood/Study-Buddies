@@ -66,7 +66,6 @@ function buildPath(route)
                 setCurrentuser(user);
                 console.log(currentUser)
                 setMessage('Works');
-                window.location.href = '/';
             }
         }
         catch(e)
