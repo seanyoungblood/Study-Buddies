@@ -219,10 +219,10 @@ const searchGroup = asyncHandler(async (req, res) => {
       // const results = await db.collection('groups').find(
         const results = await groupie.find(
        {$or:[
-        {groupName:{$regex:search+'.*'}},
-        {course:{$regex:search+'.*'}},
-        {description:{$regex:search+'.*'}}
-       ]}).toArray(); 
+        {groupName:{$regex:search+'.*',$options:'i'}},
+        {course:{$regex:search+'.*',$options:'i'}},
+        {objective:{$regex:search+'.*',$options:'i'}}
+       ]}).toArray();
       
     // commented below out and just returned "const results"
       /*var ret = [];
