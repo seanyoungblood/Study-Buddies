@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 const ProfileContent = () => {
 
+    const [classes, setClasses] = useState([]);
+    const [groups, setGroups] = useState([]);
     const {currentUser, setCurrentUser} = useContext(AuthContext);
 
     // useEffect(() => {    const sample = {classesTaking:["test", "fake" , "asdasd"], groupsIn: ["asdad", "asdas", "GORUPS"]};
@@ -47,6 +49,7 @@ const ProfileContent = () => {
             {
                 currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
                 const temp = currentUser;
+                setClasses(temp.groupsIn);
                 setCurrentUser(temp);
                 console.log(currentUser);
             }
@@ -59,8 +62,6 @@ const ProfileContent = () => {
      };
 
 
-     const [classes, setClasses] = useState([]);
-     const [groups, setGroups] = useState([]);
 
      useEffect(() => {
         const updateGroups = () => {
