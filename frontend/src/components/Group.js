@@ -20,7 +20,7 @@ function Group()
   
   const [message,setMessage] = useState('');
 
-  const doGroup = async event => 
+  const doGroup = async() => 
   {
 
       const app_name = 'cop-study-buddy-1000'
@@ -35,8 +35,6 @@ function Group()
               return 'http://localhost:5000/' + route;
           }
       }
-
-      event.preventDefault();
 
       var obj = {groupName:groupName.value, course:groupCourse.value, objective:groupObjective.value,date:groupDate.value,time:groupTime.value,location:groupLocation.value};
       var js = JSON.stringify(obj);
