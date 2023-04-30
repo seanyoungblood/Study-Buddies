@@ -39,7 +39,7 @@ const ProfileContent = () => {
 
             var res = JSON.parse(await response.text());
             console.log(res);
-            if(res.error !== '')
+            if(!res)
             {
                 console.log('Please check your submission');
             }
