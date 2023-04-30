@@ -6,40 +6,56 @@ import { useContext } from 'react'
 
 const Content = () => {
 
+
+    var star1;
+    var star2;
+    var star3;
+    var star4;
+    var star5;
+
     function reviewsToRating(rating){
-        const star1 = document.getElementById("star 1");
-        const star2 = document.getElementById("star 2");
-        const star3 = document.getElementById("star 3");
-        const star4 = document.getElementById("star 4");
-        const star5 = document.getElementById("star 5");
 
         if (rating = 5){
-            star1.class = "star active";
-            star2.class = "star active";
-            star3.class = "star active";
-            star4.class = "star active";
-            star5.class = "star active";
+            star1 = "star active";
+            star2 = "star active";
+            star3 = "star active";
+            star4 = "star active";
+            star5 = "star active";
         }
         else if (rating < 5 && rating >= 4){
-            star1.class = "star active";
-            star2.class = "star active";
-            star3.class = "star active";
-            star4.class = "star active";
+            star1 = "star active";
+            star2 = "star active";
+            star3 = "star active";
+            star4 = "star active";
+            star5 = "star";
         }
         else if (rating < 4 && rating >= 3){
-            star1.class = "star active";
-            star2.class = "star active";
-            star3.class = "star active";
+            star1 = "star active";
+            star2 = "star active";
+            star3 = "star active";
+            star4 = "star";
+            star5 = "star";
         }
         else if (rating < 3 && rating >= 2){
-            star1.class = "star active";
-            star2.class = "star active";
+            star1 = "star active";
+            star2 = "star active";
+            star3 = "star";
+            star4 = "star";
+            star5 = "star";
         }
         else if (rating < 2 && rating >= 1){
-            star1.class = "star active";
+            star1 = "star active";
+            star2 = "star";
+            star3 = "star";
+            star4 = "star";
+            star5 = "star";
         }
         else{
-            return;
+            star1 = "star";
+            star2 = "star";
+            star3 = "star";
+            star4 = "star";
+            star5 = "star";
         }
 
         return;
@@ -61,7 +77,7 @@ const Content = () => {
             }
             else
             {
-                return 'http://localhost:5000/' + route;
+                return 'http://localhost:3000/' + route;
             }
         }
 
@@ -122,11 +138,11 @@ const Content = () => {
                         <div class="tile-footer">
                             <div id="group-rating">
                                 <span>Rating: </span>
-                                <span class="star" id="star 1">&#9733;</span>
-                                <span class="star" id="star 2">&#9733;</span>
-                                <span class="star" id="star 3">&#9733;</span>
-                                <span class="star" id="star 4">&#9733;</span>
-                                <span class="star" id="star 5" onTimeUpdate={reviewsToRating(value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length)}>&#9733;</span>
+                                <span class={star1} id="star 1">&#9733;</span>
+                                <span class={star2} id="star 2">&#9733;</span>
+                                <span class={star3} id="star 3">&#9733;</span>
+                                <span class={star4} id="star 4">&#9733;</span>
+                                <span class={star5} id="star 5" onTimeUpdate={reviewsToRating(value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length)}>&#9733;</span>
                             </div>
                             <div>
                                 <button class="join-btn">Join Group</button>
