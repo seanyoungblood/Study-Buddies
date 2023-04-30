@@ -38,6 +38,9 @@ const Content = () => {
         else if (rating < 2 && rating >= 1){
             star1.class = "star active";
         }
+        else{
+            return;
+        }
 
         return;
     }
