@@ -195,11 +195,11 @@ const Content = () => {
         }
 
         const fetchData = async () => {
-            var obj = {groupName: passedName };
+            var obj = {groupName: passedName.groupName };
             var js = JSON.stringify(obj);
 
             try {
-                console.log(passedName);
+                console.log("groupName" + passedName);
                 const response = await fetch(buildPath('api/joinGroup'),
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json', 'Authorization': `Bearer ${currentUser.token}`}});
                 
