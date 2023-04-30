@@ -179,7 +179,21 @@ h3{
     }
 
     #profileButton {
-        margin: 10 10px;
+        margin: 10px 10px !important;
+        
+    }
+
+
+
+
+
+}
+
+
+@media(max-width: 767px) {
+
+    .margin-top{
+        margin-top: 30px !important;
     }
 }
 
@@ -237,4 +251,27 @@ h3{
     color: #fff;
     font-size: 13px;
     text-decoration: none;
+  }
+
+
+  .profile-classes{
+
+    flex-basis: 32%;
+    background-color: #ffffff;
+    border: 2px solid #b7b7b7;
+    color: #000000;
+    margin-top: 1em;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 15px;
+    transition: all 0.5s ease-in-out;
+
+  }
+
+
+  .profile-hover:hover {
+    background-color: #ff9182;
+    cursor: pointer;
   }
