@@ -13,7 +13,7 @@ const ProfileContent = () => {
     const navigate = useNavigate();
     const handleDelete = async (e) => 
     {
-        e.prevetnDefault();
+        e.preventDefault();
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
             if (process.env.NODE_ENV === 'production')
