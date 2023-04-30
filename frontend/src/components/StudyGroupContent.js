@@ -16,28 +16,22 @@ const Content = () => {
     function reviewsToRating(rating){
 
         if (rating == 5){
-            // star1.class = "star active";
-            // star2.class = "star active";
-            // star3.class = "star active";
-            // star4.class = "star active";
-            // star5.class = "star active";
+            star1 = <span class="star active">&#9733;</span>
+            star2 = <span class="star active">&#9733;</span>
+            star3 = <span class="star active">&#9733;</span>
+            star4 = <span class="star active">&#9733;</span>
+            star5 = <span class="star active">&#9733;</span>
             console.log("5 " + rating);
         }
         else if (rating < 5 && rating >= 4){
-            // star1.class = "star active";
-            // star2.class = "star active";
-            // star3.class = "star active";
-            // star4.class = "star active";
-            // star5.class = "star";
+            star1 = <span class="star active">&#9733;</span>
+            star2 = <span class="star active">&#9733;</span>
+            star3 = <span class="star active">&#9733;</span>
+            star4 = <span class="star active">&#9733;</span>
+            star5 = <span class="star">&#9733;</span>
             console.log("4 " + rating);
         }
         else if (rating < 4 && rating >= 3){
-            // star1.class = "star active";
-            // star2.class = "star active";
-            // star3.class = "star active";
-            // star4.class = "star";
-            // star5.class = "star";
-
             star1 = <span class="star active">&#9733;</span>
             star2 = <span class="star active">&#9733;</span>
             star3 = <span class="star active">&#9733;</span>
@@ -47,27 +41,27 @@ const Content = () => {
             console.log("3 " + rating);
         }
         else if (rating < 3 && rating >= 2){
-            // star1.class = "star active";
-            // star2.class = "star active";
-            // star3.class = "star";
-            // star4.class = "star";
-            // star5.class = "star";
+            star1 = <span class="star active">&#9733;</span>
+            star2 = <span class="star active">&#9733;</span>
+            star3 = <span class="star">&#9733;</span>
+            star4 = <span class="star">&#9733;</span>
+            star5 = <span class="star">&#9733;</span>
             console.log("2 " + rating);
         }
         else if (rating < 2 && rating >= 1){
-            // star1.class = "star active";
-            // star2.class = "star";
-            // star3.class = "star";
-            // star4.class = "star";
-            // star5.class = "star";
+            star1 = <span class="star active">&#9733;</span>
+            star2 = <span class="star">&#9733;</span>
+            star3 = <span class="star">&#9733;</span>
+            star4 = <span class="star">&#9733;</span>
+            star5 = <span class="star">&#9733;</span>
             console.log("1 " + rating);
         }
         else{
-            // star1.class = "star";
-            // star2.class = "star";
-            // star3.class = "star";
-            // star4.class = "star";
-            // star5.class = "star";
+            star1 = <span class="star">&#9733;</span>
+            star2 = <span class="star">&#9733;</span>
+            star3 = <span class="star">&#9733;</span>
+            star4 = <span class="star">&#9733;</span>
+            star5 = <span class="star">&#9733;</span>
             console.log("0 " + rating);
         }
 
