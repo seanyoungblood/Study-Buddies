@@ -26,7 +26,7 @@ const ProfileContent = () => {
             }
         }
         const temp = currentUser.groupsIn;
-        temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
+        temp.groupsIn?.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
         var obj = {groupName: e.target.innerText, groupsIn: temp, username:currentUser.username};
         console.log(e.target.innerText)
         var js = JSON.stringify(obj);
