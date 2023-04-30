@@ -38,7 +38,7 @@ function buildPath(route)
 
     const [message,setMessage] = useState('');
     const {currentUser, setCurrentuser} = useContext(AuthContext)
-    const doClasses = async => 
+    const doClasses = async() => 
     {
 
         var obj = {username:currentUser.username, class0:RegisterClass1.value, class1:RegisterClass2.value,class2:RegisterClass3.value,class3:RegisterClass4.value,class4:RegisterClass5.value,class5:RegisterClass6.value};
