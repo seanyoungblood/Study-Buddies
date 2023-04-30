@@ -25,8 +25,8 @@ const ProfileContent = () => {
                 return 'http://localhost:5000/' + route;
             }
         }
-
-
+        const temp = currentUser;
+        temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
         var obj = {groupName: e.target.innerText};
         console.log(e.target.innerText)
         var js = JSON.stringify(obj);
@@ -48,7 +48,7 @@ const ProfileContent = () => {
             else
             {
                 currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
-                const temp = currentUser;
+                temp = currentUser;
                 setCurrentUser(temp);
                 console.log(currentUser);
             }
