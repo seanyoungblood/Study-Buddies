@@ -65,13 +65,153 @@ const Content = () => {
         }
 
         return;
-    }
+    };
+
+    // async doJoin(passedName) {
+    //     const app_name = 'cop-study-buddy-1000';
+    //     function buildPath(route){
+    //         if (process.env.NODE_ENV === 'production')
+    //         {
+    //             return 'https://' + app_name +  '.herokuapp.com/' + route;
+    //         }
+    //         else
+    //         {
+    //             return 'http://localhost:5000/' + route;
+    //         }
+    //     }
+
+    //     event.preventDefault();
+
+    //     var obj = {groupName:passedName.value};
+    //     var js = JSON.stringify(obj);
+    //     console.log(obj);
+
+    //     try
+    //     {    
+    //         const response = await fetch(buildPath('api/joinGroup'),
+    //         {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+
+    //         var res = JSON.parse(await response.text());
+
+    //         if(!res._id)
+    //         {
+    //             setMessage('Please check your submission');
+    //         }
+    //         else
+    //         {
+    //             var user = {firstName:res.firstName,lastName:res.lastName,id:res._id, groupsIn:res.groupsIn}
+    //             localStorage.setItem('user_data', JSON.stringify(user));
+
+    //             setCurrentUser(res);
+    //             console.log(currentUser);
+    //             setMessage('Works');
+    //             console.log(user);
+
+    //             navigate("/");
+
+    //         }
+    //     }
+    //     catch(e)
+    //     {
+    //         alert(e.toString());
+    //         return;
+    //     }  
+    // };
+
+    // doJoin(passedName) (() => {
+
+    //     const app_name = 'cop-study-buddy-1000'
+    //     function buildPath(route){
+    //         if (process.env.NODE_ENV === 'production')
+    //         {
+    //             return 'https://' + app_name +  '.herokuapp.com/' + route;
+    //         }
+    //         else
+    //         {
+    //             return 'http://localhost:5000/' + route;
+    //         }
+    //     }
+
+    //     event.preventDefault();
+
+    //     var obj = {groupName:passedName.value};
+    //     var js = JSON.stringify(obj);
+    //     console.log(obj);
+
+    //     try
+    //     {    
+    //         const response = await fetch(buildPath('api/joinGroup'),
+    //         {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+
+    //         var res = JSON.parse(await response.text());
+
+    //         if(!res._id)
+    //         {
+    //             setMessage('Please check your submission');
+    //         }
+    //         else
+    //         {
+    //             var user = {firstName:res.firstName,lastName:res.lastName,id:res._id, groupsIn:res.groupsIn}
+    //             localStorage.setItem('user_data', JSON.stringify(user));
+
+    //             setCurrentUser(res);
+    //             console.log(currentUser);
+    //             setMessage('Works');
+    //             console.log(user);
+
+    //             navigate("/");
+
+    //         }
+    //     }
+    //     catch(e)
+    //     {
+    //         alert(e.toString());
+    //         return;
+    //     }  
+    // });
 
     const {currentUser} = useContext(AuthContext);
 
     const [query, setQuery] = useState('');
 
+    const [passedName, setPassedName] = useState('');
+
     const [data , setData] = useState({});
+
+    useEffect(() => {
+
+        const app_name = 'cop-study-buddy-1000'
+        function buildPath(route){
+            if (process.env.NODE_ENV === 'production')
+            {
+                return 'https://' + app_name +  '.herokuapp.com/' + route;
+            }
+            else
+            {
+                return 'http://localhost:3000/' + route;
+            }
+        }
+
+        const fetchData = async () => {
+            var obj = {groupName: passedName };
+            var js = JSON.stringify(obj);
+
+            try {
+                // console.log("Searching for " + query);
+                const response = await fetch(buildPath('api/joinGroup'),
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+                
+                // console.log("Before JSON.parse");
+                var res = JSON.parse(await response.text());
+                setData(res);
+                console.log(res);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, []);
 
     useEffect(() => {
 
@@ -155,7 +295,7 @@ const Content = () => {
                                 <span class={star5.class} id="star 5">&#9733;</span> */}
                             </div>
                             <div>
-                                <button class="join-btn">Join Group</button>
+                                <button class="join-btn" onClick={(e) => {setPassedName(value.groupName);}}>Join Group</button>
                                 <button class="review-btn">Leave Review</button>
                             </div>
                         </div>
