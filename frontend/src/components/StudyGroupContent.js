@@ -140,11 +140,11 @@ const Content = () => {
                         <div class="tile-footer">
                             <div id="group-rating">
                                 <span>Rating: </span>
-                                <span class={star1} id="star 1">&#9733;</span>
-                                <span class={star2} id="star 2">&#9733;</span>
-                                <span class={star3} id="star 3">&#9733;</span>
-                                <span class={star4} id="star 4">&#9733;</span>
-                                <span class={star5} id="star 5" onTimeUpdate={reviewsToRating(value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length)}>&#9733;</span>
+                                <span class={star1.value} id="star 1">&#9733;</span>
+                                <span class={star2.value} id="star 2">&#9733;</span>
+                                <span class={star3.value} id="star 3">&#9733;</span>
+                                <span class={star4.value} id="star 4">&#9733;</span>
+                                <span class={star5.value} id="star 5" onTimeUpdate={reviewsToRating(value.reviews.reduce((sum, curr) => sum + Number(curr), 0) / value.reviews.length)}>&#9733;</span>
                             </div>
                             <div>
                                 <button class="join-btn">Join Group</button>
