@@ -299,7 +299,7 @@ const Content = () => {
                                 <span class={star5.class} id="star 5">&#9733;</span> */}
                             </div>
                             <div>
-                                <button class="join-btn" key={value.groupName} onClick={(value) => {setPassedName(value.groupName);}}>Join Group</button>
+                                <button class="join-btn" a-key={value.groupName} onClick={(e) => {setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
                                 <button class="review-btn">Leave Review</button>
                             </div>
                         </div>
