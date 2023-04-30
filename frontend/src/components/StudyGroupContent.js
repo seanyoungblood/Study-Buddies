@@ -52,7 +52,7 @@ const Content = () => {
             star4 = "star";
             star5 = "star";
         }
-        else{
+        else if (rating == NaN){
             star1 = "star";
             star2 = "star";
             star3 = "star";
