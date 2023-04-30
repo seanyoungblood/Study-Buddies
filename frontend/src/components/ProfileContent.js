@@ -41,7 +41,7 @@ const ProfileContent = () => {
 
             var res = JSON.parse(await response.text());
 
-            if(res.error)
+            if(res.error === '')
             {
                 console.log('Please check your submission');
             }
