@@ -22,12 +22,10 @@ const ProfileContent = () => {
             }
             else
             {
-                return 'http://localhost:5000/' + route;
+                return 'http://localhost:3000/' + route;
             }
         }
-        const temp = currentUser.groupsIn;
-        temp.groupsIn?.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
-        var obj = {groupName: e.target.innerText, groupsIn: temp, username:currentUser.username};
+        var obj = {groupName: e.target.innerText, username:currentUser.username};
         console.log(e.target.innerText)
         var js = JSON.stringify(obj);
         // currentUser.groupsIn.pop()

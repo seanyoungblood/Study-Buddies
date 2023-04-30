@@ -169,11 +169,14 @@ const deleteGroup = asyncHandler(async (req, res) => {
 
     var error = '';
   
-    const {groupName, groupsIn, username} = req.body;
+    const {groupName, username} = req.body;
 
-    userie.findOneAndUpdate({username:username}, { $set: {
-        "groupsIn":groupsIn
-    }})
+    userie.findOneAndUpdate(
+        {"username": username},
+        {$pull: {
+            groupsIn: groupName
+        }},
+    )
 
     // const db = client.db("StudyBuddy");
     // db.collection('groups').deleteOne({groupName:groupName});
