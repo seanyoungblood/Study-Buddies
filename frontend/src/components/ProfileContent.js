@@ -37,7 +37,7 @@ const ProfileContent = () => {
         try
         {    
             const response = await fetch(buildPath('api/deleteGroup'),
-            {method:'DELETE',body:js,headers:{'Content-Type': 'application/json'}});
+            {method:'DELETE',body:js,headers:{'Content-Type': 'application/json' , 'Authorization': `Bearer ${currentUser.token}`}});
 
             var res = JSON.parse(await response.text());
 
