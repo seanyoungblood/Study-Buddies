@@ -80,7 +80,7 @@ const Content = () => {
     const searchMount = useRed(false)
     useEffect(() => {
         console.log("USE EFFECT@@@@@@@@@@@@@@<><><><>><><><><><><><")
-        if(searchMount.current === true) fetchData();
+        if(searchMount.current === true) fetchSearch();
         else searchMount.current = true;
     })
 
@@ -131,21 +131,8 @@ const Content = () => {
             }
         }
 
-    useEffect(() => {
 
-        const app_name = 'cop-study-buddy-1000'
-        function buildPath(route){
-            if (process.env.NODE_ENV === 'production')
-            {
-                return 'https://' + app_name +  '.herokuapp.com/' + route;
-            }
-            else
-            {
-                return 'http://localhost:3000/' + route;
-            }
-        }
-
-        const fetchData = async () => {
+        const fetchSearch = async () => {
             var obj = {field : "groupName", search: query };
             var js = JSON.stringify(obj);
 
@@ -163,8 +150,7 @@ const Content = () => {
                 console.log(error);
             }
         };
-        fetchData();
-    }, [query]);
+      
 
     return ( 
         <section className="group-section">
