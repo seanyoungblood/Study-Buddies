@@ -77,15 +77,8 @@ const Content = () => {
         else didMount.current = true;
     }, [query])
 
-    const searchMount = useRed(false)
-    useEffect(() => {
-        console.log("USE EFFECT@@@@@@@@@@@@@@<><><><>><><><><><><><")
-        if(searchMount.current === true) fetchSearch();
-        else searchMount.current = true;
-    })
-
     
-    const {currentUser} = useContext(AuthContext);
+    const {currentUser, setCurrentUser} = useContext(AuthContext);
 
 
     const [passedName, setPassedName] = useState('');
@@ -123,6 +116,7 @@ const Content = () => {
                 
                 // console.log("Before JSON.parse");
                 var res = JSON.parse(await response.text());
+                setCurrentUser({...currentUser,groupsIn:res.groupsIn})
                 setData(res);
                 console.log(res);
             }
@@ -131,8 +125,21 @@ const Content = () => {
             }
         }
 
+    useEffect(() => {
 
-        const fetchSearch = async () => {
+        const app_name = 'cop-study-buddy-1000'
+        function buildPath(route){
+            if (process.env.NODE_ENV === 'production')
+            {
+                return 'https://' + app_name +  '.herokuapp.com/' + route;
+            }
+            else
+            {
+                return 'http://localhost:3000/' + route;
+            }
+        }
+
+        const fetchData = async () => {
             var obj = {field : "groupName", search: query };
             var js = JSON.stringify(obj);
 
@@ -150,7 +157,8 @@ const Content = () => {
                 console.log(error);
             }
         };
-      
+        fetchData();
+    }, [query]);
 
     return ( 
         <section className="group-section">
@@ -195,7 +203,7 @@ const Content = () => {
                                 <span>{star5}</span>
                             </div>
                             <div>
-                                <button class="join-btn" a-key={value.groupName} onClick={(e) => {fetchData(e.target.getAttribute("a-key"));setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
+                                <button class="join-btn" a-key={value.groupName} onClick={(e) => {fetchData(e.target.getAttribute("a-key"));   setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
                                 <button class="review-btn" a-key={value.groupName} onClick={(e) => {setPassedGroupName(e.target.getAttribute('a-key'));}}>Leave Review</button>
                             </div>
                         </div>
