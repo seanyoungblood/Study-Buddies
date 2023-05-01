@@ -103,6 +103,7 @@ const Content = () => {
     }
 
     const fetchData = async (passedName) => {
+        if(currentUser.groupsIn.includes(passedName)) return;
         console.log("fetchData")
         var obj = {groupName: passedName, user: currentUser};
         var js = JSON.stringify(obj);
@@ -208,7 +209,7 @@ const Content = () => {
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
                 
                 var res = JSON.parse(await response.text());
-                
+
                 console.log(res);
             }
             catch (error) {
