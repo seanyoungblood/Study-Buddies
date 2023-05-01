@@ -56,7 +56,7 @@ function User()
             var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
             console.log(user);
             // setCurrentUser(user);
-            currentUser.firtName = res.firstName;
+            currentUser.firstName = res.firstName;
             currentUser.lastName = res.lastName;
             currentUser.phone = res.phone;
             localStorage.setItem('user_data', JSON.stringify(user));
