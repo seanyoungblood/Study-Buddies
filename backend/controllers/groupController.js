@@ -104,6 +104,7 @@ const leaveGroup = asyncHandler(async (req, res) => {
     }
 
     const groupCheck = await groupie.findOne({"groupName" : groupName})
+    
 
 
     if (!groupCheck)
@@ -126,7 +127,8 @@ const leaveGroup = asyncHandler(async (req, res) => {
             groupsIn: groupCheck.groupName
         }},
     )
-    res.status(200).json(groupCheck.members)
+    const userState = await userie.findOne({"username": username})
+    res.status(200).json(userState)
 })
 
 

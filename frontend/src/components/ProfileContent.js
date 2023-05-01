@@ -45,13 +45,11 @@ const ProfileContent = () => {
             }
             else
             {   
-                let temp = currentUser;
+                // let temp = currentUser;
 
-                temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
-                setCurrentUser((prevState) => ({
-                    ...prevState,
-                    groupsIn:temp
-                }));
+                // temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
+                console.log(res);
+                setCurrentUser({...currentUser,groupsIn:res.groupsIn})
                 console.log(currentUser);
             }
         }
@@ -61,23 +59,13 @@ const ProfileContent = () => {
             return;
         }    
      };
-
-
-     const [classes, setClasses] = useState([]);
-     const [groups, setGroups] = useState([]);
-
-     useEffect(() => {
-
-        setClasses(currentUser.classesTaking);
-        setGroups(currentUser.GroupsIn);
-     },[currentUser]);
     
 
     return ( 
         <div className="row text-center mt-5 profile-classes-wrapper">
             <div className="col-md-6 col-sm-12">
                 <h1 className="textbox profile-header">Classes</h1>
-                {classes?.map((c)=>(
+                {currentUser.classesTaking?.map((c)=>(
                 <div className='profile-classes' key={c}>
                     <p>{c}</p>
                 </div>))}
@@ -85,7 +73,7 @@ const ProfileContent = () => {
 
             <div className="col-md-6 col-sm-12 margin-top">
                 <h1 className="textbox profile-header">Groups</h1>
-                {groups?.map((c)=>(
+                {currentUser.groupsIn?.map((c)=>(
                         <div onClick={(e) => {handleDelete(e)}} className='profile-classes profile-hover' key={c}>
                             <p>{c}</p>
                         </div>
