@@ -77,6 +77,13 @@ const Content = () => {
         else didMount.current = true;
     }, [query])
 
+    const searchMount = useRed(false)
+    useEffect(() => {
+        console.log("USE EFFECT@@@@@@@@@@@@@@<><><><>><><><><><><><")
+        if(searchMount.current === true) fetchData();
+        else searchMount.current = true;
+    })
+
     
     const {currentUser} = useContext(AuthContext);
 
