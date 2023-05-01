@@ -249,12 +249,12 @@ const searchGroup = asyncHandler(async (req, res) => {
 
 const searchAdmin = asyncHandler(async (req, res) => {
       var error = '';
-      const { field, search } = req.body;
+      const {search } = req.body;
         const results = await groupie.find(
        {$or:[
         {admin:{$regex:search+'.*',$options:'i'}},
        ]}).toArray();
-      var ret2 = {field:field, search:search, results:results, error:error};
+      var ret2 = {search:search, results:results, error:error};
       res.status(200).json(ret2);
 })
 
