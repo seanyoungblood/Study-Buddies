@@ -215,7 +215,6 @@ const Content = () => {
             catch (error) {
                 console.log(error);
             }
-
     }
 
 
@@ -288,7 +287,7 @@ const Content = () => {
                                     </Modal.Body>
 
                                     <Modal.Footer>
-                                        <Button onClick={modalExecute}>Submit</Button>
+                                        <Button onClick={modalExecute} onClickCapture={handleClose}>Submit</Button>
                                     </Modal.Footer>
 
                                 </Modal>
