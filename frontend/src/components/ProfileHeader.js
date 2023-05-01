@@ -47,10 +47,11 @@ const ProfileHeader = () => {
 
 
 
-
+    const navigate = useNavigate();
 
     const handleLogout = () =>{
         setCurrentUser({email: "",firstName:"", phone:"", lastName: "",token: "",username: "",_id: "", classesTaking:[], groupsIn:[]});
+        navigate("/");
     }
     return ( <>
         {!log_reg && 
