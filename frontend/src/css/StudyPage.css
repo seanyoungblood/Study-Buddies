@@ -358,9 +358,9 @@ p {
     }
   
     .star1 {
-      font-size: 32px;
+      font-size: 55px;
       color: #E4E4E4;
-      margin: 0 5px;
+      margin: 0 10px;
       cursor: pointer;
       transition: color 0.2s;
       }
