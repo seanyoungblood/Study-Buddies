@@ -57,7 +57,7 @@ const ProfileDelete = () => {
 
 
 
-                //work on this line later
+                //work on this line later// make a for loop
                 setCurrentUser({...currentUser,groupsIn:currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1)})
                 console.log(currentUser);
             }
