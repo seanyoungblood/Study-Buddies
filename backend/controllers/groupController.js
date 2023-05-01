@@ -245,6 +245,26 @@ const searchGroup = asyncHandler(async (req, res) => {
       res.status(200).json(ret2);
 })
 
+
+
+const searchAdmin = asyncHandler(async (req, res) => {
+    // incoming: userId, search
+      // outgoing: results[], error
+    
+      var error = '';
+    
+      const { field, search } = req.body;
+        const results = await groupie.find(
+       {$or:[
+        {admin:{$regex:search+'.*',$options:'i'}},
+       ]}).toArray();
+      var ret2 = {field:field, search:search, results:results, error:error};
+      res.status(200).json(ret2);
+})
+
+
+
+
 module.exports = {
     registerGroup,
     searchGroup,
@@ -253,6 +273,7 @@ module.exports = {
     editGroup,
     deleteGroup,
     editRating,
+    searchAdmin
 }
 
 

@@ -8,6 +8,7 @@ const {
     editGroup,
     deleteGroup,
     editRating,
+    searchAdmin
 } = require('../controllers/groupController')
 const { protect } = require('../middleware/authMiddleware')
 
@@ -20,5 +21,7 @@ router.route('/:id/leaveGroup').delete(protect, leaveGroup)
 router.route('/editGroup').post(editGroup) // NEEDS TO IMPLEMENT put
 router.route('/:id/deleteGroup').delete(protect, deleteGroup)
 router.route('/editRating').post(editRating) // NEEDS TO IMPLEMENT put
+router.route('/searchAdmin').post(searchAdmin)
+
 
 module.exports = router
