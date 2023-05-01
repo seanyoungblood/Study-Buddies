@@ -30,6 +30,21 @@ const ProfileHeader = () => {
         else setLog_reg(false)
     }, [location])
 
+
+    const [first, setFirst] = useState("");
+    const [last, setLast] = useState("");
+    useEffect(() => {
+
+        setFirst(currentUser.firstName);
+        setLast(currentUser.lastName);
+
+
+    },[currentUser])
+
+
+
+
+
     const handleLogout = () =>{
         setCurrentUser({email: "",firstName:"", phone:"", lastName: "",token: "",username: "",_id: "", classesTaking:[], groupsIn:[]});
     }
@@ -55,7 +70,7 @@ const ProfileHeader = () => {
             <div className="text-box" style={{top: profileMargin}}>
 
 			
-            <h1>{currentUser.firstName + " " + currentUser.lastName}</h1>
+            <h1>{first} {last}</h1>
             <h3 className="center">{currentUser.username}</h3>
 
 		    </div>
