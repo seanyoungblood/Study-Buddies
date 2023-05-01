@@ -90,7 +90,7 @@ const joinGroup = asyncHandler(async (req, res) => {
         }},
     )
 
-    res.status(200).json(req.user)
+   await res.status(200).json(req.user)
 
 })
 
