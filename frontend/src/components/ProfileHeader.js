@@ -55,8 +55,8 @@ const ProfileHeader = () => {
             <div className="text-box" style={{top: profileMargin}}>
 
 			
-            <h1>{currentUser.firstName !== '' ? currentUser.firstName + " " + currentUser.lastName : "Firstname Lastname"}</h1>
-            <h3 className="center">{currentUser.firstName !== '' ? currentUser.username : "Username"}</h3>
+            <h1>{currentUser.firstName + " " + currentUser.lastName}</h1>
+            <h3 className="center">{currentUser.username}</h3>
 
 		    </div>
         </section>
