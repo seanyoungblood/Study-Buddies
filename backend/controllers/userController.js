@@ -384,6 +384,43 @@ const deleteUser = asyncHandler(async (req, res) => {
     res.status(200).json(ret);
 })
 
+const verifyUser = asyncHandler(async (req, res) => { 
+
+    const { username , codeInput } = req.body
+
+    const user = await User.findOne({
+        username
+    })
+
+    if (user){
+
+        if (user.code === parseInt(codeInput))
+        {
+            User2.findOneAndUpdate({username:username}, 
+            { $set: 
+                {
+                    "verified" : true
+                }
+            })
+
+            res.status(200).json(await User2.findOne({"username": username}))
+        
+        }
+        else
+        {
+            res.status(400)
+            throw new Error('Code does NOT match, cannot verify. Please enter the correct code.')
+
+        }
+    }
+    else
+    {
+        res.status(400)
+            throw new Error('User does NOT exist.')
+    }
+
+})
+
 /**
  * TESTING IF WE CAN JUST USE thE MONGO Package 
  * Instead of the mongoose
@@ -411,6 +448,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 
 // routing
 module.exports = {
+    verifyUser,
   resetPassword,
     registerUser,
     loginUser,
