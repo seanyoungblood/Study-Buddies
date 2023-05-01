@@ -199,7 +199,7 @@ const Content = () => {
         }
 
         const fetchData = async () => {
-            var obj = {groupName: passedName};
+            var obj = {groupName: passedName, user: currentUser};
             var js = JSON.stringify(obj);
 
             try {
