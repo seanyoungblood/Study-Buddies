@@ -52,6 +52,7 @@ const ProfileContent = () => {
                     ...prevState,
                     groupsIn:temp
                 }));
+                setGroups(temp);
                 console.log(currentUser);
             }
         }
@@ -76,7 +77,6 @@ const ProfileContent = () => {
                     )))
         }
 
-
         const updateClasses = () =>{
             setClasses( currentUser.classesTaking?.map((c)=>(
                 <div className='profile-classes' key={c}>
@@ -84,6 +84,7 @@ const ProfileContent = () => {
                 </div>
             )))
         }
+
         updateClasses();
         updateGroups();
      },[currentUser]);
