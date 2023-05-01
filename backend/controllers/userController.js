@@ -122,14 +122,14 @@ const registerUser = asyncHandler(async (req, res) => {
       const transporter =  nodemailer.createTransport({
             service: "hotmail",
             auth: {
-                user: "seanjyoungblood@hotmail.com",
-                pass: "Minecraft02$",
+                user: "user-verification-4331@outlook.com",
+                pass: "$COP4331$",
             }
         });
          
         // reciever plus options
         const options = {
-            from: "seanjyoungblood@hotmail.com",
+            from: "user-verification-4331@outlook.com",
             to: email,
             subject: "Verify Email",
             text: "Frontend to add link to input code sent in email. Check that code entered and code for user match. If so, set verified to true via editUser API. Code:" + code
