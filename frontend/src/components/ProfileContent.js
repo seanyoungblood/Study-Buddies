@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ProfileContent = () => {
-
+    const [show , setShow] = useState(false);
     const {currentUser, setCurrentUser} = useContext(AuthContext);
 
     // useEffect(() => {    const sample = {classesTaking:["test", "fake" , "asdasd"], groupsIn: ["asdad", "asdas", "GORUPS"]};
@@ -13,6 +13,7 @@ const ProfileContent = () => {
     const navigate = useNavigate();
     const handleDelete = async (e) => 
     {
+        setShow(true)
         e.preventDefault();
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
@@ -58,6 +59,7 @@ const ProfileContent = () => {
             alert(e.toString());
             return;
         }    
+        setShow(false)
      };
 
 
@@ -68,10 +70,11 @@ const ProfileContent = () => {
     setGroups(currentUser.groupsIn);
     setClasses(currentUser.classesTaking);
      },[currentUser])
-    
 
     return ( 
         <div className="row text-center mt-5 profile-classes-wrapper">
+
+            {show & <span class="loader"></span>}
             <div className="col-md-6 col-sm-12">
                 <h1 className="textbox profile-header">Classes</h1>
                 {/* {classes?.map((c)=>(
@@ -106,6 +109,7 @@ const ProfileContent = () => {
                 {groups?.map((c)=>(
                         <div onClick={(e) => {handleDelete(e)}} className='profile-classes profile-hover' key={c}>
                             <p>{c}</p>
+
                         </div>
                     ))}
             </div>
