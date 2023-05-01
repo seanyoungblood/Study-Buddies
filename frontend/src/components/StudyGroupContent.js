@@ -202,7 +202,7 @@ const Content = () => {
                                 <span>{star5}</span>
                             </div>
                             <div>
-                                <button class="join-btn" a-key={value.groupName} onClick={(e) => {setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
+                                <button class="join-btn" a-key={value.groupName} onClick={(e) => {fetchData();setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
                                 <button class="review-btn" a-key={value.groupName} onClick={(e) => {setPassedGroupName(e.target.getAttribute('a-key'));}}>Leave Review</button>
                             </div>
                         </div>
