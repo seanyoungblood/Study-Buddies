@@ -264,7 +264,7 @@ const Content = () => {
                                 <span>{star5}</span>
                             </div>
                             <div>
-                                <button class="join-btn" a-key={value.groupName} onClick={(e) => {currentUser.username === '' ? navigate("/login") : fetchData(e.target.getAttribute("a-key")); setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
+                                <button class="join-btn" a-key={value.groupName} onClick={currentUser.username === '' ? navigate("/login") : (e) => {fetchData(e.target.getAttribute("a-key")); setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
                                 <button class="review-btn" a-key={value.groupName} onClick={(e) =>{ modalSetUp(e.target.getAttribute("a-key"))}} onClickCapture={handleShow}>Leave Review</button>
 
                                 <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
