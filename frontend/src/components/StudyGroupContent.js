@@ -178,6 +178,8 @@ const Content = () => {
 
     const [passedName, setPassedName] = useState('');
 
+    const [passedGroupName, setPassedGroupName] = useState('');
+
     const [data , setData] = useState({});
 
     useEffect(() => {
@@ -296,7 +298,7 @@ const Content = () => {
                             </div>
                             <div>
                                 <button class="join-btn" a-key={value.groupName} onClick={(e) => {setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
-                                <button class="review-btn">Leave Review</button>
+                                <button class="review-btn" a-key={value.groupName} onClick={(e) => {setPassedGroupName(e.target.getAttribute('a-key'));}}>Leave Review</button>
                             </div>
                         </div>
                     </div> 
