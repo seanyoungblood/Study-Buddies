@@ -49,7 +49,7 @@ const ProfileContent = () => {
 
                 // temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
                 console.log(res);
-                setCurrentUser(res);
+                setCurrentUser({...currentUser,groupsIn:res.groupsIn})
                 console.log(currentUser);
             }
         }
