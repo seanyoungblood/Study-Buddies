@@ -72,7 +72,8 @@ const Content = () => {
     const didMount = useRef(false);
 
     useEffect(() =>{
-        if(didMount.current) fetchData();
+        console.log("USE EFFECT<><><><>><><><><><><><")
+        if(didMount.current === true) fetchData();
         else didMount.current = true;
     }, [query])
 
@@ -121,7 +122,7 @@ const Content = () => {
             catch (error) {
                 console.log(error);
             }
-        };
+        }
 
     useEffect(() => {
 
