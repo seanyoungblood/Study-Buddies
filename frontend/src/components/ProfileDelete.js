@@ -33,7 +33,7 @@ const ProfileDelete = () => {
 
         try
         {    
-            const response = await fetch(buildPath(`api/:${currentUser._id}/leaveGroup`),
+            const response = await fetch(buildPath(`api/:${currentUser._id}/deleteGroup`),
             {method:'DELETE',body:js,headers:{'Content-Type': 'application/json' , 'Authorization': `Bearer ${currentUser.token}`}});
 
             var res = JSON.parse(await response.text());
@@ -60,7 +60,6 @@ const ProfileDelete = () => {
      };
 
 
-     const [classes, setClasses] = useState(["","","","","",""]);
      const [groups, setGroups] = useState([]);
      
      useEffect(() =>{
