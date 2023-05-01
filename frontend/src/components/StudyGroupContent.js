@@ -185,10 +185,10 @@ const Content = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    var globalGroupName;
+    let globalGroupName;
 
     function modalSetUp(name) {
-        
+        console.log(name);
         globalGroupName = name;
 
     }
