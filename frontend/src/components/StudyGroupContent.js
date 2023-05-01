@@ -68,12 +68,12 @@ const Content = () => {
     };
 
 
-    const didMount = useRef(false);
+    const didMount = false;
 
     useEffect(() =>{
-        if(didMount.current) fetchData();
-        else didMount.current = true;
-    })
+        if(didMount) fetchData();
+        else didMount = true;
+    }, [query])
 
     
     const {currentUser} = useContext(AuthContext);
