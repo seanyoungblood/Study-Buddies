@@ -197,33 +197,36 @@ const Content = () => {
     function modalSetUp(name) {
         
         return(
-            <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
+            <div onLoad={handleShow}>
+                <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
 
-                <Modal.Header closeButton>
-                    <Modal.Title>What would you rate this group?</Modal.Title>
-                </Modal.Header>
+                    <Modal.Header closeButton>
+                        <Modal.Title>What would you rate this group?</Modal.Title>
+                    </Modal.Header>
 
-                <Modal.Body className={[styles['background-color-modal']]}>
-                    <div className={[styles['rating']]}>
-                        <div className={[styles['rating-star']]}>
-                            {[...Array(5)].map((star,i)=>{
-                                const ratingStar = i + 1;
-                                return(
-                                    <label>
-                                        <input type='radio' value={ratingStar} onClick={()=>setRating(ratingStar)} />
-                                        <FaStar color={ratingStar <= (hover || rating)? '#ffc107':'#e4e5e9'} size={55} onMouseEnter={()=>setHover(ratingStar)} onMouseLeave={()=>setHover(null)} />
-                                    </label>
-                                )
-                            })}
+                    <Modal.Body className={[styles['background-color-modal']]}>
+                        <div className={[styles['rating']]}>
+                            <div className={[styles['rating-star']]}>
+                                {[...Array(5)].map((star,i)=>{
+                                    const ratingStar = i + 1;
+                                    return(
+                                        <label>
+                                            <input type='radio' value={ratingStar} onClick={()=>setRating(ratingStar)} />
+                                            <FaStar color={ratingStar <= (hover || rating)? '#ffc107':'#e4e5e9'} size={55} onMouseEnter={()=>setHover(ratingStar)} onMouseLeave={()=>setHover(null)} />
+                                        </label>
+                                    )
+                                })}
+                            </div>
                         </div>
-                    </div>
-                </Modal.Body>
+                    </Modal.Body>
 
-                <Modal.Footer>
-                    <Button onclick={console.log("rating Value = " + rating + "\nGroupName = " + name)}>Submit</Button>
-                </Modal.Footer>
+                    <Modal.Footer>
+                        <Button onclick={console.log("rating Value = " + rating + "\nGroupName = " + name)}>Submit</Button>
+                    </Modal.Footer>
 
-            </Modal>
+                </Modal>
+            </div>
+            
         )
     }
 
@@ -272,7 +275,7 @@ const Content = () => {
                             </div>
                             <div>
                                 <button class="join-btn" a-key={value.groupName} onClick={(e) => {fetchData(e.target.getAttribute("a-key"));   setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
-                                <button class="review-btn" a-key={value.groupName} onClick={() => modalSetUp(value.groupName)} onClickCapture={handleShow}>Leave Review</button>
+                                <button class="review-btn" a-key={value.groupName} onClick={() => modalSetUp(value.groupName)}>Leave Review</button>
 
                                 {/* <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
 
