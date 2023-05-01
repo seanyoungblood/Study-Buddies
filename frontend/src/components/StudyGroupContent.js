@@ -194,24 +194,30 @@ const Content = () => {
 
     }
 
-    const fetchModal = async (passedRating) => {
-        console.log("fetchModal")
-        var obj = {username: currentUser.username, groupName: globalGroupName, rating: passedRating};
-        var js = JSON.stringify(obj);
-        console.log(passedName);
+    function modalExecute(passedRating) {
         
-        try {
-            console.log("groupName" + passedName);
-            const response = await fetch(buildPath('api/editRating'),
-            {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+        fetchModal(passedRating);
+
+        const fetchModal = async (passedRating) => {
+            console.log("fetchModal")
+            var obj = {username: currentUser.username, groupName: globalGroupName, rating: passedRating};
+            var js = JSON.stringify(obj);
+            console.log(passedName);
             
-            var res = JSON.parse(await response.text());
-            setCurrentUser({...currentUser,groupsIn:res.groupsIn})
-            console.log(res);
+            try {
+                console.log("groupName" + passedName);
+                const response = await fetch(buildPath('api/editRating'),
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+                
+                var res = JSON.parse(await response.text());
+                setCurrentUser({...currentUser,groupsIn:res.groupsIn})
+                console.log(res);
+            }
+            catch (error) {
+                console.log(error);
+            }
         }
-        catch (error) {
-            console.log(error);
-        }
+
     }
 
 
@@ -284,7 +290,7 @@ const Content = () => {
                                     </Modal.Body>
 
                                     <Modal.Footer>
-                                        <Button onclick={fetchModal(rating)}>Submit</Button>
+                                        <Button onclick={() => modalExecute(rating)}>Submit</Button>
                                     </Modal.Footer>
 
                                 </Modal>
