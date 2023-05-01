@@ -72,7 +72,7 @@ const Content = () => {
     const didMount = useRef(false);
 
     useEffect(() =>{
-        console.log("USE EFFECT<><><><>><><><><><><><")
+        console.log("USE EFFECT")
         if(didMount.current === true) fetchData();
         else didMount.current = true;
     }, [query])
