@@ -195,6 +195,8 @@ const Content = () => {
 
     function modalExecute(passedRating) {
         
+        console.log("username: " + currentUser.username + ", groupName: " + globalGroupName + ", rating: " + passedRating);
+
         fetchModal(passedRating);
 
         const fetchModal = async (passedRating) => {
