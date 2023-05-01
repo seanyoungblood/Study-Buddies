@@ -89,8 +89,7 @@ const joinGroup = asyncHandler(async (req, res) => {
             groupsIn: groupCheck.groupName
         }},
     )
-    const userState = await userie.findOne({"username": req.user.username})
-   await res.status(200).json(userState)
+     res.status(200).json(await userie.findOne({"username": req.user.username}))
 
 })
 
