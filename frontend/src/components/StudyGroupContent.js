@@ -6,6 +6,7 @@ import { AuthContext } from '../useContext/LoginContext';
 import { useContext } from 'react'
 import {Modal} from 'react-bootstrap'
 import {FaStar} from 'react-icons/fa'
+import Button from 'react-bootstrap/Button';
 
 const Content = () => {
 
@@ -257,7 +258,7 @@ const Content = () => {
                                             })}
                                         </div>
                                         <div className={[styles['rating-modal-submit-button']]}>
-                                            <button onclick={console.log("rating Value = " + rating + " GroupName: " + value.groupName)}>Submit</button>
+                                            <Button onclick={console.log("rating Value = " + rating + " GroupName: " + value.groupName)}>Submit</Button>
                                         </div>
                                     </div>
                                 </Modal.Body>
