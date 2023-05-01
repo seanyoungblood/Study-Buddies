@@ -113,14 +113,14 @@ const leaveGroup = asyncHandler(async (req, res) => {
     }
     // { $pull: { <field1>: <value|condition>, <field2>: <value|condition>, ... } }
 
-    groupie.findOneAndUpdate(
+   await  groupie.findOneAndUpdate(
         {"groupName" : groupCheck.groupName},
         {$pull:{
             members: username
         }},
     )
 
-    userie.findOneAndUpdate(
+    await userie.findOneAndUpdate(
         {"username": username},
         {$pull: {
             groupsIn: groupCheck.groupName
