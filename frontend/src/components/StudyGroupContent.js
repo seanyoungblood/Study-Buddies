@@ -293,10 +293,6 @@ const Content = () => {
                                 <span>{star3}</span>
                                 <span>{star4}</span>
                                 <span>{star5}</span>
-                                {/* <span class={star2.class} id="star 2">&#9733;</span>
-                                <span class={star3.class} id="star 3">&#9733;</span>
-                                <span class={star4.class} id="star 4">&#9733;</span>
-                                <span class={star5.class} id="star 5">&#9733;</span> */}
                             </div>
                             <div>
                                 <button class="join-btn" a-key={value.groupName} onClick={(e) => {setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
