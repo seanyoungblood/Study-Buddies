@@ -81,7 +81,6 @@ const Content = () => {
         if(didMount.current === true) fetchData();
         else didMount.current = true;
     }, [query])
-
     
     const {currentUser, setCurrentUser} = useContext(AuthContext);
 
@@ -92,64 +91,57 @@ const Content = () => {
 
     const [data , setData] = useState({});
 
-  
+    const app_name = 'cop-study-buddy-1000'
+    function buildPath(route){
+        if (process.env.NODE_ENV === 'production')
+        {
+            return 'https://' + app_name +  '.herokuapp.com/' + route;
+        }
+        else
+        {
+            return 'http://localhost:3000/' + route;
+        }
+    }
 
+    const fetchData = async (passedName) => {
+        console.log("fetchData")
+        var obj = {groupName: passedName, user: currentUser};
+        var js = JSON.stringify(obj);
+        console.log(passedName);
         
-
-        const app_name = 'cop-study-buddy-1000'
-        function buildPath(route){
-            if (process.env.NODE_ENV === 'production')
-            {
-                return 'https://' + app_name +  '.herokuapp.com/' + route;
-            }
-            else
-            {
-                return 'http://localhost:3000/' + route;
-            }
-        }
-
-        const fetchData = async (passedName) => {
-            console.log("fetchData")
-            var obj = {groupName: passedName, user: currentUser};
-            var js = JSON.stringify(obj);
-            console.log(passedName);
+        try {
+            console.log("groupName" + passedName);
+            const response = await fetch(buildPath('api/joinGroup'),
+            {method:'POST',body:js,headers:{'Content-Type': 'application/json', 'Authorization': `Bearer ${currentUser.token}`}});
             
-            try {
-                console.log("groupName" + passedName);
-                const response = await fetch(buildPath('api/joinGroup'),
-                {method:'POST',body:js,headers:{'Content-Type': 'application/json', 'Authorization': `Bearer ${currentUser.token}`}});
-                
-                // console.log("Before JSON.parse");
-                var res = JSON.parse(await response.text());
-                setCurrentUser({...currentUser,groupsIn:res.groupsIn})
-                console.log(res);
-            }
-            catch (error) {
-                console.log(error);
-            }
+            // console.log("Before JSON.parse");
+            var res = JSON.parse(await response.text());
+            setCurrentUser({...currentUser,groupsIn:res.groupsIn})
+            console.log(res);
         }
+        catch (error) {
+            console.log(error);
+        }
+    }
 
+    const fetchSearch = async () => {
+        var obj = {field : "groupName", search: '' };
+        var js = JSON.stringify(obj);
 
-
-
-        const fetchSearch = async () => {
-            var obj = {field : "groupName", search: '' };
-            var js = JSON.stringify(obj);
-
-            try {
-                // console.log("Searching for " + query);
-                const response = await fetch(buildPath('api/searchGroup'),
-                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
-                
-                // console.log("Before JSON.parse");
-                var res = JSON.parse(await response.text());
-                setData(res);
-                console.log(res);
-            }
-            catch (error) {
-                console.log(error);
-            }
-        };
+        try {
+            // console.log("Searching for " + query);
+            const response = await fetch(buildPath('api/searchGroup'),
+            {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+            
+            // console.log("Before JSON.parse");
+            var res = JSON.parse(await response.text());
+            setData(res);
+            console.log(res);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
 
@@ -200,40 +192,26 @@ const Content = () => {
         
         globalGroupName = name;
 
-        console.log("Within modalSetUp globalGroupName = " + globalGroupName)
+    }
 
-        // return(
-        //     <div onLoad={handleShow}>
-        //         <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
-
-        //             <Modal.Header closeButton>
-        //                 <Modal.Title>What would you rate this group?</Modal.Title>
-        //             </Modal.Header>
-
-        //             <Modal.Body className={[styles['background-color-modal']]}>
-        //                 <div className={[styles['rating']]}>
-        //                     <div className={[styles['rating-star']]}>
-        //                         {[...Array(5)].map((star,i)=>{
-        //                             const ratingStar = i + 1;
-        //                             return(
-        //                                 <label>
-        //                                     <input type='radio' value={ratingStar} onClick={()=>setRating(ratingStar)} />
-        //                                     <FaStar color={ratingStar <= (hover || rating)? '#ffc107':'#e4e5e9'} size={55} onMouseEnter={()=>setHover(ratingStar)} onMouseLeave={()=>setHover(null)} />
-        //                                 </label>
-        //                             )
-        //                         })}
-        //                     </div>
-        //                 </div>
-        //             </Modal.Body>
-
-        //             <Modal.Footer>
-        //                 <Button onclick={console.log("rating Value = " + rating + "\nGroupName = " + name)}>Submit</Button>
-        //             </Modal.Footer>
-
-        //         </Modal>
-        //     </div>
+    const fetchModal = async (passedRating) => {
+        console.log("fetchModal")
+        var obj = {username: currentUser.username, groupName: globalGroupName, rating: passedRating};
+        var js = JSON.stringify(obj);
+        console.log(passedName);
+        
+        try {
+            console.log("groupName" + passedName);
+            const response = await fetch(buildPath('api/editRating'),
+            {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
             
-        // )
+            var res = JSON.parse(await response.text());
+            setCurrentUser({...currentUser,groupsIn:res.groupsIn})
+            console.log(res);
+        }
+        catch (error) {
+            console.log(error);
+        }
     }
 
 
@@ -286,7 +264,7 @@ const Content = () => {
                                 <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
 
                                     <Modal.Header closeButton>
-                                        <Modal.Title>What would you rate {globalGroupName}?</Modal.Title>
+                                        <Modal.Title>What would you rate this group?</Modal.Title>
                                     </Modal.Header>
 
                                     <Modal.Body className={[styles['background-color-modal']]}>
@@ -306,7 +284,7 @@ const Content = () => {
                                     </Modal.Body>
 
                                     <Modal.Footer>
-                                        <Button onclick={console.log("rating Value = " + rating + " GroupName: " + globalGroupName)}>Submit</Button>
+                                        <Button onclick={fetchModal(rating)}>Submit</Button>
                                     </Modal.Footer>
 
                                 </Modal>
