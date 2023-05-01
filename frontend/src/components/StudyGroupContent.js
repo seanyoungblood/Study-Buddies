@@ -208,6 +208,7 @@ const Content = () => {
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
                 
                 var res = JSON.parse(await response.text());
+                setData({...data.results, groupName:res.groupRating});
                 console.log(res);
             }
             catch (error) {

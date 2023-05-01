@@ -196,14 +196,13 @@ const editRating = asyncHandler(async (req, res) => {
 
     // const db = client.db("StudyBuddy");
     // db.collection('groups').updateOne({groupName:groupName}, { $push: {
-    groupie.updateOne({groupName:groupName}, { $push: {
+   await groupie.updateOne({groupName:groupName}, { $push: {
     //groupie.findOneAndUpdate({groupName:groupName}, { $set: {
         "reviews":rating
     } })
 
-    var ret = {
-        error:'' };
-    res.status(200).json(ret);
+    var ret = {error:''};
+    res.status(200).json(await groupie.findOne({"groupName" : groupName}));
 })
 
 
