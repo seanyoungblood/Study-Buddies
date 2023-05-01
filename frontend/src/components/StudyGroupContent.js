@@ -193,7 +193,7 @@ const Content = () => {
 
     }
 
-    const modalExecute = async() => {
+   async function modalExecute() {
         
         console.log("username: " + currentUser.username + ", groupName: " + globalGroupName + ", rating: " + rating);
 
