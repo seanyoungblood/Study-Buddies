@@ -185,11 +185,11 @@ const Content = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    let globalGroupName;
+    const [globalGroupName, setglobalGroupName] = useState("");
 
     function modalSetUp(name) {
         console.log(name);
-        globalGroupName = name;
+        setglobalGroupName(name);
 
     }
 
