@@ -244,9 +244,6 @@ const Content = () => {
 
                                 <Modal.Body className={[styles['background-color-modal']]}>
                                     <div className={[styles['rating']]}>
-                                        {/* <div className={[styles['rating-icon']]}>
-                                            <i>X</i>
-                                        </div> */}
                                         <p>What would you rate this group?</p>
                                         <div className={[styles['rating-star']]}>
                                             {[...Array(5)].map((star,i)=>{
@@ -254,18 +251,13 @@ const Content = () => {
                                                 return(
                                                     <label>
                                                         <input type='radio' value={ratingStar} onClick={()=>setRating(ratingStar)} />
-                                                        <FaStar
-                                                        color={ratingStar <= (hover || rating)? '#ffc107':'#e4e5e9'}
-                                                        size={55}
-                                                        onMouseEnter={()=>setHover(ratingStar)}
-                                                        onMouseLeave={()=>setHover(null)}
-                                                        />
+                                                        <FaStar color={ratingStar <= (hover || rating)? '#ffc107':'#e4e5e9'} size={55} onMouseEnter={()=>setHover(ratingStar)} onMouseLeave={()=>setHover(null)} />
                                                     </label>
                                                 )
                                             })}
                                         </div>
                                         <div className={[styles['rating-modal-submit-button']]}>
-                                            <button onclick={console.log(value.groupName)}>Submit</button>
+                                            <button onclick={console.log("rating Value = " + rating + "GroupName: " + value.groupName)}>Submit</button>
                                         </div>
                                     </div>
                                 </Modal.Body>
