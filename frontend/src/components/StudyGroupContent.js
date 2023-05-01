@@ -209,8 +209,8 @@ const Content = () => {
                 
                 var res = JSON.parse(await response.text());
                 console.log(res);
-                query(" ")
-                query("")
+                setQuery(" ");
+                setQuery("");
             }
             catch (error) {
                 console.log(error);
