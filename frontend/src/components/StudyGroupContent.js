@@ -208,9 +208,8 @@ const Content = () => {
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
                 
                 var res = JSON.parse(await response.text());
+                
                 console.log(res);
-                setQuery(" ");
-                setQuery("");
             }
             catch (error) {
                 console.log(error);
