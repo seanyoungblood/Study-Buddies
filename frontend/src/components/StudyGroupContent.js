@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../useContext/LoginContext';
 import { useContext } from 'react'
 import {Modal} from 'react-bootstrap'
-import {FaStar} from 'react-icons/fa'
 import Button from 'react-bootstrap/Button';
 
 const Content = () => {
@@ -281,7 +280,7 @@ const Content = () => {
                                                     return(
                                                         <label>
                                                             <input type='radio' value={ratingStar} onClick={()=>setRating(ratingStar)} />
-                                                            <span className={ratingStar <= (hover || rating)? 'star':'star active'} onMouseEnter={()=>setHover(ratingStar)} onMouseLeave={()=>setHover(null)}>&#9733;</span>
+                                                            <span className={ratingStar <= (hover || rating)? 'star active':'star'} font-size={32} onMouseEnter={()=>setHover(ratingStar)} onMouseLeave={()=>setHover(null)}>&#9733;</span>
                                                         </label>
                                                     )
                                                 })}
