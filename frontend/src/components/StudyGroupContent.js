@@ -7,6 +7,8 @@ import { useContext } from 'react'
 import {Modal} from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 
+
+
 const Content = () => {
 
     
@@ -19,7 +21,7 @@ const Content = () => {
 
     function reviewsToRating(rating){
 
-        if (rating == 5){
+        if (rating === 5){
             star1 = <span class="star active">&#9733;</span>
             star2 = <span class="star active">&#9733;</span>
             star3 = <span class="star active">&#9733;</span>
@@ -216,7 +218,8 @@ const Content = () => {
                 console.log(error);
             }
     }
-
+    
+    const navigate = useNavigate();
 
     return ( 
         <section className="group-section">
@@ -261,7 +264,7 @@ const Content = () => {
                                 <span>{star5}</span>
                             </div>
                             <div>
-                                <button class="join-btn" a-key={value.groupName} onClick={(e) => {fetchData(e.target.getAttribute("a-key"));   setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
+                                <button class="join-btn" a-key={value.groupName} onClick={(e) => {currentUser.username === '' ? navigate("/login") : fetchData(e.target.getAttribute("a-key")); setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
                                 <button class="review-btn" a-key={value.groupName} onClick={(e) =>{ modalSetUp(e.target.getAttribute("a-key"))}} onClickCapture={handleShow}>Leave Review</button>
 
                                 <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
