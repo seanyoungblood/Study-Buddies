@@ -1,11 +1,52 @@
 import { Link, useNavigate } from 'react-router-dom';
 import "../css/StudyPage.css";
+import styles from "../css/modal.css";
 import { useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../useContext/LoginContext';
 import { useContext } from 'react'
+import {Modal} from 'react-bootstrap'
+import {FaStar} from 'react-icons/fa'
+
+// const RatingModal = () => {
+//         const[rating,setRating] = useState(null);
+//         const [hover, setHover] = useState(null);
+
+//         return(
+//             <Modal
+//             show={true}
+//             dialogClassName='modal-90w'
+//             size='lg'
+//             centered
+//             className={[styles['category-change']]}>
+
+//             <Modal.Body className={[styles['background-color-modal']]}>
+//                 <div className={[styles['rating']]}>
+//                     <p>What woould you rate this group?</p>
+//                     {[...Array(5)].map((star,i)=>{
+//                         const rating = i + 1;
+//                         return(
+//                             <label>
+//                                 <input type='radio' value={ratingStar} onClick={()=>setRating(ratingStar)} />
+//                                 <Fastar
+//                                 color={ratingStar <= (hover || rating)? '#ffc107':'#e4e5e9'}
+//                                 size={55}
+//                                 onMouseEnter={()=>setHover(ratingStar)}
+//                                 onMouseLeave={()=>setHover(null)}
+//                                 />
+//                             </label>
+//                         )
+//                     })}
+//                 </div>
+//             </Modal.Body>
+//             </Modal>
+//         )
+//     }
+
+// export default RatingModal
 
 const Content = () => {
 
+    
 
     var star1;
     var star2;
@@ -181,6 +222,15 @@ const Content = () => {
         fetchData();
     }, [query]);
 
+    
+    const[rating,setRating] = useState(null);
+    const [hover, setHover] = useState(null);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
     return ( 
         <section className="group-section">
             <div className="search-bar">
@@ -225,7 +275,43 @@ const Content = () => {
                             </div>
                             <div>
                                 <button class="join-btn" a-key={value.groupName} onClick={(e) => {fetchData(e.target.getAttribute("a-key"));   setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
-                                <button class="review-btn" a-key={value.groupName} onClick={(e) => {setPassedGroupName(e.target.getAttribute('a-key'));}}>Leave Review</button>
+                                <button class="review-btn" a-key={value.groupName} onClick={handleShow}>Leave Review</button>
+
+                                <Modal
+                                show={true}
+                                dialogClassName='modal-90w'
+                                size='lg'
+                                centered
+                                className={[styles['category-change']]}>
+
+                                <Modal.Body className={[styles['background-color-modal']]}>
+                                    <div className={[styles['rating']]}>
+                                        <div className={[styles['rating-icon']]}>
+                                            <i class="ph-x"></i>
+                                        </div>
+                                        <p>What woould you rate this group?</p>
+                                        <div className={[styles['rating-star']]}>
+                                            {[...Array(5)].map((star,i)=>{
+                                                const ratingStar = i + 1;
+                                                return(
+                                                    <label>
+                                                        <input type='radio' value={ratingStar} onClick={()=>setRating(ratingStar)} />
+                                                        <FaStar
+                                                        color={ratingStar <= (hover || rating)? '#ffc107':'#e4e5e9'}
+                                                        size={55}
+                                                        onMouseEnter={()=>setHover(ratingStar)}
+                                                        onMouseLeave={()=>setHover(null)}
+                                                        />
+                                                    </label>
+                                                )
+                                            })}
+                                        </div>
+                                        <div className={[styles['rating-modal-submit-button']]}>
+                                            <button>Submit</button>
+                                        </div>
+                                    </div>
+                                </Modal.Body>
+                                </Modal>
                             </div>
                         </div>
                     </div> 
