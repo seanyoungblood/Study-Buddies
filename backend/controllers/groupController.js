@@ -128,7 +128,7 @@ const leaveGroup = asyncHandler(async (req, res) => {
         }},
     )
     const userState = await userie.findOne({"username": username})
-    res.status(200).json(userState)
+    await res.status(200).json(userState)
 })
 
 
