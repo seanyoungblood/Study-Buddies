@@ -60,6 +60,7 @@ const ProfileDelete = () => {
      };
 
 
+     const [classes, setClasses] = useState(["","","","","",""]);
      const [groups, setGroups] = useState([]);
      
      useEffect(() =>{
