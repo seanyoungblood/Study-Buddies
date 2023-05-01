@@ -118,14 +118,35 @@ const Content = () => {
                 var res = JSON.parse(await response.text());
                 setCurrentUser({...currentUser,groupsIn:res.groupsIn})
                 setData(res);
-                setQuery(" ");
-                setQuery("")
+                fetchSearch();
                 console.log(res);
             }
             catch (error) {
                 console.log(error);
             }
         }
+
+
+
+
+        const fetchSearch = async () => {
+            var obj = {field : "groupName", search: '' };
+            var js = JSON.stringify(obj);
+
+            try {
+                // console.log("Searching for " + query);
+                const response = await fetch(buildPath('api/searchGroup'),
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+                
+                // console.log("Before JSON.parse");
+                var res = JSON.parse(await response.text());
+                setData(res);
+                console.log(res);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        };
 
     useEffect(() => {
 
