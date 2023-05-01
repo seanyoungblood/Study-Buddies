@@ -117,8 +117,6 @@ const Content = () => {
                 // console.log("Before JSON.parse");
                 var res = JSON.parse(await response.text());
                 setCurrentUser({...currentUser,groupsIn:res.groupsIn})
-                setData(res);
-                fetchSearch();
                 console.log(res);
             }
             catch (error) {
