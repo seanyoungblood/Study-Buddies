@@ -286,7 +286,7 @@ const Content = () => {
                                     </Modal.Body>
 
                                     <Modal.Footer>
-                                        <Button onclick={() => modalExecute(rating)}>Submit</Button>
+                                        <Button onclick={modalExecute}>Submit</Button>
                                     </Modal.Footer>
 
                                 </Modal>
