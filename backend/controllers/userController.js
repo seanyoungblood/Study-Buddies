@@ -332,7 +332,7 @@ const addClasses = asyncHandler(async (req, res) => {
     //db.collection('users').findOneAndUpdate({username:username}, { $set: {
         // clears classes each time it is called (to simulate a new semester)
         // frontend simply passes the classes being taken in the current semester
-        User2.findOneAndUpdate({username:username}, { $set: {
+        await User2.findOneAndUpdate({username:username}, { $set: {
         "classesTaking.0":class0,
         "classesTaking.1":class1,
         "classesTaking.2":class2,
