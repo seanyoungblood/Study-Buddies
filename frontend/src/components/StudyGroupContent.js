@@ -71,7 +71,7 @@ const Content = () => {
     const didMount = useRef(false);
 
     useEffect(() =>{
-        if(didMount.current) joinFunc();
+        if(didMount.current) fetchData();
         else didMount.current = true;
     },[passedName])
 
@@ -86,7 +86,7 @@ const Content = () => {
 
     const [data , setData] = useState({});
 
-    const joinFunc = () => {
+  
 
         console.log(passedName);
 
@@ -120,8 +120,6 @@ const Content = () => {
                 console.log(error);
             }
         };
-        fetchData();
-    }
 
     useEffect(() => {
 
