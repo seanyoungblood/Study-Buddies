@@ -118,6 +118,8 @@ const Content = () => {
                 var res = JSON.parse(await response.text());
                 setCurrentUser({...currentUser,groupsIn:res.groupsIn})
                 setData(res);
+                setQuery(" ");
+                setQuery("")
                 console.log(res);
             }
             catch (error) {
