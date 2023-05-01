@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const { resetPassword,
+const { 
+        verifyUser,
+        resetPassword,
         registerUser, 
         loginUser, 
         getMe,
@@ -25,6 +27,7 @@ router.route('/addClasses').post(protect, addClasses)
 // router.route('/addClasses/:id').put(protect, addClasses)
 // router.delete('/:id', protect, deleteUser)
 router.route('/:id/deleteUser').delete(protect, deleteUser)
+router.route('/verifyUser').post(verifyUser)
 
 
 module.exports = router
