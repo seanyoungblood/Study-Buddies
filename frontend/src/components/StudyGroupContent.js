@@ -192,7 +192,6 @@ const Content = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handleRatings = () => setShow(false);
 
 
     return ( 
@@ -266,7 +265,7 @@ const Content = () => {
                                             })}
                                         </div>
                                         <div className={[styles['rating-modal-submit-button']]}>
-                                            <button onclick={handleRatings}>Submit</button>
+                                            <button onclick={console.log(value.groupName)}>Submit</button>
                                         </div>
                                     </div>
                                 </Modal.Body>
