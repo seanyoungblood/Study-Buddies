@@ -194,6 +194,11 @@ const Content = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    function modalSetUp(name) {
+        handleShow = () => setShow(true);
+        console.log("Within modalSetUp name = " + name);
+    }
+
 
     return ( 
         <section className="group-section">
@@ -239,7 +244,7 @@ const Content = () => {
                             </div>
                             <div>
                                 <button class="join-btn" a-key={value.groupName} onClick={(e) => {fetchData(e.target.getAttribute("a-key"));   setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
-                                <button class="review-btn" a-key={value.groupName} onClick={handleShow}>Leave Review</button>
+                                <button class="review-btn" a-key={value.groupName} onClick={() => modalSetUp(value.groupName)}>Leave Review</button>
 
                                 <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
 
