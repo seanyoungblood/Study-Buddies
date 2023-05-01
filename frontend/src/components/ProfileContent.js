@@ -74,10 +74,31 @@ const ProfileContent = () => {
         <div className="row text-center mt-5 profile-classes-wrapper">
             <div className="col-md-6 col-sm-12">
                 <h1 className="textbox profile-header">Classes</h1>
-                {classes?.map((c)=>(
+                {/* {classes?.map((c)=>(
                 <div className='profile-classes' key={c}>
                     <p>{c}</p>
-                </div>))}
+                </div>))} */}
+
+                <div className='profile-classes' key={c}>
+                    <p>{classes[0]}</p>
+                </div>
+                <div className='profile-classes' key={c}>
+                    <p>{classes[1]}</p>
+                </div>
+                <div className='profile-classes' key={c}>
+                    <p>{classes[2]}</p>
+                </div>
+                <div className='profile-classes' key={c}>
+                    <p>{classes[3]}</p>
+                </div>
+                <div className='profile-classes' key={c}>
+                    <p>{classes[4]}</p>
+                </div>
+                <div className='profile-classes' key={c}>
+                    <p>{classes[5]}</p>
+                </div>
+
+
             </div>
 
             <div className="col-md-6 col-sm-12 margin-top">
