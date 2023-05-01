@@ -68,11 +68,11 @@ const Content = () => {
     };
 
 
-    const didMount = false;
+    const didMount = useRef(false);
 
     useEffect(() =>{
-        if(didMount) fetchData();
-        else didMount = true;
+        if(didMount.current) fetchData();
+        else didMount.current = true;
     }, [query])
 
     
