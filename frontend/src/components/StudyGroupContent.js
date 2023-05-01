@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import "../css/StudyPage.css";
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../useContext/LoginContext';
 import { useContext } from 'react'
 
@@ -66,6 +66,14 @@ const Content = () => {
 
         return;
     };
+
+
+    const didMount = useRef(false);
+
+    useEffect(() =>{
+        if(didMount.current) joinFunc();
+        else didMount.current = true;
+    },[passedName])
 
     // async doJoin(passedName) {
     //     const app_name = 'cop-study-buddy-1000';
@@ -182,7 +190,7 @@ const Content = () => {
 
     const [data , setData] = useState({});
 
-    useEffect(() => {
+    const joinFunc = () => {
 
         console.log(passedName);
 
@@ -217,7 +225,7 @@ const Content = () => {
             }
         };
         fetchData();
-    }, [passedName]);
+    }
 
     useEffect(() => {
 
