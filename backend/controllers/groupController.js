@@ -248,11 +248,7 @@ const searchGroup = asyncHandler(async (req, res) => {
 
 
 const searchAdmin = asyncHandler(async (req, res) => {
-    // incoming: userId, search
-      // outgoing: results[], error
-    
       var error = '';
-    
       const { field, search } = req.body;
         const results = await groupie.find(
        {$or:[
