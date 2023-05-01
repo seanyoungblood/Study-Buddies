@@ -61,7 +61,7 @@ const ProfileContent = () => {
      };
 
 
-     const [classes, setClasses] = useState([]);
+     const [classes, setClasses] = useState(["","","","","",""]);
      const [groups, setGroups] = useState([]);
      
      useEffect(() =>{
@@ -79,22 +79,22 @@ const ProfileContent = () => {
                     <p>{c}</p>
                 </div>))} */}
 
-                <div className='profile-classes' key={c}>
+                <div className='profile-classes'>
                     <p>{classes[0]}</p>
                 </div>
-                <div className='profile-classes' key={c}>
+                <div className='profile-classes'>
                     <p>{classes[1]}</p>
                 </div>
-                <div className='profile-classes' key={c}>
+                <div className='profile-classes'>
                     <p>{classes[2]}</p>
                 </div>
-                <div className='profile-classes' key={c}>
+                <div className='profile-classes'>
                     <p>{classes[3]}</p>
                 </div>
-                <div className='profile-classes' key={c}>
+                <div className='profile-classes'>
                     <p>{classes[4]}</p>
                 </div>
-                <div className='profile-classes' key={c}>
+                <div className='profile-classes'>
                     <p>{classes[5]}</p>
                 </div>
 
