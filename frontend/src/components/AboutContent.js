@@ -9,7 +9,7 @@ const AboutContent = () => {
         <section class="team">
             <div class="member">
                 <h3 class="name">Nick Rolland</h3>
-                <p class="title">Project manager</p>
+                <p class="title">Project Manager</p>
                 <p class="description">John is an experienced entrepreneur with a background in finance and management.</p>
             </div>
             <div class="member">
