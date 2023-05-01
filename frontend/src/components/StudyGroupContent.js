@@ -6,6 +6,7 @@ import { AuthContext } from '../useContext/LoginContext';
 import { useContext } from 'react'
 import {Modal} from 'react-bootstrap'
 import {FaStar} from 'react-icons/fa'
+import Button from 'react-bootstrap/Button';
 
 const Content = () => {
 
@@ -238,7 +239,7 @@ const Content = () => {
                             </div>
                             <div>
                                 <button class="join-btn" a-key={value.groupName} onClick={(e) => {fetchData(e.target.getAttribute("a-key"));   setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
-                                <button class="review-btn" a-key={value.groupName} onClick={handleShow}>Leave Review</button>
+                                <Button class="review-btn" a-key={value.groupName} onClick={handleShow}>Leave Review</Button>
 
                                 <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
 
@@ -257,7 +258,7 @@ const Content = () => {
                                             })}
                                         </div>
                                         <div className={[styles['rating-modal-submit-button']]}>
-                                            <button onclick={console.log("rating Value = " + rating + "GroupName: " + value.groupName)}>Submit</button>
+                                            <button onclick={console.log("rating Value = " + rating + " GroupName: " + value.groupName)}>Submit</button>
                                         </div>
                                     </div>
                                 </Modal.Body>
