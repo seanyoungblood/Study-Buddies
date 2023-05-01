@@ -10,7 +10,8 @@ const AboutContent = () => {
             <div class="member">
                 <h3 class="name">Nick Rolland</h3>
                 <p class="title">Project Manager</p>
-                <p class="description">The React JS-based website was developed under proficient leadership that ensured seamless integration and optimal functionality across all components by a cross-functional team led by the project manager.</p>
+                <p class="description">
+As project manager, led a cross-functional team in the development of the React JS-based website using Scrum methodology and JIRA, ensuring seamless integration and optimal functionality across all components.</p>
             </div>
             <div class="member">
                 <h3 class="name">Adam Farrow</h3>
