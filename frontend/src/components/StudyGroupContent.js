@@ -195,8 +195,7 @@ const Content = () => {
     const handleShow = () => setShow(true);
 
     function modalSetUp(name) {
-        console.log("Within modalSetUp name = " + name);
-
+        
         return(
             <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
 
@@ -221,7 +220,7 @@ const Content = () => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button onclick={console.log("rating Value = " + rating + " GroupName: " + name)}>Submit</Button>
+                    <Button onclick={console.log("rating Value = " + rating + "\nGroupName = " + name)}>Submit</Button>
                 </Modal.Footer>
 
             </Modal>
