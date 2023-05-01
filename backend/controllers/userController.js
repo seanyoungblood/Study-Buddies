@@ -347,18 +347,7 @@ const addClasses = asyncHandler(async (req, res) => {
 
     if (user)
     {
-        res.status(201).json({
-            _id: user.id,
-            "firstName": user.firstName ,
-            "lastName": user.lastName,
-            username: user.username,
-            email: user.email,
-            phone:user.phone,
-            groupsIn: user.groupsIn,
-            major: user.major, //CHANGED BY ADAM
-            classesTaking: user.classesTaking, //CHANGED BY ADAM
-            token: generateToken(user.id),
-        })
+        res.status(201).json({user})
     }
     else 
     {
