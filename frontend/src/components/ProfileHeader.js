@@ -38,6 +38,10 @@ const ProfileHeader = () => {
         setFirst(currentUser.firstName);
         setLast(currentUser.lastName);
 
+            console.log('the user is this >>>>>>>>>>>>>>>>>>>>>>>>>>>')
+        console.log(currentUser);
+
+
 
     },[currentUser])
 
