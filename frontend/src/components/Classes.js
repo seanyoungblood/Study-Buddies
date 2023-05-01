@@ -62,6 +62,7 @@ function buildPath(route)
             {
                 setCurrentUser({...currentUser,classesTaking:res.classesTaking})
                 console.log(res);
+                console.log(res.classesTaking)
                 console.log(currentUser);
             }
         }
