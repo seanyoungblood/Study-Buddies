@@ -347,7 +347,7 @@ const addClasses = asyncHandler(async (req, res) => {
 
     if (user)
     {
-        res.status(201).json(user)
+        res.status(201).json(await user2.findOne({"username": username}))
     }
     else 
     {
