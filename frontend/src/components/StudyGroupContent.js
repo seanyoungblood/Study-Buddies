@@ -241,14 +241,7 @@ const Content = () => {
                                 <button class="join-btn" a-key={value.groupName} onClick={(e) => {fetchData(e.target.getAttribute("a-key"));   setPassedName(e.target.getAttribute('a-key'));}}>Join Group</button>
                                 <button class="review-btn" a-key={value.groupName} onClick={handleShow}>Leave Review</button>
 
-                                <Modal
-                                show={show}
-                                onHide={handleClose}
-                                dialogClassName='modal-90w'
-                                size='lg'
-                                centered
-                                className={[styles['category-change']]}
-                                >
+                                <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
 
                                 <Modal.Body className={[styles['background-color-modal']]}>
                                     <div className={[styles['rating']]}>
@@ -256,7 +249,6 @@ const Content = () => {
                                             <i>X</i>
                                         </div> */}
                                         <p>What would you rate this group?</p>
-                                        <p>{value.groupName}</p>
                                         <div className={[styles['rating-star']]}>
                                             {[...Array(5)].map((star,i)=>{
                                                 const ratingStar = i + 1;

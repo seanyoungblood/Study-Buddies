@@ -26,11 +26,14 @@
     font-size: 20px;
     color: #363636;
     line-height: 135%;
+    align-items: center;
+    align-self: center;
 }
 
 .rating-star{
     display: flex;
     align-items: center;
+    align-self: center;
 }
 .rating-star label{
     cursor: pointer;
@@ -56,6 +59,8 @@ input[type="radio"]{
 
 .rating-modal-submit-button{
     margin-top: 30px;
+    align-self: center;
+    align-items: center;
 }
 .rating-modal-submit-button button{
     background-color: #ffca00;
