@@ -74,7 +74,7 @@ const ProfileContent = () => {
         <div className="row text-center mt-5 profile-classes-wrapper">
             <div className="col-md-6 col-sm-12">
                 <h1 className="textbox profile-header">Classes</h1>
-                {classes?.map((c)=>(
+                {currentUser.classesTaking?.map((c)=>(
                 <div className='profile-classes' key={c}>
                     <p>{c}</p>
                 </div>))}
@@ -82,7 +82,7 @@ const ProfileContent = () => {
 
             <div className="col-md-6 col-sm-12 margin-top">
                 <h1 className="textbox profile-header">Groups</h1>
-                {groups?.map((c)=>(
+                {currentUser.GroupsIn?.map((c)=>(
                         <div onClick={(e) => {handleDelete(e)}} className='profile-classes profile-hover' key={c}>
                             <p>{c}</p>
                         </div>
