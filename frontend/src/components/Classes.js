@@ -38,7 +38,7 @@ function buildPath(route)
 
   const navigate = useNavigate();
     const [message,setMessage] = useState('');
-    const {currentUser, setCurrentuser} = useContext(AuthContext)
+    const {currentUser, setCurrentUser} = useContext(AuthContext)
     const doClasses = async() => 
     {
       const name = currentUser.username;
