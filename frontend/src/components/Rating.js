@@ -12,6 +12,7 @@ function Rating()
 
   const {currentUser, setCurrentUser} = useContext(AuthContext);
   var reviewValue;
+  var name;
 
   const [message,setMessage] = useState('');
 
@@ -32,7 +33,7 @@ function Rating()
 
       event.preventDefault();
 
-      var obj = {username:currentUser.username};//, groupName: ____.______, rating:reviewValue.value};
+      var obj = {username:currentUser.username, groupName:name.value, rating:reviewValue.value};
       var js = JSON.stringify(obj);
       console.log(obj);
         
@@ -82,7 +83,7 @@ function Rating()
       <div id="reviewDiv">
         <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
         <form onSubmit ={doReview}>
-          <input className='input-field mt-3' type="text" id="reviewValue" placeholder="Review" ref={(c) => reviewValue = c} /><br />
+          <input className='input-field mt-3' type="text" id="reviewValue" placeholder="Rate with value of 1 to 5" ref={(c) => reviewValue = c} /><br />
           <input className="variant1-btn mt-3 edit-user-btn" type="submit" id="userButton"  value = "Leave Review" onClick={doReview} />
         </form>
      </div>
