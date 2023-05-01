@@ -286,7 +286,7 @@ const Content = () => {
                                 <Modal show={show} onHide={handleClose} dialogClassName='modal-90w' size='lg' centered className={[styles['category-change']]} >
 
                                     <Modal.Header closeButton>
-                                        <Modal.Title>What would you rate this group?</Modal.Title>
+                                        <Modal.Title>What would you rate {globalGroupName}?</Modal.Title>
                                     </Modal.Header>
 
                                     <Modal.Body className={[styles['background-color-modal']]}>
