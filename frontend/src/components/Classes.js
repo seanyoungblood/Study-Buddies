@@ -60,7 +60,7 @@ function buildPath(route)
             }
             else
             {
-                setCurrentuser(res)
+              setCurrentUser({...currentUser,groupsIn:res.groupsIn})
                 // user.classesTaking = [RegisterClass1.value,RegisterClass2.value,RegisterClass3.value,RegisterClass4.value,RegisterClass5.value,RegisterClass6.value];
                 console.log(currentUser)
             }
