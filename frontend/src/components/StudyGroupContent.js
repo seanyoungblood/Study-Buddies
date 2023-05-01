@@ -73,7 +73,7 @@ const Content = () => {
     useEffect(() =>{
         if(didMount.current) fetchData();
         else didMount.current = true;
-    },[passedName])
+    })
 
     
     const {currentUser} = useContext(AuthContext);
