@@ -321,3 +321,9 @@ h3{
         transform: translate(-50%, -50%) scale(0);
       }
   }
+
+
+  .no-height{
+    height: 1px;;
+    width: 1px;
+  }

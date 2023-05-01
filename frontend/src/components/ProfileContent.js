@@ -74,7 +74,7 @@ const ProfileContent = () => {
     return ( 
         <div className="row text-center mt-5 profile-classes-wrapper">
 
-            {show & <span class="loader"></span>}
+            {show ? <span class="loader"></span>: <div className='no-height'></div>}
             <div className="col-md-6 col-sm-12">
                 <h1 className="textbox profile-header">Classes</h1>
                 {/* {classes?.map((c)=>(
