@@ -12,6 +12,7 @@ import RegisterPage from './pages/RegisterPage';
 import GroupPage from './pages/GroupPage';
 import EditGroupPage from './pages/EditGroupPage';
 import ClassesPage from './pages/ClassesPage';
+import RatingPage from './pages/RatingPage';
 import UserPage from './pages/UserPage';
 import { AuthContextProvider } from './useContext/LoginContext';
 
@@ -29,6 +30,7 @@ function App() {
       <Route path="/group" index element={<GroupPage />} />
       <Route path="/editgroup" index element={<EditGroupPage />} />
       <Route path="/classes" index element={<ClassesPage />} />
+      <Route path="/rating" index element={<RatingPage />} />
       <Route path="/user" index element={<UserPage />} />
     </Routes>
   </BrowserRouter>
