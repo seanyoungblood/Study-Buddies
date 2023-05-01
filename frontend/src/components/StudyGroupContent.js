@@ -193,12 +193,12 @@ const Content = () => {
 
     }
 
-    const modalExecute = async(passedRating) => {
+    const modalExecute = async() => {
         
-        console.log("username: " + currentUser.username + ", groupName: " + globalGroupName + ", rating: " + passedRating);
+        console.log("username: " + currentUser.username + ", groupName: " + globalGroupName + ", rating: " + rating);
 
             console.log("fetchModal")
-            var obj = {username: currentUser.username, groupName: globalGroupName, rating: passedRating};
+            var obj = {username: currentUser.username, groupName: globalGroupName, rating: rating};
             var js = JSON.stringify(obj);
             console.log(passedName);
             
