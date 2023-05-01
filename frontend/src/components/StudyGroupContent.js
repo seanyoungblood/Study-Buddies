@@ -88,7 +88,7 @@ const Content = () => {
 
   
 
-        console.log(passedName);
+        
 
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
@@ -103,9 +103,11 @@ const Content = () => {
         }
 
         const fetchData = async () => {
+            console.log("fetchData")
             var obj = {groupName: passedName, user: currentUser};
             var js = JSON.stringify(obj);
-
+            console.log(passedName);
+            
             try {
                 console.log("groupName" + passedName);
                 const response = await fetch(buildPath('api/joinGroup'),
