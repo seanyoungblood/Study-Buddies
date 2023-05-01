@@ -67,6 +67,7 @@ const Content = () => {
         return;
     };
 
+    const [query, setQuery] = useState('');
 
     const didMount = useRef(false);
 
@@ -78,7 +79,6 @@ const Content = () => {
     
     const {currentUser} = useContext(AuthContext);
 
-    const [query, setQuery] = useState('');
 
     const [passedName, setPassedName] = useState('');
 
