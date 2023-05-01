@@ -12,7 +12,6 @@ const ProfileContent = () => {
     const navigate = useNavigate();
     const handleDelete = async (e) => 
     {
-        setShow(true)
         e.preventDefault();
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
@@ -58,7 +57,6 @@ const ProfileContent = () => {
             alert(e.toString());
             return;
         }    
-        setShow(false)
      };
 
 
