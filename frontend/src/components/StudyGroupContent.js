@@ -282,7 +282,7 @@ const Content = () => {
                                                     return(
                                                         <label>
                                                             <input type='radio' value={ratingStar} onClick={()=>setRating(ratingStar)} />
-                                                            <span className={ratingStar <= (hover || rating)? 'star active':'star'} font-size={32} onMouseEnter={()=>setHover(ratingStar)} onMouseLeave={()=>setHover(null)}>&#9733;</span>
+                                                            <span className={ratingStar <= (hover || rating)? 'star1 active':'star1'} font-size={32} onMouseEnter={()=>setHover(ratingStar)} onMouseLeave={()=>setHover(null)}>&#9733;</span>
                                                         </label>
                                                     )
                                                 })}

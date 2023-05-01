@@ -357,6 +357,17 @@ p {
         color: #FFD700;
     }
   
+    .star1 {
+      font-size: 32px;
+      color: #E4E4E4;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: color 0.2s;
+      }
+  
+      .star1.active {
+          color: #FFD700;
+      }
   .join-btn {
     background-color: #B5EAAA;
     margin-right: 10px;
