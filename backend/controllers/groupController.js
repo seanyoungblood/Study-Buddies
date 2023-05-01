@@ -76,14 +76,14 @@ const joinGroup = asyncHandler(async (req, res) => {
         throw new Error('Group does NOT exist')
     }
 
-    groupie.findOneAndUpdate(
+    await groupie.findOneAndUpdate(
         {"groupName" : groupCheck.groupName},
         {$push:{
             members: req.user.username,
         }},
     )
 
-    userie.findOneAndUpdate(
+    await userie.findOneAndUpdate(
         {"username": req.user.username},
         {$push: {
             groupsIn: groupCheck.groupName
