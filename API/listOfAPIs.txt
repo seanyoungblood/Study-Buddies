@@ -1,8 +1,33 @@
+Users:
+[X] Login                               Implemented Web [X]   Implemented Mobile [X]
+[X] Register                            Implemented Web [X]   Implemented Mobile [X]
+[X] Edit User                           Implemented Web [X]   Implemented Mobile [X]
+[X] Add Classes                         Implemented Web [X]   Implemented Mobile [X]
+[X] Delete User :(                      Implemented Web [X]   Implemented Mobile [X]
+[X] Reset Password                      Implemented Web [ ]   Implemented Mobile [ ]
+Groups:
+[X] Create Group                        Implemented Web [X]   Implemented Mobile [X]
+[X] Search Group                        Implemented Web [X]   Implemented Mobile [X]
+[X] Edit Group                          Implemented Web [ ]   Implemented Mobile [X]
+[X] Delete Group                        Implemented Web [/]   Implemented Mobile [X]
+[X] Join Group    (Easy)                Implemented Web [/]   Implemented Mobile [X]
+[X] Leave Group   (Easy)                Implemented Web [ ]   Implemented Mobile [X]
+[X] Load Group    (Similar to Search)   Implemented Web [X]   Implemented Mobile [X]
+[X] Edit Rating                         Implemented Web [ ]   Implemented Mobile [ ]
+
+X = completed & working
+/ = needs testing
+
+
 Create Groups
 
 Create Delete Group Component
 
 Not logged in prompts throughout webpage
+
+Join Group indicator
+
+Dynamically update after review
 
 
 modify return on editRating from return 
