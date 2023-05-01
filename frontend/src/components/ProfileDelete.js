@@ -48,7 +48,7 @@ const ProfileDelete = () => {
 
                 // temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
                 console.log(res);
-                setCurrentUser({...currentUser,groupsIn:res.groupsIn})
+                setCurrentUser({...currentUser,groupsIn:currentUser.splice(currentUser.indexOf(e.target.innerText), 1)})
                 console.log(currentUser);
             }
         }
