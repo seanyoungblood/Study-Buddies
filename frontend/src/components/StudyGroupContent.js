@@ -229,6 +229,7 @@ const Content = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const handleRatings = () => setShow(false);
 
 
     return ( 
@@ -278,18 +279,21 @@ const Content = () => {
                                 <button class="review-btn" a-key={value.groupName} onClick={handleShow}>Leave Review</button>
 
                                 <Modal
-                                show={true}
+                                show={show}
+                                onHide={handleClose}
                                 dialogClassName='modal-90w'
                                 size='lg'
                                 centered
-                                className={[styles['category-change']]}>
+                                className={[styles['category-change']]}
+                                >
 
                                 <Modal.Body className={[styles['background-color-modal']]}>
                                     <div className={[styles['rating']]}>
                                         <div className={[styles['rating-icon']]}>
-                                            <i class="ph-x"></i>
+                                            <i>X</i>
                                         </div>
-                                        <p>What woould you rate this group?</p>
+                                        <p>What would you rate this group?</p>
+                                        <p>{value.groupName}</p>
                                         <div className={[styles['rating-star']]}>
                                             {[...Array(5)].map((star,i)=>{
                                                 const ratingStar = i + 1;
@@ -307,7 +311,7 @@ const Content = () => {
                                             })}
                                         </div>
                                         <div className={[styles['rating-modal-submit-button']]}>
-                                            <button>Submit</button>
+                                            <button onclick={handleRatings}>Submit</button>
                                         </div>
                                     </div>
                                 </Modal.Body>
