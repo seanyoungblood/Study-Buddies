@@ -45,13 +45,10 @@ const ProfileContent = () => {
             }
             else
             {   
-                let temp = currentUser;
+                // let temp = currentUser;
 
-                temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
-                setCurrentUser((prevState) => ({
-                    ...prevState,
-                    groupsIn:temp
-                }));
+                // temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);
+                setCurrentUser(res);
                 console.log(currentUser);
             }
         }
