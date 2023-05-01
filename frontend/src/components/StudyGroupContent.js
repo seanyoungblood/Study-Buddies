@@ -193,13 +193,10 @@ const Content = () => {
 
     }
 
-    function modalExecute(passedRating) {
+    const modalExecute = async(passedRating) => {
         
         console.log("username: " + currentUser.username + ", groupName: " + globalGroupName + ", rating: " + passedRating);
 
-        fetchModal(passedRating);
-
-        const fetchModal = async (passedRating) => {
             console.log("fetchModal")
             var obj = {username: currentUser.username, groupName: globalGroupName, rating: passedRating};
             var js = JSON.stringify(obj);
@@ -211,13 +208,11 @@ const Content = () => {
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
                 
                 var res = JSON.parse(await response.text());
-                setCurrentUser({...currentUser,groupsIn:res.groupsIn})
                 console.log(res);
             }
             catch (error) {
                 console.log(error);
             }
-        }
 
     }
 
