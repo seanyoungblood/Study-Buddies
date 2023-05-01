@@ -250,8 +250,7 @@ const searchGroup = asyncHandler(async (req, res) => {
 const searchAdmin = asyncHandler(async (req, res) => {
       var error = '';
       const { search } = req.body;
-        const results = await groupie.find(
-       {admin:{$regex:search+'.*',$options:'i'}},).toArray();
+        const results = await groupie.find({admin:{$regex:search+'.*',$options:'i'}},).toArray();
       var ret2 = {search:search, results:results, error:error};
       res.status(200).json(ret2);
 })
