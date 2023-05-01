@@ -30,6 +30,7 @@
 
 .rating-star{
     display: flex;
+    align-items: center;
 }
 .rating-star label{
     cursor: pointer;

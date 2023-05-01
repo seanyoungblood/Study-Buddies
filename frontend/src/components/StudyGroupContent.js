@@ -7,43 +7,6 @@ import { useContext } from 'react'
 import {Modal} from 'react-bootstrap'
 import {FaStar} from 'react-icons/fa'
 
-// const RatingModal = () => {
-//         const[rating,setRating] = useState(null);
-//         const [hover, setHover] = useState(null);
-
-//         return(
-//             <Modal
-//             show={true}
-//             dialogClassName='modal-90w'
-//             size='lg'
-//             centered
-//             className={[styles['category-change']]}>
-
-//             <Modal.Body className={[styles['background-color-modal']]}>
-//                 <div className={[styles['rating']]}>
-//                     <p>What woould you rate this group?</p>
-//                     {[...Array(5)].map((star,i)=>{
-//                         const rating = i + 1;
-//                         return(
-//                             <label>
-//                                 <input type='radio' value={ratingStar} onClick={()=>setRating(ratingStar)} />
-//                                 <Fastar
-//                                 color={ratingStar <= (hover || rating)? '#ffc107':'#e4e5e9'}
-//                                 size={55}
-//                                 onMouseEnter={()=>setHover(ratingStar)}
-//                                 onMouseLeave={()=>setHover(null)}
-//                                 />
-//                             </label>
-//                         )
-//                     })}
-//                 </div>
-//             </Modal.Body>
-//             </Modal>
-//         )
-//     }
-
-// export default RatingModal
-
 const Content = () => {
 
     
@@ -289,9 +252,9 @@ const Content = () => {
 
                                 <Modal.Body className={[styles['background-color-modal']]}>
                                     <div className={[styles['rating']]}>
-                                        <div className={[styles['rating-icon']]}>
+                                        {/* <div className={[styles['rating-icon']]}>
                                             <i>X</i>
-                                        </div>
+                                        </div> */}
                                         <p>What would you rate this group?</p>
                                         <p>{value.groupName}</p>
                                         <div className={[styles['rating-star']]}>
