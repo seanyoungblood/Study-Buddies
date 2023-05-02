@@ -110,8 +110,9 @@ function Register()
 
                 setCurrentUser(res);
                 console.log(currentUser);
-                setMessage('Please check your email for verification code.');
+                setMessage('Verification Success');
                 console.log(user);
+                navigate("/");
 
             }
         }
