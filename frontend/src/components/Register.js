@@ -9,6 +9,18 @@ import { AuthContext } from '../useContext/LoginContext';
 function Register()
 {
 
+    const app_name = 'cop-study-buddy-1000'
+        function buildPath(route){
+            if (process.env.NODE_ENV === 'production')
+            {
+                return 'https://' + app_name +  '.herokuapp.com/' + route;
+            }
+            else
+            {
+                return 'http://localhost:5000/' + route;
+            }
+        }
+
 
 
     const doLogin = async (loginName, loginPassword) => 
@@ -39,6 +51,7 @@ function Register()
             {
               setCurrentUser(res);          
               console.log(currentUser);
+                // window.location.href = '/';
             }
         }
         catch(e)
