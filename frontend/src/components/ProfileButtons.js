@@ -76,7 +76,7 @@ const ProfileButtons = () => {
            <Link id="profileButton" to='/user'>Edit User</Link>
            <Link id="profileButton" to='/classes'>Change Classes</Link>
            <Link id="profileButton" to='/register'>Verify Email</Link>
-           <Button id='profileButton' onClick={() => handleShow}>Delete Your Account</Button>
+           <Button id='profileButton' onClick={handleShow}>Delete Your Account</Button>
 
       <Modal show={show} onHide={handleClose}>
 
@@ -87,8 +87,8 @@ const ProfileButtons = () => {
         <Modal.Body>Are you sure you want to delete this user?</Modal.Body>
         
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => handleClose}>Close</Button>
-          <Button variant="primary" onClick={() => handleDelete}>Delete</Button>
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
+          <Button variant="primary" onClick={handleDelete}>Delete</Button>
         </Modal.Footer>
       
       </Modal>

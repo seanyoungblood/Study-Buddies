@@ -121,7 +121,7 @@ const ProfileDelete = () => {
             }    
      }
 
-     handleLoad();
+    //  handleLoad();
 
 
 
