@@ -20,9 +20,9 @@ function Group()
   
   const [message,setMessage] = useState('');
 
-  const doGroup = async() => 
+  const doGroup = async(e) => 
   {
-
+      e.preventDefault();
       const app_name = 'cop-study-buddy-1000'
       function buildPath(route)
       {
@@ -88,7 +88,7 @@ function Group()
           <input className='input-field mt-1' type="text" id="groupDate" placeholder="Days" ref={(c) => groupDate = c} /><br />
           <input className='input-field mt-1' type="text" id="groupTime" placeholder="Time" ref={(c) => groupTime = c} /><br />
           <input className='input-field mt-1' type="text" id="groupLocation" placeholder="Location" ref={(c) => groupLocation = c} /><br />
-          <input className='variant1-btn mt-4 edit-user-btn' type="submit" id="groupButton" value = "Create Group" onClick={() => {doGroup()}} />
+          <input className='variant1-btn mt-4 edit-user-btn' type="submit" id="groupButton" value = "Create Group" onClick={(e) => {doGroup(e)}} />
         </form>
       <span id="groupResult">{message}</span>
      </div>
