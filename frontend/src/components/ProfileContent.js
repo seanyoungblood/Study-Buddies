@@ -10,9 +10,10 @@ const ProfileContent = () => {
     // useEffect(() => {    const sample = {classesTaking:["test", "fake" , "asdasd"], groupsIn: ["asdad", "asdas", "GORUPS"]};
     // setCurrentUser(sample);},[])
     const navigate = useNavigate();
-    const handleDelete = async (e) => 
+    const handleDelete = async (e, groupId) => 
     {
         e.preventDefault();
+        if(groupId === currentUser._id) return;
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
             if (process.env.NODE_ENV === 'production')
@@ -102,7 +103,7 @@ const ProfileContent = () => {
             <div className="col-md-6 col-sm-12 margin-top">
                 <h1 className="textbox profile-header">Groups</h1>
                 {groups?.map((c)=>(
-                        <div onClick={(e) => {handleDelete(e)}} className='profile-classes profile-hover' key={c}>
+                        <div a-key={c.admin} onClick={(e) => {handleDelete(e,e.target.getAttribute("a-key") )}} className='profile-classes profile-hover' key={c}>
                             <p>{c}</p>
 
                         </div>
