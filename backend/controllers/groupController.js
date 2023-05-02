@@ -249,9 +249,9 @@ const searchGroup = asyncHandler(async (req, res) => {
 
 const searchAdmin = asyncHandler(async (req, res) => {
       var error = '';
-      const { search } = req.body;
+      const { user } = req.body;
     // const classes = await Class.find({ user: req.user.id })
-      const results = await groupie.find({admin: req.user.id});
+      const results = await Group.find({admin: req.user.id});
       var ret2 = {"search":search, "results":results, error:error};
       res.status(200).json(ret2);
 })
