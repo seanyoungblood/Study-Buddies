@@ -1,5 +1,5 @@
 Users:
-[X] Login                               Implemented Web [X]   Implemented Mobile [X]
+[X] Login                               Implemented Web [X]   Implemented Mobile [X] 
 [X] Register                            Implemented Web [X]   Implemented Mobile [X]
 [X] Edit User                           Implemented Web [X]   Implemented Mobile [X]
 [X] Add Classes                         Implemented Web [X]   Implemented Mobile [X]
@@ -20,15 +20,9 @@ X = completed & working
 / = needs testing
 
 
-Create Groups
 
 Create Delete Group Component
-
-Not logged in prompts throughout webpage
 
 Join Group indicator
 
 Dynamically update after review
-
-
-modify return on editRating from return 
