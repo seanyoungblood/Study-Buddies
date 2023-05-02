@@ -396,7 +396,7 @@ const verifyUser = asyncHandler(async (req, res) => {
 
         if (user.code === parseInt(codeInput))
         {
-            User2.findOneAndUpdate({username:username}, 
+            await User2.findOneAndUpdate({username:username}, 
             { $set: 
                 {
                     "verified" : true
