@@ -56,7 +56,7 @@ function Register()
             {
                 var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
                 localStorage.setItem('user_data', JSON.stringify(user));
-
+                console.log(res);
                 setCurrentUser(res);
                 console.log(currentUser);
                 setMessage('Please check your email for verification code.');
