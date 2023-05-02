@@ -80,7 +80,7 @@ const ProfileDelete = () => {
 
     return ( 
         <div className="row text-center mt-5 profile-classes-wrapper">
-            <div className="col-md-6 col-sm-12 margin-top">
+            <div className="col-md-6 col-sm-12 margin-top center">
                 <h1 className="textbox profile-header">DeleteGroups</h1>
                 {groups?.map((c)=>(
                         <div onClick={(e) => {handleDelete(e)}} className='profile-classes profile-hover' key={c}>
