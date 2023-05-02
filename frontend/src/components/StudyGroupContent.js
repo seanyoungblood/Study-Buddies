@@ -126,7 +126,9 @@ const Content = () => {
             // console.log("Before JSON.parse");
             var res = JSON.parse(await response.text());
             setCurrentUser({...currentUser,groupsIn:res.groupsIn})
-            fetchSearch();
+
+            
+            fetchSearch(query);
             console.log(res);
         }
         catch (error) {
@@ -134,8 +136,8 @@ const Content = () => {
         }
     }
 
-    const fetchSearch = async () => {
-        var obj = {field : "groupName", search: '' };
+    const fetchSearch = async (query) => {
+        var obj = {field : "groupName", search: query };
         var js = JSON.stringify(obj);
 
         try {
