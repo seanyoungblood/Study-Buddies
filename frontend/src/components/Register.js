@@ -88,20 +88,20 @@ function Register()
 
         event.preventDefault();
 
-        var obj = {firstName:registerFirstName.value, lastName:registerLastName.value, username:registerUsername.value, password:registerPassword.value, phone:phone.value,email:email.value};
+        var obj = {username:res.username.value, codeInput:code.value};
         var js = JSON.stringify(obj);
         console.log(obj);
 
         try
         {    
-            const response = await fetch(buildPath('api/register'),
+            const response = await fetch(buildPath('api/verifyUser'),
             {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
 
             var res = JSON.parse(await response.text());
 
             if(!res._id)
             {
-                setMessage('Please check your submission');
+                setMessage('Verification Code Error. Please try again.');
             }
             else
             {
@@ -131,11 +131,12 @@ function Register()
 
     }
 
-    const handleLoginClick = (e) =>{
+    const handleLoginClick = (e) => {
         e.preventDefault();
-
-        navigate("/");
-    }
+  
+        navigate("/login");
+  
+      }
 
 
     return(
@@ -153,9 +154,9 @@ function Register()
             </form>
             <form onSubmit={doVerify}>
                 <input className="mt-4 input-field"  type="text" placeholder='Code' ref={(c) => code = c} /><br />
-                <input className="mt-4 variant1-btn" type="submit" id="verifyButton"  value = "Verify" onClick={doVerification} />
+                <input className="mt-4 variant1-btn" type="submit" id="verifyButton"  value = "Verify" onClick={doVerify} />
             </form>
-            <button className="mt-2 variant2-btn" onClick={(e) => {handleVerifyClick(e)}}>Have an account? Login</button>
+            <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
             <span className="mt-2" id="registerResult">{message}</span>
 
        </div>
