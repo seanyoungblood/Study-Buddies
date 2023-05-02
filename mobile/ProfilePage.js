@@ -143,7 +143,7 @@ const ProfilePage = ({navigation, route}) => {
         />
       </View>
       <Image
-        source={require('./assets/leinecker.jpg')}
+        source={require('./assets/ucf.png')}
         style={styles.banner}
       />
       <View style={styles.overlay} />
@@ -172,11 +172,14 @@ const ProfilePage = ({navigation, route}) => {
       top: "24%",
       zIndex:2,
       left: "6%",
-      height:"100%"
+      height:"100%",
+      
     },
     banner: {
       width: '100%',
       height: "20%",
+      borderWidth: 1,
+      borderColor: '#ccc',
     },
     overlay: {
       position: 'absolute',

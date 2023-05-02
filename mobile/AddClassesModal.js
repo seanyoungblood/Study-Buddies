@@ -131,6 +131,7 @@ function buildPath(route)
                 setCurrentUser(updatedUser);
                 console.log(currentUser)
                 console.log('Works');
+                handleCancelPress();
             }
         }
         catch(e)

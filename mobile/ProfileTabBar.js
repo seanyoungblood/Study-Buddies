@@ -65,6 +65,7 @@ const GroupList = ({ groups, deleteAccount, editAccount, navigation, isClasses, 
   return (
     <FlatList
       data={groups}
+      style={{backgroundColor: 'white'}}
       renderItem={({ item }) => (
         <View>
           {accountInfo && <TouchableOpacity onPress={() => accountInfoPress(item.id)}>
@@ -207,7 +208,8 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
       marginTop: '1%',
       width:'100%',
-      height:'100%'
+      height:'100%',
+      backgroundColor: 'white',
     },
     image: {
         width: 64,

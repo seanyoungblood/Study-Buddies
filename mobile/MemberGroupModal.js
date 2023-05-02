@@ -13,7 +13,7 @@ function MemberGroupModal({ isOpen, onClose, group }) {
     const [yourRating, setYourRating] = useState("");
     const reviews = group.reviews || []; // Make sure reviews array exists
 
-    let averageReview = reviews.length > 0 ? reviews.reduce((a, b) => Number(a) + Number(b), 0) / reviews.length : 0;;
+    let averageReview = reviews.length > 0 ? reviews.reduce((a, b) => Number(a) + Number(b), 0) / reviews.length : 0;
 
     const { currentUser, setCurrentUser } = useContext(AuthContext);
     

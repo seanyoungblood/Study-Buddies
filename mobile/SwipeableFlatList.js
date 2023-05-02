@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, FlatList, StyleSheet, Alert } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
 import { AuthContext } from './LoginContext';
 import { useContext } from 'react';
@@ -12,6 +12,14 @@ const SwipeableItem = ({ item, setData, data, index }) => {
 
   const join = async () => {
     try {
+      if(currentUser.groupsIn.indexOf(item.groupName) !== -1){
+        
+        const newData = [...data];
+    newData.splice(index, 1);
+    setData(newData);
+    Alert.alert("You're already a member of this group");
+        return;
+      }
       console.log("Attempting to join " + item.groupName);
       const response = await fetch('https://cop-study-buddy-1000.herokuapp.com/api/joinGroup', {
         method: 'POST',
@@ -31,7 +39,7 @@ const SwipeableItem = ({ item, setData, data, index }) => {
                 
       updatedUser.groupsIn.push(item.groupName);
       setCurrentUser(updatedUser);
-      
+
       const newData = [...data];
     newData.splice(index, 1);
     setData(newData);
@@ -51,7 +59,7 @@ const SwipeableItem = ({ item, setData, data, index }) => {
 
   const reviews = item.reviews || []; // Make sure reviews array exists
 
-  const averageReview = reviews.length > 0 ? reviews.reduce((a, b) => a + b, 0) / reviews.length : 0;
+  let averageReview = reviews.length > 0 ? reviews.reduce((a, b) => Number(a) + Number(b), 0) / reviews.length : 0;
 
 
   const renderRightActions = () => (
@@ -87,8 +95,8 @@ const SwipeableItem = ({ item, setData, data, index }) => {
           <Text style={styles.description}>Date: {item.date}</Text>
           <Text style={styles.description}>Time: {item.time}</Text>
           <Text style={styles.description}>Location: {item.location}</Text>
-          <Text style={styles.description}>Members: {item.members}</Text>
-          <Text style={styles.description}>Average rating: {averageReview.toFixed(1)} ({reviews.length} reviews)</Text>
+          <Text style={styles.description}>Members: {item.members.join(', ')}</Text>
+          <Text style={styles.description}>Average rating: {averageReview.toFixed(1)}/5 ({reviews.length} reviews)</Text>
 
         </View>
       </View>

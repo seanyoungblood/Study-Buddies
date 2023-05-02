@@ -29,6 +29,7 @@ const LoginPage = ({navigation, route}) => {
   const [user, setUser] = useState("");
   const [pass, setPassword] = useState("");
   const {currentUser, setCurrentUser} = useContext(AuthContext);
+  const [message2user, setmessage2user] = useState("");
 
 
   const doLogin = async event => 
@@ -54,7 +55,7 @@ const LoginPage = ({navigation, route}) => {
 
           if(!res._id)
           {
-              console.log('User/Password combination incorrect');
+              setmessage2user('User/Password combination incorrect');
           }
           else
           {
@@ -72,7 +73,7 @@ const LoginPage = ({navigation, route}) => {
       }
       catch(e)
       {
-          
+        setmessage2user('User/Password combination incorrect');
           return;
       }    
   };
@@ -119,9 +120,13 @@ const LoginPage = ({navigation, route}) => {
         >Register</Button>
        
       </View>
+
+      <Text style={{color:'red'}}>{message2user}</Text>
       
     </KeyboardAvoidingView>
-  <Text style={{marginBottom:"10%"}}>Forgot your password? <Text onPress={ () => Alert.alert('Sounds like a personal problem') } style = {{ color: '#00008B' }}>Click here.</Text></Text>
+  <Text style={{marginBottom:"2%"}}>Forgot your password? <Text onPress={ () => Alert.alert('Have you tried turning it off and back on?') } style = {{ color: '#00008B' }}>Click here</Text></Text>
+  <Text style={{marginBottom:"10%"}}>Not interested in studying? <Text onPress={ () => navigation.navigate('BaristaGPT') } style = {{ color: '#00008B' }}>BaristaGPT</Text></Text>
+
   </View>
         
     );

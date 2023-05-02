@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import CustomText from './CustomFont';
 import { Alert, Text, Center, VStack, HStack, IconButton, Box, CloseIcon, Heading, Collapse, KeyboardAvoidingView } from "native-base";
 import InvalidFieldAlert from './InvalidFieldAlert';
+import VerifyUserModal from './VerifyUserModal';
 
 const RegisterPage = ({ navigation, route }) => {
   const [regUser, setRegUser] = useState("");
@@ -13,6 +14,7 @@ const RegisterPage = ({ navigation, route }) => {
   const [regPhone, setRegPhone] = useState("");
 
   const [show, setShow] = React.useState(false);
+  const [showVer, setShowVer] = React.useState(false);
   const [errorMessage, setError] = React.useState(" ");
 
   function containsNonAlphabetCharacters(str) {
@@ -130,7 +132,7 @@ const RegisterPage = ({ navigation, route }) => {
 
         //localStorage.setItem('user_data', JSON.stringify(user));
         console.log('User:' + obj.username + ' has been successfully registered\n\n');
-        navigation.navigate('LoginPage');
+        handleVerPress();
       }
     }
     catch (e) {
@@ -138,6 +140,14 @@ const RegisterPage = ({ navigation, route }) => {
 
       return;
     }
+  };
+
+  const handleVerPress = () => {
+    setShowVer(true);
+  };
+
+  const handleVerClose = () => {
+    setShowVer(false);
   };
 
 
@@ -205,6 +215,9 @@ const RegisterPage = ({ navigation, route }) => {
       </KeyboardAvoidingView>
 
       <InvalidFieldAlert show={show} setShow={setShow} errorMessage={errorMessage} setError={setError}></InvalidFieldAlert>
+      <Center>
+        <VerifyUserModal navigation={navigation} isOpen={showVer} onClose={handleVerClose} regUser={regUser} ></VerifyUserModal>
+      </Center>
     </View>
   );
 };

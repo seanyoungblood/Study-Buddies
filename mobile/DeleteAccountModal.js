@@ -40,7 +40,7 @@ const DeleteAccountModal = ({ isOpen, onClose, navigation }) => {
 
                 onClose();
 
-                navigation.navigate('LoginPage');
+                navigation.navigate('BaristaGPT');
 
                 console.log(currentUser);
                 

@@ -29,7 +29,7 @@ const SchoolPage = ({ navigation, route }) => {
     <View style={styles.container}>
       <HeaderLogo></HeaderLogo>
       <TouchableOpacity style={styles.UCFimg} onPress={handleUCF}>
-        <Image style={{ height: '100%', width: '100%' }} source={require('./assets/ucf.png')} />
+        <Image style={{ height: '100%', width: '100%' }} source={require('./assets/banner.png')} />
       </TouchableOpacity>
 
       <View style={{ width: '90%', height: '55%' }}>

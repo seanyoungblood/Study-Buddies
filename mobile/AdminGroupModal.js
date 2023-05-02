@@ -139,7 +139,6 @@ function AdminGroupModal({ isOpen, onClose, group }) {
             <Input
               value={objective}
               onChangeText={setObjective}
-              maxLength={8}
               placeholder={group.objective}
             />
             <Text style={{ marginTop: '6%' }}>Location:</Text>

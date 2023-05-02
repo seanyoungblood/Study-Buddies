@@ -16,6 +16,7 @@ import SchoolPage from './SchoolPage';
 import MajorPage from "./MajorPage";
 import ProfilePage from "./ProfilePage";
 import {useRef} from 'react';
+import BaristaGPTPage from './BaristaGPTPage';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -95,6 +96,20 @@ export default function App() {
                 tabBarButton: () => null,
                 gestureEnabled: false
               }}>
+                <Tab.Screen
+            name="BaristaGPT"
+            component={BaristaGPTPage}
+            options={() => ({
+              tabBarStyle: {
+                display: "none",
+              },
+              animation: 'none',
+              headerShown: false,
+              tabBarButton: () => null,
+              
+            })}
+
+          />
           <Tab.Screen
             name="LoginPage"
             component={LoginPage}
