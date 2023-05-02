@@ -1,7 +1,7 @@
 import '../css/ProfilePage.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthContext } from '../useContext/LoginContext';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ProfileDelete = () => {
@@ -123,6 +123,14 @@ const ProfileDelete = () => {
 
     //  handleLoad();
 
+    const didMount = useRef(true);
+
+    useEffect(() =>{
+        console.log("USE EFFECT")
+        if(didMount.current === false) handleLoad();
+        else didMount.current = false;
+    }, [])
+
 
 
 
@@ -146,7 +154,7 @@ const ProfileDelete = () => {
             <div className="col-md-6 col-sm-12 margin-top center">
                 <h1 className="textbox profile-header">DeleteGroups</h1>
                 {groups?.map((c)=>(
-                        <div onClick={(e) => {handleDelete(e)}} className='profile-classes profile-hover' key={c}>
+                        <div onClick={(e) => {handleDelete(e)}} onClickCapture={(e) => handleLoad()} className='profile-classes profile-hover' key={c}>
                             <p>{c}</p>
                         </div>
                     ))}
