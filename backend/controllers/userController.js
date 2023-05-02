@@ -132,7 +132,7 @@ const registerUser = asyncHandler(async (req, res) => {
             from: "user-verification-4331@outlook.com",
             to: email,
             subject: "Study Buddies - Verification Email - " + code,
-            text: "Before you can start using our platform, you'll need to verify your account. Here are the steps you need to follow:\n\n 1. Navigate to the verification code field, which you'll find on the same page where you registered.\n 2. Take this 4 digit code: " + code + " you have been provided and copy it into the verification code field.\n 3. Click the verify button.\n\nThat's it! Once you've completed these steps, your account will be fully verified and you'll be able to start using all the features of Study Buddies.\n\nBest regards,\nStudy Buddies Team"
+            text: "Before you can start using our platform, you'll need to verify your account. Here are the steps you need to follow:\n\n 1. Navigate to the verification code field, which you'll find on the same page where you registered.\n 2. Take this 4 digit code: " + code + " you have been provided and copy it into the Verification Code field.\n 3. Click the Verify button.\n\nThat's it! Once you've completed these steps, your account will be fully verified and you'll be able to start using all the features of Study Buddies.\n\nBest regards,\nStudy Buddies Team"
         };
         
         // send the email
