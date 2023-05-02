@@ -84,13 +84,29 @@ const Content = () => {
     }, [query])
     
     const {currentUser, setCurrentUser} = useContext(AuthContext);
-
+    const [joined, setJoined] = useState("Join Group");
 
     const [passedName, setPassedName] = useState('');
 
     const [passedGroupName, setPassedGroupName] = useState('');
 
     const [data , setData] = useState({});
+
+
+
+
+    const handleJoin = (passedName) =>{
+        if(currentUser.groupsIn.includes(passedName)){
+            setJoined("In Group");
+        }
+        else{
+            setJoined("Join Group")
+        }
+    }
+
+
+
+
 
     const app_name = 'cop-study-buddy-1000'
     function buildPath(route){
@@ -106,6 +122,7 @@ const Content = () => {
 
     const fetchData = async (passedName) => {
         if(currentUser.groupsIn.includes(passedName)) return;
+
         console.log("fetchData")
         var obj = {groupName: passedName, user: currentUser};
         var js = JSON.stringify(obj);
@@ -120,6 +137,7 @@ const Content = () => {
             var res = JSON.parse(await response.text());
             setCurrentUser({...currentUser,groupsIn:res.groupsIn})
             console.log(res);
+            handleJoin(passedName);
         }
         catch (error) {
             console.log(error);
@@ -264,7 +282,7 @@ const Content = () => {
                                 <span>{star5}</span>
                             </div>
                             <div>
-                                <button class="join-btn" a-key={value.groupName} onClick={(e) => { currentUser.username === '' ? navigate("/login") : fetchData(e.target.getAttribute("a-key"))}}>{currentUser.groupsIn.includes(value.groupName) ? "Join Group" : "Joined"}</button>
+                                <button class="join-btn" a-key={value.groupName} onClick={(e) => { currentUser.username === '' ? navigate("/login") : fetchData(e.target.getAttribute("a-key"))}}>{joined}</button>
                                 {/* value={currentUser.groupsIn.indexOf(value.groupName) > -1 ? "Joined" : "Join Group"} */}
                                 <button class="review-btn" a-key={value.groupName} onClick={(e) =>{  currentUser.username === '' ? navigate("/login") : modalSetUp(e.target.getAttribute("a-key"))}} onClickCapture={handleShow}>Leave Review</button>
 
