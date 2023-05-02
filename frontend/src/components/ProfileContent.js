@@ -13,6 +13,8 @@ const ProfileContent = () => {
     const handleDelete = async (e, groupId) => 
     {
         e.preventDefault();
+        console.log(groupId)
+        console.log(currentUser._id)
         if(groupId === currentUser._id) return;
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
