@@ -114,7 +114,7 @@ const ProfileDelete = () => {
                 alert(e.toString());
                 return;
             }    
-     },[currentUser.groupsIn])
+     },[])
 
 
 
