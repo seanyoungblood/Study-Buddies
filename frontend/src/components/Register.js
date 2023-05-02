@@ -110,7 +110,7 @@ function Register()
                 setCurrentUser(res);
                 console.log(currentUser);
                 doLogin();    
-                setMessage('Please check your email for verification code.');
+                // setMessage('Please check your email for verification code.');
                 setShow(true)
 
             }
