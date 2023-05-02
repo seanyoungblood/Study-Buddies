@@ -1,0 +1,22 @@
+/* section {
+    height: 50vh; /* set the section height to 50% of the viewport height */
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+  
+  .meme-image-container {
+    height: 50vh; /* make the image container fill up the section's height */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .meme-image-container img {
+    flex-basis: calc(33.33% - 10px);
+    height: calc(50vh - 20px); /* set the image height to 50% of the viewport height minus some margin space */
+    object-fit: cover;
+    margin: 5px; /* adjust the margin space to your preference */
+  }
+  

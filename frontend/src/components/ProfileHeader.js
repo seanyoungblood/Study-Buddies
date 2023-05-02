@@ -38,7 +38,7 @@ const ProfileHeader = () => {
         setFirst(currentUser.firstName);
         setLast(currentUser.lastName);
 
-            console.log('the user is this >>>>>>>>>>>>>>>>>>>>>>>>>>>')
+            console.log('the user is this >')
         console.log(currentUser);
 
 
@@ -58,7 +58,7 @@ const ProfileHeader = () => {
         <section className="header" style={{backgroundImage: background, minHeight: profileHeight  }}>
             <nav>
                 {/* need to change A tags with react-router-dom API */}
-                <Link to="/"> <img src={logo} alt="" /></Link>
+                <Link to="/meme"> <img src={logo} alt="" /></Link>
                 <div className="nav-links" id="navLinks">
                     <i className="fa fa-times" onClick={ hideMenu }>CLOSE</i>
                     <ul>

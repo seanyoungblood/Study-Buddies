@@ -14,6 +14,7 @@ import EditGroupPage from './pages/EditGroupPage';
 import ClassesPage from './pages/ClassesPage';
 import RatingPage from './pages/RatingPage';
 import UserPage from './pages/UserPage';
+import MemePage from './pages/MemePage';
 import { AuthContextProvider } from './useContext/LoginContext';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <Route path="/classes" index element={<ClassesPage />} />
       <Route path="/rating" index element={<RatingPage />} />
       <Route path="/user" index element={<UserPage />} />
+      <Route path="/meme" index element={<MemePage />} />
     </Routes>
   </BrowserRouter>
   </AuthContextProvider>
