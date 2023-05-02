@@ -249,7 +249,7 @@ const searchGroup = asyncHandler(async (req, res) => {
 
 const searchAdmin = asyncHandler(async (req, res) => {
       var error = '';
-      const { user } = req.body;
+      const { search } = req.body;
     // const classes = await Class.find({ user: req.user.id })
       const results = await Group.find({admin: req.user.id});
       var ret2 = {"search":search, "results":results, error:error};
