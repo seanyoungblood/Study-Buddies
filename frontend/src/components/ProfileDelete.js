@@ -80,7 +80,7 @@ const ProfileDelete = () => {
                     return 'http://localhost:3000/' + route;
                 }
             }
-            var obj = {search:currentUser};
+            var obj = {search:currentUser, user:currentUser};
             var js = JSON.stringify(obj);
     
             try
