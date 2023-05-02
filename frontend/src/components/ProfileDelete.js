@@ -69,7 +69,7 @@ const ProfileDelete = () => {
      const [groups, setGroups] = useState([]);
 
      useEffect(async() =>{
-        if(currentUser.firstName === '') return;
+        if(currentUser.username === '') return;
             const app_name = 'cop-study-buddy-1000'
             function buildPath(route){
                 if (process.env.NODE_ENV === 'production')
