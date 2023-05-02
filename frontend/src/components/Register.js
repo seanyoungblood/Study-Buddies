@@ -213,6 +213,7 @@ function Register()
             </form>
              : null}
             <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
+            {!show ? <button className="mt-2 variant2-btn" onClick={setShow(true)}>Verify Email</button> : null}
             {show ? <button className="mt-2 variant2-btn" onClick={(e) => {navigate('/')}}>Skip to Home page</button> : null}
             <span className="mt-2" id="registerResult">{message}</span>
 
