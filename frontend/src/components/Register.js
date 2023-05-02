@@ -192,7 +192,7 @@ function Register()
 
 
     return(
-        <div id="registerDiv" style={show ?{ 'height':400}: {'height':500}}>
+        <div id="registerDiv" style={show ?{ 'height':400}: {'height':550}}>
             <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
             { !show ?
             <form onSubmit={doRegister}>
@@ -213,7 +213,8 @@ function Register()
             </form>
              : null}
             <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
-            <button className="mt-2 variant2-btn" onClick={setShow(true)}>Verify Email</button>
+            {show === false ? <button className="mt-2 variant2-btn" onClick={()=>setShow(true)}>Verify Email</button> : null}
+            {show ? <button className="mt-2 variant2-btn" onClick={()=>setShow(false)}>Register Account</button> : null}
             {show ? <button className="mt-2 variant2-btn" onClick={(e) => {navigate('/')}}>Skip to Home page</button> : null}
             <span className="mt-2" id="registerResult">{message}</span>
 
