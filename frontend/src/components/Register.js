@@ -140,7 +140,7 @@ function Register()
 
 
     return(
-        <div id="loginDiv" style={{height:500}}>
+        <div id="loginDiv" style={{height:650}}>
             <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
         
             <form onSubmit={doRegister}>
