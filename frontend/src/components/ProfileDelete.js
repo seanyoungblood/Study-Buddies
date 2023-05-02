@@ -68,53 +68,53 @@ const ProfileDelete = () => {
 
      const [groups, setGroups] = useState([]);
 
-    //  useEffect(async() =>{
-    //     if(currentUser.username === '') return;
-    //         const app_name = 'cop-study-buddy-1000'
-    //         function buildPath(route){
-    //             if (process.env.NODE_ENV === 'production')
-    //             {
-    //                 return 'https://' + app_name +  '.herokuapp.com/' + route;
-    //             }
-    //             else
-    //             {
-    //                 return 'http://localhost:3000/' + route;
-    //             }
-    //         }
-    //         var obj = {search:currentUser._id, user:currentUser._id};
-    //         var js = JSON.stringify(obj);
+     useEffect(async() =>{
+        if(currentUser.username === '') return;
+            const app_name = 'cop-study-buddy-1000'
+            function buildPath(route){
+                if (process.env.NODE_ENV === 'production')
+                {
+                    return 'https://' + app_name +  '.herokuapp.com/' + route;
+                }
+                else
+                {
+                    return 'http://localhost:3000/' + route;
+                }
+            }
+            var obj = {search:currentUser._id, user:currentUser._id};
+            var js = JSON.stringify(obj);
     
-    //         try
-    //         {    
-    //             const response = await fetch(buildPath('api/searchAdmin'),
-    //             {method:'POST',body:js,headers:{'Content-Type': 'application/json' , 'Authorization': `Bearer ${currentUser.token}`}});
+            try
+            {    
+                const response = await fetch(buildPath('api/searchAdmin'),
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json' , 'Authorization': `Bearer ${currentUser.token}`}});
     
-    //             var res = JSON.parse(await response.text());
-    //             console.log(res);
-    //             if(!res)
-    //             {
-    //                 console.log('Please check your submission');
-    //             }
-    //             else
-    //             {   
-    //                 // let temp = currentUser;
+                var res = JSON.parse(await response.text());
+                console.log(res);
+                if(!res)
+                {
+                    console.log('Please check your submission');
+                }
+                else
+                {   
+                    // let temp = currentUser;
     
-    //                 // temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);\
-    //                 console.log(res);
-    //                 //setGroups(res.results);
-    //                 // currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1)
+                    // temp.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1);\
+                    console.log(res);
+                    //setGroups(res.results);
+                    // currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1)
     
-    //                 // //work on this line later// make a for loop
-    //                 // setCurrentUser({...currentUser,groupsIn:currentUser.groupsIn})
-    //                 console.log(currentUser);
-    //             }
-    //         }
-    //         catch(e)
-    //         {
-    //             alert(e.toString());
-    //             return;
-    //         }    
-    //  },[currentUser])
+                    // //work on this line later// make a for loop
+                    // setCurrentUser({...currentUser,groupsIn:currentUser.groupsIn})
+                    console.log(currentUser);
+                }
+            }
+            catch(e)
+            {
+                alert(e.toString());
+                return;
+            }    
+     },[currentUser.groupsIn])
 
 
 
