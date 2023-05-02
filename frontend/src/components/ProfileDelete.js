@@ -69,7 +69,6 @@ const ProfileDelete = () => {
      const [groups, setGroups] = useState([]);
 
      useEffect(async() =>{
-            e.preventDefault();
             const app_name = 'cop-study-buddy-1000'
             function buildPath(route){
                 if (process.env.NODE_ENV === 'production')
