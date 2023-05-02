@@ -392,7 +392,7 @@ p {
   }
 
   .review-btn {
-    background-color: #FF6347;
+    background-color: #fed947;
     color: white;
     border: none;
     padding: 10px;
@@ -409,7 +409,7 @@ p {
   }
 
   .review-btn:hover {
-    background-color: #f00000;
+    background-color: #ffca00;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
   }
 
