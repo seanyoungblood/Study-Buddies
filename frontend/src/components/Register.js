@@ -154,7 +154,7 @@ function Register()
                 <input className="mt-4 variant1-btn" type="submit" id="registerButton"  value = "Register" onClick={doRegister} />
             </form>
             <form onSubmit={doVerify}>
-                <input className="mt-4 input-field"  type="text" placeholder='Code' ref={(c) => code = c} /><br />
+                <input className="mt-4 input-field"  type="text" placeholder='Verification Code' ref={(c) => code = c} /><br />
                 <input className="mt-4 variant1-btn" type="submit" id="verifyButton"  value = "Verify" onClick={doVerify} />
             </form>
             <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
