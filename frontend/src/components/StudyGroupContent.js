@@ -84,7 +84,6 @@ const Content = () => {
     }, [query])
     
     const {currentUser, setCurrentUser} = useContext(AuthContext);
-    const [joined, setJoined] = useState("Join Group");
 
     const [passedName, setPassedName] = useState('');
 
@@ -94,15 +93,6 @@ const Content = () => {
 
 
 
-
-    const handleJoin = (passedName) =>{
-        if(currentUser.groupsIn.includes(passedName)){
-            setJoined("In Group");
-        }
-        else{
-            setJoined("Join Group")
-        }
-    }
 
 
 
@@ -136,8 +126,8 @@ const Content = () => {
             // console.log("Before JSON.parse");
             var res = JSON.parse(await response.text());
             setCurrentUser({...currentUser,groupsIn:res.groupsIn})
+            fetchSearch();
             console.log(res);
-            handleJoin(passedName);
         }
         catch (error) {
             console.log(error);
@@ -282,7 +272,7 @@ const Content = () => {
                                 <span>{star5}</span>
                             </div>
                             <div>
-                                <button class="join-btn" a-key={value.groupName} onClick={(e) => { currentUser.username === '' ? navigate("/login") : fetchData(e.target.getAttribute("a-key"))}}>{joined}</button>
+                                <button class="join-btn" a-key={value.groupName} onClick={(e) => { currentUser.username === '' ? navigate("/login") : fetchData(e.target.getAttribute("a-key"))}}>{currentUser.groupsIn.includes(value.groupName) ? "In Group" : "Join Group"}</button>
                                 {/* value={currentUser.groupsIn.indexOf(value.groupName) > -1 ? "Joined" : "Join Group"} */}
                                 <button class="review-btn" a-key={value.groupName} onClick={(e) =>{  currentUser.username === '' ? navigate("/login") : modalSetUp(e.target.getAttribute("a-key"))}} onClickCapture={handleShow}>Leave Review</button>
 
