@@ -111,7 +111,7 @@ const Content = () => {
     }
 
     const fetchData = async (passedName) => {
-        if(currentUser.groupsIn.includes(passedName)) return;
+        if(currentUser.groupsIn?.includes(passedName)) return;
 
         console.log("fetchData")
         var obj = {groupName: passedName, user: currentUser};
@@ -272,7 +272,7 @@ const Content = () => {
                                 <span>{star5}</span>
                             </div>
                             <div>
-                                <button class="join-btn" a-key={value.groupName} onClick={(e) => { currentUser.username === '' ? navigate("/login") : fetchData(e.target.getAttribute("a-key"))}}>{currentUser.groupsIn.includes(value.groupName) ? "In Group" : "Join Group"}</button>
+                                <button class="join-btn" a-key={value.groupName} onClick={(e) => { currentUser.username === '' ? navigate("/login") : fetchData(e.target.getAttribute("a-key"))}}>{currentUser.groupsIn?.includes(value.groupName) ? "In Group" : "Join Group"}</button>
                                 {/* value={currentUser.groupsIn.indexOf(value.groupName) > -1 ? "Joined" : "Join Group"} */}
                                 <button class="review-btn" a-key={value.groupName} onClick={(e) =>{  currentUser.username === '' ? navigate("/login") : modalSetUp(e.target.getAttribute("a-key"))}} onClickCapture={handleShow}>Leave Review</button>
 
