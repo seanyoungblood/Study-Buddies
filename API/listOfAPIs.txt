@@ -5,6 +5,7 @@ Users:
 [X] Add Classes                         Implemented Web [X]   Implemented Mobile [X]
 [X] Delete User :(                      Implemented Web [X]   Implemented Mobile [X]
 [X] Reset Password                      Implemented Web [ ]   Implemented Mobile [ ]
+[x] Email Verification                      Implemented Web [ X]   Implemented Mobile [ ]
 Groups:
 [X] Create Group                        Implemented Web [X]   Implemented Mobile [X]
 [X] Search Group                        Implemented Web [X]   Implemented Mobile [X]
