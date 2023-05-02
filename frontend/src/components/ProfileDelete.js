@@ -85,7 +85,7 @@ const ProfileDelete = () => {
     
             try
             {    
-                const response = await fetch(buildPath(`api/:${currentUser._id}/searchAdmin`),
+                const response = await fetch(buildPath(`api/searchAdmin`),
                 {method:'GET',body:js,headers:{'Content-Type': 'application/json' , 'Authorization': `Bearer ${currentUser.token}`}});
     
                 var res = JSON.parse(await response.text());
