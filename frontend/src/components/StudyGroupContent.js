@@ -225,7 +225,7 @@ const Content = () => {
         <section className="group-section">
             <div className="search-bar">
                 <input type="text" placeholder="Search..." onChange={(e) => {setQuery(e.target.value);}} />
-                <Link className="create-group-btn" to="/group">Create Group</Link>
+                <Link className="create-group-btn" to={ currentUser.username === '' ? "/login" : "/group"}>Create Group</Link>
             </div>
 
             <div class="tile-container">
