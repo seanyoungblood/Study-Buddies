@@ -88,7 +88,7 @@ function Register()
 
         event.preventDefault();
 
-        var obj = {username:res.username.value, codeInput:code.value};
+        var obj = {username:currentUser.username, codeInput:code.value};
         var js = JSON.stringify(obj);
         console.log(obj);
 
