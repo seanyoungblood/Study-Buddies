@@ -9,6 +9,45 @@ import { AuthContext } from '../useContext/LoginContext';
 function Register()
 {
 
+
+
+    const doLogin = async (loginName, loginPassword) => 
+    {
+        var obj = {username:loginName,password:loginPassword};
+        var js = JSON.stringify(obj);
+        console.log(obj);
+        try
+        {    
+          const [ username , password ] = js;
+          // setCurrentUser({email: "adam",firstName:"New",lastName: "New",token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjUwZTc2OTAyMjAyMmMyODEwOGNiNyIsImlhdCI6MTY4MTk0ODcxMiwiZXhwIjoxNjg0NTQwNzEyfQ.3Ura0EvSlmN53hEprKGQ7RfJe-RRJVRld2FomDFbGT4",username: "New",_id: "64250e769022022c28108cb7"});
+          // console.log(currentUser);
+          console.log(username);
+          console.log(password);
+          console.log(js);
+            const response = await fetch(buildPath('api/login'),
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+            
+
+            var res = JSON.parse(await response.text());
+            console.log(res)
+
+            if(!res._id)
+            {
+                setMessage('User/Password combination incorrect');
+            }
+            else
+            {
+              setCurrentUser(res);          
+              console.log(currentUser);
+            }
+        }
+        catch(e)
+        {
+            alert(e.toString());
+            return;
+        }    
+    };
+
     const {currentUser, setCurrentUser} = useContext(AuthContext);
     let registerFirstName;
     let registerLastName;
@@ -57,6 +96,7 @@ function Register()
                 console.log(res);
                 setCurrentUser(res);
                 console.log(currentUser);
+                doLogin(currentUser.username, currentUser.password);    
                 setMessage('Please check your email for verification code.');
                 setShow(true)
 
