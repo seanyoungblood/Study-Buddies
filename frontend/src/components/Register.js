@@ -19,10 +19,10 @@ function Register()
     let code;
 
     const [message,setMessage] = useState('');
-
+    const [show, setShow] = useState(false);
     const doRegister = async event => 
     {
-
+        setShow(true)
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
             if (process.env.NODE_ENV === 'production')
@@ -141,9 +141,9 @@ function Register()
 
 
     return(
-        <div id="loginDiv" style={{height:650}}>
+        <div id="registerDiv" style={show ?{ 'height':400}: {'height':500}}>
             <a className='hover' onClick={(e) => {handleLogoClick(e)}} > <img className='logo' src={logo} alt="" /></a>
-        
+            { !show ?
             <form onSubmit={doRegister}>
                 <input className="mt-2 input-field" type="text" id="registerFirstName" placeholder="First Name" ref={(c) => registerFirstName = c} /><br />
                 <input className="mt-3 input-field" type="text" id="registerLastName" placeholder="Last Name" ref={(c) => registerLastName = c} /><br />
@@ -153,11 +153,16 @@ function Register()
                 <input className="mt-3 input-field"  type="email" placeholder='Email' ref={(c) => email = c} /><br />
                 <input className="mt-4 variant1-btn" type="submit" id="registerButton"  value = "Register" onClick={doRegister} />
             </form>
+            : null}   
+            {show ?
             <form onSubmit={doVerify}>
-                <input className="mt-4 input-field"  type="text" placeholder='Verification Code' ref={(c) => code = c} /><br />
+                <p className='mt-3'>A verification email has been sent to your email.</p>
+                <input className="mt input-field"  type="text" placeholder='Verification Code' ref={(c) => code = c} /><br />
                 <input className="mt-4 variant1-btn" type="submit" id="verifyButton"  value = "Verify" onClick={doVerify} />
             </form>
+             : null}
             <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
+            {show ? <button className="mt-2 variant2-btn" onClick={(e) => {navigate('/')}}>Skip to Home page</button> : null}
             <span className="mt-2" id="registerResult">{message}</span>
 
        </div>
