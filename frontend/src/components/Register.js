@@ -16,6 +16,7 @@ function Register()
     let registerPassword;
     let phone;
     let email;
+    let code;
 
     const [message,setMessage] = useState('');
 
@@ -58,10 +59,59 @@ function Register()
 
                 setCurrentUser(res);
                 console.log(currentUser);
-                setMessage('Works');
+                setMessage('Please check your email for verification code.');
                 console.log(user);
 
-                navigate("/");
+            }
+        }
+        catch(e)
+        {
+            alert(e.toString());
+            return;
+        }    
+     };
+
+     const doVerify = async event => 
+    {
+
+        const app_name = 'cop-study-buddy-1000'
+        function buildPath(route){
+            if (process.env.NODE_ENV === 'production')
+            {
+                return 'https://' + app_name +  '.herokuapp.com/' + route;
+            }
+            else
+            {
+                return 'http://localhost:5000/' + route;
+            }
+        }
+
+        event.preventDefault();
+
+        var obj = {firstName:registerFirstName.value, lastName:registerLastName.value, username:registerUsername.value, password:registerPassword.value, phone:phone.value,email:email.value};
+        var js = JSON.stringify(obj);
+        console.log(obj);
+
+        try
+        {    
+            const response = await fetch(buildPath('api/register'),
+            {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+
+            var res = JSON.parse(await response.text());
+
+            if(!res._id)
+            {
+                setMessage('Please check your submission');
+            }
+            else
+            {
+                var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
+                localStorage.setItem('user_data', JSON.stringify(user));
+
+                setCurrentUser(res);
+                console.log(currentUser);
+                setMessage('Please check your email for verification code.');
+                console.log(user);
 
             }
         }
@@ -101,7 +151,11 @@ function Register()
                 <input className="mt-3 input-field"  type="email" placeholder='Email' ref={(c) => email = c} /><br />
                 <input className="mt-4 variant1-btn" type="submit" id="registerButton"  value = "Register" onClick={doRegister} />
             </form>
-            <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
+            <form onSubmit={doVerify}>
+                <input className="mt-4 input-field"  type="text" placeholder='Code' ref={(c) => code = c} /><br />
+                <input className="mt-4 variant1-btn" type="submit" id="verifyButton"  value = "Verify" onClick={doVerification} />
+            </form>
+            <button className="mt-2 variant2-btn" onClick={(e) => {handleVerifyClick(e)}}>Have an account? Login</button>
             <span className="mt-2" id="registerResult">{message}</span>
 
        </div>
