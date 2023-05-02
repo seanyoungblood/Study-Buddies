@@ -110,7 +110,7 @@ function Register()
                 setCurrentUser(res);
                 console.log(currentUser);
                 doLogin();    
-                // setMessage('Please check your email for verification code.');
+                setMessage('');
                 setShow(true)
 
             }
@@ -213,7 +213,7 @@ function Register()
             </form>
              : null}
             <button className="mt-2 variant2-btn" onClick={(e) => {handleLoginClick(e)}}>Have an account? Login</button>
-            {!show ? <button className="mt-2 variant2-btn" onClick={setShow(true)}>Verify Email</button> : null}
+            <button className="mt-2 variant2-btn" onClick={setShow(true)}>Verify Email</button>
             {show ? <button className="mt-2 variant2-btn" onClick={(e) => {navigate('/')}}>Skip to Home page</button> : null}
             <span className="mt-2" id="registerResult">{message}</span>
 
