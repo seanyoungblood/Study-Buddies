@@ -14,7 +14,7 @@ Groups:
 [X] Join Group    (Easy)                Implemented Web [X]   Implemented Mobile [X]
 [X] Leave Group   (Easy)                Implemented Web [X]   Implemented Mobile [X]
 [X] Load Group    (Similar to Search)   Implemented Web [X]   Implemented Mobile [X]
-[X] Edit Rating                         Implemented Web [X]   Implemented Mobile [ ]
+[X] Edit Rating                         Implemented Web [X]   Implemented Mobile [X]
 
 X = completed & working
 / = needs testing
