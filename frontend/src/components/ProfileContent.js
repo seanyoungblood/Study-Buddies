@@ -71,11 +71,8 @@ const ProfileContent = () => {
     return ( 
         <div className="row text-center mt-5 profile-classes-wrapper">
             <div className="col-md-6 col-sm-12">
-                <h1 className="textbox profile-header">Classes</h1>
-                {/* {classes?.map((c)=>(
-                <div className='profile-classes' key={c}>
-                    <p>{c}</p>
-                </div>))} */}
+                <h1 className="textbox profile-header">Your Classes</h1>
+                <p> </p>
 
                 <div className='profile-classes'>
                     <p>{classes[0]}</p>
@@ -100,7 +97,8 @@ const ProfileContent = () => {
             </div>
 
             <div className="col-md-6 col-sm-12 margin-top">
-                <h1 className="textbox profile-header">Groups</h1>
+                <h1 className="textbox profile-header">Groups In</h1>
+                <p>Click on group to leave them</p>
                 {groups?.map((c)=>(
                         <div onClick={(e) => {handleDelete(e)}} className='profile-classes profile-hover' key={c}>
                             <p>{c}</p>

@@ -156,7 +156,8 @@ const ProfileDelete = () => {
     return ( 
         <div className="row text-center mt-5 profile-classes-wrapper">
             <div className="col-md-6 col-sm-12 margin-top center">
-                <h1 className="textbox profile-header">DeleteGroups</h1>
+                <h1 className="textbox profile-header">Groups Owned</h1>
+                <p>Click on group to delete them from the website</p>
                 {groups?.map((c)=>(
                         <div onClick={(e) => {handleDelete(e)}} onClickCapture={(e) => handleLoad()} className='profile-classes profile-hover' key={c}>
                             <p>{c}</p>
