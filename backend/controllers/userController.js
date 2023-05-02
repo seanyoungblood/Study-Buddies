@@ -199,6 +199,8 @@ const loginUser =  asyncHandler(async (req, res) => {
             email: user.email,
             major: user.major, //CHANGED BY ADAM
             classesTaking: user.classesTaking, //CHANGED BY ADAM
+            verified: user.verified,
+            code:user.code,
             groupsIn: user.groupsIn,
             token: generateToken(user.id),
         })
