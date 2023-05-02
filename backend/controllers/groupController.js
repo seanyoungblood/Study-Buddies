@@ -38,14 +38,14 @@ const registerGroup = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user.id)
 
     //groups.members.set(0, user.username)
-    groupie.findOneAndUpdate(
+    await groupie.findOneAndUpdate(
         {"groupName" : groups.groupName},
         {$push:{
             members: req.user.username,
         }},
     )
 
-    userie.findOneAndUpdate(
+    await userie.findOneAndUpdate(
         {"username": user.username},
         {$push: {
             groupsIn: groups.groupName
