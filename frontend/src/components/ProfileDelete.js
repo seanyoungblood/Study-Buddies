@@ -123,12 +123,16 @@ const ProfileDelete = () => {
 
     //  handleLoad();
 
-    const didMount = useRef(true);
+    const didMount = useRef(false);
 
     useEffect(() =>{
         console.log("USE EFFECT")
-        if(didMount.current === false) handleLoad();
-        else didMount.current = false;
+        if(didMount.current === false)
+        { 
+            handleLoad();
+            didMount.current = true;
+        }
+        else didMount.current = true;
     }, [])
 
 
