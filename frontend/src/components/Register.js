@@ -9,6 +9,7 @@ import { AuthContext } from '../useContext/LoginContext';
 function Register()
 {
 
+    const {currentUser, setCurrentUser} = useContext(AuthContext);
     const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
             if (process.env.NODE_ENV === 'production')
@@ -61,7 +62,6 @@ function Register()
         }    
     };
 
-    const {currentUser, setCurrentUser} = useContext(AuthContext);
     let registerFirstName;
     let registerLastName;
     let registerUsername;
