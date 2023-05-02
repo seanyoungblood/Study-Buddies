@@ -160,6 +160,7 @@ const registerUser = asyncHandler(async (req, res) => {
             major: user.major,
             groupsIn: user.groupsIn,
             classesTaking: user.classesTaking,
+            verified:false,
             // likes: user.likes, //user.likes,
             // rating: user.rating,
             token: generateToken(user.id),
