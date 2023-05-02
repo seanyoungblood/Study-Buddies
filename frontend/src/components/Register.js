@@ -22,7 +22,7 @@ function Register()
     const [show, setShow] = useState(false);
     const doRegister = async event => 
     {
-        setShow(true)
+        
         const app_name = 'cop-study-buddy-1000'
         function buildPath(route){
             if (process.env.NODE_ENV === 'production')
@@ -54,13 +54,11 @@ function Register()
             }
             else
             {
-                var user = {firstName:res.firstName,lastName:res.lastName,id:res._id}
-                localStorage.setItem('user_data', JSON.stringify(user));
                 console.log(res);
-                setCurrentUser(...res);
+                setCurrentUser(res);
                 console.log(currentUser);
                 setMessage('Please check your email for verification code.');
-                console.log(user);
+                setShow(true)
 
             }
         }
