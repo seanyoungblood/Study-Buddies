@@ -23,9 +23,9 @@ function Register()
 
 
 
-    const doLogin = async (loginName, loginPassword) => 
+    const doLogin = async (loginName) => 
     {
-        var obj = {username:loginName,password:loginPassword};
+        var obj = {username:loginName,password:registerPassword.value};
         var js = JSON.stringify(obj);
         console.log(obj);
         try
@@ -109,7 +109,7 @@ function Register()
                 console.log(res);
                 setCurrentUser(res);
                 console.log(currentUser);
-                doLogin(currentUser.username, currentUser.password);    
+                doLogin(currentUser.username);    
                 setMessage('Please check your email for verification code.');
                 setShow(true)
 
