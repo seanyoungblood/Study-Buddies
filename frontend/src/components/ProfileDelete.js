@@ -105,8 +105,8 @@ const ProfileDelete = () => {
                     // currentUser.groupsIn.splice(currentUser.groupsIn.indexOf(e.target.innerText), 1)
                     let temp = [];
                     for(let i = 0 ; i < res.results.length; i++){
-                        console.log(res.results[i]);
-                        temp.push(res.results[i]);
+                        console.log(res.results[i].groupName);
+                        temp.push(res.results[i].groupName);
                     }
                     setGroups(temp);
                     // //work on this line later// make a for loop
