@@ -264,8 +264,7 @@ const Content = () => {
                                 <span>{star5}</span>
                             </div>
                             <div>
-                                {currentUser.groupsIn.includes(value.groupName) ? <button class="join-btn" a-key={value.groupName} onClick={(e) => { currentUser.username === '' ? navigate("/login") : fetchData(e.target.getAttribute("a-key"))}}>Join Group</button> : <div></div>}
-                                {!currentUser.groupsIn.includes(value.groupName) ? <button class="join-btn" a-key={value.groupName} onClick={(e) => { currentUser.username === '' ? navigate("/login") : fetchData(e.target.getAttribute("a-key"))}}>in groups</button> : <div></div>}
+                                <button class="join-btn" a-key={value.groupName} onClick={(e) => { currentUser.username === '' ? navigate("/login") : fetchData(e.target.getAttribute("a-key"))}}>{currentUser.groupsIn.includes(value.groupName) ? "Join Group" : "Joined"}</button>
                                 {/* value={currentUser.groupsIn.indexOf(value.groupName) > -1 ? "Joined" : "Join Group"} */}
                                 <button class="review-btn" a-key={value.groupName} onClick={(e) =>{  currentUser.username === '' ? navigate("/login") : modalSetUp(e.target.getAttribute("a-key"))}} onClickCapture={handleShow}>Leave Review</button>
 
