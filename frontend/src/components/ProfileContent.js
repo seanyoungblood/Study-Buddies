@@ -72,7 +72,7 @@ const ProfileContent = () => {
         <div className="row text-center mt-5 profile-classes-wrapper">
             <div className="col-md-6 col-sm-12">
                 <h1 className="textbox profile-header">Your Classes</h1>
-                <p> </p>
+                <p>Click Change Classes to update classes</p>
 
                 <div className='profile-classes'>
                     <p>{classes[0]}</p>
